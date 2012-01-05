@@ -14,7 +14,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<jdkLevel>1.6</jdkLevel>
 	</properties>
-	
+
 	<developers>
 		<developer>
 			<name>Héctor Tobón</name>
@@ -23,6 +23,12 @@
 			<organizationUrl>http://ciat.cgiar.org</organizationUrl>
 		</developer>
 	</developers>
+
+	<issueManagement>
+		<system>Google Code</system>
+		<url>http://code.google.com/p/gap-analysis-cwr/issues/list</url>
+	</issueManagement>
+
 
 	<build>
 		<plugins>
@@ -34,6 +40,11 @@
 	</build>
 
 	<dependencies>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.18</version>
+		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>

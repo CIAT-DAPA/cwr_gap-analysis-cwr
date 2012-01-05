@@ -7,7 +7,7 @@ import java.security.*;
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 
-import org.ciat.cppcwr.geogoogle.util.Base64;
+import org.ciat.cppcwr.geogoogle.utils.Base64;
 
 
 public class UrlSignerGenerator {
