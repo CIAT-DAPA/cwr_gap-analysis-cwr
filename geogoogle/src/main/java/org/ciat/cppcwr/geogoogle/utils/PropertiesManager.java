@@ -1,3 +1,20 @@
+/**
+ * Copyright 2012 International Center for Tropical Agriculture (CIAT).
+ * This file is part of GeoGoogle (GAP ANALYSIS CWR):
+ * 
+ * GeoGoogle is free software: You can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * at your option) any later version.
+ * 
+ * GeoGoogle is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
+ */
 package org.ciat.cppcwr.geogoogle.utils;
 
 import java.io.FileInputStream;
@@ -8,8 +25,9 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Properties;
 
-/** 
+/**
  * @author Louis Reymondin
+ * @author Hector Tobon
  */
 public class PropertiesManager {
 
@@ -36,23 +54,26 @@ public class PropertiesManager {
 		try {
 			properties.load(new FileInputStream(propertiesPath));
 		} catch (IOException e) {
-			copyTemplateFile();			
-			System.out.println("The configuration file (settings.properties) has not been configured yet. A template has been copied to the root directory for you to edit it.");
+			copyTemplateFile();
+			System.out
+					.println("The configuration file (settings.properties) has not been configured yet. A template has been copied to the root directory for you to edit it.");
 			e.getLocalizedMessage();
 			System.exit(-1);
 		}
 	}
 
 	/**
-	 * Copy template settings.properties file from resource path to project root directory.
+	 * Copy template settings.properties file from resource path to project root
+	 * directory.
 	 */
 	private static void copyTemplateFile() {
 		try {
-			InputStream in = new FileInputStream("src/main/resources/settings.properties");
+			InputStream in = new FileInputStream(
+					"src/main/resources/settings.properties");
 			OutputStream out = new FileOutputStream("settings.properties");
 			byte[] buf = new byte[1024];
 			int len;
-			while((len = in.read(buf))>0) {
+			while ((len = in.read(buf)) > 0) {
 				out.write(buf, 0, len);
 			}
 			out.flush();
@@ -64,9 +85,9 @@ public class PropertiesManager {
 		} catch (IOException e) {
 			System.out.println(e.getLocalizedMessage());
 			e.printStackTrace();
-		}		
+		}
 	}
-	
+
 	public static void main(String[] args) {
 		copyTemplateFile();
 	}
