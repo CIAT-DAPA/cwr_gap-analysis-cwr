@@ -1,7 +1,11 @@
 package org.ciat.cppcwr.geogoogle.utils;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.Properties;
 
 /** 
@@ -32,11 +36,39 @@ public class PropertiesManager {
 		try {
 			properties.load(new FileInputStream(propertiesPath));
 		} catch (IOException e) {
-			System.out
-					.println("The indicated file has not been found, file needed: \"geogoogle.properties\"");
+			copyTemplateFile();			
+			System.out.println("The configuration file (settings.properties) has not been configured yet. A template has been copied to the root directory for you to edit it.");
 			e.getLocalizedMessage();
 			System.exit(-1);
 		}
+	}
+
+	/**
+	 * Copy template settings.properties file from resource path to project root directory.
+	 */
+	private static void copyTemplateFile() {
+		try {
+			InputStream in = new FileInputStream("src/main/resources/settings.properties");
+			OutputStream out = new FileOutputStream("settings.properties");
+			byte[] buf = new byte[1024];
+			int len;
+			while((len = in.read(buf))>0) {
+				out.write(buf, 0, len);
+			}
+			out.flush();
+			out.close();
+			in.close();
+		} catch (FileNotFoundException e) {
+			System.out.println(e.getLocalizedMessage());
+			System.exit(-1);
+		} catch (IOException e) {
+			System.out.println(e.getLocalizedMessage());
+			e.printStackTrace();
+		}		
+	}
+	
+	public static void main(String[] args) {
+		copyTemplateFile();
 	}
 
 	public boolean existProperty(String name) {
