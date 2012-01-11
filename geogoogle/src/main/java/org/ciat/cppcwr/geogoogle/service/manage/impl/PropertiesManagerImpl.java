@@ -1,6 +1,8 @@
 /**
  * Copyright 2012 International Center for Tropical Agriculture (CIAT).
- * This file is part of GeoGoogle (GAP ANALYSIS CWR):
+ * 
+ * This file is part of: 
+ * "GeoGoogle - Collecting Protecting and Preparing Crop Wild Relatives"
  * 
  * GeoGoogle is free software: You can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -12,10 +14,9 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  * 
- * You should have received a copy of the GNU General Public License
- * along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
+ * See <http://www.gnu.org/licenses/>.
  */
-package org.ciat.cppcwr.geogoogle.utils;
+package org.ciat.cppcwr.geogoogle.service.manage.impl;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -25,34 +26,41 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Properties;
 
+import org.ciat.cppcwr.geogoogle.service.manage.PropertiesManager;
+
+import com.google.inject.Singleton;
+
 /**
  * @author Louis Reymondin
- * @author Hector Tobon
+ * @author Hector Tobon (htobon)
  */
-public class PropertiesManager {
+@Singleton
+public class PropertiesManagerImpl implements PropertiesManager {
+
+	private static final String CONFIG_FILE = "settings.properties";
 
 	private Properties properties;
 
-	private static PropertiesManager instance;
+	// private static PropertiesManagerImpl instance;
 
-	public static PropertiesManager getInstance() {
-		if (instance == null)
-			throw new RuntimeException("Instance has not been initialized");
+	// public static PropertiesManagerImpl getInstance() {
+	// if (instance == null)
+	// throw new RuntimeException("Instance has not been initialized");
+	//
+	// return instance;
+	// }
 
-		return instance;
-	}
+	// public static void register(String propertiesPath) {
+	// if (instance != null)
+	// throw new RuntimeException("Instance has already been initialized");
+	//
+	// instance = new PropertiesManagerImpl(propertiesPath);
+	// }
 
-	public static void register(String propertiesPath) {
-		if (instance != null)
-			throw new RuntimeException("Instance has already been initialized");
-
-		instance = new PropertiesManager(propertiesPath);
-	}
-
-	private PropertiesManager(String propertiesPath) {
+	public PropertiesManagerImpl() {
 		properties = new Properties();
 		try {
-			properties.load(new FileInputStream(propertiesPath));
+			properties.load(new FileInputStream(CONFIG_FILE));
 		} catch (IOException e) {
 			copyTemplateFile();
 			System.out
@@ -68,9 +76,9 @@ public class PropertiesManager {
 	 */
 	private static void copyTemplateFile() {
 		try {
-			InputStream in = new FileInputStream(
-					"src/main/resources/settings.properties");
-			OutputStream out = new FileOutputStream("settings.properties");
+			InputStream in = new FileInputStream("src/main/resources/"
+					+ CONFIG_FILE);
+			OutputStream out = new FileOutputStream(CONFIG_FILE);
 			byte[] buf = new byte[1024];
 			int len;
 			while ((len = in.read(buf)) > 0) {
@@ -86,10 +94,6 @@ public class PropertiesManager {
 			System.out.println(e.getLocalizedMessage());
 			e.printStackTrace();
 		}
-	}
-
-	public static void main(String[] args) {
-		copyTemplateFile();
 	}
 
 	public boolean existProperty(String name) {

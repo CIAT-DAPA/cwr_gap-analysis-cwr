@@ -1,6 +1,8 @@
 /**
  * Copyright 2012 International Center for Tropical Agriculture (CIAT).
- * This file is part of GeoGoogle (GAP ANALYSIS CWR):
+ * 
+ * This file is part of: 
+ * "GeoGoogle - Collecting Protecting and Preparing Crop Wild Relatives"
  * 
  * GeoGoogle is free software: You can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -12,40 +14,25 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  * 
- * You should have received a copy of the GNU General Public License
- * along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
+ * See <http://www.gnu.org/licenses/>.
  */
 package org.ciat.cppcwr.geogoogle.db;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 
-public class DataBaseManager {
-
+/**
+ * 
+ * @author Héctor Tobón (htobon)
+ */
+public interface DataBaseManager {
 	/**
 	 * Initialize database driver
 	 * 
 	 * @return false if the driver was not found
 	 */
-	public static boolean registerDriver() {
-		try {
-			Class.forName("org.gjt.mm.mysql.Driver").newInstance();
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-			return false;
-		} catch (InstantiationException e) {
-
-			e.printStackTrace();
-		} catch (IllegalAccessException e) {
-
-			e.printStackTrace();
-		}
-		return true;
-	}
-
+	public boolean registerDriver();
+	
 	/**
 	 * open the connection to the database
 	 * 
@@ -53,33 +40,16 @@ public class DataBaseManager {
 	 * @param password
 	 * @return A Connection object type
 	 */
-	public static Connection openConnection(String user, String password) {
-		try {
-			Connection conexion = DriverManager.getConnection(
-					"jdbc:mysql://IP:PORT/DATABASE_NAME", user, password);
-			return conexion;
-		} catch (SQLException e) {
-			e.printStackTrace();
-			return null;
-		}
-	}
-
+	public Connection openConnection(String user, String password);
+	
 	/**
-	 * This method close the conection with the database and frees resources.
+	 * This method close the connection with the database and frees resources.
 	 * 
 	 * @param conexion
 	 * @return true if all was ok, and false otherwhise.
 	 */
-	public static boolean closeConnection(Connection conexion) {
-		try {
-			conexion.close();
-		} catch (SQLException e) {
-			e.printStackTrace();
-			return false;
-		}
-		return true;
-	}
-
+	public boolean closeConnection(Connection conexion);
+	
 	/**
 	 * This method make a change in the database. This method has to start with
 	 * the word UPDATE or INSERT. If you want to make a query, u should use the
@@ -90,27 +60,10 @@ public class DataBaseManager {
 	 *            select.
 	 * @param conexion
 	 *            . The object Connection.
-	 * @return The number of rows that changed, or -1 in case an error ocurrs.
+	 * @return The number of rows that changed, or -1 in case an error occurs.
 	 */
-	public static int makeChange(String updateQuery, Connection conexion) {
-		Statement stmMakeChange;
-		try {
-			if (updateQuery.toLowerCase().startsWith("update")
-					|| updateQuery.toLowerCase().startsWith("insert")) {
-				
-				stmMakeChange = conexion.createStatement();
-				int v = stmMakeChange.executeUpdate(updateQuery);
-				stmMakeChange.close();
-				return v;
-			}
-		} catch (Exception e) {
-			System.out.println("QUERY ERROR: " + updateQuery);
-			System.out.println(e.getMessage());
-			return -1;
-		}
-		return -1;
-	}
-
+	public int makeChange(String updateQuery, Connection conexion);
+	
 	/**
 	 * This method execute a query. The query string should start with the word
 	 * SELECT.
@@ -122,18 +75,6 @@ public class DataBaseManager {
 	 * @return ResulSet object that correspond to the query result. Or null if
 	 *         there was an error.
 	 */
-	public static ResultSet makeQuery(String query, Connection conexion) {		
-		try {
-			if (query.toLowerCase().startsWith("select")) {
-				return conexion.createStatement().executeQuery(query);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
+	public ResultSet makeQuery(String query, Connection conexion);
 
-	public static String correctStringToQuery(String cadena) {
-		return cadena.replaceAll("'", "\\\\'");
-	}
 }

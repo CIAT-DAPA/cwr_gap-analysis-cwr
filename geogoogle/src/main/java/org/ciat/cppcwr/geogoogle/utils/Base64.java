@@ -1,6 +1,8 @@
 /**
  * Copyright 2012 International Center for Tropical Agriculture (CIAT).
- * This file is part of GeoGoogle (GAP ANALYSIS CWR):
+ * 
+ * This file is part of: 
+ * "GeoGoogle - Collecting Protecting and Preparing Crop Wild Relatives"
  * 
  * GeoGoogle is free software: You can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -12,8 +14,7 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  * 
- * You should have received a copy of the GNU General Public License
- * along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
+ * See <http://www.gnu.org/licenses/>.
  */
 package org.ciat.cppcwr.geogoogle.utils;
 /**

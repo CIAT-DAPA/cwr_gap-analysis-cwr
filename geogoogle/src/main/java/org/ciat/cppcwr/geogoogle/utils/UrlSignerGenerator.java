@@ -1,6 +1,8 @@
 /**
  * Copyright 2012 International Center for Tropical Agriculture (CIAT).
- * This file is part of GeoGoogle (GAP ANALYSIS CWR):
+ * 
+ * This file is part of: 
+ * "GeoGoogle - Collecting Protecting and Preparing Crop Wild Relatives"
  * 
  * GeoGoogle is free software: You can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -12,10 +14,9 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  * 
- * You should have received a copy of the GNU General Public License
- * along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
+ * See <http://www.gnu.org/licenses/>.
  */
-package org.ciat.cppcwr.geogoogle.webservice;
+package org.ciat.cppcwr.geogoogle.utils;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -27,11 +28,18 @@ import java.security.NoSuchAlgorithmException;
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 
-import org.ciat.cppcwr.geogoogle.utils.Base64;
+import org.ciat.cppcwr.geogoogle.service.manage.impl.PropertiesManagerImpl;
 
+import com.google.inject.Inject;
 
+/**
+ * @author Héctor Tobón (htobon)
+ */
 public class UrlSignerGenerator {
 
+	@Inject
+	private PropertiesManagerImpl pm;
+	
 	// Note: Generally, you should store your private key someplace safe
 	// and read them into your code
 	private static String keyString = "xxxxxxx";
@@ -61,7 +69,10 @@ public class UrlSignerGenerator {
 				+ url.getHost() + request);
 	}
 
-	public UrlSignerGenerator(String keyString) throws IOException {
+	public UrlSignerGenerator(String keyString) throws IOException {		
+		// Initialise google key and client id from configuration file.
+		//keyString = 
+		
 		// Convert the key from 'web safe' base 64 to binary
 		keyString = keyString.replace('-', '+');
 		keyString = keyString.replace('_', '/');
