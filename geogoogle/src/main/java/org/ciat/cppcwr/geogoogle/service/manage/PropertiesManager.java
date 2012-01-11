@@ -26,7 +26,7 @@ public interface PropertiesManager {
 	
 	public boolean existProperty(String name);
 	
-	public String getPropertiesAsString(String name);
+	public String getProperty(String name);
 
 	public int getPropertiesAsInt(String name);
 

@@ -28,7 +28,7 @@ import java.security.NoSuchAlgorithmException;
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 
-import org.ciat.cppcwr.geogoogle.service.manage.impl.PropertiesManagerImpl;
+import org.ciat.cppcwr.geogoogle.service.manage.PropertiesManager;
 
 import com.google.inject.Inject;
 
@@ -38,46 +38,36 @@ import com.google.inject.Inject;
 public class UrlSignerGenerator {
 
 	@Inject
-	private PropertiesManagerImpl pm;
+	private PropertiesManager pm;
 	
-	// Note: Generally, you should store your private key someplace safe
-	// and read them into your code
-	private static String keyString = "xxxxxxx";
-	private static String clientID = "xxxxxx";
-
-	// The URL shown in these examples must be already
-	// URL-encoded. In practice, you will likely have code
-	// which assembles your URL from user or web service input
-	// and plugs those values into its parameters.
-	private static String urlString = "https://maps.googleapis.com/maps/api/geocode/xml?sensor=false&client=gme-centrointernacional&address="
-			+ "Colombia,+Valle+del+Cauca,+Cali,+Universidad+Icesi";
+	private String keyString;
+	private String clientID;
 
 	// This variable stores the binary key, which is computed from the string
 	// (util.Base64) key
-	private static byte[] key;
+	private byte[] key;
 
 	public static void main(String[] args) throws IOException,
 			InvalidKeyException, NoSuchAlgorithmException, URISyntaxException {
 
 		// Convert the string to a URL so we can parse it
-		URL url = new URL(urlString);
+		URL url = new URL("https://maps.googleapis.com/maps/api/geocode/xml?sensor=false&address=Colombia,+Valle+del+Cauca,+Cali,+Universidad+Icesi");
 
-		UrlSignerGenerator signer = new UrlSignerGenerator(keyString);
+		UrlSignerGenerator signer = new UrlSignerGenerator();
 		String request = signer.signRequest(url.getPath(), url.getQuery());
 
 		System.out.println("Signed URL :" + url.getProtocol() + "://"
 				+ url.getHost() + request);
 	}
-
-	public UrlSignerGenerator(String keyString) throws IOException {		
-		// Initialise google key and client id from configuration file.
-		//keyString = 
-		
+	
+	public UrlSignerGenerator() throws IOException {		
 		// Convert the key from 'web safe' base 64 to binary
+		keyString = pm.getProperty("google.key");
 		keyString = keyString.replace('-', '+');
 		keyString = keyString.replace('_', '/');
 		System.out.println("Key: " + keyString);
 		this.key = Base64.decode(keyString);
+		this.clientID = pm.getProperty("google.client");
 	}
 
 	/**
@@ -95,7 +85,7 @@ public class UrlSignerGenerator {
 			UnsupportedEncodingException, URISyntaxException {		
 		
 		// Retrieve the proper URL components to sign
-		String resource = path + '?' + query;
+		String resource = path + '?' + query + "&client="+clientID;
 
 		// Get an HMAC-SHA1 signing key from the raw key bytes
 		SecretKeySpec sha1Key = new SecretKeySpec(key, "HmacSHA1");
@@ -116,5 +106,9 @@ public class UrlSignerGenerator {
 		signature = signature.replace('/', '_');
 
 		return resource + "&signature=" + signature;
+	}
+	
+	public String testPM() {
+		return "Client ID: "+pm.getProperty("google.client");
 	}
 }

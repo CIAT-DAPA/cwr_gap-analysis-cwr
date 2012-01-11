@@ -100,20 +100,20 @@ public class PropertiesManagerImpl implements PropertiesManager {
 		return properties.get(name) != null;
 	}
 
-	public String getPropertiesAsString(String name) {
+	public String getProperty(String name) {
 		return properties.getProperty(name);
 	}
 
 	public int getPropertiesAsInt(String name) {
-		return Integer.parseInt(getPropertiesAsString(name));
+		return Integer.parseInt(getProperty(name));
 	}
 
 	public String[] getPropertiesAsStringArray(String name) {
-		return getPropertiesAsString(name).split(";");
+		return getProperty(name).split(";");
 	}
 
 	public int[] getPropertiesAsIntArray(String name) {
-		String[] str = getPropertiesAsString(name).split(";");
+		String[] str = getProperty(name).split(";");
 		int[] array = new int[str.length];
 		for (int i = 0; i < str.length; i++)
 			array[i] = Integer.parseInt(str[i]);
@@ -122,7 +122,7 @@ public class PropertiesManagerImpl implements PropertiesManager {
 	}
 
 	public float[] getPropertiesAsFloatArray(String name) {
-		String[] str = getPropertiesAsString(name).split(";");
+		String[] str = getProperty(name).split(";");
 		float[] array = new float[str.length];
 		for (int i = 0; i < str.length; i++)
 			array[i] = Float.parseFloat(str[i]);
@@ -131,6 +131,6 @@ public class PropertiesManagerImpl implements PropertiesManager {
 	}
 
 	public float getPropertiesAsFloat(String name) {
-		return Float.parseFloat(getPropertiesAsString(name));
+		return Float.parseFloat(getProperty(name));
 	}
 }

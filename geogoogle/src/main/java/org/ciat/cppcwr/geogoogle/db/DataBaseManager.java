@@ -36,17 +36,16 @@ public interface DataBaseManager {
 	/**
 	 * open the connection to the database
 	 * 
-	 * @param user
-	 * @param password
+	 * 
 	 * @return A Connection object type
 	 */
-	public Connection openConnection(String user, String password);
+	public Connection openConnection();
 	
 	/**
 	 * This method close the connection with the database and frees resources.
 	 * 
 	 * @param conexion
-	 * @return true if all was ok, and false otherwhise.
+	 * @return true if all was ok, and false otherwise.
 	 */
 	public boolean closeConnection(Connection conexion);
 	

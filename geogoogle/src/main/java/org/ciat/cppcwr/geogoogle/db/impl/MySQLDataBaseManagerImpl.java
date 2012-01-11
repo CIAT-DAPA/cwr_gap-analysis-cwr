@@ -25,13 +25,18 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import org.ciat.cppcwr.geogoogle.db.DataBaseManager;
+import org.ciat.cppcwr.geogoogle.service.manage.PropertiesManager;
 
-/** 
+import com.google.inject.Inject;
+
+/**
  * @author Héctor Tobón (htobon)
  */
 public class MySQLDataBaseManagerImpl implements DataBaseManager {
-	
-	
+
+	@Inject
+	private PropertiesManager pm;
+
 	public boolean registerDriver() {
 		try {
 			Class.forName("org.gjt.mm.mysql.Driver").newInstance();
@@ -48,10 +53,14 @@ public class MySQLDataBaseManagerImpl implements DataBaseManager {
 		return true;
 	}
 
-	public Connection openConnection(String user, String password) {
+	public Connection openConnection() {
 		try {
 			Connection conexion = DriverManager.getConnection(
-					"jdbc:mysql://IP:PORT/DATABASE_NAME", user, password);
+					"jdbc:mysql://" + pm.getProperty("mysql.server") + ":"
+							+ pm.getProperty("mysql.port") + "/"
+							+ pm.getProperty("mysql.database"),
+					pm.getProperty("mysql.user"),
+					pm.getProperty("mysql.password"));
 			return conexion;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -74,7 +83,7 @@ public class MySQLDataBaseManagerImpl implements DataBaseManager {
 		try {
 			if (updateQuery.toLowerCase().startsWith("update")
 					|| updateQuery.toLowerCase().startsWith("insert")) {
-				
+
 				stmMakeChange = conexion.createStatement();
 				int v = stmMakeChange.executeUpdate(updateQuery);
 				stmMakeChange.close();
@@ -88,7 +97,7 @@ public class MySQLDataBaseManagerImpl implements DataBaseManager {
 		return -1;
 	}
 
-	public ResultSet makeQuery(String query, Connection conexion) {		
+	public ResultSet makeQuery(String query, Connection conexion) {
 		try {
 			if (query.toLowerCase().startsWith("select")) {
 				return conexion.createStatement().executeQuery(query);
