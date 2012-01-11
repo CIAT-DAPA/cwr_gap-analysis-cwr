@@ -74,7 +74,7 @@ public class UrlSignerGenerator {
 	 * Create a string URL with the corresponding signature code and client id.
 	 * @param path
 	 * @param query
-	 * @return
+	 * @return the specified String URL
 	 * @throws NoSuchAlgorithmException
 	 * @throws InvalidKeyException
 	 * @throws UnsupportedEncodingException
