@@ -1,10 +1,16 @@
-#Select the background file based on where the species occurrences to be continental areas. Continents used are previously prepared ascii files at any resolution (an intermediate one such as 0.1 or 0.2 should be ok) for Asia, Africa, Australia+New Zealand, Europe (incl. Russia), Latin America (incl. Mexico) and North America (incl. Greenland). These files, along with the background files themselves should be in the same folder (backFilesDir).
+#Select the background file based on where the species occurrences to be continental areas. 
+#Continents used are previously prepared ascii files at any resolution (an intermediate 
+#one such as 0.1 or 0.2 should be ok) for Asia, Africa, Australia+New Zealand, 
+#Europe (incl. Russia), Latin America (incl. Mexico) and North America (incl. Greenland). 
+#These files, along with the background files themselves should be in the same folder (backFilesDir).
 
-#The input file (occFile) needs to have lon and lat in the 2nd (lon) and 3rd (lat) columns. The output (outBackName) file will contain the same number of columns and rows, but will have cells from all the continents in which the species has at least one sample. 
+#The input file (occFile) needs to have lon and lat in the 2nd (lon) and 3rd (lat) columns. 
+#The output (outBackName) file will contain the same number of columns and rows, 
+#but will have cells from all the continents in which the species has at least one sample. 
 
 require(rgdal)
 require(raster)
-  
+
 selectBack <- function(occFile, outBackName, msk, backFilesDir) {
   
   zones <- c(1:5)
