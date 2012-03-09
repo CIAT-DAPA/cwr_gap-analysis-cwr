@@ -11,7 +11,7 @@ cat("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX \n")
 cat(" \n")
 cat(" \n")
 
-summarizeMetrics <- function(idir="C:/CIAT_work/COP_CONDESAN") {
+summarizeMetrics <- function(idir="E:/CIAT/maxent_modelling") {
 
 	#idir <- "/mnt/GeoData/Gap-analysis/cwr-gap-analysis/gap-phaeolus/modeling_data"
 	
@@ -29,8 +29,8 @@ summarizeMetrics <- function(idir="C:/CIAT_work/COP_CONDESAN") {
 	sppCC <- 1
 	for (spp in spList) {
 		spp <- unlist(strsplit(spp, ".", fixed=T))[1]
-		fdName <- paste("sp-", spp, sep="")
-		spFolder <- paste(idir, "/mxe_outputs/", fdName, sep="")
+		fdName <- spp #paste("sp-", spp, sep="")
+		spFolder <- paste(idir, "/models/", fdName, sep="")
 		
 		#Performing only for existing folders
 		if (file.exists(spFolder)) {
