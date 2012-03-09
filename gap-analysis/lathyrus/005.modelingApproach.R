@@ -320,26 +320,26 @@ GapProcess <- function(inputDir, OSys="LINUX", ncpu) {
 		out <- theEntireProcess(sp, OSys, inputDir)
 	}
   
-  for (spi in spList) {
-    gap_wrapper(spi)
-  }
+#   for (spi in spList) {
+#     gap_wrapper(spi)
+#   }
   
-#   library(snowfall)
-#   sfInit(parallel=T,cpus=ncpu)
-#   
-#   sfExport("gap_wrapper")
-#   sfExport("theEntireProcess")
-#   sfExport("getMetrics")
-#   sfExport("zipRead")
-#   sfExport("chullBuffer")
-#   sfExport("inputDir")
-#   sfExport("OSys")
-#   
-# 	#run the control function
-#   system.time(sfSapply(as.vector(spList), gap_wrapper))
-#   
-#   #stop the cluster
-#   sfStop()
+  library(snowfall)
+  sfInit(parallel=T,cpus=ncpu)
+  
+  sfExport("gap_wrapper")
+  sfExport("theEntireProcess")
+  sfExport("getMetrics")
+  sfExport("zipRead")
+  sfExport("chullBuffer")
+  sfExport("inputDir")
+  sfExport("OSys")
+  
+	#run the control function
+  system.time(sfSapply(as.vector(spList), gap_wrapper))
+  
+  #stop the cluster
+  sfStop()
   
 	return("Done!")
 }
