@@ -8,7 +8,7 @@ gpclibPermit()
 source(paste(src.dir,"/000.zipWrite.R",sep=""))
 
 chullBuffer <- function(inDir, occFile, outFolder, buffDist) {
-	
+  
 	if (!file.exists(outFolder)) {
 		dir.create(outFolder)
 	}
@@ -37,7 +37,7 @@ chullBuffer <- function(inDir, occFile, outFolder, buffDist) {
 	cat("Transforming to polygons \n")
 	msk <- raster(paste(inDir, "/masks/mask.asc", sep=""))
 	pol <- SpatialPolygons(list(Polygons(list(Polygon(hull.buff)), 1)))
-	pa <- polygonsToRaster(pol, msk)
+	pa <- rasterize(pol, msk)
 
 	cat("Final calculations \n")
 	pa[which(!is.na(pa[]))] <- 1
