@@ -137,18 +137,18 @@ summarizeDR <- function(idir) {
 	
 	ddir <- paste(idir, "/samples_calculations", sep="")
 	
-	odir <- paste(idir, "/modeling_data/summary-files", sep="")
+	odir <- paste(idir, "/maxent_modelling/summary-files", sep="")
 	if (!file.exists(odir)) {
 		dir.create(odir)
 	}
 	
-	spList <- list.files(paste(idir, "/modeling_data/occurrence_files", sep=""))
+	spList <- list.files(paste(idir, "/maxent_modelling/occurrence_files", sep=""))
 	
 	sppC <- 1
 	for (spp in spList) {
 		spp <- unlist(strsplit(spp, ".", fixed=T))[1]
-		fdName <- paste("sp-", spp, sep="")
-		spFolder <- paste(idir, "/modeling_data/mxe_outputs/", fdName, sep="")
+		fdName <- spp #paste("sp-", spp, sep="")
+		spFolder <- paste(idir, "/maxent_modelling/models/", fdName, sep="")
 		spOutFolder <- paste(ddir, "/", spp, sep="")
 		
 		if (file.exists(spFolder)) {
