@@ -52,6 +52,8 @@ source(paste(src.dir,"/005.modelingApproach.R",sep=""))
 GapProcess(inputDir=paste(crop_dir,"/maxent_modelling",sep=""), OSys="NT", ncpu=3)
 
 
-#
+#summarise the metrics
+source(paste(src.dir,"/006.summarizeMetricsThresholds.R",sep=""))
+x <- summarizeMetrics(idir=paste(crop_dir,"/maxent_modelling",sep=""))
 
 

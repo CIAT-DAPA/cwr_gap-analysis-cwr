@@ -39,14 +39,23 @@ summarizeMetrics <- function(idir="E:/CIAT/maxent_modelling") {
 			
 			#Loading metrics files and adding one more field (SPID)
 			metricsFile <- paste(spFolder, "/metrics/metrics.csv", sep="")
-			metrics <- read.csv(metricsFile)
-			metrics <- cbind(SPID=spp, metrics)
+      
+      #these two need to be created manually only once
+      dumMetFile <- paste(idir,"/models/metricsDummy.csv",sep="")
+      dumThreshFile <- paste(idir,"/models/threshDummy.csv",sep="")
+      if (file.exists(metricsFile)) {
+			  metrics <- read.csv(metricsFile)
+        threshFile <- paste(spFolder, "/metrics/thresholds.csv", sep="")
+        thresholds <- read.csv(threshFile)
+      } else {
+        metrics <- read.csv(dumMetFile)
+        thresholds <- read.csv(dummThreshFile)
+      }
 			
-			#Loading thresholds files and adding one more field (SPID)
-			threshFile <- paste(spFolder, "/metrics/thresholds.csv", sep="")
-			thresholds <- read.csv(threshFile)
+			#Adding one more field (SPID)
+      metrics <- cbind(SPID=spp, metrics)
 			thresholds <- cbind(SPID=spp, thresholds)
-			
+		  
 			#Comprising everything onto a matrix
 			if (sppC == 1) {
 				finRes <- metrics
