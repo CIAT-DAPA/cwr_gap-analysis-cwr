@@ -9,7 +9,7 @@ source(paste(src.dir,"/000.zipWrite.R",sep=""))
 
 chullBuffer <- function(inDir, occFile, outFolder, buffDist) {
   
-	if (!file.exists(outFolder)) {
+  if (!file.exists(outFolder)) {
 		dir.create(outFolder)
 	}
 	

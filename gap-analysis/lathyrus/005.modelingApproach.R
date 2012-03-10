@@ -45,6 +45,7 @@ cat(" \n")
 #src.dir <- "D:/_tools/gap-analysis-cwr/trunk/gap-analysis/lathyrus"
 source(paste(src.dir,"/000.getMetrics.R",sep=""))
 source(paste(src.dir,"/000.zipRead.R",sep=""))
+source(paste(src.dir,"/000.zipWrite.R",sep=""))
 source(paste(src.dir,"/000.createChullBuffer.R",sep=""))
 
 ###############################################################################################
@@ -62,7 +63,7 @@ theEntireProcess <- function(spID, OSys, inputDir) {
   if (!file.exists(mxe_out)) {dir.create(mxe_out)}
   spDir <- paste(mxe_out,"/",spID,sep="")
   
-	verFile <- paste(spDir, "/ps-", spID, ".run", sep="")
+  verFile <- paste(spDir, "/ps-", spID, ".run", sep="")
 	
 	OSys <- tolower(OSys)
 	
@@ -170,8 +171,9 @@ theEntireProcess <- function(spID, OSys, inputDir) {
 							
 							outGrid <- paste(outFolder, "/projections/", spID, "_", suffix, "_f", fd, sep="")
 							lambdaFile <- paste(outFolder, "/crossval/", spID, "_", fdID, ".lambdas", sep="")
-							system(paste("java", "-mx512m", "-cp", maxentApp, "density.Project", lambdaFile, projLayers, outGrid, "nowarnings", "fadebyclamping", "-r", "-a", "-z"), wait=TRUE)
-							
+              if (!file.exists(paste(outGrid,".asc",sep=""))) {
+							  system(paste("java", "-mx512m", "-cp", maxentApp, "density.Project", lambdaFile, projLayers, outGrid, "nowarnings", "fadebyclamping", "-r", "-a", "-z"), wait=TRUE)
+              }
 							if (file.exists(paste(outGrid, ".asc", sep=""))) {
 								cat("Projection is OK!", "\n")
 							} else {
@@ -316,6 +318,7 @@ GapProcess <- function(inputDir, OSys="LINUX", ncpu) {
 	
 	gap_wrapper <- function(i) {
     library(raster)
+    library(SDMTools)
     sp <- spList[i]
 		sp <- unlist(strsplit(sp, ".", fixed=T))[1]
 		cat("\n")
@@ -334,6 +337,7 @@ GapProcess <- function(inputDir, OSys="LINUX", ncpu) {
   sfExport("theEntireProcess")
   sfExport("getMetrics")
   sfExport("zipRead")
+  sfExport("zipWrite")
   sfExport("chullBuffer")
   sfExport("inputDir")
   sfExport("OSys")

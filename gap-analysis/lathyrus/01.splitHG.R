@@ -4,7 +4,7 @@ stop("")
 
 library(raster); library(maptools); data(wrld_simpl)
 
-wd <- "E:/CIAT"
+wd <- "D:/CIAT_work/Gap_analysis/ICARDA-collab/lathyrus"
 setwd(wd)
 
 occ <- read.csv("./occurrences/lathyrus.csv")

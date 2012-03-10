@@ -8,7 +8,7 @@ stop("Warning: do not run the whole thing")
 src.dir <- "D:/_tools/gap-analysis-cwr/trunk/gap-analysis/lathyrus"
 
 #crop details
-crop_dir <- "E:/CIAT"; setwd(crop_dir)
+crop_dir <- "D:/CIAT_work/Gap_analysis/ICARDA-collab/lathyrus"; setwd(crop_dir)
 
 #extract climate data
 source(paste(src.dir,"/001.extractClimates.R",sep=""))
@@ -25,16 +25,20 @@ x <- extractClimates(input_dir=occ_dir,sample_file="lathyrus.csv",env_dir=cli_di
 
 #splitting the occurrence files
 source(paste(src.dir,"/003.createOccurrenceFiles.R",sep=""))
-oDir <- "./maxent_modelling/occurrence_files"
-x <- createOccFiles(occ="./swd/occurrences_swd_ok.csv",taxfield="Taxon",outDir=oDir)
+oDir <- paste(crop_dir,"/maxent_modelling/occurrence_files",sep="")
+if (!file.exists(oDir)) {dir.create(oDir)}
+x <- createOccFiles(occ=paste(crop_dir,"/swd/occurrences_swd_ok.csv",sep=""),taxfield="Taxon",outDir=oDir)
 
 
 #making the pseudo-absences
 source(paste(src.dir,"/002.selectBackgroundArea.R",sep=""))
 fList <- list.files("./maxent_modelling/occurrence_files",pattern=".csv")
 
+bkDir <- paste(crop_dir,"/maxent_modelling/background",sep="")
+if (!file.exists(bkDir)) {dir.create(bkDir)}
+
 for (f in fList) {
-  paste("Processing",paste(f),"\n")
+  cat("Processing",paste(f),"\n")
   iFile <- paste("./maxent_modelling/occurrence_files/",f,sep="")
   oFile <- paste("./maxent_modelling/background/",f,sep="")
   x <- selectBack(occFile=iFile, outBackName=oFile, 
