@@ -1,9 +1,9 @@
 require(rgdal)
 require(raster)
 
-source("000.zipRead.R")
-source("000.zipWrite.R")
-source("000.bufferPoints.R")
+source(paste(src.dir,"/000.zipRead.R",sep=""))
+source(paste(src.dir,"/000.zipWrite.R",sep=""))
+source(paste(src.dir,"/000.bufferPoints.R",sep=""))
 
 #Calculate the size of the DR, of the convexhull in km2, of the native area, and of the herbarium samples
 #based on the area of the cells
@@ -13,7 +13,7 @@ source("000.bufferPoints.R")
 
 sizeDR <- function(bdir, spID) {
 	
-	idir <- paste(bdir, "/modeling_data", sep="")
+	idir <- paste(bdir, "/maxent_modelling", sep="")
 	ddir <- paste(bdir, "/samples_calculations", sep="")
 	
 	#Creating the directories
@@ -28,7 +28,7 @@ sizeDR <- function(bdir, spID) {
 	
 	#Read the thresholded raster (PA), multiply it by the area raster and sum up those cells that are != 0
 	cat("Taxon", spID, "\n")
-	spFolder <- paste(idir, "/mxe_outputs/sp-", spID, sep="")
+	spFolder <- paste(idir, "/models/", spID, sep="")
 	projFolder <- paste(spFolder, "/projections", sep="")
 	
 	mskArea <- paste(idir, "/masks/cellArea.asc", sep="")
@@ -38,7 +38,7 @@ sizeDR <- function(bdir, spID) {
 	
 	#Size of the DR
 	cat("Reading raster files \n")
-	grd <- paste(spID, "_WorldClim-2_5min-bioclim_EMN_PA.asc.gz", sep="")
+	grd <- paste(spID, "_worldclim2_5_EMN_PA.asc.gz", sep="")
 	if (file.exists(paste(projFolder, "/", grd, sep=""))) {
 		grd <- zipRead(projFolder, grd)
 		
@@ -60,7 +60,7 @@ sizeDR <- function(bdir, spID) {
 	
 	cat("Transforming to polygons \n")
 	pol <- SpatialPolygons(list(Polygons(list(Polygon(ch)), 1)))
-	grd <- polygonsToRaster(pol, msk)
+	grd <- rasterize(pol, msk)
 	
 	cat("Final fixes \n")
 	grd[which(!is.na(grd[]))] <- 1
@@ -91,14 +91,14 @@ sizeDR <- function(bdir, spID) {
 	}
 	
 	#Load all occurrences
-	allOcc <- read.csv(paste(bdir, "/samples/phaseolus_all.csv", sep=""))
+	allOcc <- read.csv(paste(bdir, "/occurrences/lathyrus.csv", sep=""))
 	allOcc <- allOcc[which(allOcc$Taxon == spID),]
 	
 	#Size of the herbarium samples CA50
 	cat("Size of the h-samples buffer \n")
-	hOcc <- allOcc[which(allOcc$Sampletype == "H"),]
+	hOcc <- allOcc[which(allOcc$H == 1),]
 	if (nrow(hOcc) != 0) {
-		hOcc <- as.data.frame(cbind(as.character(hOcc$Taxon), hOcc$Longitude, hOcc$Latitude))
+		hOcc <- as.data.frame(cbind(as.character(hOcc$Taxon), hOcc$lon, hOcc$lat))
 		names(hOcc) <- c("taxon", "lon", "lat")
 		
 		write.csv(hOcc, paste(spOutFolder, "/hsamples.csv", sep=""), quote=F, row.names=F)

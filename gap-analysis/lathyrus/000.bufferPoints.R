@@ -5,7 +5,7 @@ require(raster)
 
 gpclibPermit()
 
-source("000.zipWrite.R")
+source(paste(src.dir,"/000.zipWrite.R",sep=""))
 
 #idir <- "F:/gap_analysis_publications/gap_phaseolus/modeling_data"
 #outName <- "gsamples-buffer.asc"
@@ -46,7 +46,7 @@ createBuffers <- function(spFile, outFolder, outName, buffDist, msk) {
 	
 	cat("Creating the raster \n")
 	msk <- raster(msk)
-	pa <- polygonsToRaster(SpatialPolygons(polgrp), msk)
+	pa <- rasterize(SpatialPolygons(polgrp), msk)
 
 	pa[which(!is.na(pa[]))] <- 1
 	pa[which(is.na(pa[]) & msk[] == 1)] <- 0
