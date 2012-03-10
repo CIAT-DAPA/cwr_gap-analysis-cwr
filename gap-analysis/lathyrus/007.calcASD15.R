@@ -59,7 +59,7 @@ summarizeASD15 <- function(idir) {
 	sppC <- 1
 	for (spp in spList) {
 		spp <- unlist(strsplit(spp, ".", fixed=T))[1]
-		fdName <- paste("sp-", spp, sep="")
+		fdName <- spp #paste("sp-", spp, sep="")
 		spFolder <- paste(idir, "/models/", fdName, sep="")
 		
 		if (file.exists(spFolder)) {
