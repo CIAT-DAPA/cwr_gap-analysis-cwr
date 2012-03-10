@@ -10,13 +10,13 @@ source("000.zipRead.R")
 
 calcASD15 <- function(idir, spID) {
 	cat("Taxon", spID, "\n")
-	spFolder <- paste(idir, "/mxe_outputs/sp-", spID, sep="")
+	spFolder <- paste(idir, "/models/", spID, sep="")
 	projFolder <- paste(spFolder, "/projections", sep="")
 	
-	esdCpt <- paste(spID, "_WorldClim-2_5min-bioclim_ESD.asc.gz", sep="")
-	esdThr <- paste(spID, "_WorldClim-2_5min-bioclim_ESD_PR.asc.gz", sep="")
+	esdCpt <- paste(spID, "_worldclim2_5_ESD.asc.gz", sep="")
+	esdThr <- paste(spID, "_worldclim2_5_ESD_PR.asc.gz", sep="")
 	
-	dumm <- paste(spID, "_WorldClim-2_5min-bioclim_EMN.asc.gz", sep="")
+	dumm <- paste(spID, "_worldclim2_5_EMN.asc.gz", sep="")
 	
 	cat("..Reading raster files \n")
 	dumm <- zipRead(projFolder, dumm)
@@ -60,7 +60,7 @@ summarizeASD15 <- function(idir) {
 	for (spp in spList) {
 		spp <- unlist(strsplit(spp, ".", fixed=T))[1]
 		fdName <- paste("sp-", spp, sep="")
-		spFolder <- paste(idir, "/mxe_outputs/", fdName, sep="")
+		spFolder <- paste(idir, "/models/", fdName, sep="")
 		
 		if (file.exists(spFolder)) {
 			

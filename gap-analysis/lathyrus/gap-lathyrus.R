@@ -57,3 +57,8 @@ source(paste(src.dir,"/006.summarizeMetricsThresholds.R",sep=""))
 x <- summarizeMetrics(idir=paste(crop_dir,"/maxent_modelling",sep=""))
 
 
+#calculate area with SD<0.15 (aSD15)
+source(paste(src.dir,"/007.calcASD15.R",sep=""))
+x <- summarizeASD15(idir=paste(crop_dir,"/maxent_modelling",sep=""))
+
+
