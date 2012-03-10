@@ -18,7 +18,7 @@ calcASD15 <- function(idir, spID) {
 	
 	dumm <- paste(spID, "_worldclim2_5_EMN.asc.gz", sep="")
 	
-  if (file.exists(dumm)) {
+  if (file.exists(paste(projFolder,"/",dumm,sep="")) {
   	cat("..Reading raster files \n")
   	dumm <- zipRead(projFolder, dumm)
   	esdCpt <- zipRead(projFolder, esdCpt)
