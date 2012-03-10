@@ -18,29 +18,34 @@ calcASD15 <- function(idir, spID) {
 	
 	dumm <- paste(spID, "_worldclim2_5_EMN.asc.gz", sep="")
 	
-	cat("..Reading raster files \n")
-	dumm <- zipRead(projFolder, dumm)
-	esdCpt <- zipRead(projFolder, esdCpt)
-	esdThr <- zipRead(projFolder, esdThr)
-	
-	esdCpt[which(dumm[] < 0.001)] <- NA
-	
-	rm(dumm)
-	
-	esdThr[which(esdThr[] == 0)] <- NA
-	
-	cat("..Calculating \n")
-	szCpt <- length(which(esdCpt[] >= 0))
-	szCptUncertain <- length(which(esdCpt[] >= 0.15))
-	rateCpt <- szCptUncertain / szCpt * 100
-	
-	szThr <- length(which(esdThr[] >= 0))
-	szThrUncertain <- length(which(esdThr[] >= 0.15))
-	rateThr <- szThrUncertain / szThr * 100
-	
-	cat("..Writing results \n")
-	dfOut <- data.frame(taxon=spID, sizeComplete=szCpt, sizeCompleteUncertain=szCptUncertain, rateComplete=rateCpt, sizeThresholded=szThr, sizeThresholdedUncertain=szThrUncertain, rateThresholded=rateThr)
-	
+  if (file.exists(dumm)) {
+  	cat("..Reading raster files \n")
+  	dumm <- zipRead(projFolder, dumm)
+  	esdCpt <- zipRead(projFolder, esdCpt)
+  	esdThr <- zipRead(projFolder, esdThr)
+  	
+  	esdCpt[which(dumm[] < 0.001)] <- NA
+  	
+  	rm(dumm)
+  	
+  	esdThr[which(esdThr[] == 0)] <- NA
+  	
+  	cat("..Calculating \n")
+  	szCpt <- length(which(esdCpt[] >= 0))
+  	szCptUncertain <- length(which(esdCpt[] >= 0.15))
+  	rateCpt <- szCptUncertain / szCpt * 100
+  	
+  	szThr <- length(which(esdThr[] >= 0))
+  	szThrUncertain <- length(which(esdThr[] >= 0.15))
+  	rateThr <- szThrUncertain / szThr * 100
+  	
+  	cat("..Writing results \n")
+  	dfOut <- data.frame(taxon=spID, sizeComplete=szCpt, sizeCompleteUncertain=szCptUncertain, rateComplete=rateCpt, sizeThresholded=szThr, sizeThresholdedUncertain=szThrUncertain, rateThresholded=rateThr)
+  } else {
+    cat("..Writing results \n")
+    dfOut <- data.frame(taxon=spID, sizeComplete=NA, sizeCompleteUncertain=NA, rateComplete=NA, sizeThresholded=NA, sizeThresholdedUncertain=NA, rateThresholded=NA)
+  }
+  	
 	oFile <- paste(spFolder, "/metrics/ASD15.csv", sep="")
 	write.csv(dfOut, oFile, quote=F, row.names=F)
 	
