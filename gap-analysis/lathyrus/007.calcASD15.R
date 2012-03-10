@@ -1,7 +1,7 @@
 require(rgdal)
 require(raster)
 
-source(paste(src.dir,"000.zipRead.R",sep=""))
+source(paste(src.dir,"/000.zipRead.R",sep=""))
 
 # Script to calculate proportion of the dist. range with SD above 0.15 (ASD15)
 
