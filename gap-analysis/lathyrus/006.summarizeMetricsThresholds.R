@@ -49,7 +49,7 @@ summarizeMetrics <- function(idir="E:/CIAT/maxent_modelling") {
         thresholds <- read.csv(threshFile)
       } else {
         metrics <- read.csv(dumMetFile)
-        thresholds <- read.csv(dummThreshFile)
+        thresholds <- read.csv(dumThreshFile)
       }
 			
 			#Adding one more field (SPID)
