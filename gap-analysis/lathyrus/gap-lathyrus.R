@@ -62,3 +62,7 @@ source(paste(src.dir,"/007.calcASD15.R",sep=""))
 x <- summarizeASD15(idir=paste(crop_dir,"/maxent_modelling",sep=""))
 
 
+#calculate size of distributional range
+source(paste(src.dir,"/008.sizeDR.R",sep=""))
+x <- summarizeDR(crop_dir)
+

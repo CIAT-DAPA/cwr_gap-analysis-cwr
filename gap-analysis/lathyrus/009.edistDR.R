@@ -1,9 +1,9 @@
 require(rgdal)
 require(raster)
 
-source("000.zipRead.R")
-source("000.zipWrite.R")
-source("000.bufferPoints.R")
+source(paste(src.dir,"/000.zipRead.R",sep=""))
+source(paste(src.dir,"/000.zipWrite.R",sep=""))
+source(paste(src.dir,"/000.bufferPoints.R",sep=""))
 
 #Calculate the size of the DR, of the convexhull in km2, of the native area, and of the herbarium samples
 #based on the area of the cells
@@ -13,9 +13,9 @@ source("000.bufferPoints.R")
 
 edistDR <- function(bdir, spID) {
 	
-	idir <- paste(bdir, "/modeling_data", sep="")
+	idir <- paste(bdir, "/maxent_modelling", sep="")
 	ddir <- paste(bdir, "/samples_calculations", sep="")
-	pcdir <- paste(bdir, "/pca_data", sep="")
+	pcdir <- paste(bdir, "/maxent_modelling/climate_data/pca_results", sep="")
 	
 	#Creating the directories
 	if (!file.exists(ddir)) {
@@ -29,16 +29,16 @@ edistDR <- function(bdir, spID) {
 	
 	#Read the thresholded raster (PA), multiply it by the area raster and sum up those cells that are != 0
 	cat("Taxon", spID, "\n")
-	spFolder <- paste(idir, "/mxe_outputs/sp-", spID, sep="")
+	spFolder <- paste(idir, "/models/", spID, sep="")
 	projFolder <- paste(spFolder, "/projections", sep="")
 	
 	cat("Loading principal components \n")
-	pc1 <- zipRead(pcdir, "bio_pcac1_r.asc.gz")
-	pc2 <- zipRead(pcdir, "bio_pcac2_r.asc.gz")
+	pc1 <- raster(paste(pcdir,"/pc_1_r.asc",sep="")) #zipRead(pcdir, "bio_pcac1_r.asc.gz")
+	pc2 <- raster(paste(pcdir,"/pc_2_r.asc",sep="")) #zipRead(pcdir, "bio_pcac2_r.asc.gz")
 	
 	#Edist of the DR
 	cat("Reading presence/absence surface \n")
-	grd <- paste(spID, "_WorldClim-2_5min-bioclim_EMN_PA.asc.gz", sep="")
+	grd <- paste(spID, "_worldclim2_5_EMN_PA.asc.gz", sep="")
 	if (file.exists(paste(projFolder, "/", grd, sep=""))) {
 		grd <- zipRead(projFolder, grd)
 		
@@ -159,18 +159,18 @@ summarizeDR <- function(idir) {
 	
 	ddir <- paste(idir, "/samples_calculations", sep="")
 	
-	odir <- paste(idir, "/modeling_data/summary-files", sep="")
+	odir <- paste(idir, "/maxent_modelling/summary-files", sep="")
 	if (!file.exists(odir)) {
 		dir.create(odir)
 	}
 	
-	spList <- list.files(paste(idir, "/modeling_data/occurrence_files", sep=""))
+	spList <- list.files(paste(idir, "/maxent_modelling/occurrence_files", sep=""))
 	
 	sppC <- 1
 	for (spp in spList) {
 		spp <- unlist(strsplit(spp, ".", fixed=T))[1]
-		fdName <- paste("sp-", spp, sep="")
-		spFolder <- paste(idir, "/modeling_data/mxe_outputs/", fdName, sep="")
+		fdName <- spp #paste("sp-", spp, sep="")
+		spFolder <- paste(idir, "/maxent_modelling/models/", fdName, sep="")
 		spOutFolder <- paste(ddir, "/", spp, sep="")
 		
 		if (file.exists(spFolder)) {
