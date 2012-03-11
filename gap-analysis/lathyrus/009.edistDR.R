@@ -15,7 +15,7 @@ edistDR <- function(bdir, spID) {
 	
 	idir <- paste(bdir, "/maxent_modelling", sep="")
 	ddir <- paste(bdir, "/samples_calculations", sep="")
-	pcdir <- paste(bdir, "/maxent_modelling/climate_data/pca_results", sep="")
+	pcdir <- paste(bdir, "/maxent_modelling/climate_data/pca_result_reclass", sep="")
 	
 	#Creating the directories
 	if (!file.exists(ddir)) {
@@ -33,8 +33,8 @@ edistDR <- function(bdir, spID) {
 	projFolder <- paste(spFolder, "/projections", sep="")
 	
 	cat("Loading principal components \n")
-	pc1 <- raster(paste(pcdir,"/pc_1_r.asc",sep="")) #zipRead(pcdir, "bio_pcac1_r.asc.gz")
-	pc2 <- raster(paste(pcdir,"/pc_2_r.asc",sep="")) #zipRead(pcdir, "bio_pcac2_r.asc.gz")
+	pc1 <- raster(paste(pcdir,"/pc_r_1.asc",sep="")) #zipRead(pcdir, "bio_pcac1_r.asc.gz")
+	pc2 <- raster(paste(pcdir,"/pc_r_2.asc",sep="")) #zipRead(pcdir, "bio_pcac2_r.asc.gz")
 	
 	#Edist of the DR
 	cat("Reading presence/absence surface \n")
