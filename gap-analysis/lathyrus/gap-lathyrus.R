@@ -125,7 +125,7 @@ table_base <- data.frame(Taxon=table_base$TAXON)
 table_base$HS <- NA; table_base$HS_RP <- NA
 table_base$GS <- NA; table_base$GS_RP <- NA
 table_base$TOTAL <- NA; table_base$TOTAL_RP <- NA
-table_base$ATAUC <- NA; table_base$STAUC <- NA; table_base$ASD15 <- NA
+table_base$ATAUC <- NA; table_base$STAUC <- NA; table_base$ASD15 <- NA; table_base$IS_VALID <- NA
 table_base$SRS <- NA; table_base$GRS <- NA; table_base$ERS <- NA
 table_base$ERTS <- NA; table_base$FPS <- NA; table_base$FPCAT <- NA
 
@@ -170,6 +170,7 @@ for (spp in table_base$Taxon) {
   table_base$ATAUC[which(table_base$Taxon==paste(spp))] <- atauc
   table_base$STAUC[which(table_base$Taxon==paste(spp))] <- stauc
   table_base$ASD15[which(table_base$Taxon==paste(spp))] <- asd15
+  table_base$IS_VALID[which(table_base$Taxon==paste(spp))] <- isval
   
   #grs
   g_ca50 <- rsize$GBSize[which(rsize$taxon==paste(spp))]
@@ -218,7 +219,6 @@ for (spp in table_base$Taxon) {
   }
   table_base$FPS[which(table_base$Taxon==paste(spp))] <- fps
   
-  
   if (fps>=0 & fps<=3) {
     fpcat <- "HPS"
   } else if (fps>3 & fps<=5) {
@@ -244,4 +244,9 @@ write.csv(table_hps,paste(crop_dir,"/priorities/hps.csv",sep=""),row.names=F,quo
 #calculate distance to populations
 source(paste(src.dir,"/011.distanceToPopulations.R",sep=""))
 summarizeDistances(crop_dir)
+
+#calculate final gap richness
+source(paste(src.dir,"/012.gapRichness.R",sep=""))
+x <- gapRichness(crop_dir)
+
 

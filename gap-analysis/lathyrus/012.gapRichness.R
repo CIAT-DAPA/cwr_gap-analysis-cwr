@@ -1,16 +1,16 @@
 require(rgdal)
 require(raster)
 
-source("000.zipRead.R")
-source("000.zipWrite.R")
-source("000.bufferPoints.R")
+source(paste(src.dir,"/000.zipRead.R",sep=""))
+source(paste(src.dir,"/000.zipWrite.R",sep=""))
+source(paste(src.dir,"/000.bufferPoints.R",sep=""))
 
 #bdir <- "F:/gap_analysis_publications/gap_phaseolus"
 
 #For HPTs with invalid models use the Hsamples buffer, if hsamples do not exist 
 
 gapRichness <- function(bdir) {
-	idir <- paste(bdir, "/modeling_data", sep="")
+	idir <- paste(bdir, "/maxent_modelling", sep="")
 	ddir <- paste(bdir, "/samples_calculations", sep="")
 	
 	outFolder <- paste(bdir, "/gap_richness", sep="")
@@ -18,13 +18,13 @@ gapRichness <- function(bdir) {
 		dir.create(outFolder)
 	}
 	
-	spList <- read.csv(paste(idir, "/HPTaxa.csv", sep=""))
-	spList <- spList[which(spList$Class == "HPS"),]
+	spList <- read.csv(paste(bdir, "/priorities/hps.csv", sep=""))
+	#spList <- spList[which(spList$Class == "HPS"),]
 	
 	cat("\n")
 	cat("Processing", nrow(spList), "HP Taxa \n")
 	
-	allOcc <- read.csv(paste(bdir, "/samples/phaseolus_all.csv", sep=""))
+	allOcc <- read.csv(paste(bdir, "/occurrences/lathyrus.csv", sep=""))
 	
 	sppC <- 1
 	rcount <- 1
@@ -33,15 +33,15 @@ gapRichness <- function(bdir) {
 		
 		cat("Processing taxon", paste(spp), "\n")
 		
-		isValid <- spList$ValidModel[which(spList$Taxon == paste(spp))]
+		isValid <- spList$IS_VALID[which(spList$Taxon == paste(spp))]
 		
-		sppFolder <- paste(idir, "/mxe_outputs/sp-", spp, sep="")
+		sppFolder <- paste(idir, "/models/", spp, sep="")
 		projFolder <- paste(sppFolder, "/projections", sep="")
 		
 		#Size of the herbarium samples CA50
 		cat("Calculating h-samples buffer \n")
 		tallOcc <- allOcc[which(allOcc$Taxon == paste(spp)),]
-		hOcc <- tallOcc[which(tallOcc$Sampletype == "H"),]
+		hOcc <- tallOcc[which(tallOcc$H == 1),]
 		if (nrow(hOcc) != 0) {
 			spOutFolder <- paste(ddir, "/", spp, sep="")
 			
@@ -64,7 +64,7 @@ gapRichness <- function(bdir) {
 		
 		#Size of the genebank accessions CA50
 		cat("Calculating g-samples buffer \n")
-		gOcc <- tallOcc[which(tallOcc$Sampletype == "G"),]
+		gOcc <- tallOcc[which(tallOcc$G == 1),]
 		if (nrow(gOcc) != 0) {
 			spOutFolder <- paste(ddir, "/", spp, sep="")
 			
@@ -89,14 +89,14 @@ gapRichness <- function(bdir) {
 		
 		if (isValid == 1) {
 			cat("Presence/absence surf. exists, using it \n")
-			pagrid <- paste(spp, "_WorldClim-2_5min-bioclim_EMN_PA.asc.gz", sep="")
+			pagrid <- paste(spp, "_worldclim2_5_EMN_PA.asc.gz", sep="")
 			pagrid <- zipRead(projFolder, pagrid)
 			
 			if (file. exists(gbuffFile)) {
 				pagrid[which(grd.ga[] == 1)] <- 0
 			}
 			
-			assign(paste("sdgrid",sppC,sep=""), paste(spp, "_WorldClim-2_5min-bioclim_ESD_PR.asc.gz", sep=""))
+			assign(paste("sdgrid",sppC,sep=""), paste(spp, "_worldclim2_5_ESD_PR.asc.gz", sep=""))
 			assign(paste("sdgrid",sppC,sep=""), zipRead(projFolder, get(paste("sdgrid",sppC,sep=""))))
 			
 			assign(paste("dpgrid",sppC,sep=""), zipRead(spOutFolder, "pop-dist.asc.gz"))
