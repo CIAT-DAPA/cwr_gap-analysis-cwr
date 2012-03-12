@@ -1,7 +1,7 @@
 require(rgdal)
 require(raster)
 
-source("000.zipWrite.R")
+source(paste(src.dir,"/000.zipWrite.R",sep=""))
 
 setOptions(overwrite=T)
 
@@ -9,7 +9,7 @@ setOptions(overwrite=T)
 #spID <- "Phaseolus_acutifolius"
 
 populationDistance <- function(bdir, spID) {
-	idir <- paste(bdir, "/modeling_data", sep="")
+	idir <- paste(bdir, "/maxent_modelling", sep="")
 	odir <- paste(bdir, "/samples_calculations", sep="")
 	spOutFolder <- paste(odir, "/", spID, sep="")
 	
@@ -30,7 +30,7 @@ populationDistance <- function(bdir, spID) {
 }
 
 summarizeDistances <- function(bdir) {
-	spList <- list.files(paste(bdir, "/modeling_data/occurrence_files", sep=""))
+	spList <- list.files(paste(bdir, "/maxent_modelling/occurrence_files", sep=""))
 	sppC <- 1
 	
 	for (spp in spList) {

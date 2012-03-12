@@ -127,18 +127,121 @@ table_base$GS <- NA; table_base$GS_RP <- NA
 table_base$TOTAL <- NA; table_base$TOTAL_RP <- NA
 table_base$ATAUC <- NA; table_base$STAUC <- NA; table_base$ASD15 <- NA
 table_base$SRS <- NA; table_base$GRS <- NA; table_base$ERS <- NA
-table_base$ERTS <- NA; table_base$FPS <- NA
+table_base$ERTS <- NA; table_base$FPS <- NA; table_base$FPCAT <- NA
 
 #reading specific tables
 samples <- read.csv(paste(crop_dir,"/sample_counts/sample_count_table.csv",sep=""))
-model_met <- read.csv(paste(crop_dir,"/maxent_modelling/summary-files/accuracy.csv",sep=""))
-asd <- read.csv(paste(crop_dir,"/maxent_modelling/summary-files/ASD15.csv",sep=""))
+model_met <- read.csv(paste(crop_dir,"/maxent_modelling/summary-files/taxaForRichness.csv",sep=""))
+rsize <- read.csv(paste(crop_dir,"/maxent_modelling/summary-files/areas.csv",sep=""))
+edist <- read.csv(paste(crop_dir,"/maxent_modelling/summary-files/edist.csv",sep=""))
 
+#read principal components weights and scale them to match 1
+#!!!!!!
+w_pc1 <- 0.7
+w_pc2 <- 0.3
 
 for (spp in table_base$Taxon) {
   cat("Processing species",paste(spp),"\n")
   
+  #sampling and SRS
+  hs <- samples$HNUM[which(samples$TAXON==paste(spp))]
+  hs_rp <- samples$HNUM_RP[which(samples$TAXON==paste(spp))]
+  gs <- samples$GNUM[which(samples$TAXON==paste(spp))]
+  gs_rp <- samples$GNUM_RP[which(samples$TAXON==paste(spp))]
+  total <- samples$TOTAL[which(samples$TAXON==paste(spp))]
+  total_rp <- samples$TOTAL_RP[which(samples$TAXON==paste(spp))]
+  srs <- gs/total*10
+  
+  table_base$HS[which(table_base$Taxon==paste(spp))] <- hs
+  table_base$HS_RP[which(table_base$Taxon==paste(spp))] <- hs_rp
+  table_base$GS[which(table_base$Taxon==paste(spp))] <- gs
+  table_base$GS_RP[which(table_base$Taxon==paste(spp))] <- gs_rp
+  table_base$TOTAL[which(table_base$Taxon==paste(spp))] <- total
+  table_base$TOTAL_RP[which(table_base$Taxon==paste(spp))] <- total_rp
+  table_base$SRS[which(table_base$Taxon==paste(spp))] <- srs
   
   
+  #modelling metrics
+  atauc <- model_met$ATAUC[which(model_met$Taxon==paste(spp))]
+  stauc <- model_met$STAUC[which(model_met$Taxon==paste(spp))]
+  asd15 <- model_met$ASD15[which(model_met$Taxon==paste(spp))]
+  isval <- model_met$ValidModel[which(model_met$Taxon==paste(spp))]
+  
+  table_base$ATAUC[which(table_base$Taxon==paste(spp))] <- atauc
+  table_base$STAUC[which(table_base$Taxon==paste(spp))] <- stauc
+  table_base$ASD15[which(table_base$Taxon==paste(spp))] <- asd15
+  
+  #grs
+  g_ca50 <- rsize$GBSize[which(rsize$taxon==paste(spp))]
+  
+  if (isval==1) {
+    drsize <- rsize$DRSize[which(rsize$taxon==paste(spp))]
+  } else {
+    drsize <- rsize$CHSize[which(rsize$taxon==paste(spp))]
+  }
+  
+  grs <- g_ca50/drsize*10
+  if (!is.na(grs)) {
+    if (grs>10) {grs <- 10}
+  }
+  table_base$GRS[which(table_base$Taxon==paste(spp))] <- grs
+  
+  #ers
+  ecg_ca50_pc1 <- edist$GBDist.PC1[which(edist$taxon==paste(spp))]
+  ecg_ca50_pc2 <- edist$GBDist.PC2[which(edist$taxon==paste(spp))]
+  
+  dr_pc1 <- edist$DRDist.PC1[which(edist$taxon==paste(spp))]
+  dr_pc2 <- edist$DRDist.PC2[which(edist$taxon==paste(spp))]
+  
+  ers_pc1 <- ecg_ca50_pc1/dr_pc1*10
+  if (!is.na(ers_pc1)) {
+    if (ers_pc1 > 10) {ers_pc1 <- 10}
+  }
+  ers_pc2 <- ecg_ca50_pc2/dr_pc2*10
+  if (!is.na(ers_pc2)) {
+    if (ers_pc2 > 10) {ers_pc2 <- 10}
+  }
+  
+  ers <- ers_pc1*w_pc1 + ers_pc2*w_pc2
+  if (!is.na(ers))
+  if (ers > 10) {ers <- 10}
+  
+  table_base$ERS[which(table_base$Taxon==paste(spp))] <- ers
+  
+  #Final priority score
+  if (gs==0) {
+    fps <- 0
+  } else if (hs==0 & gs<10) {
+    fps <- 0
+  } else {
+    fps <- mean(c(srs,grs,ers),na.rm=T)
+  }
+  table_base$FPS[which(table_base$Taxon==paste(spp))] <- fps
+  
+  
+  if (fps>=0 & fps<=3) {
+    fpcat <- "HPS"
+  } else if (fps>3 & fps<=5) {
+    fpcat <- "MPS"
+  } else if (fps>5 & fps<=7.5) {
+    fpcat <- "LPS"
+  } else {
+    fpcat <- "NFCR"
+  }
+  table_base$FPCAT[which(table_base$Taxon==paste(spp))] <- fpcat
 }
+
+if (!file.exists(paste(crop_dir,"/priorities",sep=""))) {
+  dir.create(paste(crop_dir,"/priorities",sep=""))
+}
+write.csv(table_base,paste(crop_dir,"/priorities/priorities.csv",sep=""),row.names=F,quote=F)
+
+#sub-select hps
+table_hps <- table_base[which(table_base$FPCAT=="HPS"),]
+write.csv(table_hps,paste(crop_dir,"/priorities/hps.csv",sep=""),row.names=F,quote=F)
+
+
+#calculate distance to populations
+source(paste(src.dir,"/011.distanceToPopulations.R",sep=""))
+summarizeDistances(crop_dir)
 
