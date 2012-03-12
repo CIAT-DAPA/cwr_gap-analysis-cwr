@@ -49,7 +49,7 @@ speciesRichness <- function(bdir) {
 				if (!file.exists(spOutFolder)) {
 					dir.create(spOutFolder)
 				}
-				tallOcc <- as.data.frame(cbind(as.character(tallOcc$Taxon), tallOcc$Longitude, tallOcc$Latitude))
+				tallOcc <- as.data.frame(cbind(as.character(tallOcc$Taxon), tallOcc$lon, tallOcc$lat))
 				names(tallOcc) <- c("taxon", "lon", "lat")
 				
 				write.csv(tallOcc, paste(spOutFolder, "/samples.csv", sep=""), quote=F, row.names=F)
