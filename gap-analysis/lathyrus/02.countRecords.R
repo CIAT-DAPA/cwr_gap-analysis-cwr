@@ -2,7 +2,7 @@
 #March 2012
 stop("")
 
-wd <- "E:/CIAT"
+wd <- "D:/CIAT_work/Gap_analysis/ICARDA-collab/lathyrus"
 setwd(wd)
 
 #read occurrences
@@ -69,9 +69,6 @@ text(sampAll$TOTAL[which(sampAll$TAXON=="Lathyrus_linifolius")],
 text(sampAll$TOTAL[which(sampAll$TAXON=="Lathyrus_pratensis")]-600,
      sampAll$GNUM[which(sampAll$TAXON=="Lathyrus_pratensis")]+50,
      "L. pratensis",cex=0.75)
-text(sampAll$TOTAL[which(sampAll$TAXON=="Lathyrus_silvestris")]+1100,
-     sampAll$GNUM[which(sampAll$TAXON=="Lathyrus_silvestris")]-50,
-     "L. silvestris",cex=0.75)
 text(sampAll$TOTAL[which(sampAll$TAXON=="Lathyrus_hierosolymitanus")]+2000,
      sampAll$GNUM[which(sampAll$TAXON=="Lathyrus_hierosolymitanus")],
      "L. hierosolymitanus",cex=0.75)
@@ -81,56 +78,3 @@ text(sampAll$TOTAL[which(sampAll$TAXON=="Lathyrus_ochrus")]+1000,
 dev.off()
 
 
-#sub-plot with zoomed stuff
-#do the plot
-tiff("./figures/genebank_vs_total_zoom.tif",
-         res=300,pointsize=12,width=1500,height=1500,units="px",compression="lzw")
-par(mar=c(5,5,1,1),cex=0.8)
-plot(sampAll$TOTAL,sampAll$GNUM,pch=20,cex=1,xlim=c(0,2500),ylim=c(0,2500),
-     xlab="Total number of samples",
-     ylab="Number of genebank accessions")
-abline(0,1,lwd=0.75,lty=2)
-lines(sampAll$TOTAL,fit$fitted.values)
-grid(lwd=0.75)
-text(sampAll$TOTAL[which(sampAll$TAXON=="Lathyrus_sativus")],
-     sampAll$GNUM[which(sampAll$TAXON=="Lathyrus_sativus")]+50,
-     "L. sativus",cex=0.75)
-text(sampAll$TOTAL[which(sampAll$TAXON=="Lathyrus_cicera")],
-     sampAll$GNUM[which(sampAll$TAXON=="Lathyrus_cicera")]+50,
-     "L. cicera",cex=0.75)
-text(sampAll$TOTAL[which(sampAll$TAXON=="Lathyrus_hierosolymitanus")]-200,
-     sampAll$GNUM[which(sampAll$TAXON=="Lathyrus_hierosolymitanus")]+50,
-     "L. hierosolymitanus",cex=0.75)
-text(sampAll$TOTAL[which(sampAll$TAXON=="Lathyrus_ochrus")],
-     sampAll$GNUM[which(sampAll$TAXON=="Lathyrus_ochrus")]+50,
-     "L. ochrus",cex=0.75)
-text(sampAll$TOTAL[which(sampAll$TAXON=="Lathyrus_palustris")],
-     sampAll$GNUM[which(sampAll$TAXON=="Lathyrus_palustris")]-50,
-     "L. palustris",cex=0.75)
-text(sampAll$TOTAL[which(sampAll$TAXON=="Lathyrus_nissolia")],
-     sampAll$GNUM[which(sampAll$TAXON=="Lathyrus_nissolia")]-50,
-     "L. nissolia",cex=0.75)
-text(sampAll$TOTAL[which(sampAll$TAXON=="Lathyrus_niger")],
-     sampAll$GNUM[which(sampAll$TAXON=="Lathyrus_niger")]-50,
-     "L. niger",cex=0.75)
-text(sampAll$TOTAL[which(sampAll$TAXON=="Lathyrus_hirsutus")],
-     sampAll$GNUM[which(sampAll$TAXON=="Lathyrus_hirsutus")]+50,
-     "L. hirsutus",cex=0.75)
-text(sampAll$TOTAL[which(sampAll$TAXON=="Lathyrus_clymenum")],
-     sampAll$GNUM[which(sampAll$TAXON=="Lathyrus_clymenum")]+50,
-     "L. clymenum",cex=0.75)
-dev.off()
-
-
-
-#####################
-# sampAll$TOTAL_LOG <- log(sampAll$TOTAL)
-# sampAll$GNUM_LOG <- log(sampAll$GNUM)
-# sampAll$HNUM_LOG <- log(sampAll$HNUM)
-# 
-# plot(sampAll$TOTAL_LOG,sampAll$GNUM,pch=20,cex=1,#xlim=lims,ylim=lims,
-#      xlab="Total number of samples",
-#      ylab="Number of genebank accessions")
-# 
-# fit <- lm(sampAll$GNUM~sampAll$TOTAL)
-# lines(sampAll$TOTAL_LOG,fit$fitted.values)

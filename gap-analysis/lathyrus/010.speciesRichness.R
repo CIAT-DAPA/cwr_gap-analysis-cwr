@@ -1,15 +1,15 @@
 require(rgdal)
 require(raster)
 
-source("000.zipRead.R")
-source("000.zipWrite.R")
-source("000.bufferPoints.R")
+source(paste(src.dir,"/000.zipRead.R",sep=""))
+source(paste(src.dir,"/000.zipWrite.R",sep=""))
+source(paste(src.dir,"/000.bufferPoints.R",sep=""))
 
 #bdir <- "F:/gap_analysis_publications/gap_phaseolus"
 #When presence surface not available, get all the populations and use the 50km buffer
 
 speciesRichness <- function(bdir) {
-	idir <- paste(bdir, "/modeling_data", sep="")
+	idir <- paste(bdir, "/maxent_modelling", sep="")
 	ddir <- paste(bdir, "/samples_calculations", sep="")
 	
 	outFolder <- paste(bdir, "/species_richness", sep="")
@@ -17,8 +17,8 @@ speciesRichness <- function(bdir) {
 		dir.create(outFolder)
 	}
 	
-	spList <- read.csv(paste(idir, "/taxaForRichnes.csv", sep=""))
-	allOcc <- read.csv(paste(bdir, "/samples/phaseolus_all.csv", sep=""))
+	spList <- read.csv(paste(idir, "/summary-files/taxaForRichnes.csv", sep=""))
+	allOcc <- read.csv(paste(bdir, "/occurrences/lathyrus.csv", sep=""))
 	
 	sppC <- 1
 	rcounter <- 1
@@ -32,13 +32,13 @@ speciesRichness <- function(bdir) {
 		if (isValid == 1) {
 			exOcc <- T
 			cat("Load presence/absence raster and sd raster \n")
-			sppFolder <- paste(idir, "/mxe_outputs/sp-", spp, sep="")
+			sppFolder <- paste(idir, "/models/", spp, sep="")
 			projFolder <- paste(sppFolder, "/projections", sep="")
 			
-			pagrid <- paste(spp, "_WorldClim-2_5min-bioclim_EMN_PA.asc.gz", sep="")
+			pagrid <- paste(spp, "_worldclim2_5_EMN_PA.asc.gz", sep="")
 			pagrid <- zipRead(projFolder, pagrid)
 			
-			assign(paste("sdgrid",sppC,sep=""), paste(spp, "_WorldClim-2_5min-bioclim_ESD_PR.asc.gz", sep=""))
+			assign(paste("sdgrid",sppC,sep=""), paste(spp, "_worldclim2_5_ESD_PR.asc.gz", sep=""))
 			assign(paste("sdgrid",sppC,sep=""), zipRead(projFolder, get(paste("sdgrid",sppC,sep=""))))
 		} else {
 			cat("Samples buffer \n")

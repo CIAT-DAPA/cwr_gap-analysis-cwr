@@ -66,3 +66,48 @@ x <- summarizeASD15(idir=paste(crop_dir,"/maxent_modelling",sep=""))
 source(paste(src.dir,"/008.sizeDR.R",sep=""))
 x <- summarizeDR(crop_dir)
 
+
+#select which taxa are of use for species richness
+#get the following modelling metrics:
+# a. 25-fold average test AUC (ATAUC)
+# b. 25-fold stdev of test AUC (STAUC)
+# c. proportion of potential distribution with SD>15 (ASD15)
+
+#isValid==1 if ATAUC>0.7, STAUC<0.15, ASD15<10%
+acc <- read.csv(paste(crop_dir,"/maxent_modelling/summary-files/accuracy.csv",sep=""))
+asd <- read.csv(paste(crop_dir,"/maxent_modelling/summary-files/ASD15.csv",sep=""))
+
+for (spp in acc$SPID) {
+  cat("Processing taxon",paste(spp),"\n")
+  
+  #getting the quality metrics
+  atauc <- acc$TestAUC[which(acc$SPID==spp)]
+  stauc <- acc$TestAUCSD[which(acc$SPID==spp)]
+  asd15 <- asd$rateThresholded[which(asd$taxon==paste(spp))]
+  
+  #putting everything onto a row for appending
+  row_res <- data.frame(Taxon=paste(spp),ATAUC=atauc,STAUC=stauc,ASD15=asd15,ValidModel=NA)
+  
+  #checking if any is na and correcting consequently
+  if (is.na(atauc)) {atauc <- 0}
+  if (is.na(stauc)) {stauc <- 1}
+  if (is.na(asd15)) {asd15 <- 100}
+  
+  #reporting model quality
+  if (atauc>=0.7 & stauc<=0.15 & asd15<=10) {
+    row_res$ValidModel <- 1
+  } else {
+    row_res$ValidModel <- 0
+  }
+  
+  #appending everything
+  if (spp == acc$SPID[1]) {
+    res_all <- row_res
+  } else {
+    res_all <- rbind(res_all,row_res)
+  }
+  
+}
+write.csv(res_all,paste(crop_dir,"/maxent_modelling/summary-files/taxaForRichness.csv",sep=""),quote=F,row.names=F)
+
+
