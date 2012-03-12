@@ -54,7 +54,7 @@ sizeDR <- function(bdir, spID) {
 	cat("Reading occurrences \n")
 	occ <- read.csv(paste(idir, "/occurrence_files/", spID, ".csv", sep=""))
 	
-  if (!file.exists(paste(spOutFolder, "/convex-hull.asc.gz",sep="")) {
+  if (!file.exists(paste(spOutFolder, "/convex-hull.asc.gz",sep=""))) {
   	cat("Creating the convex hull \n")
   	ch <- occ[chull(cbind(occ$lon, occ$lat)),2:3]
   	ch <- rbind(ch, ch[1,])
