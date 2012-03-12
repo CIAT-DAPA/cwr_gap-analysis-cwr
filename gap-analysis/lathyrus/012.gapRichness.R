@@ -92,7 +92,7 @@ gapRichness <- function(bdir) {
 			pagrid <- paste(spp, "_worldclim2_5_EMN_PA.asc.gz", sep="")
 			pagrid <- zipRead(projFolder, pagrid)
 			
-			if (file. exists(gbuffFile)) {
+			if (file.exists(gbuffFile)) {
 				pagrid[which(grd.ga[] == 1)] <- 0
 			}
 			
@@ -105,7 +105,7 @@ gapRichness <- function(bdir) {
 			cat("Presence/absence surf. does not exist or is not reliable, using hsamples instead \n")
 			pagrid <- grd
 			
-			if (file. exists(gbuffFile)) {
+			if (file.exists(gbuffFile)) {
 				pagrid[which(grd.ga[] == 1)] <- 0
 			}
 			
