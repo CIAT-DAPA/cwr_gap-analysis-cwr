@@ -10,6 +10,8 @@ src.dir <- "D:/_tools/gap-analysis-cwr/trunk/gap-analysis/lathyrus"
 #crop details
 crop_dir <- "D:/CIAT_work/Gap_analysis/ICARDA-collab/lathyrus"; setwd(crop_dir)
 
+#here first run the occurrence splitter (H/G) and the script to count and plot records
+
 #extract climate data
 source(paste(src.dir,"/001.extractClimates.R",sep=""))
 
@@ -110,4 +112,33 @@ for (spp in acc$SPID) {
 }
 write.csv(res_all,paste(crop_dir,"/maxent_modelling/summary-files/taxaForRichness.csv",sep=""),quote=F,row.names=F)
 
+
+#calculate species richness
+source(paste(src.dir,"/010.speciesRichness.R",sep=""))
+x <- speciesRichness(bdir=crop_dir)
+
+
+#create the priorities table
+#1. SRS=GS/(GS+HS)*10
+table_base <- read.csv(paste(crop_dir,"/sample_counts/sample_count_table.csv",sep=""))
+table_base <- data.frame(Taxon=table_base$TAXON)
+table_base$HS <- NA; table_base$HS_RP <- NA
+table_base$GS <- NA; table_base$GS_RP <- NA
+table_base$TOTAL <- NA; table_base$TOTAL_RP <- NA
+table_base$ATAUC <- NA; table_base$STAUC <- NA; table_base$ASD15 <- NA
+table_base$SRS <- NA; table_base$GRS <- NA; table_base$ERS <- NA
+table_base$ERTS <- NA; table_base$FPS <- NA
+
+#reading specific tables
+samples <- read.csv(paste(crop_dir,"/sample_counts/sample_count_table.csv",sep=""))
+model_met <- read.csv(paste(crop_dir,"/maxent_modelling/summary-files/accuracy.csv",sep=""))
+asd <- read.csv(paste(crop_dir,"/maxent_modelling/summary-files/ASD15.csv",sep=""))
+
+
+for (spp in table_base$Taxon) {
+  cat("Processing species",paste(spp),"\n")
+  
+  
+  
+}
 

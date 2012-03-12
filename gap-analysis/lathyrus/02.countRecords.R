@@ -19,12 +19,26 @@ for (tax in taxNames) {
   
   #subselect the data for this taxon
   taxData <- occ[which(occ[,taxField]==tax),]
+  taxDataQ <- data.frame(paste(taxData[,taxField]),taxData[,"lon"],taxData[,"lat"],taxData[,hField],taxData[,gField])
+  names(taxDataQ) <- c(taxField,"lon","lat",hField,gField)
   
-  #count herbarium recs and germplasm samples
+  allData <- taxDataQ; allData[,hField] <- NULL; allData[,gField] <- NULL
+  hData <- taxDataQ[which(taxDataQ[,hField]==1),]
+  hData[,hField] <- NULL; hData[,gField] <- NULL
+  gData <- taxDataQ[which(taxDataQ[,gField]==1),]
+  gData[,hField] <- NULL; gData[,gField] <- NULL
+  
+  #count herbarium recs and germplasm samples (totals regardless of populations)
   hc <- sum(taxData[,hField])
   gc <- sum(taxData[,gField])
+  total <- nrow(taxData)
   
-  row_out <- data.frame(TAXON=paste(tax),HNUM=hc,GNUM=gc)
+  #count h and g samples (totals but only considering populations -unique coordinates)
+  hc_u <- nrow(unique(hData))
+  gc_u <- nrow(unique(gData))
+  total_u <- nrow(unique(allData))
+  
+  row_out <- data.frame(TAXON=paste(tax),HNUM=hc,GNUM=gc,HNUM_RP=hc_u,GNUM_RP=gc_u,TOTAL_RP=total_u)
   
   if (tax==taxNames[1]) {
     sampAll <- row_out

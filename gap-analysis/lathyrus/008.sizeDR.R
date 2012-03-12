@@ -54,22 +54,26 @@ sizeDR <- function(bdir, spID) {
 	cat("Reading occurrences \n")
 	occ <- read.csv(paste(idir, "/occurrence_files/", spID, ".csv", sep=""))
 	
-	cat("Creating the convex hull \n")
-	ch <- occ[chull(cbind(occ$lon, occ$lat)),2:3]
-	ch <- rbind(ch, ch[1,])
-	
-	cat("Transforming to polygons \n")
-	pol <- SpatialPolygons(list(Polygons(list(Polygon(ch)), 1)))
-	grd <- rasterize(pol, msk)
-	
-	cat("Final fixes \n")
-	grd[which(!is.na(grd[]))] <- 1
-	grd[which(is.na(grd[]) & msk[] == 1)] <- 0
-	grd[which(is.na(msk[]))] <- NA
-	
-	cat("Writing convex hull \n")
-	chName <- zipWrite(grd, spOutFolder, "convex-hull.asc.gz")
-	
+  if (!file.exists(paste(spOutFolder, "/convex-hull.asc.gz",sep="")) {
+  	cat("Creating the convex hull \n")
+  	ch <- occ[chull(cbind(occ$lon, occ$lat)),2:3]
+  	ch <- rbind(ch, ch[1,])
+  	
+  	cat("Transforming to polygons \n")
+  	pol <- SpatialPolygons(list(Polygons(list(Polygon(ch)), 1)))
+  	grd <- rasterize(pol, msk)
+  	
+  	cat("Final fixes \n")
+  	grd[which(!is.na(grd[]))] <- 1
+  	grd[which(is.na(grd[]) & msk[] == 1)] <- 0
+  	grd[which(is.na(msk[]))] <- NA
+  	
+  	cat("Writing convex hull \n")
+  	chName <- zipWrite(grd, spOutFolder, "convex-hull.asc.gz")
+  } else {
+    cat("Loading the convex hull \n")
+    grd <- zipRead(spOutFolder, "convex-hull.asc.gz")
+  }
 	cat("Size of the convex hull \n")
 	grd <- grd * mskArea
 	areaCH <- sum(grd[which(grd[] != 0)])
@@ -103,7 +107,12 @@ sizeDR <- function(bdir, spID) {
 		
 		write.csv(hOcc, paste(spOutFolder, "/hsamples.csv", sep=""), quote=F, row.names=F)
 		rm(hOcc)
-		grd <- createBuffers(paste(spOutFolder, "/hsamples.csv", sep=""), spOutFolder, "hsamples-buffer.asc", 50000, paste(idir, "/masks/mask.asc", sep=""))
+    
+    if (!file.exists(paste(spOutFolder, "/hsamples-buffer.asc.gz",sep=""))) {
+		  grd <- createBuffers(paste(spOutFolder, "/hsamples.csv", sep=""), spOutFolder, "hsamples-buffer.asc", 50000, paste(idir, "/masks/mask.asc", sep=""))
+    } else {
+      grd <- zipRead(spOutFolder,"hsamples-buffer.asc.gz")
+    }
 		grd <- grd * mskArea
 		areaHB <- sum(grd[which(grd[] != 0)])
 	} else {
@@ -112,14 +121,19 @@ sizeDR <- function(bdir, spID) {
 	
 	#Size of the germplasm samples CA50
 	cat("Size of the g-samples buffer \n")
-	gOcc <- allOcc[which(allOcc$Sampletype == "G"),]
+	gOcc <- allOcc[which(allOcc$G == 1),]
 	if (nrow(gOcc) != 0) {
-		gOcc <- as.data.frame(cbind(as.character(gOcc$Taxon), gOcc$Longitude, gOcc$Latitude))
+		gOcc <- as.data.frame(cbind(as.character(gOcc$Taxon), gOcc$lon, gOcc$lat))
 		names(gOcc) <- c("taxon", "lon", "lat")
 		
 		write.csv(gOcc, paste(spOutFolder, "/gsamples.csv", sep=""), quote=F, row.names=F)
 		rm(gOcc)
-		grd <- createBuffers(paste(spOutFolder, "/gsamples.csv", sep=""), spOutFolder, "gsamples-buffer.asc", 50000, paste(idir, "/masks/mask.asc", sep=""))
+    
+    if (!file.exists(paste(spOutFolder,"/gsamples-buffer.asc.gz",sep=""))) {
+		  grd <- createBuffers(paste(spOutFolder, "/gsamples.csv", sep=""), spOutFolder, "gsamples-buffer.asc", 50000, paste(idir, "/masks/mask.asc", sep=""))
+    } else {
+      grd <- zipRead(spOutFolder,"gsamples-buffer.asc.gz")
+    }
 		grd <- grd * mskArea
 		areaGB <- sum(grd[which(grd[] != 0)])
 	} else {
