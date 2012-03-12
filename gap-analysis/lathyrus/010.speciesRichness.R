@@ -17,7 +17,7 @@ speciesRichness <- function(bdir) {
 		dir.create(outFolder)
 	}
 	
-	spList <- read.csv(paste(idir, "/summary-files/taxaForRichnes.csv", sep=""))
+	spList <- read.csv(paste(idir, "/summary-files/taxaForRichness.csv", sep=""))
 	allOcc <- read.csv(paste(bdir, "/occurrences/lathyrus.csv", sep=""))
 	
 	sppC <- 1
