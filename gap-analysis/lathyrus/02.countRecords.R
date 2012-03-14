@@ -58,7 +58,7 @@ lims <- c(min(sampAll$TOTAL,sampAll$GNUM),max(sampAll$TOTAL))
 
 #do the plot
 tiff("./figures/genebank_vs_total.tif",
-         res=300,pointsize=12,width=1500,height=1500,units="px",compression="lzw")
+         res=300,pointsize=12,width=1500,height=1000,units="px",compression="lzw")
 par(mar=c(5,5,1,1),cex=0.8)
 plot(sampAll$TOTAL,sampAll$GNUM,pch=20,cex=1,xlim=lims,ylim=c(0,1500),
      xlab="Total number of samples",
