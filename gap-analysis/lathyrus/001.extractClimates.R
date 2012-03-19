@@ -9,12 +9,11 @@ library(raster)
 
 #function to extract climate data
 extractClimates <- function(input_dir,sample_file,env_dir,env_prefix,
-                            env_ext,idfield,lonfield,latfield,taxfield,
+                            env_ext,lonfield,latfield,taxfield,
                             output_dir) {
   occ <- read.csv(paste(input_dir,"/",sample_file, sep=""))
   xy <- data.frame(X=occ[,lonfield],Y=occ[,latfield])
-  swd <- data.frame(cbind(paste(occ[,taxfield]),occ[,lonfield],occ[,latfield]))
-  names(swd) <- c(taxfield,lonfield,latfield)
+  swd <- occ
   
   for (i in 1:19) {
     cat("Reading environmental layer",i,"\n")
