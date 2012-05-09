@@ -5,7 +5,7 @@ stop("")
 library(raster); library(maptools); data(wrld_simpl)
 
 crop <- "tomato"
-#wd <- "C:/Users/ncp148/Documents/CPP_CWR/_collaboration/_fontagro/gap_tomato"
+# define workspace
 wd <- "G:/ncastaneda/gap-analysis-tomato/gap_tomato"
 setwd(wd)
 
