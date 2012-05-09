@@ -1,12 +1,13 @@
-#Fontagro tomato
+#Gap analysis workshop
 #March 2012
 stop("")
 
+# Define workspace
 wd <- "C:/Users/ncp148/Documents/CPP_CWR/_collaboration/_fontagro/gap_tomato"
 setwd(wd)
 
 #read occurrences
-occ <- read.csv("./occurrences/tomato.csv")
+occ <- read.csv(paste("./occurrences/",crop,".csv",sep=""))
 taxField <- "Taxon"
 hField <- "H"
 gField <- "G"
