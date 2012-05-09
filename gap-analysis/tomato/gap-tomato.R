@@ -5,10 +5,12 @@
 stop("Warning: do not run the whole thing")
 
 #basic stuff - code
-src.dir <- "C:/Users/ncp148/Documents/CPP_CWR/_google_code/gap-analysis/tomato"
+#src.dir <- "C:/Users/ncp148/Documents/CPP_CWR/_google_code/gap-analysis/tomato"
+src.dir <- "G:/ncastaneda/code/tomato"
 
 #crop details
-crop_dir <- "C:/Users/ncp148/Documents/CPP_CWR/_collaboration/_fontagro/gap_tomato"; setwd(crop_dir)
+#crop_dir <- "C:/Users/ncp148/Documents/CPP_CWR/_collaboration/_fontagro/gap_tomato"; setwd(crop_dir)
+crop_dir <- "G:/ncastaneda/gap-analysis-tomato/gap_tomato"; setwd(crop_dir)
 
 #here first run the occurrence splitter (H/G) and the script to count and plot records
 
@@ -47,7 +49,8 @@ for (f in fList) {
 }
 
 #perform the maxent modelling in parallel
-source(paste(src.dir,"/005.modelingApproach.R",sep=""))
+#source(paste(src.dir,"/005.modelingApproach.R",sep=""))
+source(paste(src.dir,"/_005.modelingApproach_original.R",sep=""))
 GapProcess(inputDir=paste(crop_dir,"/maxent_modeling",sep=""), OSys="NT", ncpu=3)
 
 #summarise the metrics

@@ -301,9 +301,10 @@ theEntireProcess <- function(spID, OSys, inputDir) {
 #outp <- NagoyaProcess(idir, ddir, 1, 10, OSys="NT")
 #setOptions(overwrite=T)
 
-#inputDir <- "C:/Users/ncp148/Documents/CPP_CWR/_collaboration/_fontagro/gap_tomato/maxent_modeling"
+inputDir <- "C:/Users/ncp148/Documents/CPP_CWR/_collaboration/_fontagro/gap_tomato/maxent_modeling"
+ncpu=3
 #destDir <- "F:/gap_analysis_publications/gap_phaseolus/modeling_data"
-#spID <- "Phaseolus_acutifolius"
+#spID <- "Solanum_aracanum"
 #OSys <- "nt"
 
 GapProcess <- function(inputDir, OSys="NT", ncpu) {
@@ -319,8 +320,8 @@ GapProcess <- function(inputDir, OSys="NT", ncpu) {
 	gap_wrapper <- function(i) {
     library(raster)
     library(SDMTools)
-    #sp <- spList[2]
-    sp <- spList[i]
+    sp <- spList[2]
+    #sp <- spList[i]
 		sp <- unlist(strsplit(sp, ".", fixed=T))[1]
 		cat("\n")
 		cat("...Species", sp, "\n")

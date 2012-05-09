@@ -3,8 +3,8 @@ rm(list=ls()); g=gc(); rm(g)
 
 require(raster)
 require(stats)
-wd <- "C:/Users/ncp148/Documents/CPP_CWR/_collaboration/_fontagro/inputs/bio_2_5m_fontagro/"
-#wd <- "G:/ncastaneda/gap-analysis-tomato/inputs/bio_2_5m_fontagro"
+#wd <- "C:/Users/ncp148/Documents/CPP_CWR/_collaboration/_fontagro/inputs/bio_2_5m_fontagro/"
+wd <- "G:/ncastaneda/gap-analysis-tomato/inputs/bio_2_5m_fontagro"
 setwd(wd)
 
 #stk <- stack(paste("bio_",1:19,sep=""))
