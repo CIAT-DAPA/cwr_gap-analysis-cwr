@@ -42,7 +42,6 @@ cat(" \n")
 ###############################################################################################
 ###############################################################################################
 
-#src.dir <- "D:/_tools/gap-analysis-cwr/trunk/gap-analysis/lathyrus"
 source(paste(src.dir,"/000.getMetrics.R",sep=""))
 source(paste(src.dir,"/000.zipRead.R",sep=""))
 source(paste(src.dir,"/000.zipWrite.R",sep=""))

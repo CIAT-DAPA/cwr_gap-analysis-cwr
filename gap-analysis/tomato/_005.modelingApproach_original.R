@@ -42,7 +42,6 @@ cat(" \n")
 ###############################################################################################
 ###############################################################################################
 
-#src.dir <- "D:/_tools/gap-analysis-cwr/trunk/gap-analysis/lathyrus"
 source(paste(src.dir,"/000.getMetrics.R",sep=""))
 source(paste(src.dir,"/000.zipRead.R",sep=""))
 source(paste(src.dir,"/000.zipWrite.R",sep=""))
@@ -55,7 +54,7 @@ source(paste(src.dir,"/000.createChullBuffer.R",sep=""))
 ###############################################################################################
 
 theEntireProcess <- function(spID, OSys, inputDir) {
-   spID <- "Solanum_arcanum"
+#   spID <- "Solanum_arcanum"
 #   OSys <- "NT"
 #   inputDir <- "D:/CIAT_work/Gap_analysis/ICARDA-collab/lathyrus/maxent_modelling"
   
