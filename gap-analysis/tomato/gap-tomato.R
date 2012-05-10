@@ -1,24 +1,24 @@
-#Phaseolus case study
-#Julian Ramirez-Villegas
+#Gap analysis workshop
+#Based on Phaseolus study (Ramírez-Villegas, J.)
 #CIAT
 #March 2012
 stop("Warning: do not run the whole thing")
 
-#basic stuff - code
-#src.dir <- "C:/Users/ncp148/Documents/CPP_CWR/_google_code/gap-analysis/tomato"
+#basic stuff - where is the code
 src.dir <- "G:/ncastaneda/code/tomato"
 
 #crop details
-#crop_dir <- "C:/Users/ncp148/Documents/CPP_CWR/_collaboration/_fontagro/gap_tomato"; setwd(crop_dir)
-crop_dir <- "G:/ncastaneda/gap-analysis-tomato/gap_tomato"; setwd(crop_dir)
+crop_dir <- "G:/ncastaneda/gap-analysis-tomato/gap_tomato"
+setwd(crop_dir)
 
 #here first run the occurrence splitter (H/G) and the script to count and plot records
 
-#extract climate data
+#== extract climate data ==#
 source(paste(src.dir,"/001.extractClimates.R",sep=""))
 
 occ_dir <- paste(crop_dir,"/occurrences",sep="")
-cli_dir <- "C:/Users/ncp148/Documents/_geodata/bioclim/bio_2-5m_esri"
+#set climate dir
+cli_dir <- "G:/ncastaneda/clim/bio_2-5m_esri"
 swd_dir <- paste(crop_dir,"/swd",sep="")
 if (!file.exists(swd_dir)) {dir.create(swd_dir)}
 
@@ -26,13 +26,13 @@ x <- extractClimates(input_dir=occ_dir,sample_file="tomato.csv",env_dir=cli_dir,
                      env_prefix="bio_",env_ext="",lonfield="lon",
                      latfield="lat",taxfield="Taxon",output_dir=swd_dir)
 
-#splitting the occurrence files
+#== splitting the occurrence files ==#
 source(paste(src.dir,"/003.createOccurrenceFiles.R",sep=""))
 oDir <- paste(crop_dir,"/maxent_modeling/occurrence_files",sep="")
 if (!file.exists(oDir)) {dir.create(oDir)}
 x <- createOccFiles(occ=paste(crop_dir,"/swd/occurrences_swd_ok.csv",sep=""),taxfield="Taxon",outDir=oDir)
 
-#making the pseudo-absences
+#== making the pseudo-absences ==#
 source(paste(src.dir,"/002.selectBackgroundArea.R",sep=""))
 fList <- list.files("./maxent_modeling/occurrence_files",pattern=".csv")
 
@@ -44,11 +44,11 @@ for (f in fList) {
   iFile <- paste("./maxent_modeling/occurrence_files/",f,sep="")
   oFile <- paste("./maxent_modeling/background/",f,sep="")
   x <- selectBack(occFile=iFile, outBackName=oFile, 
-                  msk="C:/Users/ncp148/Documents/CPP_CWR/_collaboration/_fontagro/inputs/backgroundFiles/backselection.asc", 
-                  backFilesDir="C:/Users/ncp148/Documents/CPP_CWR/_collaboration/_fontagro/inputs/backgroundFiles")
+                  msk="./backgroundFiles/backselection.asc", 
+                  backFilesDir="./backgroundFiles/")
 }
 
-#perform the maxent modelling in parallel
+#== perform the maxent modelling in parallel ==#
 #source(paste(src.dir,"/005.modelingApproach.R",sep=""))
 source(paste(src.dir,"/_005.modelingApproach_original.R",sep=""))
 GapProcess(inputDir=paste(crop_dir,"/maxent_modeling",sep=""), OSys="NT", ncpu=3)
