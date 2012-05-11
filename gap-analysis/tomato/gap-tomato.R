@@ -49,24 +49,21 @@ for (f in fList) {
 }
 
 #== perform the maxent modelling in parallel ==#
-#source(paste(src.dir,"/005.modelingApproach.R",sep=""))
-source(paste(src.dir,"/_005.modelingApproach_original.R",sep=""))
+source(paste(src.dir,"/005.modelingApproach.R",sep=""))
+#source(paste(src.dir,"/_005.modelingApproach_original.R",sep=""))
 GapProcess(inputDir=paste(crop_dir,"/maxent_modeling",sep=""), OSys="NT", ncpu=3)
 
-#summarise the metrics
+#== summarise the metrics ==#
 source(paste(src.dir,"/006.summarizeMetricsThresholds.R",sep=""))
 x <- summarizeMetrics(idir=paste(crop_dir,"/maxent_modeling",sep=""))
 
-
-#calculate area with SD<0.15 (aSD15)
+#== calculate area with SD<0.15 (aSD15) ==#
 source(paste(src.dir,"/007.calcASD15.R",sep=""))
 x <- summarizeASD15(idir=paste(crop_dir,"/maxent_modeling",sep=""))
 
-
-#calculate size of distributional range
+#== calculate size of distributional range ==#
 source(paste(src.dir,"/008.sizeDR.R",sep=""))
 x <- summarizeDR(crop_dir)
-
 
 #select which taxa are of use for species richness
 #get the following modelling metrics:
@@ -110,7 +107,6 @@ for (spp in acc$SPID) {
   
 }
 write.csv(res_all,paste(crop_dir,"/maxent_modeling/summary-files/taxaForRichness.csv",sep=""),quote=F,row.names=F)
-
 
 #calculate species richness
 source(paste(src.dir,"/010.speciesRichness.R",sep=""))

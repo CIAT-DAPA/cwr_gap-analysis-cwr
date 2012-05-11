@@ -319,8 +319,8 @@ GapProcess <- function(inputDir, OSys='NT', ncpu) {
 	gap_wrapper <- function(i) {
     library(raster)
     library(SDMTools)
-    sp <- spList[1]
-    #sp <- spList[i]
+    #sp <- spList[1]
+    sp <- spList[i]
 		sp <- unlist(strsplit(sp, ".", fixed=T))[1]
 		cat("\n")
 		cat("...Species", sp, "\n")

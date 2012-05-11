@@ -42,7 +42,6 @@ cat(" \n")
 ###############################################################################################
 ###############################################################################################
 
-#src.dir <- "D:/_tools/gap-analysis-cwr/trunk/gap-analysis/lathyrus"
 source(paste(src.dir,"/000.getMetrics.R",sep=""))
 source(paste(src.dir,"/000.zipRead.R",sep=""))
 source(paste(src.dir,"/000.zipWrite.R",sep=""))
@@ -64,7 +63,7 @@ theEntireProcess <- function(spID, OSys, inputDir) {
   spDir <- paste(mxe_out,"/",spID,sep="")
   
   verFile <- paste(spDir, "/ps-", spID, ".run", sep="")
-	
+  
 	OSys <- tolower(OSys)
 	
 	if (!file.exists(verFile)) {
@@ -117,7 +116,7 @@ theEntireProcess <- function(spID, OSys, inputDir) {
 				
 				cat("Crossvalidating the model... \n")
         if (!file.exists(paste(outFolder,"/crossval/",spID,".html",sep=""))) {
-				  system(paste("java", "-mx512m", "-jar", maxentApp, "-s", outFileName, "-e", backFileSwd, "-o", paste(outFolder, "/crossval", sep=""), "-P", "replicates=25", "replicatetype=crossvalidate", "nowarnings", "-a", "-z"), wait=TRUE)
+				  system(paste("java", "-mx512m", "-jar", maxentApp, "-s", outFileName, "-e", backFileSwd, "-o", paste(outFolder, "/crossval", sep=""), "-P", "replicates=2", "replicatetype=crossvalidate", "nowarnings", "-a", "-z"), wait=TRUE)
         }
 				
 				if (file.exists(paste(outFolder, "/crossval/", spID,".html", sep=""))) {
@@ -141,7 +140,8 @@ theEntireProcess <- function(spID, OSys, inputDir) {
 				#5. Getting the metrics
 				
 				if (procSwitch) {
-					out <- getMetrics(paste(outFolder, "/crossval", sep=""), paste(spID), 25, paste(outFolder, "/metrics", sep=""))
+					#out <- getMetrics(paste(outFolder, "/crossval", sep=""), paste(spID), 25, paste(outFolder, "/metrics", sep=""))
+          out <- getMetrics(paste(outFolder, "/crossval", sep=""), paste(spID), 2, paste(outFolder, "/metrics", sep=""))
 					
 					#Read the thresholds file
 					threshFile <- paste(outFolder, "/metrics/thresholds.csv", sep="")
@@ -194,7 +194,8 @@ theEntireProcess <- function(spID, OSys, inputDir) {
 						cat("Calculating and writing mean probability raster \n")
 						fun <- function(x) { sd(x) }
 						distMean <- mean(stack(otList))
-						distMean <- writeRaster(distMean, paste(outFolder, "/projections/", spID, "_", suffix, "_EMN.asc", sep=""), format="ascii", overwrite=T)
+						#distMean <- writeRaster(distMean, paste(outFolder, "/projections/", spID, "_", suffix, "_EMN.asc", sep=""), format="ascii", overwrite=T)
+            distMean <- writeRaster(distMean, paste(outFolder, "/projections/", spID, "_", suffix, "_EMN.asc", sep=""), overwrite=T)
 						cat("Calculating and writing std \n")
 						distStdv <- calc(stack(otList), fun)
 						distStdv <- writeRaster(distStdv, paste(outFolder, "/projections/", spID, "_", suffix, "_ESD.asc", sep=""), overwrite=T)
@@ -301,13 +302,12 @@ theEntireProcess <- function(spID, OSys, inputDir) {
 #outp <- NagoyaProcess(idir, ddir, 1, 10, OSys="NT")
 #setOptions(overwrite=T)
 
-inputDir <- "C:/Users/ncp148/Documents/CPP_CWR/_collaboration/_fontagro/gap_tomato/maxent_modeling"
-ncpu=3
+#inputDir <- "F:/gap_analysis_publications/gap_phaseolus/modeling_data"
 #destDir <- "F:/gap_analysis_publications/gap_phaseolus/modeling_data"
-#spID <- "Solanum_aracanum"
+#spID <- "Phaseolus_acutifolius"
 #OSys <- "nt"
 
-GapProcess <- function(inputDir, OSys="NT", ncpu) {
+GapProcess <- function(inputDir, OSys="LINUX", ncpu) {
 	
 	spList <- list.files(paste(inputDir, "/occurrence_files", sep=""),pattern=".csv")
 # 	if (fin > length(spList)) {
@@ -320,8 +320,7 @@ GapProcess <- function(inputDir, OSys="NT", ncpu) {
 	gap_wrapper <- function(i) {
     library(raster)
     library(SDMTools)
-    sp <- spList[2]
-    #sp <- spList[i]
+    sp <- spList[i]
 		sp <- unlist(strsplit(sp, ".", fixed=T))[1]
 		cat("\n")
 		cat("...Species", sp, "\n")

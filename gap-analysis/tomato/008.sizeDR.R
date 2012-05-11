@@ -8,12 +8,9 @@ source(paste(src.dir,"/000.bufferPoints.R",sep=""))
 #Calculate the size of the DR, of the convexhull in km2, of the native area, and of the herbarium samples
 #based on the area of the cells
 
-#bdir <- "F:/gap_analysis_publications/gap_phaseolus"
-#spID <- "Phaseolus_acutifolius"
-
 sizeDR <- function(bdir, spID) {
 	
-	idir <- paste(bdir, "/maxent_modelling", sep="")
+	idir <- paste(bdir, "/maxent_modeling", sep="")
 	ddir <- paste(bdir, "/samples_calculations", sep="")
 	
 	#Creating the directories
@@ -96,7 +93,6 @@ sizeDR <- function(bdir, spID) {
 	
 	#Load all occurrences
   allOcc <- read.csv(paste(bdir, "/occurrences/tomato.csv", sep=""))
-	#allOcc <- read.csv(paste(bdir, "/occurrences/lathyrus.csv", sep=""))
 	allOcc <- allOcc[which(allOcc$Taxon == spID),]
 	
 	#Size of the herbarium samples CA50
@@ -147,23 +143,22 @@ sizeDR <- function(bdir, spID) {
 	return(outDF)
 }
 
-
 summarizeDR <- function(idir) {
 	
 	ddir <- paste(idir, "/samples_calculations", sep="")
 	
-	odir <- paste(idir, "/maxent_modelling/summary-files", sep="")
+	odir <- paste(idir, "/maxent_modeling/summary-files", sep="")
 	if (!file.exists(odir)) {
 		dir.create(odir)
 	}
 	
-	spList <- list.files(paste(idir, "/maxent_modelling/occurrence_files", sep=""))
+	spList <- list.files(paste(idir, "/maxent_modeling/occurrence_files", sep=""))
 	
 	sppC <- 1
 	for (spp in spList) {
 		spp <- unlist(strsplit(spp, ".", fixed=T))[1]
 		fdName <- spp #paste("sp-", spp, sep="")
-		spFolder <- paste(idir, "/maxent_modelling/models/", fdName, sep="")
+		spFolder <- paste(idir, "/maxent_modeling/models/", fdName, sep="")
 		spOutFolder <- paste(ddir, "/", spp, sep="")
 		
 		if (file.exists(spFolder)) {
