@@ -71,7 +71,7 @@ x <- summarizeDR(crop_dir)
 # b. 25-fold stdev of test AUC (STAUC)
 # c. proportion of potential distribution with SD>15 (ASD15)
 
-#isValid==1 if ATAUC>0.7, STAUC<0.15, ASD15<10%
+#== isValid==1 if ATAUC>0.7, STAUC<0.15, ASD15<10% ==#
 acc <- read.csv(paste(crop_dir,"/maxent_modeling/summary-files/accuracy.csv",sep=""))
 asd <- read.csv(paste(crop_dir,"/maxent_modeling/summary-files/ASD15.csv",sep=""))
 
@@ -108,12 +108,11 @@ for (spp in acc$SPID) {
 }
 write.csv(res_all,paste(crop_dir,"/maxent_modeling/summary-files/taxaForRichness.csv",sep=""),quote=F,row.names=F)
 
-#calculate species richness
+#== calculate species richness ==#
 source(paste(src.dir,"/010.speciesRichness.R",sep=""))
 x <- speciesRichness(bdir=crop_dir)
 
-
-#create the priorities table
+#== create the priorities table ==#
 #1. SRS=GS/(GS+HS)*10
 table_base <- read.csv(paste(crop_dir,"/sample_counts/sample_count_table.csv",sep=""))
 table_base <- data.frame(Taxon=table_base$TAXON)
@@ -124,13 +123,13 @@ table_base$ATAUC <- NA; table_base$STAUC <- NA; table_base$ASD15 <- NA; table_ba
 table_base$SRS <- NA; table_base$GRS <- NA; table_base$ERS <- NA
 table_base$ERTS <- NA; table_base$FPS <- NA; table_base$FPCAT <- NA
 
-#reading specific tables
+#== reading specific tables ==#
 samples <- read.csv(paste(crop_dir,"/sample_counts/sample_count_table.csv",sep=""))
 model_met <- read.csv(paste(crop_dir,"/maxent_modeling/summary-files/taxaForRichness.csv",sep=""))
 rsize <- read.csv(paste(crop_dir,"/maxent_modeling/summary-files/areas.csv",sep=""))
-edist <- read.csv(paste(crop_dir,"/maxent_modeling/summary-files/edist.csv",sep=""))
+#edist <- read.csv(paste(crop_dir,"/maxent_modeling/summary-files/edist.csv",sep=""))
 
-#read principal components weights and scale them to match 1
+#== read principal components weights and scale them to match 1 ==#
 #!!!!!!
 w_pc1 <- 0.7
 w_pc2 <- 0.3

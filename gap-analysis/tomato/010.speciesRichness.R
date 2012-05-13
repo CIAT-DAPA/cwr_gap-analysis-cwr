@@ -9,7 +9,7 @@ source(paste(src.dir,"/000.bufferPoints.R",sep=""))
 #When presence surface not available, get all the populations and use the 50km buffer
 
 speciesRichness <- function(bdir) {
-	idir <- paste(bdir, "/maxent_modelling", sep="")
+	idir <- paste(bdir, "/maxent_modeling", sep="")
 	ddir <- paste(bdir, "/samples_calculations", sep="")
 	
 	outFolder <- paste(bdir, "/species_richness", sep="")
@@ -18,7 +18,7 @@ speciesRichness <- function(bdir) {
 	}
 	
 	spList <- read.csv(paste(idir, "/summary-files/taxaForRichness.csv", sep=""))
-	allOcc <- read.csv(paste(bdir, "/occurrences/lathyrus.csv", sep=""))
+	allOcc <- read.csv(paste(bdir, "/occurrences/tomato.csv", sep=""))
 	
 	sppC <- 1
 	rcounter <- 1
