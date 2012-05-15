@@ -1,0 +1,9 @@
+# MySQL Server Configuration
+mysql.server=mysql.cwrdiversity.org
+mysql.port=3306
+mysql.user=cwruserdb
+mysql.password=#@cwrDiv3rSI7Y_
+mysql.database=gapanalysis
+
+# Excel file
+excel.filename=H:/HECTOR/DropBox/Dropbox/CWR website/raw_UBC_Helianthus_2_ff.xlsx
