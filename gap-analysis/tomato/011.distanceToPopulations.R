@@ -9,7 +9,7 @@ setOptions(overwrite=T)
 #spID <- "Phaseolus_acutifolius"
 
 populationDistance <- function(bdir, spID) {
-	idir <- paste(bdir, "/maxent_modelling", sep="")
+	idir <- paste(bdir, "/maxent_modeling", sep="")
 	odir <- paste(bdir, "/samples_calculations", sep="")
 	spOutFolder <- paste(odir, "/", spID, sep="")
 	
@@ -30,7 +30,7 @@ populationDistance <- function(bdir, spID) {
 }
 
 summarizeDistances <- function(bdir) {
-	spList <- list.files(paste(bdir, "/maxent_modelling/occurrence_files", sep=""))
+	spList <- list.files(paste(bdir, "/maxent_modeling/occurrence_files", sep=""))
 	sppC <- 1
 	
 	for (spp in spList) {

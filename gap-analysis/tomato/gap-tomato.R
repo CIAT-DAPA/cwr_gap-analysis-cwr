@@ -65,6 +65,10 @@ x <- summarizeASD15(idir=paste(crop_dir,"/maxent_modeling",sep=""))
 source(paste(src.dir,"/008.sizeDR.R",sep=""))
 x <- summarizeDR(crop_dir)
 
+#== calculate environmental distance of distributional range ==#
+source(paste(src.dir,"/009.edistDR.R",sep=""))
+x <- summarizeDR(crop_dir)
+
 #select which taxa are of use for species richness
 #get the following modelling metrics:
 # a. 25-fold average test AUC (ATAUC)
@@ -127,7 +131,7 @@ table_base$ERTS <- NA; table_base$FPS <- NA; table_base$FPCAT <- NA
 samples <- read.csv(paste(crop_dir,"/sample_counts/sample_count_table.csv",sep=""))
 model_met <- read.csv(paste(crop_dir,"/maxent_modeling/summary-files/taxaForRichness.csv",sep=""))
 rsize <- read.csv(paste(crop_dir,"/maxent_modeling/summary-files/areas.csv",sep=""))
-#edist <- read.csv(paste(crop_dir,"/maxent_modeling/summary-files/edist.csv",sep=""))
+edist <- read.csv(paste(crop_dir,"/maxent_modeling/summary-files/edist.csv",sep=""))
 
 #== read principal components weights and scale them to match 1 ==#
 #!!!!!!
@@ -230,16 +234,15 @@ if (!file.exists(paste(crop_dir,"/priorities",sep=""))) {
 }
 write.csv(table_base,paste(crop_dir,"/priorities/priorities.csv",sep=""),row.names=F,quote=F)
 
-#sub-select hps
+#== sub-select hps ==#
 table_hps <- table_base[which(table_base$FPCAT=="HPS"),]
 write.csv(table_hps,paste(crop_dir,"/priorities/hps.csv",sep=""),row.names=F,quote=F)
 
-
-#calculate distance to populations
+#== calculate distance to populations ==#
 source(paste(src.dir,"/011.distanceToPopulations.R",sep=""))
 summarizeDistances(crop_dir)
 
-#calculate final gap richness
+#== calculate final gap richness ==#
 source(paste(src.dir,"/012.gapRichness.R",sep=""))
 x <- gapRichness(crop_dir)
 

@@ -10,7 +10,7 @@ source(paste(src.dir,"/000.bufferPoints.R",sep=""))
 #For HPTs with invalid models use the Hsamples buffer, if hsamples do not exist 
 
 gapRichness <- function(bdir) {
-	idir <- paste(bdir, "/maxent_modelling", sep="")
+	idir <- paste(bdir, "/maxent_modeling", sep="")
 	ddir <- paste(bdir, "/samples_calculations", sep="")
 	
 	outFolder <- paste(bdir, "/gap_richness", sep="")
@@ -24,7 +24,7 @@ gapRichness <- function(bdir) {
 	cat("\n")
 	cat("Processing", nrow(spList), "HP Taxa \n")
 	
-	allOcc <- read.csv(paste(bdir, "/occurrences/lathyrus.csv", sep=""))
+	allOcc <- read.csv(paste(bdir, "/occurrences/tomato.csv", sep=""))
 	
 	sppC <- 1
 	rcount <- 1

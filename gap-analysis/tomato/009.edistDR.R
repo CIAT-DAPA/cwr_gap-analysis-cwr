@@ -13,9 +13,9 @@ source(paste(src.dir,"/000.bufferPoints.R",sep=""))
 
 edistDR <- function(bdir, spID) {
 	
-	idir <- paste(bdir, "/maxent_modelling", sep="")
+	idir <- paste(bdir, "/maxent_modeling", sep="")
 	ddir <- paste(bdir, "/samples_calculations", sep="")
-	pcdir <- paste(bdir, "/maxent_modelling/climate_data/pca_result_reclass", sep="")
+	pcdir <- paste(bdir, "/maxent_modeling/climate_data/pca_result_reclass", sep="")
 	
 	#Creating the directories
 	if (!file.exists(ddir)) {
@@ -159,18 +159,18 @@ summarizeDR <- function(idir) {
 	
 	ddir <- paste(idir, "/samples_calculations", sep="")
 	
-	odir <- paste(idir, "/maxent_modelling/summary-files", sep="")
+	odir <- paste(idir, "/maxent_modeling/summary-files", sep="")
 	if (!file.exists(odir)) {
 		dir.create(odir)
 	}
 	
-	spList <- list.files(paste(idir, "/maxent_modelling/occurrence_files", sep=""))
+	spList <- list.files(paste(idir, "/maxent_modeling/occurrence_files", sep=""))
 	
 	sppC <- 1
 	for (spp in spList) {
 		spp <- unlist(strsplit(spp, ".", fixed=T))[1]
 		fdName <- spp #paste("sp-", spp, sep="")
-		spFolder <- paste(idir, "/maxent_modelling/models/", fdName, sep="")
+		spFolder <- paste(idir, "/maxent_modeling/models/", fdName, sep="")
 		spOutFolder <- paste(ddir, "/", spp, sep="")
 		
 		if (file.exists(spFolder)) {
