@@ -34,8 +34,7 @@ public class ExcelFileManager {
 		ArrayList<String> columns = new ArrayList<>();
 		// add all column names to an array.
 		for (int c = 0; c < rowNumber; c++) {
-			columns.add(row.getCell(c).getStringCellValue());
-			System.out.println(columns.get(c));
+			columns.add(row.getCell(c).getStringCellValue());			
 		}
 
 		return columns;
