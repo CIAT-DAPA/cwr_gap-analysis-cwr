@@ -2,23 +2,19 @@ package upload;
 
 import io.ExcelFileManager;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.hssf.usermodel.examples.RepeatingRowsAndColumns;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
+
+import validate.ExcelValidator;
 
 import config.PropertiesManager;
 import dao.MySQLDAOManager;
@@ -29,6 +25,10 @@ public class Excel {
 	private ExcelFileManager fileManager;
 	private MySQLDAOManager daoManager;
 
+	public MySQLDAOManager getDaoManager() {
+		return this.daoManager;
+	}
+
 	public Excel() throws InvalidFormatException, IOException,
 			ClassNotFoundException, SQLException {
 		this.propManager = new PropertiesManager();
@@ -38,7 +38,7 @@ public class Excel {
 
 	public String generateQuery(Map<String, Cell> columnValues) {
 		StringBuilder query = new StringBuilder();
-		query.append("INSERT INTO raw_occurrences_temp (");
+		query.append("INSERT INTO raw_occurrences (");
 
 		boolean isFirstColumn = true;
 		for (String column : columnValues.keySet()) {
@@ -82,10 +82,10 @@ public class Excel {
 
 		Row row = sheet.getRow(rowNumber);
 		Map<String, Cell> columnValues = new LinkedHashMap<String, Cell>();
-		Cell cell;
 		for (int colNum = 0; colNum < columns.size(); colNum++) {
-			cell = row.getCell(colNum);
-			if (cell != null) {
+			Cell cell = row.getCell(colNum);
+			if (cell != null && !cell.toString().equals("")) {
+				// System.out.println(cell);
 				columnValues.put(columns.get(colNum), cell);
 			}
 		}
@@ -100,19 +100,29 @@ public class Excel {
 	public static void main(String[] args) throws InvalidFormatException,
 			ClassNotFoundException, IOException, SQLException {
 
-		Excel excelUpload = new Excel();
+		ExcelValidator validator = new ExcelValidator();
+		if (validator.validate()) {
 
-		Workbook workbook = excelUpload.getFileManager().getWorkBook();
-		Sheet sheet = workbook.getSheetAt(0);
+			Excel excelUpload = new Excel();
 
-		Map<String, Cell> columnValues;
-		Row row;
-		String query;
-		for (int rowNum = 1; rowNum < sheet.getLastRowNum(); rowNum++) {
-			row = sheet.getRow(rowNum);
-			columnValues = excelUpload.identifyColumnsWithValues(sheet, 2);
-			query = excelUpload.generateQuery(columnValues);
-			System.out.println(rowNum + " - " + query);
+			Workbook workbook = excelUpload.getFileManager().getWorkBook();
+			Sheet sheet = workbook.getSheetAt(0);
+
+			Map<String, Cell> columnValues;
+			Row row;
+			String query;
+			int num = 0;
+			for (int rowNum = 1; rowNum < sheet.getLastRowNum(); rowNum++) {
+				row = sheet.getRow(rowNum);
+				columnValues = excelUpload.identifyColumnsWithValues(sheet,
+						rowNum);
+				query = excelUpload.generateQuery(columnValues);
+				System.out.println(rowNum + " - " + query);
+				num += excelUpload.getDaoManager().insertQuery(query);
+
+			}
+
+			System.out.println("\nTOTAL inserted values: " + num);
 		}
 
 	}

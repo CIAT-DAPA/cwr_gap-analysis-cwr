@@ -1,7 +1,6 @@
 package dao;
 
 import java.sql.Connection;
-import java.sql.Driver;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -33,11 +32,18 @@ public class MySQLDAOManager {
 		
 		// recorriendo todo el resultado.
 		while(rs.next()) {
-			columns.add(rs.getString(1));			
+			columns.add(rs.getString(1).toLowerCase());			
 		}
 		
 		return columns;
 		
+	}
+	
+	public int insertQuery(String query) throws SQLException {
+		Statement stm = connection.createStatement();
+		int affectedRows = stm.executeUpdate(query);
+		stm.close();
+		return affectedRows;
 	}
 
 }

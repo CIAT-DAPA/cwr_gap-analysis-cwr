@@ -36,9 +36,9 @@ public class ExcelValidator {
 		String excelColumnName;
 		for (int c = 0; c < excelColumns.size(); c++) {
 			excelColumnName = excelColumns.get(c);
-			if (mysqlColumns.contains(excelColumnName)) {
+			if (mysqlColumns.contains(excelColumnName.toLowerCase())) {
 				System.out.println(excelColumnName + " --> valid");
-				mysqlColumns.remove(mysqlColumns.indexOf(excelColumnName));
+				mysqlColumns.remove(mysqlColumns.indexOf(excelColumnName.toLowerCase()));
 			} else {
 				isValid = false;
 				System.out.println(">> Problem whit column " + excelColumnName);
