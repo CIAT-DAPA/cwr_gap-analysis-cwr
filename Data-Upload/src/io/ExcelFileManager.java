@@ -23,7 +23,16 @@ public class ExcelFileManager {
 				propManager.getProperty("excel.filename"));
 		this.workBook = WorkbookFactory.create(inp);
 	}
+	
+	public Workbook getWorkBook() {
+		return this.workBook;
+	}
 
+	/**
+	 * 
+	 * @param ignoreExtraColumns - ExtraColumns refers all those which are after the column named 'z' (included). 
+	 * @return a list of column names.
+	 */
 	public ArrayList<String> getColumns(boolean ignoreExtraColumns) {
 
 		// get first sheet.
@@ -31,10 +40,19 @@ public class ExcelFileManager {
 		// get first row which must have all the column names.
 		Row row = sheet.getRow(sheet.getFirstRowNum());
 		int rowNumber = row.getLastCellNum();
+		
+		boolean stopFlag = false;
+		
 		ArrayList<String> columns = new ArrayList<>();
 		// add all column names to an array.
 		for (int c = 0; c < rowNumber; c++) {
-			columns.add(row.getCell(c).getStringCellValue());			
+			if(ignoreExtraColumns && stopFlag) {
+				c = rowNumber;
+			} else if(ignoreExtraColumns && row.getCell(c).getStringCellValue().equalsIgnoreCase("z")) {
+					stopFlag = true;				
+			} else {
+				columns.add(row.getCell(c).getStringCellValue());			
+			}
 		}
 
 		return columns;

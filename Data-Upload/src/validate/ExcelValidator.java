@@ -12,32 +12,54 @@ import dao.MySQLDAOManager;
 import io.ExcelFileManager;
 
 public class ExcelValidator {
-	
-	public static void main(String[] args) throws InvalidFormatException, IOException, ClassNotFoundException, SQLException {
-		PropertiesManager propManager = new PropertiesManager();
-		ExcelFileManager fileManager = new ExcelFileManager(propManager);
-		ArrayList<String> excelColumns = fileManager.getColumns(false);
-		
-		String name;
-		boolean startDeleting = false;
-		for(Iterator<String> i = excelColumns.iterator(); i.hasNext(); ) {
-			name = i.next();
-			if(startDeleting) {
-				i.remove();
-			} else if(name.equals("z")) {
-				i.remove();
+
+	private PropertiesManager propManager;
+	private ExcelFileManager fileManager;
+	private MySQLDAOManager daoManager;
+
+	public ExcelValidator() throws InvalidFormatException, IOException,
+			ClassNotFoundException, SQLException {
+		this.propManager = new PropertiesManager();
+		System.out.println("Reading EXCEL file.....");
+		this.fileManager = new ExcelFileManager(propManager);
+		System.out.println("Reading MYSQL Database.....");
+		this.daoManager = new MySQLDAOManager(propManager);
+	}
+
+	public boolean validate() throws SQLException {		
+		ArrayList<String> excelColumns = fileManager.getColumns(true);
+		ArrayList<String> mysqlColumns = daoManager.getColumns();
+
+		System.out.println("\n----- Start validation process -----");
+		// validation process.
+		boolean isValid = true;
+		String excelColumnName;
+		for (int c = 0; c < excelColumns.size(); c++) {
+			excelColumnName = excelColumns.get(c);
+			if (mysqlColumns.contains(excelColumnName)) {
+				System.out.println(excelColumnName + " --> valid");
+				mysqlColumns.remove(mysqlColumns.indexOf(excelColumnName));
+			} else {
+				isValid = false;
+				System.out.println(">> Problem whit column " + excelColumnName);
 			}
 		}
-		
-		for(String s : excelColumns) {
-			System.out.println(s);
+
+		if (!isValid) {
+			System.out.println("\nThe file is not valid!");
+			return false;
+		} else {
+			System.out.println("\nThe file is valid");
+			return true;
 		}
-		
-		
-		//MySQLDAOManager mysqlManager = new MySQLDAOManager(propManager);
-		//ArrayList<String> mysqlColumns = mysqlManager.getColumns();
-		
-		
 	}
-	
+
+	public static void main(String[] args) throws InvalidFormatException,
+			IOException, ClassNotFoundException, SQLException {
+
+		ExcelValidator validator = new ExcelValidator();
+		validator.validate();
+
+	}
+
 }
