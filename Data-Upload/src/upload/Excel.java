@@ -8,11 +8,19 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import org.apache.poi.hssf.model.HSSFFormulaParser;
+import org.apache.poi.hssf.usermodel.HSSFCellStyle;
+import org.apache.poi.hssf.usermodel.HSSFDateUtil;
+import org.apache.poi.hssf.usermodel.HSSFFormulaEvaluator;
+import org.apache.poi.hssf.util.HSSFCellUtil;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.FormulaEvaluator;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
+
+import com.mysql.jdbc.StringUtils;
 
 import validate.ExcelValidator;
 
@@ -53,6 +61,7 @@ public class Excel {
 
 		Cell cell = null;
 		isFirstColumn = true;
+		FormulaEvaluator evaluator = fileManager.getWorkBook().getCreationHelper().createFormulaEvaluator();
 		for (String column : columnValues.keySet()) {
 			if (isFirstColumn) {
 				isFirstColumn = false;
@@ -60,14 +69,23 @@ public class Excel {
 				query.append(", ");
 			}
 			cell = columnValues.get(column);
-			if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
-				query.append("'" + cell + "'");
-			} else {
+			if(cell.getCellType() == Cell.CELL_TYPE_NUMERIC) {
+				String tmp1 = evaluator.evaluate(cell).toString();
 				if (("" + cell.toString()).endsWith(".0")) {
 					query.append((int) cell.getNumericCellValue());
+				} else if (HSSFDateUtil.isCellDateFormatted(cell)) {
+					query.append("'"+cell.toString()+"'");
 				} else {
 					query.append(cell.toString());
+				}				
+			} else if(cell.getCellType() == Cell.CELL_TYPE_FORMULA){
+				if(evaluator.evaluateFormulaCell(cell) == Cell.CELL_TYPE_NUMERIC) {
+					query.append(cell.getNumericCellValue());
+				} else if(evaluator.evaluateFormulaCell(cell) == Cell.CELL_TYPE_STRING) {
+					query.append("'" + cell.getStringCellValue().replace("'", "\\'") + "'");
 				}
+			} else {
+				query.append("'" + cell.getStringCellValue().replace("'", "\\'") + "'");				
 			}
 		}
 		query.append(")");
@@ -112,7 +130,7 @@ public class Excel {
 			Row row;
 			String query;
 			int num = 0;
-			for (int rowNum = 1; rowNum < sheet.getLastRowNum(); rowNum++) {
+			for (int rowNum = 1; rowNum <= sheet.getLastRowNum(); rowNum++) {
 				row = sheet.getRow(rowNum);
 				columnValues = excelUpload.identifyColumnsWithValues(sheet,
 						rowNum);
