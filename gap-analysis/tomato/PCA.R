@@ -4,11 +4,11 @@ rm(list=ls()); g=gc(); rm(g)
 require(raster)
 require(stats)
 #wd <- "C:/Users/ncp148/Documents/CPP_CWR/_collaboration/_fontagro/inputs/bio_2_5m_fontagro/"
-wd <- "G:/ncastaneda/gap-analysis-tomato/inputs/bio_2_5m_fontagro"
+wd <- "G:/ncastaneda/clim/bio_2-5m_esri"
 setwd(wd)
 
-#stk <- stack(paste("bio_",1:19,sep=""))
-stk <- stack(paste("bio_",1:21,sep=""))
+stk <- stack(paste("bio_",1:19,sep=""))
+#stk <- stack(paste("bio_",1:21,sep=""))
 rs <- stk[[1]]
 # verify integrity of bios
 plot(stk)
@@ -17,15 +17,15 @@ xy <- xyFromCell(rs,which(!is.na(rs[])))
 xy <- as.data.frame(xy)
 
 #extract the data
-#for (i in 1:19) {
-for (i in 1:21) {
+for (i in 1:19) {
+#for (i in 1:21) {
   cat("Extract",i,"\n")
   xy$NEW <- extract(stk[[i]],data.frame(X=xy$x,Y=xy$y))
   names(xy)[i+2] <- paste("bio_",i,sep="")
 }
 
-#biovars <- xy[,3:21]
-biovars <- xy[,3:23]
+biovars <- xy[,3:21]
+#biovars <- xy[,3:23]
 write.csv(biovars,"./../biovars_pca.csv",quote=F,row.names=F)
 
 #standardise
@@ -55,8 +55,8 @@ write.csv(xs$importance,"./../pca_result_raw/pca_importance.csv",quote=F,row.nam
 #reclassify components
 dir.create("./../pca_result_reclass")
 
-#for (i in 1:19) {
-for (i in 1:21) {
+for (i in 1:19) {
+#for (i in 1:21) {
   cat("\nVariable",i,"\n")
   rs <- raster(paste("./../pca_result_raw/pc_",i,".asc",sep=""))
   rs_res <- rs

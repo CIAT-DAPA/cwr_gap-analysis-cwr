@@ -155,7 +155,7 @@ edistDR <- function(bdir, spID) {
 }
 
 
-summarizeDR <- function(idir) {
+summarizeDR_env <- function(idir) {
 	
 	ddir <- paste(idir, "/samples_calculations", sep="")
 	

@@ -18,7 +18,8 @@ source(paste(src.dir,"/001.extractClimates.R",sep=""))
 
 occ_dir <- paste(crop_dir,"/occurrences",sep="")
 #set climate dir
-cli_dir <- "G:/ncastaneda/clim/bio_2-5m_esri"
+#cli_dir <- "G:/ncastaneda/clim/bio_2-5m_esri"
+cli_dir <- "./maxent_modeling/climate_data/esri_grid"
 swd_dir <- paste(crop_dir,"/swd",sep="")
 if (!file.exists(swd_dir)) {dir.create(swd_dir)}
 
@@ -51,7 +52,7 @@ for (f in fList) {
 #== perform the maxent modelling in parallel ==#
 source(paste(src.dir,"/005.modelingApproach.R",sep=""))
 #source(paste(src.dir,"/_005.modelingApproach_original.R",sep=""))
-GapProcess(inputDir=paste(crop_dir,"/maxent_modeling",sep=""), OSys="NT", ncpu=3)
+GapProcess(inputDir=paste(crop_dir,"/maxent_modeling",sep=""), OSys="NT", ncpu=4)
 
 #== summarise the metrics ==#
 source(paste(src.dir,"/006.summarizeMetricsThresholds.R",sep=""))
@@ -62,12 +63,17 @@ source(paste(src.dir,"/007.calcASD15.R",sep=""))
 x <- summarizeASD15(idir=paste(crop_dir,"/maxent_modeling",sep=""))
 
 #== calculate size of distributional range ==#
+#Create cell area file
+  rs <- paste(crop_dir, "/maxent_modeling/masks/mask.asc", sep="")
+  rs_a <- area(rs)
+  writeRaster(rs_a,paste(crop_dir, "/maxent_modeling/masks/cellArea.asc",sep=""),format="ascii",overwrite="TRUE")
+
 source(paste(src.dir,"/008.sizeDR.R",sep=""))
 x <- summarizeDR(crop_dir)
 
 #== calculate environmental distance of distributional range ==#
 source(paste(src.dir,"/009.edistDR.R",sep=""))
-x <- summarizeDR(crop_dir)
+x <- summarizeDR_env(crop_dir)
 
 #select which taxa are of use for species richness
 #get the following modelling metrics:

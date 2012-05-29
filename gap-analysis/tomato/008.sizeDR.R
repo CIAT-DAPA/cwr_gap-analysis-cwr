@@ -23,7 +23,7 @@ sizeDR <- function(bdir, spID) {
 		dir.create(spOutFolder)
 	}
 	
-	#Read the thresholded raster (PA), multiply it by the area raster and sum up those cells that are != 0
+  #Read the thresholded raster (PA), multiply it by the area raster and sum up those cells that are != 0
 	cat("Taxon", spID, "\n")
 	spFolder <- paste(idir, "/models/", spID, sep="")
 	projFolder <- paste(spFolder, "/projections", sep="")
