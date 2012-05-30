@@ -1,4 +1,5 @@
 # Extract climate to genepool area (Tomato)
+# Python code for ArcGis10
 
 # Name: ExtractByMask_Ex_02.py
 # Description: Extracts the cells of a raster that correspond with the areas

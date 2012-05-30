@@ -63,7 +63,7 @@ theEntireProcess <- function(spID, OSys, inputDir) {
   spDir <- paste(mxe_out,"/",spID,sep="")
   
   verFile <- paste(spDir, "/ps-", spID, ".run", sep="")
-	
+  
 	OSys <- tolower(OSys)
 	
 	if (!file.exists(verFile)) {
@@ -141,6 +141,7 @@ theEntireProcess <- function(spID, OSys, inputDir) {
 				
 				if (procSwitch) {
 					out <- getMetrics(paste(outFolder, "/crossval", sep=""), paste(spID), 25, paste(outFolder, "/metrics", sep=""))
+          #out <- getMetrics(paste(outFolder, "/crossval", sep=""), paste(spID), 2, paste(outFolder, "/metrics", sep=""))
 					
 					#Read the thresholds file
 					threshFile <- paste(outFolder, "/metrics/thresholds.csv", sep="")
@@ -194,6 +195,7 @@ theEntireProcess <- function(spID, OSys, inputDir) {
 						fun <- function(x) { sd(x) }
 						distMean <- mean(stack(otList))
 						distMean <- writeRaster(distMean, paste(outFolder, "/projections/", spID, "_", suffix, "_EMN.asc", sep=""), format="ascii", overwrite=T)
+            #distMean <- writeRaster(distMean, paste(outFolder, "/projections/", spID, "_", suffix, "_EMN.asc", sep=""), overwrite=T)
 						cat("Calculating and writing std \n")
 						distStdv <- calc(stack(otList), fun)
 						distStdv <- writeRaster(distStdv, paste(outFolder, "/projections/", spID, "_", suffix, "_ESD.asc", sep=""), overwrite=T)
@@ -235,10 +237,14 @@ theEntireProcess <- function(spID, OSys, inputDir) {
 						
 						#Writing these rasters
 						
-						distMeanPA <- writeRaster(distMeanPA, paste(outFolder, "/projections/", spID, "_", suffix, "_EMN_PA.asc", sep=""), format='ascii', overwrite=T)
-						distMeanPR <- writeRaster(distMeanPR, paste(outFolder, "/projections/", spID, "_", suffix, "_EMN_PR.asc", sep=""), format='ascii', overwrite=T)
-						distStdvPR <- writeRaster(distStdvPR, paste(outFolder, "/projections/", spID, "_", suffix, "_ESD_PR.asc", sep=""), format='ascii', overwrite=T)
+						#distMeanPA <- writeRaster(distMeanPA, paste(outFolder, "/projections/", spID, "_", suffix, "_EMN_PA.asc", sep=""), format='ascii', overwrite=T)
+						#distMeanPR <- writeRaster(distMeanPR, paste(outFolder, "/projections/", spID, "_", suffix, "_EMN_PR.asc", sep=""), format='ascii', overwrite=T)
+						#distStdvPR <- writeRaster(distStdvPR, paste(outFolder, "/projections/", spID, "_", suffix, "_ESD_PR.asc", sep=""), format='ascii', overwrite=T)
 						
+            distMeanPA <- writeRaster(distMeanPA, paste(outFolder, "/projections/", spID, "_", suffix, "_EMN_PA.asc", sep=""), overwrite=T)
+  					distMeanPR <- writeRaster(distMeanPR, paste(outFolder, "/projections/", spID, "_", suffix, "_EMN_PR.asc", sep=""), overwrite=T)
+						distStdvPR <- writeRaster(distStdvPR, paste(outFolder, "/projections/", spID, "_", suffix, "_ESD_PR.asc", sep=""), overwrite=T)
+	
 						prjCount <- prjCount + 1
 					}
 					
@@ -319,6 +325,7 @@ GapProcess <- function(inputDir, OSys="LINUX", ncpu) {
     library(raster)
     library(SDMTools)
     sp <- spList[i]
+    #sp <- spList[1]
 		sp <- unlist(strsplit(sp, ".", fixed=T))[1]
 		cat("\n")
 		cat("...Species", sp, "\n")
