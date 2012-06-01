@@ -116,7 +116,7 @@ theEntireProcess <- function(spID, OSys, inputDir) {
 				
 				cat("Crossvalidating the model... \n")
         if (!file.exists(paste(outFolder,"/crossval/",spID,".html",sep=""))) {
-				  system(paste("java", "-mx512m", "-jar", maxentApp, "-s", outFileName, "-e", backFileSwd, "-o", paste(outFolder, "/crossval", sep=""), "-P", "replicates=25", "replicatetype=crossvalidate", "nowarnings", "-a", "-z"), wait=TRUE)
+				  system(paste("java", "-mx8192m", "-jar", maxentApp, "-s", outFileName, "-e", backFileSwd, "-o", paste(outFolder, "/crossval", sep=""), "-P", "replicates=25", "replicatetype=crossvalidate", "nowarnings", "-a", "-z"), wait=TRUE)
         }
 				
 				if (file.exists(paste(outFolder, "/crossval/", spID,".html", sep=""))) {
@@ -171,7 +171,7 @@ theEntireProcess <- function(spID, OSys, inputDir) {
 							outGrid <- paste(outFolder, "/projections/", spID, "_", suffix, "_f", fd, sep="")
 							lambdaFile <- paste(outFolder, "/crossval/", spID, "_", fdID, ".lambdas", sep="")
               if (!file.exists(paste(outGrid,".asc",sep=""))) {
-							  system(paste("java", "-mx512m", "-cp", maxentApp, "density.Project", lambdaFile, projLayers, outGrid, "nowarnings", "fadebyclamping", "-r", "-a", "-z"), wait=TRUE)
+							  system(paste("java", "-mx8192m", "-cp", maxentApp, "density.Project", lambdaFile, projLayers, outGrid, "nowarnings", "fadebyclamping", "-r", "-a", "-z"), wait=TRUE)
               }
 							if (file.exists(paste(outGrid, ".asc", sep=""))) {
 								cat("Projection is OK!", "\n")
@@ -193,7 +193,8 @@ theEntireProcess <- function(spID, OSys, inputDir) {
 						cat("Calculating and writing mean probability raster \n")
 						fun <- function(x) { sd(x) }
 						distMean <- mean(stack(otList))
-						distMean <- writeRaster(distMean, paste(outFolder, "/projections/", spID, "_", suffix, "_EMN.asc", sep=""), format="ascii", overwrite=T)
+						#distMean <- writeRaster(distMean, paste(outFolder, "/projections/", spID, "_", suffix, "_EMN.asc", sep=""), format="ascii", overwrite=T)
+            distMean <- writeRaster(distMean, paste(outFolder, "/projections/", spID, "_", suffix, "_EMN.asc", sep=""), overwrite=T)
 						cat("Calculating and writing std \n")
 						distStdv <- calc(stack(otList), fun)
 						distStdv <- writeRaster(distStdv, paste(outFolder, "/projections/", spID, "_", suffix, "_ESD.asc", sep=""), overwrite=T)

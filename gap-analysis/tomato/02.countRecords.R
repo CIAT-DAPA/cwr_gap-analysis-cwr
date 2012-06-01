@@ -3,7 +3,8 @@
 stop("")
 
 # Define workspace
-wd <- "C:/Users/ncp148/Documents/CPP_CWR/_collaboration/_fontagro/gap_tomato"
+#wd <- "C:/Users/ncp148/Documents/CPP_CWR/_collaboration/_fontagro/gap_tomato"
+wd <- "G:/ncastaneda/gap-analysis-tomato/gap_tomato"
 setwd(wd)
 
 #read occurrences

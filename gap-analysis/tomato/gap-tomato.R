@@ -63,6 +63,7 @@ source(paste(src.dir,"/007.calcASD15.R",sep=""))
 x <- summarizeASD15(idir=paste(crop_dir,"/maxent_modeling",sep=""))
 
 #== calculate size of distributional range ==#
+
 #Create cell area file
   rs <- paste(crop_dir, "/maxent_modeling/masks/mask.asc", sep="")
   rs_a <- area(rs)
