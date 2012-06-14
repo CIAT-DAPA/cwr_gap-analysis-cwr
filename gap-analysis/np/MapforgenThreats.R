@@ -58,7 +58,7 @@ for (sp in spList){
   for (t in tList){
     tr <- raster(paste(tdir,"/",t,sep=""))
     # Preparing layers for analysis
-    y <- intersectExtent(spr, tr)
+    y <- intersectExtent(spr, tr, validate = TRUE)
     spr <- crop(spr, y)
     tr <- crop(tr, y)
     spr <- resample(spr,tr,method="ngb")
