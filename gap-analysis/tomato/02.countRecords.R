@@ -62,29 +62,29 @@ lims <- c(min(sampAll$TOTAL,sampAll$GNUM),max(sampAll$TOTAL))
 tiff("./figures/genebank_vs_total.tif",
          res=300,pointsize=8, width=1000,height=1000,units="px",compression="lzw")
 par(mar=c(5,5,1,1),cex=0.8)
-plot(sampAll$TOTAL,sampAll$GNUM,pch=20, col="red",cex=1,xlim=lims,ylim=c(0,800),
-     xlab="Total de muestras",
-     ylab="Número de accesiones de germoplasma")
+plot(sampAll$TOTAL,sampAll$GNUM,pch=20, col="red",cex=1,xlim=lims,ylim=lims,
+     xlab="Total samples",
+     ylab="Germplasm accessions")
 abline(0,1,lwd=0.75,lty=2)
 #abline(h=500,lwd=0.75,lty=1,col="red")
 #abline(h=100,lwd=0.75,lty=2,col="red")
 lines(sampAll$TOTAL,fit$fitted.values)
 grid(lwd=0.75)
-text(sampAll$TOTAL[which(sampAll$TAXON=="Solanum_ochranthum")]+60,
-    sampAll$GNUM[which(sampAll$TAXON=="Solanum_ochranthum")]+10,
-   "S. ochrantum",cex=0.65)
-text(sampAll$TOTAL[which(sampAll$TAXON=="Solanum_habrochaites")]+80,
-     sampAll$GNUM[which(sampAll$TAXON=="Solanum_habrochaites")],
-     "S. habrochaites",cex=0.65)
-text(sampAll$TOTAL[which(sampAll$TAXON=="Solanum_juglandifolium")]+80,
-     sampAll$GNUM[which(sampAll$TAXON=="Solanum_juglandifolium")],
-     "S. juglandifolium",cex=0.65)
-text(sampAll$TOTAL[which(sampAll$TAXON=="Solanum_corneliomulleri")]+80,
-     sampAll$GNUM[which(sampAll$TAXON=="Solanum_corneliomulleri")],
-     "S. corneliomulleri",cex=0.65)
-text(sampAll$TOTAL[which(sampAll$TAXON=="Solanum_cheesmaniae")]+50,
-     sampAll$GNUM[which(sampAll$TAXON=="Solanum_cheesmaniae")]-10,
-     "S. cheesmaniae",cex=0.65)
+text(sampAll$TOTAL[which(sampAll$TAXON=="Musa_acuminata_banksii")]-5,
+     sampAll$GNUM[which(sampAll$TAXON=="Musa_acuminata_banksii")]-1,
+     "M. acuminata banksii",cex=0.55, font=3)
+text(sampAll$TOTAL[which(sampAll$TAXON=="Musa_textilis")],
+     sampAll$GNUM[which(sampAll$TAXON=="Musa_textilis")]+2,
+     "M. textilis",cex=0.55, font=3)
+text(sampAll$TOTAL[which(sampAll$TAXON=="Musa_schizocarpa")],
+     sampAll$GNUM[which(sampAll$TAXON=="Musa_schizocarpa")]+2,
+     "M. schizocarpa",cex=0.55, font=3)
+text(sampAll$TOTAL[which(sampAll$TAXON=="Musa_acuminata_malaccensis")],
+     sampAll$GNUM[which(sampAll$TAXON=="Musa_acuminata_malaccensis")]+2,
+	"M. acuminata malaccensis",cex=0.55, font=3)
+text(sampAll$TOTAL[which(sampAll$TAXON=="Musa_acuminata_siamea")],
+     sampAll$GNUM[which(sampAll$TAXON=="Musa_acuminata_siamea")]+2,
+	"M. acuminata siamea",cex=0.55, font=3)
 
 dev.off()
 
