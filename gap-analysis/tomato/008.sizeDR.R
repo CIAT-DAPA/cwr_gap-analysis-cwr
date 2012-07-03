@@ -92,7 +92,7 @@ sizeDR <- function(bdir, spID) {
 	}
 	
 	#Load all occurrences
-  allOcc <- read.csv(paste(bdir, "/occurrences/tomato.csv", sep=""))
+  allOcc <- read.csv(paste(bdir, "/occurrences/",crop,".csv", sep=""))
 	allOcc <- allOcc[which(allOcc$Taxon == spID),]
 	
 	#Size of the herbarium samples CA50
