@@ -24,7 +24,7 @@ gapRichness <- function(bdir) {
 	cat("\n")
 	cat("Processing", nrow(spList), "HP Taxa \n")
 	
-	allOcc <- read.csv(paste(bdir, "/occurrences/tomato.csv", sep=""))
+	allOcc <- read.csv(paste(bdir, "/occurrences/",crop,".csv", sep=""))
 	
 	sppC <- 1
 	rcount <- 1
