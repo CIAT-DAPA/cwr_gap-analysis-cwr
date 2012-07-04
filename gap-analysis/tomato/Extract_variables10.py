@@ -26,7 +26,7 @@ inMaskData = "C:\\Users\\ncp148\\Documents\\CPP_CWR\\_collaboration\\_fontagro\\
 arcpy.CheckOutExtension("Spatial")
 
 # Get a list of ESRI GRIDs from the workspace and print
-rasterList = arcpy.ListRasters("bio_4", "GRID")
+rasterList = arcpy.ListRasters("*", "GRID")
 for raster in rasterList:
 
     # Execute ExtractByMask

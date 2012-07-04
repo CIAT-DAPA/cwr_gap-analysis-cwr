@@ -50,9 +50,11 @@ createNARaster <- function(spID, inDir) {
 }
 
 #Loop the species
+crop_dir <- "C:/Users/ncp148/Documents/CPP_CWR/_collaboration/_may2012/gap-analysis/tomato"
 inDir <- paste(crop_dir,"/maxent_modeling",sep="")
 spID <- "Solanum_arcanum"
 spList <- list.files(paste(inDir, "/native-areas/polyshps", sep=""))
+src.dir <- "C:/Users/ncp148/Documents/CPP_CWR/_collaboration/_may2012/gap-analysis/code"
 
 for (spp in spList) {
 	ot <- createNARaster(spp, inDir)

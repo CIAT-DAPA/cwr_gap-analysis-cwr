@@ -4,18 +4,6 @@ stop("")
 
 library(raster); library(maptools); data(wrld_simpl)
 
-crop <- "tomato"
-# define workspace
-wd <- "G:/ncastaneda/gap-analysis-tomato/gap_tomato"
-setwd(wd)
-
-occ <- read.csv(paste("./occurrences/",crop,".csv",sep=""))
-h <- occ[which(occ$H==1),]
-g <- occ[which(occ$G==1),]
-
-write.csv(h,paste("./occurrences/",crop,"_h.csv",sep=""),quote=F,row.names=F)
-write.csv(g,paste("./occurrences/",crop,"_g.csv",sep=""),quote=F,row.names=F)
-
 ###sample counts map
 h_ras <- raster("./sample_counts/_count_h.asc")
 g_ras <- raster("./sample_counts/_count_g.asc")

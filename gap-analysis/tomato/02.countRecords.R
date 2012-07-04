@@ -70,6 +70,8 @@ abline(0,1,lwd=0.75,lty=2)
 #abline(h=100,lwd=0.75,lty=2,col="red")
 lines(sampAll$TOTAL,fit$fitted.values)
 grid(lwd=0.75)
+
+# NOTE: Personalize this according to the crop you're working with!
 text(sampAll$TOTAL[which(sampAll$TAXON=="Musa_acuminata_banksii")]-5,
      sampAll$GNUM[which(sampAll$TAXON=="Musa_acuminata_banksii")]-1,
      "M. acuminata banksii",cex=0.55, font=3)
