@@ -30,6 +30,6 @@ asci <- paste(clm_fldr,"/esri_ascii", sep="")
 for (i in 1:20) {  
   cat("Processing layer bio_",i,"\n")
   rs <- raster(paste(clm_g,"/bio_",i,sep=""))
-  rs <- extract(rs, ext)
+  rs <- crop(rs, ext)
   writeRaster(rs, paste(asci,"/bio_",i,".asc")) 
 }
