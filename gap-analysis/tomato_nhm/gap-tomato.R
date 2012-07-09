@@ -33,8 +33,8 @@ source(paste(src.dir,"/001.extractClimates.R",sep=""))
 
 occ_dir <- paste(crop_dir,"/occurrences",sep="")
 #set climate dir
-#cli_dir <- "G:/ncastaneda/clim/bio_2-5m_esri"
-cli_dir <- "./maxent_modeling/climate_data/esri_grid"
+cli_dir <- "G:/ncastaneda/clim/bio_30s_esri"
+#cli_dir <- "./maxent_modeling/climate_data/esri_grid"
 swd_dir <- paste(crop_dir,"/swd",sep="")
 if (!file.exists(swd_dir)) {dir.create(swd_dir)}
 
