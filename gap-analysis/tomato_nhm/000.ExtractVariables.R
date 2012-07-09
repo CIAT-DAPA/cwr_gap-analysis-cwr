@@ -31,5 +31,5 @@ for (i in 1:20) {
   cat("Processing layer bio_",i,"\n")
   rs <- raster(paste(clm_g,"/bio_",i,sep=""))
   rs <- crop(rs, ext)
-  writeRaster(rs, paste(asci,"/bio_",i,".asc")) 
+  writeRaster(rs, paste(asci,"/bio_",i,".asc",sep="")) 
 }
