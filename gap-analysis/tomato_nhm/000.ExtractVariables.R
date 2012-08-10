@@ -12,7 +12,7 @@ crop_dir <- paste("G:/ncastaneda/gap-analysis-",crop,"/gap_",crop,sep="")
 setwd(crop_dir)
 
 clm_g <- "G:/ncastaneda/clim/bio_30s_esri"
-ext <- (-110,-29,-56,14)
+ext <- extent(-110,-29,-56,14)
 
 # Creating folders
 if (!file.exists("./maxent_modeling")) {dir.create("./maxent_modeling")}

@@ -6,10 +6,10 @@
 stop("Warning: do not run the whole thing")
 
 #basic stuff - where is the code
-src.dir <- "G:/ncastaneda/code/tomato"
+src.dir <- "G:/ncastaneda/code/tomato_nhm"
 
 #crop details
-crop <- "musa"
+crop <- "tomato"
 crop_dir <- paste("G:/ncastaneda/gap-analysis-",crop,"/gap_",crop,sep="")
 setwd(crop_dir)
 
@@ -82,9 +82,10 @@ x <- summarizeASD15(idir=paste(crop_dir,"/maxent_modeling",sep=""))
 #== calculate size of distributional range ==#
 
 #Create cell area file
-  rs <- paste(crop_dir, "/maxent_modeling/masks/mask.asc", sep="")
-  rs_a <- area(rs)
-  writeRaster(rs_a,paste(crop_dir, "/maxent_modeling/masks/cellArea.asc",sep=""),format="ascii",overwrite="TRUE")
+rs <- paste(crop_dir, "/maxent_modeling/masks/mask.asc", sep="")
+rs_a <- area(rs)
+rs_a <- mask(rs_a,rs)
+writeRaster(rs_a,paste(crop_dir, "/maxent_modeling/masks/cellArea.asc",sep=""),overwrite="TRUE")
 
 source(paste(src.dir,"/008.sizeDR.R",sep=""))
 x <- summarizeDR(crop_dir)
