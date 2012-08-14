@@ -48,6 +48,8 @@ for (tax in taxNames) {
     sampAll <- rbind(sampAll,row_out)
   }
 }
+
+if (!file.exists("./sample_counts")) {dir.create("./sample_counts")}
 sampAll$TOTAL <- sampAll$HNUM+sampAll$GNUM
 write.csv(sampAll,"./sample_counts/sample_count_table.csv",row.names=F,quote=F)
 
@@ -72,15 +74,15 @@ lines(sampAll$TOTAL,fit$fitted.values)
 grid(lwd=0.75)
 
 # NOTE: Personalize this according to the crop you're working with!
-text(sampAll$TOTAL[which(sampAll$TAXON=="Musa_acuminata_banksii")]-5,
-     sampAll$GNUM[which(sampAll$TAXON=="Musa_acuminata_banksii")]-1,
-     "M. acuminata banksii",cex=0.55, font=3)
-text(sampAll$TOTAL[which(sampAll$TAXON=="Musa_textilis")],
-     sampAll$GNUM[which(sampAll$TAXON=="Musa_textilis")]+2,
-     "M. textilis",cex=0.55, font=3)
-text(sampAll$TOTAL[which(sampAll$TAXON=="Musa_schizocarpa")],
-     sampAll$GNUM[which(sampAll$TAXON=="Musa_schizocarpa")]+2,
-     "M. schizocarpa",cex=0.55, font=3)
+text(sampAll$TOTAL[which(sampAll$TAXON=="Solanum_pimpinellifolium")]-5,
+     sampAll$GNUM[which(sampAll$TAXON=="Solanum_pimpinellifolium")]-1,
+     "S. pimpinellifolium",cex=0.55, font=3)
+text(sampAll$TOTAL[which(sampAll$TAXON=="Solanum_peruvianum")],
+     sampAll$GNUM[which(sampAll$TAXON=="Solanum_peruvianum")]+2,
+     "S. peruvianum",cex=0.55, font=3)
+text(sampAll$TOTAL[which(sampAll$TAXON=="Solanum_chilense")],
+     sampAll$GNUM[which(sampAll$TAXON=="Solanum_chilense")]+2,
+     "S. chilense",cex=0.55, font=3)
 text(sampAll$TOTAL[which(sampAll$TAXON=="Musa_acuminata_malaccensis")],
      sampAll$GNUM[which(sampAll$TAXON=="Musa_acuminata_malaccensis")]+2,
 	"M. acuminata malaccensis",cex=0.55, font=3)
