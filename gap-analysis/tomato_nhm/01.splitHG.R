@@ -27,6 +27,8 @@ brks.lab <- round(brks,0)
 
 if (!file.exists("./figures")) {dir.create("./figures")}
 
+#h_ras <- trim(h_ras) # Test!
+#g_ras <- trim(g_ras)
 z <- extent(h_ras)
 aspect <- (z@ymax-z@ymin)*1.4/(z@xmax-z@xmin)
 

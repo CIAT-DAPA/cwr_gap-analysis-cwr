@@ -74,21 +74,18 @@ lines(sampAll$TOTAL,fit$fitted.values)
 grid(lwd=0.75)
 
 # NOTE: Personalize this according to the crop you're working with!
-text(sampAll$TOTAL[which(sampAll$TAXON=="Solanum_pimpinellifolium")]-5,
-     sampAll$GNUM[which(sampAll$TAXON=="Solanum_pimpinellifolium")]-1,
+text(sampAll$TOTAL[which(sampAll$TAXON=="Solanum_pimpinellifolium")]-45,
+     sampAll$GNUM[which(sampAll$TAXON=="Solanum_pimpinellifolium")]-15,
      "S. pimpinellifolium",cex=0.55, font=3)
-text(sampAll$TOTAL[which(sampAll$TAXON=="Solanum_peruvianum")],
-     sampAll$GNUM[which(sampAll$TAXON=="Solanum_peruvianum")]+2,
+text(sampAll$TOTAL[which(sampAll$TAXON=="Solanum_peruvianum")]-30,
+     sampAll$GNUM[which(sampAll$TAXON=="Solanum_peruvianum")]-15,
      "S. peruvianum",cex=0.55, font=3)
-text(sampAll$TOTAL[which(sampAll$TAXON=="Solanum_chilense")],
-     sampAll$GNUM[which(sampAll$TAXON=="Solanum_chilense")]+2,
+text(sampAll$TOTAL[which(sampAll$TAXON=="Solanum_chilense")]-30,
+     sampAll$GNUM[which(sampAll$TAXON=="Solanum_chilense")]-15,
      "S. chilense",cex=0.55, font=3)
-text(sampAll$TOTAL[which(sampAll$TAXON=="Musa_acuminata_malaccensis")],
-     sampAll$GNUM[which(sampAll$TAXON=="Musa_acuminata_malaccensis")]+2,
-	"M. acuminata malaccensis",cex=0.55, font=3)
-text(sampAll$TOTAL[which(sampAll$TAXON=="Musa_acuminata_siamea")],
-     sampAll$GNUM[which(sampAll$TAXON=="Musa_acuminata_siamea")]+2,
-	"M. acuminata siamea",cex=0.55, font=3)
+text(sampAll$TOTAL[which(sampAll$TAXON=="Solanum_juglandifolium")],
+     sampAll$GNUM[which(sampAll$TAXON=="Solanum_juglandifolium")]-15,
+	"S. juglandifolium",cex=0.55, font=3)
 
 dev.off()
 

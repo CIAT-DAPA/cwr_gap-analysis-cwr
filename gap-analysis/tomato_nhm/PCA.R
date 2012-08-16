@@ -1,39 +1,34 @@
-#Fontagro Tomato
+# PCA at curie
 rm(list=ls()); g=gc(); rm(g)
 
 require(raster)
 require(stats)
-#wd <- "C:/Users/ncp148/Documents/CPP_CWR/_collaboration/_fontagro/inputs/bio_2_5m_fontagro/"
-#wd <- "G:/ncastaneda/clim/bio_2-5m_esri"
-wd <- "G:/ncastaneda/gap-analysis-tomato/gap_tomato/maxent_modeling/climate_data/esri_ascii"
+wd <- "/curie_data2/ncastaneda/geodata/bio" #curie
+#wd <- "C:/Users/ncp148/Documents/_geodata/bioclim/bio_2-5m_esri" #local
 setwd(wd)
 
-#stk <- stack(paste("bio_",1:19,sep=""))
-#stk <- stack(paste("bio_",1:20,sep=""))
-stk <- stack(paste("bio_",1:20,".asc",sep=""))
+stk <- stack(paste("bio_",1:19,sep="")) #cuando se le de la gana de servir
+stk <- stack(paste("bio_",c(1:11,13:15,17:21),sep="")) # alterno
 rs <- stk[[1]]
+#rs <- raster("bio_1")
 # verify integrity of bios
 #plot(stk)
 
-# Time and resources consuming step! - TRY THE ALTERNATIVE STEP
-#xy <- xyFromCell(rs,which(!is.na(rs[])))
-#xy <- as.data.frame(xy)
+xy <- xyFromCell(rs,which(!is.na(rs[])))
+xy <- as.data.frame(xy)
 
 #extract the data
 #for (i in 1:19) {
-#for (i in 1:20) {
-#  cat("Extract",i,"\n")
-#  xy$NEW <- extract(stk[[i]],data.frame(X=xy$x,Y=xy$y))
-#  names(xy)[i+2] <- paste("bio_",i,sep="")
-#}
+for (i in c(1:11,13:15,17:21)){
+#for (i in 1:21) {
+  cat("Extract",i,"\n")
+  xy$NEW <- extract(stk[[i]],data.frame(X=xy$x,Y=xy$y))
+  #xy$NEW <- extract(paste("bio_",i,sep=""),data.frame(X=xy$x,Y=xy$y))
+  names(xy)[i+2] <- paste("bio_",i,sep="")
+  }
 
-#biovars <- xy[,3:21]
+biovars <- xy[,3:21]
 #biovars <- xy[,3:23]
-
-# ALTERNATIVE STEP
-biovars <- as.data.frame(stk)
-biovars <- biovars[which(!is.na(biovars)),]
-
 write.csv(biovars,"./../biovars_pca.csv",quote=F,row.names=F)
 
 #standardise
@@ -63,8 +58,8 @@ write.csv(xs$importance,"./../pca_result_raw/pca_importance.csv",quote=F,row.nam
 #reclassify components
 dir.create("./../pca_result_reclass")
 
-#for (i in 1:19) {
-for (i in 1:20) {
+for (i in 1:19) {
+  #for (i in 1:21) {
   cat("\nVariable",i,"\n")
   rs <- raster(paste("./../pca_result_raw/pc_",i,".asc",sep=""))
   rs_res <- rs
@@ -88,6 +83,4 @@ for (i in 1:20) {
                         format='ascii')
   plot(rs_res)
   rm(rs_res); g=gc(); rm(g)
-}
-
-
+  }
