@@ -6,7 +6,7 @@
 stop("Warning: do not run the whole thing")
 
 #basic stuff - where is the code
-src.dir <- "G:/ncastaneda/code/tomato_nhm"
+src.dir <- "/curie_data2/ncastaneda/code/gap-analysis-cwr/trunk/gap-analysis" # CHECK THIS!
 
 #crop details
 crop <- "tomato"
@@ -62,8 +62,8 @@ for (f in fList) {
   iFile <- paste("./maxent_modeling/occurrence_files/",f,sep="")
   oFile <- paste("./maxent_modeling/background/",f,sep="")
   x <- selectBack(occFile=iFile, outBackName=oFile, 
-                  msk="./backgroundFiles/backselection.asc", 
-                  backFilesDir="./backgroundFiles/")
+                  msk="./_backgroundFiles_alt/backselection.asc", 
+                  backFilesDir="./_backgroundFiles_alt/")
 }
 
 #== perform the maxent modelling in parallel ==#

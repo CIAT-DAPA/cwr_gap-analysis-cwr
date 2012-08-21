@@ -8,7 +8,8 @@ wd <- "/curie_data2/ncastaneda/geodata/bio" #curie
 setwd(wd)
 
 stk <- stack(paste("bio_",1:19,sep="")) #cuando se le de la gana de servir
-stk <- stack(paste("bio_",c(1:11,13:15,17:21),sep="")) # alterno
+stk <- stack(paste("bio_",c(1,2,4:11,13:15,17:21),sep="")) # alterno
+stk <- stack(paste("bio_",c(1,2,4:6,8:11,13,14,17:21),sep=""))
 rs <- stk[[1]]
 #rs <- raster("bio_1")
 # verify integrity of bios
@@ -19,7 +20,7 @@ xy <- as.data.frame(xy)
 
 #extract the data
 #for (i in 1:19) {
-for (i in c(1:11,13:15,17:21)){
+for (i in c(1,2,4:6,8:11,13,14,17:21)){
 #for (i in 1:21) {
   cat("Extract",i,"\n")
   xy$NEW <- extract(stk[[i]],data.frame(X=xy$x,Y=xy$y))

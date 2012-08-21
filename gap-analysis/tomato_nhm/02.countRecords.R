@@ -74,19 +74,52 @@ lines(sampAll$TOTAL,fit$fitted.values)
 grid(lwd=0.75)
 
 # NOTE: Personalize this according to the crop you're working with!
-text(sampAll$TOTAL[which(sampAll$TAXON=="Solanum_pimpinellifolium")]-45,
-     sampAll$GNUM[which(sampAll$TAXON=="Solanum_pimpinellifolium")]-15,
-     "S. pimpinellifolium",cex=0.55, font=3)
-text(sampAll$TOTAL[which(sampAll$TAXON=="Solanum_peruvianum")]-30,
-     sampAll$GNUM[which(sampAll$TAXON=="Solanum_peruvianum")]-15,
-     "S. peruvianum",cex=0.55, font=3)
-text(sampAll$TOTAL[which(sampAll$TAXON=="Solanum_chilense")]-30,
-     sampAll$GNUM[which(sampAll$TAXON=="Solanum_chilense")]-15,
-     "S. chilense",cex=0.55, font=3)
+text(sampAll$TOTAL[which(sampAll$TAXON=="Solanum_pimpinellifolium")],
+     sampAll$GNUM[which(sampAll$TAXON=="Solanum_pimpinellifolium")]-5,
+     "pim",cex=0.5, font=3)
+text(sampAll$TOTAL[which(sampAll$TAXON=="Solanum_peruvianum")],
+     sampAll$GNUM[which(sampAll$TAXON=="Solanum_peruvianum")]-5,
+     "per",cex=0.5, font=3)
+text(sampAll$TOTAL[which(sampAll$TAXON=="Solanum_chilense")],
+     sampAll$GNUM[which(sampAll$TAXON=="Solanum_chilense")]-5,
+     "chi",cex=0.5, font=3)
 text(sampAll$TOTAL[which(sampAll$TAXON=="Solanum_juglandifolium")],
-     sampAll$GNUM[which(sampAll$TAXON=="Solanum_juglandifolium")]-15,
-	"S. juglandifolium",cex=0.55, font=3)
-
+     sampAll$GNUM[which(sampAll$TAXON=="Solanum_juglandifolium")]-5,
+     "jug",cex=0.5, font=3)
+text(sampAll$TOTAL[which(sampAll$TAXON=="Solanum_sitiens")],
+     sampAll$GNUM[which(sampAll$TAXON=="Solanum_sitiens")]-5,
+     "sit",cex=0.5, font=3)
+text(sampAll$TOTAL[which(sampAll$TAXON=="Solanum_lycopersicoides")],
+     sampAll$GNUM[which(sampAll$TAXON=="Solanum_lycopersicoides")]-5,
+     "lyc",cex=0.5, font=3)
+text(sampAll$TOTAL[which(sampAll$TAXON=="Solanum_cheesmaniae")],
+     sampAll$GNUM[which(sampAll$TAXON=="Solanum_cheesmaniae")]-5,
+     "che",cex=0.5, font=3)
+text(sampAll$TOTAL[which(sampAll$TAXON=="Solanum_neorickii")],
+     sampAll$GNUM[which(sampAll$TAXON=="Solanum_neorickii")]-5,
+     "neo",cex=0.5, font=3)
+text(sampAll$TOTAL[which(sampAll$TAXON=="Solanum_pennellii")],
+     sampAll$GNUM[which(sampAll$TAXON=="Solanum_pennellii")]-5,
+     "pen",cex=0.5, font=3)
+text(sampAll$TOTAL[which(sampAll$TAXON=="Solanum_ochranthum")],
+     sampAll$GNUM[which(sampAll$TAXON=="Solanum_ochranthum")]-5,
+     "och",cex=0.5, font=3)
+text(sampAll$TOTAL[which(sampAll$TAXON=="Solanum_corneliomulleri")],
+     sampAll$GNUM[which(sampAll$TAXON=="Solanum_corneliomulleri")]-5,
+     "cor",cex=0.5, font=3)
+text(sampAll$TOTAL[which(sampAll$TAXON=="Solanum_galapagense")],
+     sampAll$GNUM[which(sampAll$TAXON=="Solanum_galapagense")]-5,
+     "gal",cex=0.5, font=3)
+text(sampAll$TOTAL[which(sampAll$TAXON=="Solanum_arcanum")],
+     sampAll$GNUM[which(sampAll$TAXON=="Solanum_arcanum")]-5,
+     "arc",cex=0.5, font=3)
+text(sampAll$TOTAL[which(sampAll$TAXON=="Solanum_chmielewskii")],
+     sampAll$GNUM[which(sampAll$TAXON=="Solanum_chmielewskii")]-5,
+     "chm",cex=0.5, font=3)
+text(sampAll$TOTAL[which(sampAll$TAXON=="Solanum_huaylasense")],
+     sampAll$GNUM[which(sampAll$TAXON=="Solanum_huaylasense")]-5,
+     "hua",cex=0.5, font=3)
+text(sampAll$TOTAL[which(sampAll$TAXON=="Solanum_habrochaites")],
+     sampAll$GNUM[which(sampAll$TAXON=="Solanum_habrochaites")]-5,
+     "hab",cex=0.5, font=3)
 dev.off()
-
-
