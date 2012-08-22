@@ -15,12 +15,13 @@ extractClimates <- function(input_dir,sample_file,env_dir,env_prefix,
   xy <- data.frame(X=occ[,lonfield],Y=occ[,latfield])
   swd <- data.frame(cbind(paste(occ[,taxfield]),occ[,lonfield],occ[,latfield]))
   names(swd) <- c(taxfield,lonfield,latfield)
+  env_ext <- ".asc"
   
   #for (i in 1:19) {
   for (i in 1:20) {  
     cat("Reading environmental layer",i,"\n")
-    #rs <- raster(paste(env_dir,"/",env_prefix,i,env_ext,sep=""))
-    rs <- raster(paste(env_dir,"/",env_prefix,i,sep=""))
+    rs <- raster(paste(env_dir,"/",env_prefix,i,env_ext,sep=""))
+    #rs <- raster(paste(env_dir,"/",env_prefix,i,sep=""))
     swd$NEW <- extract(rs,xy)
     names(swd)[i+3] <- paste(env_prefix,i,sep="")
   }
