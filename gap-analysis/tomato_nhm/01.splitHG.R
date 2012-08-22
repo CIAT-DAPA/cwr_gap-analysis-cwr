@@ -1,6 +1,6 @@
 #Gap analysis workshop
 #March 2012
-stop("")
+#stop("")
 
 library(raster); library(maptools); data(wrld_simpl)
 
