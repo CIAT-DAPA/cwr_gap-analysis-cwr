@@ -40,7 +40,7 @@ if (!file.exists(swd_dir)) {dir.create(swd_dir)}
 sample_file = paste(crop,".csv", sep="")
 
 x <- extractClimates(input_dir=occ_dir,sample_file=sample_file,env_dir=cli_dir,
-                     env_prefix="bio_",env_ext="",lonfield="lon",
+                     env_prefix="bio_",env_ext=".asc",lonfield="lon",
                      latfield="lat",taxfield="Taxon",output_dir=swd_dir)
 
 #== splitting the occurrence files ==#
