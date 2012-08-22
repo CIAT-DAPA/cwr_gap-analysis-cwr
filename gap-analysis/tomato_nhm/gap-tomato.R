@@ -6,7 +6,6 @@
 stop("Warning: do not run the whole thing")
 
 #basic stuff - where is the code
-src.dir <- "/curie_data2/ncastaneda/code/gap-analysis-cwr/trunk/gap-analysis" # CHECK THIS!
 src.dir <- "/curie_data2/ncastaneda/code/gap-analysis-cwr/gap-analysis/tomato_nhm"
 #crop details
 crop <- "tomato_nhm"
@@ -27,7 +26,7 @@ write.csv(g,paste("./occurrences/",crop,"_g.csv",sep=""),quote=F,row.names=F)
 source(paste(src.dir,"/01.splitHG.R",sep=""))
 
 #== compare germplasm vs. total records==#
-# Run 02.countRecords.R
+source(paste(src.dir,"/02.countRecords.R",sep=""))
 
 #== extract climate data ==#
 source(paste(src.dir,"/001.extractClimates.R",sep=""))
