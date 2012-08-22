@@ -7,10 +7,10 @@ stop("Warning: do not run the whole thing")
 
 #basic stuff - where is the code
 src.dir <- "/curie_data2/ncastaneda/code/gap-analysis-cwr/trunk/gap-analysis" # CHECK THIS!
-
+src.dir <- "/curie_data2/ncastaneda/code/gap-analysis-cwr/gap-analysis/tomato_nhm"
 #crop details
-crop <- "tomato"
-crop_dir <- paste("G:/ncastaneda/gap-analysis-",crop,"/gap_",crop,sep="")
+crop <- "tomato_nhm"
+crop_dir <- paste("/curie_data2/ncastaneda/gap-analysis/gap_",crop,sep="")
 setwd(crop_dir)
 
 # !!!!TO FIX: include path for creating background points
@@ -23,7 +23,8 @@ g <- occ[which(occ$G==1),]
 write.csv(h,paste("./occurrences/",crop,"_h.csv",sep=""),quote=F,row.names=F)
 write.csv(g,paste("./occurrences/",crop,"_g.csv",sep=""),quote=F,row.names=F)
 
-# NOTE: Now prepare corresponding files in DIVA (point to grid analysis) and run 01.splitHG.R
+#== samples densities comparison ==#
+source(paste(src.dir,"/01.splitHG.R",sep=""))
 
 #== compare germplasm vs. total records==#
 # Run 02.countRecords.R

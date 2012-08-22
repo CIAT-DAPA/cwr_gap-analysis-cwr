@@ -1,4 +1,5 @@
 # Extract climate for background points
+# Use: extracts climate data for all BIO variables + elevation
 # N. Castaneda - 2012
 
 
