@@ -80,7 +80,7 @@ theEntireProcess <- function(spID, OSys, inputDir) {
 		#inProjClimDir <- paste(inputDir, "/climate_data/esri_ascii", sep="")
     inProjClimDir <- "/curie_data2/ncastaneda/geodata/bio_30s_sa"
 		#maxentApp <- paste(inputDir, "/lib/maxent.jar", sep="")
-    maxentApp <- paste(gap.dir,"_lib/maxent.jar",sep="")
+    maxentApp <- paste(gap.dir,"/_lib/maxent.jar",sep="")
 		mskDir <- paste(inputDir, "/masks", sep="")
 		backoutdir <- paste(inputDir, "/background", sep="")
 		NADir <- paste(inputDir, "/native-areas/asciigrids", sep="")
