@@ -77,8 +77,10 @@ theEntireProcess <- function(spID, OSys, inputDir) {
       }
 		}
     
-		inProjClimDir <- paste(inputDir, "/climate_data/esri_ascii", sep="")
-		maxentApp <- paste(inputDir, "/lib/maxent.jar", sep="")
+		#inProjClimDir <- paste(inputDir, "/climate_data/esri_ascii", sep="")
+    inProjClimDir <- "/curie_data2/ncastaneda/geodata/bio_30s_sa"
+		#maxentApp <- paste(inputDir, "/lib/maxent.jar", sep="")
+    maxentApp <- paste(gap.dir,"_lib/maxent.jar",sep="")
 		mskDir <- paste(inputDir, "/masks", sep="")
 		backoutdir <- paste(inputDir, "/background", sep="")
 		NADir <- paste(inputDir, "/native-areas/asciigrids", sep="")
@@ -116,7 +118,7 @@ theEntireProcess <- function(spID, OSys, inputDir) {
 				
 				cat("Crossvalidating the model... \n")
         if (!file.exists(paste(outFolder,"/crossval/",spID,".html",sep=""))) {
-				  system(paste("java", "-mx8192m", "-jar", maxentApp, "-s", outFileName, "-e", backFileSwd, "-o", paste(outFolder, "/crossval", sep=""), "-P", "replicates=5", "replicatetype=crossvalidate", "nowarnings", "-a", "-z"), wait=TRUE)
+				  system(paste("java", "-mx8192m", "-jar", maxentApp, "-s", outFileName, "-e", backFileSwd, "-o", paste(outFolder, "/crossval", sep=""), "-P", "replicates=25", "replicatetype=crossvalidate", "nowarnings", "-a", "-z"), wait=TRUE)
         }
 				
 				if (file.exists(paste(outFolder, "/crossval/", spID,".html", sep=""))) {
@@ -140,7 +142,7 @@ theEntireProcess <- function(spID, OSys, inputDir) {
 				#5. Getting the metrics
 				
 				if (procSwitch) {
-					out <- getMetrics(paste(outFolder, "/crossval", sep=""), paste(spID), 5, paste(outFolder, "/metrics", sep=""))
+					out <- getMetrics(paste(outFolder, "/crossval", sep=""), paste(spID), 25, paste(outFolder, "/metrics", sep=""))
 					
 					#Read the thresholds file
 					threshFile <- paste(outFolder, "/metrics/thresholds.csv", sep="")
@@ -221,14 +223,15 @@ theEntireProcess <- function(spID, OSys, inputDir) {
 						#Now cut to native areas
 						#Verify if the native area exists, else create one using the buffered convex hull
 						
-						NAGridName <- paste(NADir, "/", spID, "/narea.asc.gz", sep="")
-						if (!file.exists(NAGridName)) {
-							cat("The native area does not exist, generating one \n")
-							NAGrid <- chullBuffer(inputDir, occFile, paste(NADir, "/", spID, sep=""), 500000)
-						} else {
-							cat("The native area exists, using it \n")
-							NAGrid <- zipRead(paste(NADir, "/", spID, sep=""), "narea.asc.gz")
-						}
+						#NAGridName <- paste(NADir, "/", spID, "/narea.asc.gz", sep="")
+						NAGridName <- paste(NADir, "/narea.asc.gz", sep="")
+						#if (!file.exists(NAGridName)) {
+							#cat("The native area does not exist, generating one \n")
+							#NAGrid <- chullBuffer(inputDir, occFile, paste(NADir, "/", spID, sep=""), 500000)
+						#} else {
+							#cat("The native area exists, using it \n")
+							#NAGrid <- zipRead(paste(NADir, "/", spID, sep=""), "narea.asc.gz")
+						#}
 						
 						distMeanPA <- distMeanPA * NAGrid
 						distMeanPR <- distMeanPR * NAGrid

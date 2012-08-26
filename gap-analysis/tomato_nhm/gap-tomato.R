@@ -7,10 +7,16 @@ stop("Warning: do not run the whole thing")
 
 #basic stuff - where is the code
 src.dir <- "/curie_data2/ncastaneda/code/gap-analysis-cwr/gap-analysis/tomato_nhm"
+gap.dir <-"/curie_data2/ncastaneda/gap-analysis"
+
 #crop details
 crop <- "tomato_nhm"
-crop_dir <- paste("/curie_data2/ncastaneda/gap-analysis/gap_",crop,sep="")
+crop_dir <- paste(gap.dir,"/gap_",crop,sep="")
 setwd(crop_dir)
+
+#basic stuff - creating folders
+mxnt <- paste(crop_dir,"/maxent_modeling",sep="")
+if (!file.exists(mxnt)) {dir.create(mxnt)}
 
 # !!!!TO FIX: include path for creating background points
 
@@ -61,9 +67,18 @@ for (f in fList) {
   iFile <- paste("./maxent_modeling/occurrence_files/",f,sep="")
   oFile <- paste("./maxent_modeling/background/",f,sep="")
   x <- selectBack(occFile=iFile, outBackName=oFile, 
-                  msk="./_backgroundFiles_alt/backselection.asc", 
-                  backFilesDir="./_backgroundFiles_alt/")
+                  msk=paste(gap.dir,"/_backgroundFiles_alt/backselection.asc",sep=""), 
+                  backFilesDir=paste(gap.dir,"/_backgroundFiles_alt/",sep=""))
 }
+
+#== prepare native areas grids ==#
+source(paste(src.dir,"/01.splitHG.R",sep="")) # OJO UPDATE ACCORDINGLY!!!!
+
+#== prepare cellArea grid ==#
+rs <- raster("./masks/mask.asc")
+rs_a <- area(rs)
+rs_a <- mask(rs_a, rs)
+writeRaster(rs_a,"./masks/cellArea.asc",overwrite="TRUE")
 
 #== perform the maxent modelling in parallel ==#
 source(paste(src.dir,"/005.modelingApproach.R",sep=""))
