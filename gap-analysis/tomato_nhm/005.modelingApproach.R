@@ -54,9 +54,9 @@ source(paste(src.dir,"/000.createChullBuffer.R",sep=""))
 ###############################################################################################
 
 theEntireProcess <- function(spID, OSys, inputDir) {
-  #   spID <- "Soolanum_arcanum"
+  #   spID <- "Solanum_arcanum"
   #   OSys <- "linux"
-  #   inputDir <- "/curie_data2/ncastaneda/gap_analysis/gap_tomato_nhm/maxent_modeling"
+  #   inputDir <- "/curie_data2/ncastaneda/gap-analysis/gap_tomato_nhm/maxent_modeling"
   
   mxe_out <- paste(inputDir,"/models",sep="")
   if (!file.exists(mxe_out)) {dir.create(mxe_out)}
