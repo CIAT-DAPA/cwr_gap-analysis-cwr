@@ -54,9 +54,9 @@ source(paste(src.dir,"/000.createChullBuffer.R",sep=""))
 ###############################################################################################
 
 theEntireProcess <- function(spID, OSys, inputDir) {
-  #   spID <- "Solanum_arcanum"
-  #   OSys <- "linux"
-  #   inputDir <- "/curie_data2/ncastaneda/gap-analysis/gap_tomato_nhm/maxent_modeling"
+     #spID <- "Solanum_arcanum"
+     #OSys <- "linux"
+     #inputDir <- "/curie_data2/ncastaneda/gap-analysis/gap_tomato_nhm/maxent_modeling"
   
   mxe_out <- paste(inputDir,"/models",sep="")
   if (!file.exists(mxe_out)) {dir.create(mxe_out)}
@@ -83,7 +83,8 @@ theEntireProcess <- function(spID, OSys, inputDir) {
     maxentApp <- "/curie_data2/ncastaneda/gap-analysis/_lib/maxent.jar"
     mskDir <- paste(inputDir, "/masks", sep="")
     backoutdir <- paste(inputDir, "/background", sep="")
-    NADir <- paste(inputDir, "/native-areas/asciigrids", sep="")
+    #NADir <- paste(inputDir, "/native-areas/asciigrids", sep="")
+    NADir <- "/curie_data2/ncastaneda/gap-analysis/gap_tomato_nhm/native-areas/asciigrids"
     
     cat("Taxon ", spID, "\n")
     
@@ -228,8 +229,8 @@ theEntireProcess <- function(spID, OSys, inputDir) {
             #  cat("The native area does not exist, generating one \n")
             #  NAGrid <- chullBuffer(inputDir, occFile, paste(NADir, "/", spID, sep=""), 500000)
             #} else {
-            #  cat("The native area exists, using it \n")
-            #  NAGrid <- zipRead(paste(NADir, "/", spID, sep=""), "narea.asc.gz")
+              cat("The native area exists, using it \n")
+              NAGrid <- zipRead(NADir, "narea.asc.gz")
             #}
             
             distMeanPA <- distMeanPA * NAGrid
