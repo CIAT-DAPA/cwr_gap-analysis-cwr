@@ -73,6 +73,7 @@ for (f in fList) {
 
 #== prepare native areas grids ==#
 source(paste(src.dir,"/01.splitHG.R",sep="")) # OJO UPDATE ACCORDINGLY!!!!
+mxnt <- paste(crop_dir,"/maxent_modeling",sep=""); if (!file.exists(mxnt)) {dir.create(mxnt)}
 
 #== prepare cellArea grid ==#
 rs <- raster("./masks/mask.asc")
@@ -83,7 +84,7 @@ writeRaster(rs_a,"./masks/cellArea.asc",overwrite="TRUE")
 #== perform the maxent modelling in parallel ==#
 source(paste(src.dir,"/005.modelingApproach.R",sep=""))
 #source(paste(src.dir,"/_005.modelingApproach_original.R",sep=""))
-GapProcess(inputDir=paste(crop_dir,"/maxent_modeling",sep=""), OSys="linux", ncpu=4)
+GapProcess(inputDir=paste(crop_dir,"/maxent_modeling",sep=""), OSys="linux", ncpu=5)
 
 #== summarise the metrics ==#
 source(paste(src.dir,"/006.summarizeMetricsThresholds.R",sep=""))
