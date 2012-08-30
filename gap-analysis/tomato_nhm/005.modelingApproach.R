@@ -119,7 +119,7 @@ theEntireProcess <- function(spID, OSys, inputDir) {
         
         cat("Crossvalidating the model... \n")
         if (!file.exists(paste(outFolder,"/crossval/",spID,".html",sep=""))) {
-          system(paste("java", "-mx8192m", "-jar", maxentApp, "-s", outFileName, "-e", backFileSwd, "-o", paste(outFolder, "/crossval", sep=""), "-P", "replicates=25", "replicatetype=crossvalidate", "nowarnings", "-a", "-z"), wait=TRUE)
+          system(paste("java", "-mx8192m", "-jar", maxentApp, "-s", outFileName, "-e", backFileSwd, "-o", paste(outFolder, "/crossval", sep=""), "-P", "replicates=5", "replicatetype=crossvalidate", "nowarnings", "-a", "-z"), wait=TRUE)
         }
         
         if (file.exists(paste(outFolder, "/crossval/", spID,".html", sep=""))) {
@@ -143,7 +143,7 @@ theEntireProcess <- function(spID, OSys, inputDir) {
         #5. Getting the metrics
         
         if (procSwitch) {
-          out <- getMetrics(paste(outFolder, "/crossval", sep=""), paste(spID), 25, paste(outFolder, "/metrics", sep=""))
+          out <- getMetrics(paste(outFolder, "/crossval", sep=""), paste(spID), 5, paste(outFolder, "/metrics", sep=""))
           
           #Read the thresholds file
           threshFile <- paste(outFolder, "/metrics/thresholds.csv", sep="")
@@ -193,82 +193,82 @@ theEntireProcess <- function(spID, OSys, inputDir) {
             }
             cat("\n")
             
-            #cat("Calculating and writing mean probability raster \n")
-            #fun <- function(x) { sd(x) }
-            #distMean <- mean(stack(otList))
-            ##distMean <- writeRaster(distMean, paste(outFolder, "/projections/", spID, "_", suffix, "_EMN.asc", sep=""), format="ascii", overwrite=T)
-            #distMean <- writeRaster(distMean, paste(outFolder, "/projections/", spID, "_", suffix, "_EMN.asc", sep=""), overwrite=T)
-            #cat("Calculating and writing std \n")
-            #distStdv <- calc(stack(otList), fun)
-            #distStdv <- writeRaster(distStdv, paste(outFolder, "/projections/", spID, "_", suffix, "_ESD.asc", sep=""), overwrite=T)
-            #
-            ##Thresholding and cutting to native areas
-            #
-            #thslds <- c("UpperLeftROC")
-            #
-            #thrNames <- names(threshData)
-            #thePos <- which(thrNames == thslds)
-            #theVal <- threshData[1,thePos]
-            #
-            #cat("Thresholding... \n")
-            #
-            #distMeanPR <- distMean
-            #distMeanPR[which(distMeanPR[] < theVal)] <- NA
-            #
-            #distMeanPA <- distMean
-            #distMeanPA[which(distMeanPA[] < theVal)] <- 0
-            #distMeanPA[which(distMeanPA[] != 0)] <- 1
-            #
-            #distStdvPR <- distStdv * distMeanPA
-            #
-            ##Now cut to native areas
-            ##Verify if the native area exists, else create one using the buffered convex hull
-            #
-            #NAGridName <- paste(NADir, "/narea.asc.gz", sep="")
-            ##if (!file.exists(NAGridName)) {
-            ##  cat("The native area does not exist, generating one \n")
-            ##  NAGrid <- chullBuffer(inputDir, occFile, paste(NADir, "/", spID, sep=""), 500000)
-            ##} else {
-            #  cat("The native area exists, using it \n")
-            #  NAGrid <- zipRead(NADir, "narea.asc.gz")
-            ##}
-            #
-            #distMeanPA <- distMeanPA * NAGrid
-            #distMeanPR <- distMeanPR * NAGrid
-            #distStdvPR <- distStdvPR * NAGrid
-            #
-            ##Writing these rasters
-            #
-            ##distMeanPA <- writeRaster(distMeanPA, paste(outFolder, "/projections/", spID, "_", suffix, "_EMN_PA.asc", sep=""), format='ascii', overwrite=T)
-            ##distMeanPR <- writeRaster(distMeanPR, paste(outFolder, "/projections/", spID, "_", suffix, "_EMN_PR.asc", sep=""), format='ascii', overwrite=T)
-            ##distStdvPR <- writeRaster(distStdvPR, paste(outFolder, "/projections/", spID, "_", suffix, "_ESD_PR.asc", sep=""), format='ascii', overwrite=T)
-            #
-            #distMeanPA <- writeRaster(distMeanPA, paste(outFolder, "/projections/", spID, "_", suffix, "_EMN_PA.asc", sep=""), overwrite=T)
-            #distMeanPR <- writeRaster(distMeanPR, paste(outFolder, "/projections/", spID, "_", suffix, "_EMN_PR.asc", sep=""), overwrite=T)
-            #distStdvPR <- writeRaster(distStdvPR, paste(outFolder, "/projections/", spID, "_", suffix, "_ESD_PR.asc", sep=""), overwrite=T)
-            #
-            #prjCount <- prjCount + 1
+            cat("Calculating and writing mean probability raster \n")
+            fun <- function(x) { sd(x) }
+            distMean <- mean(stack(otList))
+            #distMean <- writeRaster(distMean, paste(outFolder, "/projections/", spID, "_", suffix, "_EMN.asc", sep=""), format="ascii", overwrite=T)
+            distMean <- writeRaster(distMean, paste(outFolder, "/projections/", spID, "_", suffix, "_EMN.asc", sep=""), overwrite=T)
+            cat("Calculating and writing std \n")
+            distStdv <- calc(stack(otList), fun)
+            distStdv <- writeRaster(distStdv, paste(outFolder, "/projections/", spID, "_", suffix, "_ESD.asc", sep=""), overwrite=T)
+            
+            #Thresholding and cutting to native areas
+            
+            thslds <- c("UpperLeftROC")
+            
+            thrNames <- names(threshData)
+            thePos <- which(thrNames == thslds)
+            theVal <- threshData[1,thePos]
+            
+            cat("Thresholding... \n")
+            
+            distMeanPR <- distMean
+            distMeanPR[which(distMeanPR[] < theVal)] <- NA
+            
+            distMeanPA <- distMean
+            distMeanPA[which(distMeanPA[] < theVal)] <- 0
+            distMeanPA[which(distMeanPA[] != 0)] <- 1
+            
+            distStdvPR <- distStdv * distMeanPA
+            
+            #Now cut to native areas
+            #Verify if the native area exists, else create one using the buffered convex hull
+            
+            NAGridName <- paste(NADir, "/narea.asc.gz", sep="")
+            #if (!file.exists(NAGridName)) {
+            #  cat("The native area does not exist, generating one \n")
+            #  NAGrid <- chullBuffer(inputDir, occFile, paste(NADir, "/", spID, sep=""), 500000)
+            #} else {
+              cat("The native area exists, using it \n")
+              NAGrid <- zipRead(NADir, "narea.asc.gz")
+            #}
+            
+            distMeanPA <- distMeanPA * NAGrid
+            distMeanPR <- distMeanPR * NAGrid
+            distStdvPR <- distStdvPR * NAGrid
+            
+            #Writing these rasters
+            
+            #distMeanPA <- writeRaster(distMeanPA, paste(outFolder, "/projections/", spID, "_", suffix, "_EMN_PA.asc", sep=""), format='ascii', overwrite=T)
+            #distMeanPR <- writeRaster(distMeanPR, paste(outFolder, "/projections/", spID, "_", suffix, "_EMN_PR.asc", sep=""), format='ascii', overwrite=T)
+            #distStdvPR <- writeRaster(distStdvPR, paste(outFolder, "/projections/", spID, "_", suffix, "_ESD_PR.asc", sep=""), format='ascii', overwrite=T)
+            
+            distMeanPA <- writeRaster(distMeanPA, paste(outFolder, "/projections/", spID, "_", suffix, "_EMN_PA.asc", sep=""), overwrite=T)
+            distMeanPR <- writeRaster(distMeanPR, paste(outFolder, "/projections/", spID, "_", suffix, "_EMN_PR.asc", sep=""), overwrite=T)
+            distStdvPR <- writeRaster(distStdvPR, paste(outFolder, "/projections/", spID, "_", suffix, "_ESD_PR.asc", sep=""), overwrite=T)
+            
+            prjCount <- prjCount + 1
           }
           
           #Compressing everything within the projection dir
           
-          #ftoZIP <- list.files(paste(outFolder, "/projections/", sep=""), pattern=".asc")
-          #cat("Compressing... \n")
-          #for (fz in ftoZIP) {
-          #  fName <- paste(outFolder, "/projections/", fz, sep="")
-          #  if (OSys == "linux") {
-          #    system(paste("gzip", fName))
-          #  } else {
-          #    system(paste("7z", "a", "-tgzip", paste(fName, ".gz", sep=""), fName),wait=T)
-          #    file.remove(fName)
-          #  }
-          #}
+          ftoZIP <- list.files(paste(outFolder, "/projections/", sep=""), pattern=".asc")
+          cat("Compressing... \n")
+          for (fz in ftoZIP) {
+            fName <- paste(outFolder, "/projections/", fz, sep="")
+            if (OSys == "linux") {
+              system(paste("gzip", fName))
+            } else {
+              system(paste("7z", "a", "-tgzip", paste(fName, ".gz", sep=""), fName),wait=T)
+              file.remove(fName)
+            }
+          }
           
           #Run verification file
-          #verFile <- paste(outFolder, "/ps-", spID, ".run", sep="")
-          #opnFile <- file(verFile, open="w")
-          #cat("Modelled on", date(), file=opnFile)
-          #close.connection(opnFile)
+          verFile <- paste(outFolder, "/ps-", spID, ".run", sep="")
+          opnFile <- file(verFile, open="w")
+          cat("Modelled on", date(), file=opnFile)
+          close.connection(opnFile)
           
           #Now copy the files
           # 					cat("Copying to output folder... \n")
