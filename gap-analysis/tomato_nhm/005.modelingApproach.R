@@ -119,7 +119,7 @@ theEntireProcess <- function(spID, OSys, inputDir) {
         
         cat("Crossvalidating the model... \n")
         if (!file.exists(paste(outFolder,"/crossval/",spID,".html",sep=""))) {
-          system(paste("java", "-mx8192m", "-jar", maxentApp, "-s", outFileName, "-e", backFileSwd, "-o", paste(outFolder, "/crossval", sep=""), "-P", "replicates=5", "replicatetype=crossvalidate", "nowarnings", "-a", "-z"), wait=TRUE)
+          system(paste("java", "-mx8192m", "-jar", maxentApp, "-s", outFileName, "-e", backFileSwd, "-o", paste(outFolder, "/crossval", sep=""), "-P", "replicates=2", "replicatetype=crossvalidate", "nowarnings", "-a", "-z"), wait=TRUE)
         }
         
         if (file.exists(paste(outFolder, "/crossval/", spID,".html", sep=""))) {
@@ -143,7 +143,7 @@ theEntireProcess <- function(spID, OSys, inputDir) {
         #5. Getting the metrics
         
         if (procSwitch) {
-          out <- getMetrics(paste(outFolder, "/crossval", sep=""), paste(spID), 5, paste(outFolder, "/metrics", sep=""))
+          out <- getMetrics(paste(outFolder, "/crossval", sep=""), paste(spID), 2, paste(outFolder, "/metrics", sep=""))
           
           #Read the thresholds file
           threshFile <- paste(outFolder, "/metrics/thresholds.csv", sep="")
