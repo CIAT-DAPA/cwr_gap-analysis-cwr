@@ -40,7 +40,26 @@ summarizeMetrics <- function(idir="E:/CIAT/maxent_modelling") {
 			#Loading metrics files and adding one more field (SPID)
 			metricsFile <- paste(spFolder, "/metrics/metrics.csv", sep="")
       
-      #these two need to be created manually only once
+      #Creating Metrics and Threshold files
+			Met <- data.frame(NSamples=rep(NA,1),TrainSamples=rep(NA,1),TestSamples=rep(NA,1),
+			                  TrainAUC=rep(NA,1),TrainAUCSD=rep(NA,1),TestAUC=rep(NA,1),
+			                  TestAUCSD=rep(NA,1),TrainR=rep(NA,1),TrainRSD=rep(NA,1),
+			                  TestR=rep(NA,1),TestRSD=rep(NA,1),AllR=rep(NA,1),AllRSD=rep(NA,1),
+			                  TrainLogD=rep(NA,1),TrainLogDSD=rep(NA,1),TestLogD=rep(NA,1),
+			                  TestLogDSD=rep(NA,1),AllLogD=rep(NA,1),AllLogDSD=rep(NA,1),
+			                  TrainRMSQD=rep(NA,1),TrainRMSQDSD=rep(NA,1),TestRMSQD=rep(NA,1),
+			                  TestRMSQDSD=rep(NA,1),AllRMSQD=rep(NA,1),AllRMSQDSD=rep(NA,1))
+			
+			Thres <- data.frame(TenPercentile=rep(NA,1),TenPercentileSD=rep(NA,1),
+			                    Prevalence=rep(NA,1),PrevalenceSD=rep(NA,1),FixedValue=rep(NA,1),
+			                    MaxTrainSensSpec=rep(NA,1),MaxTrainSesnsSpecSD=rep(NA,1),
+			                    EqualTrainSensSpec=rep(NA,1),EqualTrainSensSpecSD=rep(NA,1),
+			                    BalanceTrainOmission=rep(NA,1),BalanceTrainOmissionSD=rep(NA,1),
+			                    UpperLeftROC=rep(NA,1),UpperLeftROCSD=rep(NA,1))  
+			
+			write.csv(Met,paste(idir,"/models/metricsDummy.csv",sep=""),row.names=FALSE)
+			write.csv(Thres,paste(idir,"/models/threshDummy.csv",sep=""),row.names=FALSE)
+      
       dumMetFile <- paste(idir,"/models/metricsDummy.csv",sep="")
       dumThreshFile <- paste(idir,"/models/threshDummy.csv",sep="")
       if (file.exists(metricsFile)) {
