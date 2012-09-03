@@ -79,7 +79,7 @@ sizeDR <- function(bdir, spID) {
 	#Size of the native area
 	
 	cat("Reading native area \n")
-	naFolder <- paste(idir, "/native-areas/asciigrids/", spID, sep="")
+	naFolder <- paste(idir, "/native-areas/asciigrids", sep="")
 	
 	if (file.exists(paste(naFolder, "/narea.asc.gz", sep=""))) {
 		grd <- zipRead(naFolder, "narea.asc.gz")
