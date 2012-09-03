@@ -29,9 +29,9 @@ sizeDR <- function(bdir, spID) {
 	spFolder <- paste(idir, "/models/", spID, sep="")
 	projFolder <- paste(spFolder, "/projections", sep="")
 	
-	mskArea <- paste(idir, "/masks/cellArea.asc", sep="")
+	mskArea <- paste(bdir, "/masks/cellArea.asc", sep="")
 	mskArea <- raster(mskArea, values=T)
-	msk <- paste(idir, "/masks/mask.asc", sep="")
+	msk <- paste(bdir, "/masks/mask.asc", sep="")
 	msk <- raster(msk)
 	
 	#Size of the DR
