@@ -10,7 +10,8 @@ source(paste(src.dir,"/000.bufferPoints.R",sep=""))
 
 sizeDR <- function(bdir, spID) {
 	
-	idir <- paste(bdir, "/maxent_modeling", sep="")
+	#idir <- paste(bdir, "/maxent_modeling", sep="")
+  idir <- "/curie_data2/ncastaneda/gap-analysis/gap_tomato_nhm/maxent_modeling"
 	ddir <- paste(bdir, "/samples_calculations", sep="")
 	
 	#Creating the directories
