@@ -14,8 +14,8 @@ source(paste(src.dir,"/000.zipWrite.R",sep=""))
 outFolder <- paste(idir, "/", sep="")
 #outFolder <- paste("F:/gap_analysis_publications/gap_phaseolus/samples_calculations/", spID, sep="")
 buffDist <- 50000
-#spFile <- paste(idir, "/occurrence_files/", spID, ".csv", sep="")
-spFile <- paste(idir, "/", spID, ".csv", sep="")
+spFile <- paste(idir, "/occurrence_files/", spID, ".csv", sep="")
+#spFile <- paste(idir, "/", spID, ".csv", sep="")
 #msk <- "G:/ncastaneda/clim/bio_10m_esri/bio_1"
 
 createBuffers <- function(spFile, outFolder, outName, buffDist, msk) {

@@ -9,7 +9,8 @@ source(paste(src.dir,"/000.bufferPoints.R",sep=""))
 #based on the area of the cells
 
 sizeDR <- function(bdir, spID) {
-	
+	bdir<- "/curie_data2/ncastaneda/gap-analysis/gap_tomato_nhm"
+  spID <- "Solanum_arcanum"
 	#idir <- paste(bdir, "/maxent_modeling", sep="")
   idir <- "/curie_data2/ncastaneda/gap-analysis/gap_tomato_nhm/maxent_modeling"
 	ddir <- paste(bdir, "/samples_calculations", sep="")
