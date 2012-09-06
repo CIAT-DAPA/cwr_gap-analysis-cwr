@@ -108,7 +108,7 @@ sizeDR <- function(bdir, spID) {
 		rm(hOcc)
     
     if (!file.exists(paste(spOutFolder, "/hsamples-buffer.asc.gz",sep=""))) {
-		  grd <- createBuffers(paste(spOutFolder, "/hsamples.csv", sep=""), spOutFolder, "hsamples-buffer.asc", 50000, paste(idir, "/masks/mask.asc", sep=""))
+		  grd <- createBuffers(paste(spOutFolder, "/hsamples.csv", sep=""), spOutFolder, "hsamples-buffer.asc", 50000, paste(bdir, "/masks/mask.asc", sep=""))
     } else {
       grd <- zipRead(spOutFolder,"hsamples-buffer.asc.gz")
     }

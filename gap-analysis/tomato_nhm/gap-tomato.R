@@ -83,7 +83,6 @@ writeRaster(rs_a,"./masks/cellArea.asc",overwrite="TRUE")
 
 #== perform the maxent modelling in parallel ==#
 source(paste(src.dir,"/005.modelingApproach.R",sep=""))
-#source(paste(src.dir,"/_005.modelingApproach_original.R",sep=""))
 GapProcess(inputDir=paste(crop_dir,"/maxent_modeling",sep=""), OSys="linux", ncpu=5)
 
 #== summarise the metrics ==#
