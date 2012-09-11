@@ -1,65 +1,109 @@
-# PCA at curie
-rm(list=ls()); g=gc(); rm(g)
+#############################
+# PCA -light version
+# N. Castaneda - 2012
+#############################
 
 require(raster)
 require(stats)
-wd <- "/curie_data2/ncastaneda/geodata/bio" #curie
-#wd <- "C:/Users/ncp148/Documents/_geodata/bioclim/bio_2-5m_esri" #local
+
+rm(list=ls()); g=gc(); rm(g)
+
+wd <- "/curie_data2/ncastaneda/geodata/bio_30s_sa"
 setwd(wd)
 
-stk <- stack(paste("bio_",1:19,sep="")) #cuando se le de la gana de servir
-stk <- stack(paste("bio_",c(1,2,4:11,13:15,17:21),sep="")) # alterno
-stk <- stack(paste("bio_",c(1,2,4:6,8:11,13,14,17:21),sep=""))
-rs <- stk[[1]]
-#rs <- raster("bio_1")
-# verify integrity of bios
-#plot(stk)
+stk <- stack(paste("bio_",1:19,".asc",sep="")) #all variables
 
+rs <- stk[[1]]
 xy <- xyFromCell(rs,which(!is.na(rs[])))
 xy <- as.data.frame(xy)
 
-#extract the data
-#for (i in 1:19) {
-for (i in c(1,2,4:6,8:11,13,14,17:21)){
-#for (i in 1:21) {
-  cat("Extract",i,"\n")
-  xy$NEW <- extract(stk[[i]],data.frame(X=xy$x,Y=xy$y))
-  #xy$NEW <- extract(paste("bio_",i,sep=""),data.frame(X=xy$x,Y=xy$y))
-  names(xy)[i+2] <- paste("bio_",i,sep="")
-  }
+bios <- extract(stk,xy)
+bios <- as.data.frame(bios)
+bios <- cbind(xy,bios)
 
-biovars <- xy[,3:21]
-#biovars <- xy[,3:23]
-write.csv(biovars,"./../biovars_pca.csv",quote=F,row.names=F)
+biovars <- bios[,3:21] # When all 19 biovars are included
 
-#standardise
-biovars_std <- scale(biovars)
-write.csv(biovars_std,"./../biovars_pca_std.csv",quote=F,row.names=F)
-
-#do the pca
 x <- prcomp(biovars, scale=T)
 xs <- summary(x)
 y <- as.data.frame(predict(x,biovars))
 
-dir.create("./../pca_result_raw")
+dir.create("pca_result_raw")
 
 #for (i in 1:19) {
-for (i in 1:21) {
+for (i in 1:2) {
   cat("Assign",i,"\n")
   rs <- raster(stk)
   wcells <- cellFromXY(rs,data.frame(X=xy$x,Y=xy$y))
   rs[] <- NA
   rs[wcells] <- y[,paste("PC",i,sep="")]
-  rs <- writeRaster(rs,paste("./../pca_result_raw/pc_",i,".asc",sep=""),format='ascii')
+  rs <- writeRaster(rs,paste("./pca_result_raw/pc_",i,".asc",sep=""),format='ascii')
 }
 
-rs <- raster("./../pca_result_raw/pc_2.asc")
-write.csv(xs$importance,"./../pca_result_raw/pca_importance.csv",quote=F,row.names=T)
+write.csv(xs$importance,"./pca_result_raw/pca_importance.csv",quote=F,row.names=T)
+
+
+## PCA at curie
+#rm(list=ls()); g=gc(); rm(g)
+#
+#require(raster)
+#require(stats)
+#wd <- "/curie_data2/ncastaneda/geodata/bio" #curie
+##wd <- "C:/Users/ncp148/Documents/_geodata/bioclim/bio_2-5m_esri" #local
+#setwd(wd)
+#
+#stk <- stack(paste("bio_",1:19,sep="")) #cuando se le de la gana de servir
+#stk <- stack(paste("bio_",c(1,2,4:11,13:15,17:21),sep="")) # alterno
+#stk <- stack(paste("bio_",c(1,2,4:6,8:11,13,14,17:21),sep=""))
+#rs <- stk[[1]]
+##rs <- raster("bio_1")
+## verify integrity of bios
+##plot(stk)
+#
+#xy <- xyFromCell(rs,which(!is.na(rs[])))
+#xy <- as.data.frame(xy)
+#
+##extract the data
+#for (i in 1:19) {
+#for (i in c(1,2,4:6,8:11,13,14,17:21)){
+##for (i in 1:21) {
+  #cat("Extract",i,"\n")
+  #xy$NEW <- extract(stk[[i]],data.frame(X=xy$x,Y=xy$y))
+  #xy$NEW <- extract(paste("bio_",i,sep=""),data.frame(X=xy$x,Y=xy$y))
+  #names(xy)[i+2] <- paste("bio_",i,sep="")
+  }
+#
+#biovars <- xy[,3:21]
+##biovars <- xy[,3:23]
+#write.csv(biovars,"./../biovars_pca.csv",quote=F,row.names=F)
+#
+##standardise
+#biovars_std <- scale(biovars)
+#write.csv(biovars_std,"./../biovars_pca_std.csv",quote=F,row.names=F)
+#
+##do the pca
+#x <- prcomp(biovars, scale=T)
+#xs <- summary(x)
+#y <- as.data.frame(predict(x,biovars))
+#
+#dir.create("./../pca_result_raw")
+#
+##for (i in 1:19) {
+#for (i in 1:21) {
+#  cat("Assign",i,"\n")
+#  rs <- raster(stk)
+#  wcells <- cellFromXY(rs,data.frame(X=xy$x,Y=xy$y))
+#  rs[] <- NA
+#  rs[wcells] <- y[,paste("PC",i,sep="")]
+#  rs <- writeRaster(rs,paste("./../pca_result_raw/pc_",i,".asc",sep=""),format='ascii')
+#}
+#
+#rs <- raster("./../pca_result_raw/pc_2.asc")
+#write.csv(xs$importance,"./../pca_result_raw/pca_importance.csv",quote=F,row.names=T)
 
 #reclassify components
 dir.create("./../pca_result_reclass")
 
-for (i in 1:19) {
+for (i in 1:2) {
   #for (i in 1:21) {
   cat("\nVariable",i,"\n")
   rs <- raster(paste("./../pca_result_raw/pc_",i,".asc",sep=""))

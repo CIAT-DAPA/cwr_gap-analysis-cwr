@@ -15,7 +15,8 @@ edistDR <- function(bdir, spID) {
 	
 	idir <- paste(bdir, "/maxent_modeling", sep="")
 	ddir <- paste(bdir, "/samples_calculations", sep="")
-	pcdir <- paste(bdir, "/maxent_modeling/climate_data/pca_result_reclass", sep="")
+	#pcdir <- paste(bdir, "/maxent_modeling/climate_data/pca_result_reclass", sep="")
+  pcdir <- "/curie_data2/ncastaneda/geodata/bio_30s_sa/pca_result_reclass"
 	
 	#Creating the directories
 	if (!file.exists(ddir)) {
@@ -82,7 +83,7 @@ edistDR <- function(bdir, spID) {
 	}
 	
 	#Edist of the native area
-	naFolder <- paste(idir, "/native-areas/asciigrids/", spID, sep="")
+	naFolder <- paste(bdir, "/native-areas/asciigrids", sep="")
 	if (file.exists(paste(naFolder, "/narea.asc.gz", sep=""))) {
 		cat("Reading native area \n")
 		grd <- zipRead(naFolder, "narea.asc.gz")
