@@ -91,20 +91,21 @@ speciesRichness <- function(bdir) {
 		sppC <- sppC + 1
 	}
 
-	cat("Writing richness raster \n")
-	dumm <- zipWrite(sprich, outFolder, "species-richness.asc.gz")
+	#cat("Writing richness raster \n")
+	#dumm <- zipWrite(sprich, outFolder, "species-richness.asc.gz")
 	
 	cat("Calculating mean sd raster \n")
-	sdmean <- sum(stack(sdlist)) / sprich
-	cat("Writing \n")
-	dumm <- zipWrite(sdmean, outFolder, "species-richness-sdmean.asc.gz")
+	sdmean <- stack(sdlist) #Test
+	#sdmean <- sum(stack(sdlist)) / sprich
+	#cat("Writing \n")
+	#dumm <- zipWrite(sdmean, outFolder, "species-richness-sdmean.asc.gz")
 
-	cat("Calculating max sd raster \n")
-	sdmax <- max(stack(sdlist))
-	cat("Writing \n")
-	dumm <- zipWrite(sdmax, outFolder, "species-richness-sdmax.asc.gz")
+	#cat("Calculating max sd raster \n")
+	#sdmax <- max(stack(sdlist))
+	#cat("Writing \n")
+	#dumm <- zipWrite(sdmax, outFolder, "species-richness-sdmax.asc.gz")
 
-	cat("Done! \n")
+	#cat("Done! \n")
 
 	return(stack(sprich,sdmean,sdmax))
 }
