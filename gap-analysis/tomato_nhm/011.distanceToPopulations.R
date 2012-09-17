@@ -18,7 +18,7 @@ populationDistance <- function(bdir, spID) {
 	xy <- occ[,2:3]
 	
 	cat("Loading mask \n")
-	msk <- raster(paste(idir, "/masks/mask.asc", sep=""))
+	msk <- raster(paste(bdir, "/masks/mask.asc", sep=""))
 	
 	cat("Distance from points \n")
 	dgrid <- distanceFromPoints(msk, xy)
