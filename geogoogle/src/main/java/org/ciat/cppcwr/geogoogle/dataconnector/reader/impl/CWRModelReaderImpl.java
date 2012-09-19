@@ -56,6 +56,10 @@ public class CWRModelReaderImpl implements DataModelReader {
 		dm = inject.getInstance(MySQLDataBaseManager.class);
 	}
 
+	/*
+	 * Get data from database
+	 * @return ArrayList<String[]> queries to geocoding (location values)
+	 * */
 	public ArrayList<String[]> getDBData() {
 		ArrayList<String[]> data = new ArrayList<String[]>();
 		Connection connection = dm.openConnection();
@@ -66,18 +70,19 @@ public class CWRModelReaderImpl implements DataModelReader {
 					+ ADM3_FIELD_NAME + "," + LOCAL_AREA_FIELD_NAME + ","
 					+ LOCALITY_FIELD_NAME + "  FROM " + TABLE_NAME + " WHERE "
 					+ COUNTRY_FIELD_NAME + " IS NOT NULL AND "
-					+ LATTITUDE + " IS NULL  AND " + LONGITUDE + " IS NULL";
+					+ LATTITUDE + " IS NULL  AND " + LONGITUDE + " IS NULL"; // Only records with latitude and longitude values
 			//System.out.println(query);
 			ResultSet rs = dm.makeQuery(query, connection);
 
 			try {
-				if (rs != null) {
+				if (rs != null) { 
 					String[] array = null;
 					while (rs.next()) {
 						array = new String[2];
 						array[0] = rs.getString(ID_FIELD_NAME);
 						array[1] = "";
 						
+						// Generate a localiton query to geocoding
 						if(rs.getString(COUNTRY_FIELD_NAME) != null){
 							array[1] += rs.getString(COUNTRY_FIELD_NAME).trim().replace(" ","+") + ",+";
 						}

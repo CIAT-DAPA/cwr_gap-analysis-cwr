@@ -45,7 +45,6 @@ public class CWRModelWriterImpl implements DataModelWriter {
 	private final String LATTITUDE = "latitude_georef";
 	private final String LONGITUDE = "longitude_georef";
 	private final String DISTANCE = "distance_georef";
-	private final String LOCATION_TYPE_FIELD_NAME = "???";// NOT IMPLEMENTED YET
 	private final String ID_FIELD_NAME = "id";
 	/*------------------------------------------------------*/
 	private MySQLDataBaseManager dm;
@@ -55,15 +54,18 @@ public class CWRModelWriterImpl implements DataModelWriter {
 		dm = inject.getInstance(MySQLDataBaseManager.class);
 	}
 	
+	
+	/**
+	 * Write the results into file
+	 */
 	public boolean writeCoordValuesInFile(double[] coord, String locationType, double distance,
-			String idOccurrence){
-		String data = "";//ID_FIELD_NAME + "\t" + LATTITUDE + "\t" + LONGITUDE + "\t" + DISTANCE + "\n";
-		data += idOccurrence + "\t" + coord[0] + "\t" + coord[1] + "\t" + distance;
+			String idOccurrence, String filename){
+		String data = idOccurrence + "\t" + coord[0] + "\t" + coord[1] + "\t" + distance;
 		FileWriter file = null;
 		PrintWriter pw = null;
 		
 		try{
-			file = new FileWriter("c:/test-2.txt",true);
+			file = new FileWriter(filename,true);
 			pw = new PrintWriter(file);
 			pw.println(data);
 		}catch(Exception e){
@@ -119,6 +121,9 @@ public class CWRModelWriterImpl implements DataModelWriter {
 		}
 	}
 
+	/*
+	 * Write a single database record
+	 * */
 	public boolean writeCoordValues(double[] coord, String locationType, double distance,
 			String idOccurrence) {
 		String updateQuery = "";

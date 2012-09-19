@@ -18,6 +18,7 @@
  */
 package org.ciat.cppcwr.geogoogle.service;
 
+import java.io.Console;
 import java.net.InetSocketAddress;
 import java.net.Proxy;
 import java.net.URL;
@@ -52,6 +53,9 @@ public class GeoGoogle {
 	private final String LT_RANGE_INTERPOLATED = "RANGE_INTERPOLATED";
 	private final String LT_GEOMETRIC_CENTER = "GEOMETRIC_CENTER";
 	private final String LT_APPROXIMATE = "APPROXIMATE";
+	private final String OPTION_DATABASE = "1";
+	private final String OPTION_FILE = "2";
+	private Console console = System.console();
 
 	/*
 	 * Update data at bd
@@ -66,6 +70,8 @@ public class GeoGoogle {
 		ArrayList<String[]> data = mr.getDBData();
 		ArrayList<String> queries = transformToValidQuery(data);
 		ArrayList<String> ids = returnIds(data);
+		String user_dec = console
+				.readLine("       OPTIONS \n [1] Save into database \n [2] Save into a file \n Select your response: ");
 
 		try {
 			for (int k = 0; k < queries.size(); k++) {
@@ -82,13 +88,12 @@ public class GeoGoogle {
 				Proxy proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress(
 						"proxy2.ciat.cgiar.org", 8080));
 				DocumentBuilder db = dbf.newDocumentBuilder();
-				//System.out.println(file_url);
+
 				Document doc = db.parse(file_url.openConnection(proxy)
 						.getInputStream());// Document
 											// with
 											// data
-											// information
-				//System.out.println(doc);
+
 				if (doc != null) {// Don't make it empty document
 					NodeList locationList = doc
 							.getElementsByTagName("location");
@@ -96,7 +101,7 @@ public class GeoGoogle {
 							.getElementsByTagName("location_type");
 					NodeList viewPortList = doc
 							.getElementsByTagName("viewport");
-					System.out.println(locationList);
+
 					Node location = null, lat = null, lng = null;
 					if (locationList.getLength() > 0) {
 						for (int i = 0; i < locationList.getLength(); i++) {
@@ -112,34 +117,35 @@ public class GeoGoogle {
 						if (locationTypeList.getLength() > 0) {
 							for (int i = 0; i < locationTypeList.getLength(); i++) {
 								locationType = locationTypeList.item(i);
-								System.out.println("location_type : "
-										+ locationType.getTextContent());
 							}
 						}
-						
-						Node viewPort = null, northeast = null, southwest = null, lat_northeast = null,
-								lng_northeast = null, lat_southwest = null, lng_southwest = null;
-						if(viewPortList.getLength() > 0){
-							for(int i = 0;i < viewPortList.getLength();i++){
+
+						Node viewPort = null, northeast = null, southwest = null, lat_northeast = null, lng_northeast = null, lat_southwest = null, lng_southwest = null;
+						if (viewPortList.getLength() > 0) {
+							for (int i = 0; i < viewPortList.getLength(); i++) {
 								viewPort = viewPortList.item(i);
-								System.out.println("View Port: " + viewPort.getTextContent());
-								
-								if(viewPort.hasChildNodes()){
-									northeast = viewPort.getChildNodes().item(1);
-									southwest = viewPort.getChildNodes().item(3);
+
+								if (viewPort.hasChildNodes()) {
+									northeast = viewPort.getChildNodes()
+											.item(1);
+									southwest = viewPort.getChildNodes()
+											.item(3);
 								}
-								
-								if(northeast.hasChildNodes()){
-									lat_northeast = northeast.getChildNodes().item(1);
-									lng_northeast = northeast.getChildNodes().item(3);
+
+								if (northeast.hasChildNodes()) {
+									lat_northeast = northeast.getChildNodes()
+											.item(1);
+									lng_northeast = northeast.getChildNodes()
+											.item(3);
 								}
-								
-								if(southwest.hasChildNodes()){
-									lat_southwest = southwest.getChildNodes().item(1);
-									lng_southwest = southwest.getChildNodes().item(3);
+
+								if (southwest.hasChildNodes()) {
+									lat_southwest = southwest.getChildNodes()
+											.item(1);
+									lng_southwest = southwest.getChildNodes()
+											.item(3);
 								}
-									
-								
+
 							}
 						}
 
@@ -150,24 +156,41 @@ public class GeoGoogle {
 								.getTextContent());
 						coordValues[1] = Double.parseDouble(lng
 								.getTextContent());
-						
-						
+
 						double[] coordValuesNortheast = new double[2];
-						coordValuesNortheast[0] = Double.parseDouble(lat_northeast.getTextContent());
-						coordValuesNortheast[1] = Double.parseDouble(lng_northeast.getTextContent());
-						
+						coordValuesNortheast[0] = Double
+								.parseDouble(lat_northeast.getTextContent());
+						coordValuesNortheast[1] = Double
+								.parseDouble(lng_northeast.getTextContent());
+
 						double[] coordValuesSouthwest = new double[2];
-						coordValuesSouthwest[0] = Double.parseDouble(lat_southwest.getTextContent());
-						coordValuesSouthwest[1] = Double.parseDouble(lng_southwest.getTextContent());
+						coordValuesSouthwest[0] = Double
+								.parseDouble(lat_southwest.getTextContent());
+						coordValuesSouthwest[1] = Double
+								.parseDouble(lng_southwest.getTextContent());
 
-						double distance = getDistance(coordValuesNortheast, coordValuesSouthwest);
-						
-						if (mw.writeCoordValuesInFile(coordValues,locationType.getTextContent(), distance, ids.get(k))) {
-							
+						double distance = getDistance(coordValuesNortheast,
+								coordValuesSouthwest);
+
+						if (user_dec.equals(OPTION_DATABASE)) {
+
+						} else if (user_dec.equals(OPTION_FILE)) {
+							String filename = console
+									.readLine("Enter a filename (with a pat if you wish, default c:/)");
+							if (mw.writeCoordValuesInFile(coordValues,
+									locationType.getTextContent(), distance,
+									ids.get(k), filename)) {
+								System.out.println(k
+										+ " Update Success: Id record -> "
+										+ ids.get(k));
+							} else {
+								System.out.println(k
+										+ " Update Error: Id record -> "
+										+ ids.get(k));
+							}
 						} else {
-							
+							System.out.println("Error: Invalid option");
 						}
-
 					}
 				}
 			}
@@ -196,24 +219,24 @@ public class GeoGoogle {
 
 		for (int i = 0; i < dataLocationList.size(); i++) {
 			ids.add(dataLocationList.get(i)[0]);
-			System.out.println(dataLocationList.get(i)[0]);
 		}
 
 		return ids;
 	}
-	
+
 	// Get the distance to 2 coordinates (km)
-	public double getDistance(double[] coord1, double[] coord2){
+	public double getDistance(double[] coord1, double[] coord2) {
 		double d = 0;
-		if(coord1.length == 2 && coord2.length == 2){
+		if (coord1.length == 2 && coord2.length == 2) {
 			double LatA = (coord1[0] * Math.PI) / 180;
 			double LatB = (coord2[0] * Math.PI) / 180;
 			double LngA = (coord1[1] * Math.PI) / 180;
 			double LngB = (coord2[1] * Math.PI) / 180;
-			
-			d = 6371 * Math.acos(Math.cos(LatA) * Math.cos(LatB) * Math.cos(LngB - LngA) + Math.sin(LatA) * Math.sin(LatB));
+
+			d = 6371 * Math.acos(Math.cos(LatA) * Math.cos(LatB)
+					* Math.cos(LngB - LngA) + Math.sin(LatA) * Math.sin(LatB));
 			return d; // Retorna la distancia en kilometros
-		}else{
+		} else {
 			System.out.println("Error: coord length is not correct");
 			return -1;
 		}
