@@ -18,10 +18,14 @@
  */
 package org.ciat.cppcwr.geogoogle.dataconnector.writer;
 
+import java.util.ArrayList;
+
 /**
  * @author Héctor Tobón (htobon)
  *
  */
 public interface DataModelWriter {
-
+	public boolean writeCoordValues(ArrayList<double[]> coordList, ArrayList<String> locationTypeList, double distance, ArrayList<int[]> idOccurrencesList);
+	public boolean writeCoordValues(double[] coord, String locationType, double distance, String idOccurrence);
+	public boolean writeCoordValuesInFile(double[] coord, String locationType, double distance,String idOccurrence);
 }

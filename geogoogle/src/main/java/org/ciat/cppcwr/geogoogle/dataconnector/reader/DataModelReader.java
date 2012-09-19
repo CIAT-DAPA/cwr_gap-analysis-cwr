@@ -18,10 +18,14 @@
  */
 package org.ciat.cppcwr.geogoogle.dataconnector.reader;
 
+import java.util.ArrayList;
+
+
 /**
  * @author Héctor Tobón (htobon)
  *
  */
 public interface DataModelReader {
-
+	
+	public ArrayList<String[]> getDBData();
 }

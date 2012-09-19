@@ -15,7 +15,7 @@
 		<jdkLevel>1.6</jdkLevel>
 		<mysql.version>5.1.18</mysql.version>
 		<guice.version>3.0</guice.version>
-		<MainClass>org.ciat.cppcwr.geogoogle.webservice.UrlSignerGenerator</MainClass>
+		<MainClass>org.ciat.cppcwr.geogoogle.service.GeoGoogle</MainClass>
 	</properties>
 
 	<developers>

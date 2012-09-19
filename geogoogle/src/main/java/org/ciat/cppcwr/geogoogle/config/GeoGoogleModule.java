@@ -18,8 +18,13 @@
  */
 package org.ciat.cppcwr.geogoogle.config;
 
+
 import org.ciat.cppcwr.geogoogle.db.DataBaseManager;
 import org.ciat.cppcwr.geogoogle.db.impl.MySQLDataBaseManager;
+import org.ciat.cppcwr.geogoogle.dataconnector.reader.DataModelReader;
+import org.ciat.cppcwr.geogoogle.dataconnector.reader.impl.CWRModelReaderImpl;
+import org.ciat.cppcwr.geogoogle.dataconnector.writer.DataModelWriter;
+import org.ciat.cppcwr.geogoogle.dataconnector.writer.impl.CWRModelWriterImpl;
 import org.ciat.cppcwr.geogoogle.service.manage.PropertiesManager;
 import org.ciat.cppcwr.geogoogle.service.manage.impl.PropertiesManagerImpl;
 
@@ -33,6 +38,8 @@ public class GeoGoogleModule extends AbstractModule {
 		/* ---------- INJECTS CONFIGURATION ---------- */
 		
 		bind(PropertiesManager.class).to(PropertiesManagerImpl.class);
+		bind(DataModelReader.class).to(CWRModelReaderImpl.class);
+		bind(DataModelWriter.class).to(CWRModelWriterImpl.class);
 
 		// Instancebinding for a DataBaseManager instance @Named as "MySQL".
 		bind(DataBaseManager.class).annotatedWith(Names.named("MySQL")).to(

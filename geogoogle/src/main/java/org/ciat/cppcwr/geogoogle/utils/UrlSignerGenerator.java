@@ -28,9 +28,12 @@ import java.security.NoSuchAlgorithmException;
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 
+import org.ciat.cppcwr.geogoogle.config.GeoGoogleModule;
 import org.ciat.cppcwr.geogoogle.service.manage.PropertiesManager;
 
+import com.google.inject.Guice;
 import com.google.inject.Inject;
+import com.google.inject.Injector;
 
 /**
  * @author Héctor Tobón (htobon)
@@ -46,27 +49,34 @@ public class UrlSignerGenerator {
 	// This variable stores the binary key, which is computed from the string
 	// (util.Base64) key
 	private byte[] key;
-
+/*
 	public static void main(String[] args) throws IOException,
 			InvalidKeyException, NoSuchAlgorithmException, URISyntaxException {
 
 		// Convert the string to a URL so we can parse it
 		URL url = new URL("https://maps.googleapis.com/maps/api/geocode/xml?sensor=false&address=Colombia,+Valle+del+Cauca,+Cali,+Universidad+Icesi");
-
+		//URL url = new URL("https://maps.googleapis.com/api/geocode/json?sensor=false&"+parameters);
 		UrlSignerGenerator signer = new UrlSignerGenerator();
 		String request = signer.signRequest(url.getPath(), url.getQuery());
 
 		System.out.println("Signed URL :" + url.getProtocol() + "://"
 				+ url.getHost() + request);
 	}
-	
+	*/
 	public UrlSignerGenerator() throws IOException {		
 		// Convert the key from 'web safe' base 64 to binary
-		keyString = pm.getProperty("google.key");
+		// TESTS
+		Injector inject = Guice.createInjector(new GeoGoogleModule());
+		pm = inject.getInstance(PropertiesManager.class);// New
+		keyString = pm.getProperty("google.key"); // pm null, how get instance?
+		/*
+		 * Injector inject = Guice.createInjector(new GeoGoogleModule()); so, I need to create a PropertiesManagerModule in config package and same way <-
+		 * UrlSignerGenerator usg = inject.getInstance(UrlSignerGenerator.class);
+		 * */
 		keyString = keyString.replace('-', '+');
 		keyString = keyString.replace('_', '/');
 		System.out.println("Key: " + keyString);
-		this.key = Base64.decode(keyString);
+	    this.key = Base64.decode(keyString);
 		this.clientID = pm.getProperty("google.client");
 	}
 
@@ -85,7 +95,7 @@ public class UrlSignerGenerator {
 			UnsupportedEncodingException, URISyntaxException {		
 		
 		// Retrieve the proper URL components to sign
-		String resource = path + '?' + query + "&client="+clientID;
+		String resource = path + '?' + query + "&client="+this.clientID;
 
 		// Get an HMAC-SHA1 signing key from the raw key bytes
 		SecretKeySpec sha1Key = new SecretKeySpec(key, "HmacSHA1");

@@ -37,6 +37,10 @@ public class MySQLDataBaseManager implements DataBaseManager {
 	@Inject
 	private PropertiesManager pm;
 
+	public MySQLDataBaseManager() {
+		
+	}
+	
 	public boolean registerDriver() {
 		try {
 			Class.forName("org.gjt.mm.mysql.Driver").newInstance();
