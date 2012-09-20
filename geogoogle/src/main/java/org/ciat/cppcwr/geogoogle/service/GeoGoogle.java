@@ -73,10 +73,16 @@ public class GeoGoogle {
 		String user_dec = console
 				.readLine("       OPTIONS \n [1] Save into database \n [2] Save into a file \n Select your response: ");
 
+		String filename = "";
+		if (user_dec.equals(OPTION_FILE)) {
+			filename = console
+					.readLine("Enter a filename (with a pat if you wish, default c:/)");
+		}
+
 		try {
 			for (int k = 0; k < queries.size(); k++) {
 				URL url = new URL(URL_SEND + queries.get(k));
-				System.out.println(url.getPath() + url.getQuery());
+				// System.out.println(url.getPath() + url.getQuery());
 				URL file_url = new URL(url.getProtocol() + "://"
 						+ url.getHost()
 						+ usg.signRequest(url.getPath(), url.getQuery()));
@@ -173,10 +179,15 @@ public class GeoGoogle {
 								coordValuesSouthwest);
 
 						if (user_dec.equals(OPTION_DATABASE)) {
-
+							if(mw.writeCoordValues(coordValues, locationType.getTextContent(), 
+									distance, ids.get(k))){
+								System.out.println(k + " Update Success: Id record -> " + ids.get(k));
+							}else{
+								System.out.println(k
+										+ " Update Error: Id record -> "
+										+ ids.get(k));
+							}
 						} else if (user_dec.equals(OPTION_FILE)) {
-							String filename = console
-									.readLine("Enter a filename (with a pat if you wish, default c:/)");
 							if (mw.writeCoordValuesInFile(coordValues,
 									locationType.getTextContent(), distance,
 									ids.get(k), filename)) {
