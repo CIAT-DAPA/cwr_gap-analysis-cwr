@@ -46,6 +46,7 @@ public class CWRModelWriterImpl implements DataModelWriter {
 	private final String LONGITUDE = "longitude_georef";
 	private final String DISTANCE = "distance_georef";
 	private final String ID_FIELD_NAME = "id";
+	private final String GEOREF_FLAG = "georef_flag";
 	private final double THRESHOLD = 10; // Threshold to distance
 	/*------------------------------------------------------*/
 	private MySQLDataBaseManager dm;
@@ -163,6 +164,36 @@ public class CWRModelWriterImpl implements DataModelWriter {
 			System.out.println("WARNING: Distance value is more than threshold value " + THRESHOLD);
 			return false;
 		}
+	}
+	
+	public boolean changeGeorefFlagStatus(String idOccurrence){
+		String updateQuery = "";
+
+		updateQuery += "UPDATE " + TABLE_NAME + " SET " + GEOREF_FLAG + " = 1 WHERE " + ID_FIELD_NAME
+				+ " = " + idOccurrence + ";";
+
+
+			Connection connection = dm.openConnection(); // Get database
+															// connection
+
+			if (connection != null) { // if connect
+				int affected_rows = dm.makeChange(updateQuery, connection); // Number
+																			// of
+																			// affected
+																			// rows
+																			// on
+																			// db
+				dm.closeConnection(connection);
+				if (affected_rows != -1) { // No errors
+					return true;
+				} else {
+					return false;
+				}
+			} else {
+	
+				return false;
+			}
+			
 	}
 
 }

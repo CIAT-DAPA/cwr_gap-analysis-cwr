@@ -28,4 +28,5 @@ public interface DataModelWriter {
 	public boolean writeCoordValues(ArrayList<double[]> coordList, ArrayList<String> locationTypeList, double distance, ArrayList<int[]> idOccurrencesList);
 	public boolean writeCoordValues(double[] coord, String locationType, double distance, String idOccurrence);
 	public boolean writeCoordValuesInFile(double[] coord, String locationType, double distance,String idOccurrence, String filename);
+	public boolean changeGeorefFlagStatus(String idOccurrence);
 }

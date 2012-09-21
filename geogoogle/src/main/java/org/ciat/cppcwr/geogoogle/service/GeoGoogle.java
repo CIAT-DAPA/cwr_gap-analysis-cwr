@@ -57,14 +57,14 @@ public class GeoGoogle {
 	/*
 	 * Update data at bd
 	 */
-	public void init() {
+	public void init(String crit_gen) {// Critical genus
 
 		Injector inject = Guice.createInjector(new GeoGoogleModule());
 		UrlSignerGenerator usg = inject.getInstance(UrlSignerGenerator.class);
 		mr = inject.getInstance(DataModelReader.class);
 		mw = inject.getInstance(DataModelWriter.class);
 
-		ArrayList<String[]> data = mr.getDBData();
+		ArrayList<String[]> data = mr.getDBData(crit_gen);
 		ArrayList<String> queries = transformToValidQuery(data);
 		ArrayList<String> ids = returnIds(data);
 		String user_dec = console
@@ -204,7 +204,16 @@ public class GeoGoogle {
 								System.out.println("Error: Invalid option");
 							}
 						}else{
-							System.out.println("Error: "+distance+ " is more big than threshold "+THRESHOLD);
+							System.out.println("Warning: "+distance+ " is more big than threshold "+THRESHOLD);
+							if (mw.changeGeorefFlagStatus(ids.get(k))) {
+								System.out.println(k
+										+ " Warning - No values but remove to future query: Id record -> "
+										+ ids.get(k));
+							} else {
+								System.out.println(k
+										+ " Update Error: Id record -> "
+										+ ids.get(k));
+							}
 						}
 					}
 				} else { // Try less location values
@@ -214,6 +223,16 @@ public class GeoGoogle {
 
 					if (array.length >= 2) { // Only if size >= 2
 						k--; // Repeat again
+					}else{
+						if (mw.changeGeorefFlagStatus(ids.get(k))) {
+							System.out.println(k
+									+ " Warning - No values but remove to future query: Id record -> "
+									+ ids.get(k));
+						} else {
+							System.out.println(k
+									+ " Update Error: Id record -> "
+									+ ids.get(k));
+						}
 					}
 
 				}
@@ -281,7 +300,7 @@ public class GeoGoogle {
 	// Start
 	public static void main(String[] args) {
 		GeoGoogle geo = new GeoGoogle();
-		geo.init();
+		geo.init(args[0]);
 	}
 
 }

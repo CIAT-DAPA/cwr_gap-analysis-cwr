@@ -48,6 +48,7 @@ public class CWRModelReaderImpl implements DataModelReader {
 	private final String ID_FIELD_NAME = "id";
 	private final String LATTITUDE = "latitude";
 	private final String LONGITUDE = "longitude";
+	private final String GEOREF_FLAG = "georef_flag";
 	/*--------------------------------------------------*/
 	private MySQLDataBaseManager dm;
 
@@ -60,7 +61,7 @@ public class CWRModelReaderImpl implements DataModelReader {
 	 * Get data from database
 	 * @return ArrayList<String[]> queries to geocoding (location values)
 	 * */
-	public ArrayList<String[]> getDBData() {
+	public ArrayList<String[]> getDBData(String crit_gen) {
 		ArrayList<String[]> data = new ArrayList<String[]>();
 		Connection connection = dm.openConnection();
 
@@ -70,8 +71,7 @@ public class CWRModelReaderImpl implements DataModelReader {
 					+ ADM3_FIELD_NAME + "," + LOCAL_AREA_FIELD_NAME + ","
 					+ LOCALITY_FIELD_NAME + "  FROM " + TABLE_NAME + " WHERE "
 					+ COUNTRY_FIELD_NAME + " IS NOT NULL AND "
-					+ LATTITUDE + " IS NULL  AND " + LONGITUDE + " IS NULL"; // Only records with latitude and longitude values
-	
+					+ LATTITUDE + " IS NULL  AND " + LONGITUDE + " IS NULL AND "+GEOREF_FLAG+" = 0 AND x1_genus = '" + crit_gen + "';"; // Only records with latitude and longitude values and no georef_flag = 1 
 			ResultSet rs = dm.makeQuery(query, connection);
 
 			try {

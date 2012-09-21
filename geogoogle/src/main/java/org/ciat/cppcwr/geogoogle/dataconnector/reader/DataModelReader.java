@@ -27,5 +27,5 @@ import java.util.ArrayList;
  */
 public interface DataModelReader {
 	
-	public ArrayList<String[]> getDBData();
+	public ArrayList<String[]> getDBData(String crit_gen);
 }
