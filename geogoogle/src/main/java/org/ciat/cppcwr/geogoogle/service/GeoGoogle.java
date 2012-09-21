@@ -49,12 +49,9 @@ public class GeoGoogle {
 	private DataModelWriter mw;
 
 	private final String URL_SEND = "https://maps.googleapis.com/maps/api/geocode/xml?sensor=false&";
-	private final String LT_ROOFTOP = "ROOFTOP";
-	private final String LT_RANGE_INTERPOLATED = "RANGE_INTERPOLATED";
-	private final String LT_GEOMETRIC_CENTER = "GEOMETRIC_CENTER";
-	private final String LT_APPROXIMATE = "APPROXIMATE";
 	private final String OPTION_DATABASE = "1";
 	private final String OPTION_FILE = "2";
+	private double THRESHOLD = 10;
 	private Console console = System.console();
 
 	/*
@@ -178,31 +175,47 @@ public class GeoGoogle {
 						double distance = getDistance(coordValuesNortheast,
 								coordValuesSouthwest);
 
-						if (user_dec.equals(OPTION_DATABASE)) {
-							if(mw.writeCoordValues(coordValues, locationType.getTextContent(), 
-									distance, ids.get(k))){
-								System.out.println(k + " Update Success: Id record -> " + ids.get(k));
-							}else{
-								System.out.println(k
-										+ " Update Error: Id record -> "
-										+ ids.get(k));
-							}
-						} else if (user_dec.equals(OPTION_FILE)) {
-							if (mw.writeCoordValuesInFile(coordValues,
-									locationType.getTextContent(), distance,
-									ids.get(k), filename)) {
-								System.out.println(k
-										+ " Update Success: Id record -> "
-										+ ids.get(k));
+						if (distance <= THRESHOLD) {
+							if (user_dec.equals(OPTION_DATABASE)) {
+								if (mw.writeCoordValues(coordValues,
+										locationType.getTextContent(),
+										distance, ids.get(k))) {
+									System.out.println(k
+											+ " Update Success: Id record -> "
+											+ ids.get(k));
+								} else {
+									System.out.println(k
+											+ " Update Error: Id record -> "
+											+ ids.get(k));
+								}
+							} else if (user_dec.equals(OPTION_FILE)) {
+								if (mw.writeCoordValuesInFile(coordValues,
+										locationType.getTextContent(),
+										distance, ids.get(k), filename)) {
+									System.out.println(k
+											+ " Update Success: Id record -> "
+											+ ids.get(k));
+								} else {
+									System.out.println(k
+											+ " Update Error: Id record -> "
+											+ ids.get(k));
+								}
 							} else {
-								System.out.println(k
-										+ " Update Error: Id record -> "
-										+ ids.get(k));
+								System.out.println("Error: Invalid option");
 							}
-						} else {
-							System.out.println("Error: Invalid option");
+						}else{
+							System.out.println("Error: "+distance+ " is more big than threshold "+THRESHOLD);
 						}
 					}
+				} else { // Try less location values
+					queries.remove(k);
+					queries.add((k - 1), lessLocationValues(queries.get(k)));
+					String[] array = queries.get(k).split("+");
+
+					if (array.length >= 2) { // Only if size >= 2
+						k--; // Repeat again
+					}
+
 				}
 			}
 
@@ -253,6 +266,19 @@ public class GeoGoogle {
 		}
 	}
 
+	// Take less precision to geocoding
+	public String lessLocationValues(String query) {
+		String[] array = query.split("+");
+		String result = "";
+
+		for (int i = 0; i < (array.length) - 1; i++) {
+			result += array[i] + "+";
+		}
+
+		return result;
+	}
+
+	// Start
 	public static void main(String[] args) {
 		GeoGoogle geo = new GeoGoogle();
 		geo.init();

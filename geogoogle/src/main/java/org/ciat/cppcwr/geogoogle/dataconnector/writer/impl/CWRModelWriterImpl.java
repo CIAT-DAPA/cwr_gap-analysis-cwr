@@ -46,6 +46,7 @@ public class CWRModelWriterImpl implements DataModelWriter {
 	private final String LONGITUDE = "longitude_georef";
 	private final String DISTANCE = "distance_georef";
 	private final String ID_FIELD_NAME = "id";
+	private final double THRESHOLD = 10; // Threshold to distance
 	/*------------------------------------------------------*/
 	private MySQLDataBaseManager dm;
 
@@ -53,50 +54,48 @@ public class CWRModelWriterImpl implements DataModelWriter {
 		Injector inject = Guice.createInjector(new GeoGoogleModule());
 		dm = inject.getInstance(MySQLDataBaseManager.class);
 	}
-	
-	
+
 	/**
 	 * Write the results into file
 	 */
-	public boolean writeCoordValuesInFile(double[] coord, String locationType, double distance,
-			String idOccurrence, String filename){
-		String data = idOccurrence + "\t" + coord[0] + "\t" + coord[1] + "\t" + distance;
+	public boolean writeCoordValuesInFile(double[] coord, String locationType,
+			double distance, String idOccurrence, String filename) {
+		String data = idOccurrence + "\t" + coord[0] + "\t" + coord[1] + "\t"
+				+ distance;
 		FileWriter file = null;
 		PrintWriter pw = null;
-		
-		try{
-			file = new FileWriter(filename,true);
+
+		try {
+			file = new FileWriter(filename, true);
 			pw = new PrintWriter(file);
 			pw.println(data);
-		}catch(Exception e){
+		} catch (Exception e) {
 			return false;
-		}finally {
-			try{
-				if(file != null){
+		} finally {
+			try {
+				if (file != null) {
 					file.close();
 				}
-			}catch(Exception ex){
+			} catch (Exception ex) {
 				ex.printStackTrace();
 			}
 		}
-		
+
 		return true;
 	}
 
 	public boolean writeCoordValues(ArrayList<double[]> coordList,
-			ArrayList<String> locationTypeList,
-			double distance,
+			ArrayList<String> locationTypeList, double distance,
 			ArrayList<int[]> idOccurrencesList) {
 		String updateQuery = "";
 
 		for (int i = 0; i < idOccurrencesList.size(); i++) {
 			for (int j = 0; j < idOccurrencesList.get(i).length; j++) {
-				updateQuery += "UPDATE " + TABLE_NAME + " SET "
-						+ LATTITUDE + " = " + coordList.get(i)[0] + ","
-						+ LONGITUDE + " = " + coordList.get(i)[1] + ","
-						+ DISTANCE + " = " + distance
-						+ " WHERE " + ID_FIELD_NAME
-						+ " = " + idOccurrencesList.get(i)[j] + ";";
+				updateQuery += "UPDATE " + TABLE_NAME + " SET " + LATTITUDE
+						+ " = " + coordList.get(i)[0] + "," + LONGITUDE + " = "
+						+ coordList.get(i)[1] + "," + DISTANCE + " = "
+						+ distance + " WHERE " + ID_FIELD_NAME + " = "
+						+ idOccurrencesList.get(i)[j] + ";";
 			}
 		}
 
@@ -104,7 +103,7 @@ public class CWRModelWriterImpl implements DataModelWriter {
 
 		if (connection != null) {
 			int affected_rows = dm.makeChange(updateQuery, connection);
-
+			dm.closeConnection(connection);
 			if (affected_rows != -1) {
 				System.out
 						.println("SUCCESS: Affected rows => " + affected_rows);
@@ -120,40 +119,50 @@ public class CWRModelWriterImpl implements DataModelWriter {
 			return false;
 		}
 	}
-
+	
 	/*
 	 * Write a single database record
-	 * */
-	public boolean writeCoordValues(double[] coord, String locationType, double distance,
-			String idOccurrence) {
+	 */
+	public boolean writeCoordValues(double[] coord, String locationType,
+			double distance, String idOccurrence) {
 		String updateQuery = "";
 
-		updateQuery += "UPDATE " + TABLE_NAME + " SET "
-				+ LATTITUDE + " = " + coord[0] + ","
-				+ LONGITUDE + " = " + coord[1] + ","
-				+ DISTANCE + " = " + distance
-				+ " WHERE " + ID_FIELD_NAME
+		updateQuery += "UPDATE " + TABLE_NAME + " SET " + LATTITUDE + " = "
+				+ coord[0] + "," + LONGITUDE + " = " + coord[1] + ","
+				+ DISTANCE + " = " + distance + " WHERE " + ID_FIELD_NAME
 				+ " = " + idOccurrence + ";";
-	
 
-		Connection connection = dm.openConnection();
+		if (distance <= THRESHOLD) {
 
-		if (connection != null) {
-			int affected_rows = dm.makeChange(updateQuery, connection);
+			Connection connection = dm.openConnection(); // Get database
+															// connection
 
-			if (affected_rows != -1) {
-				System.out
-						.println("SUCCESS: Affected rows => " + affected_rows);
-				return true;
+			if (connection != null) { // if connect
+				int affected_rows = dm.makeChange(updateQuery, connection); // Number
+																			// of
+																			// affected
+																			// rows
+																			// on
+																			// db
+				dm.closeConnection(connection);
+				if (affected_rows != -1) { // No errors
+					System.out.println("SUCCESS: Affected rows => "
+							+ affected_rows);
+					return true;
+				} else {
+					System.out.println("ERROR: No changes was taken to "
+							+ TABLE_NAME);
+					return false;
+				}
 			} else {
-				System.out.println("ERROR: No changes was taken to "
-						+ TABLE_NAME);
+				System.out
+						.println("ERROR: Connection error, please check the data base configuration");
 				return false;
 			}
-		} else {
-			System.out
-					.println("ERROR: Connection error, please check the data base configuration");
+		}else{
+			System.out.println("WARNING: Distance value is more than threshold value " + THRESHOLD);
 			return false;
 		}
 	}
+
 }

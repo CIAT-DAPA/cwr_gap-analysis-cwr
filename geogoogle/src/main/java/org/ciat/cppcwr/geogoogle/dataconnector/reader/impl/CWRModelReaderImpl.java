@@ -71,7 +71,7 @@ public class CWRModelReaderImpl implements DataModelReader {
 					+ LOCALITY_FIELD_NAME + "  FROM " + TABLE_NAME + " WHERE "
 					+ COUNTRY_FIELD_NAME + " IS NOT NULL AND "
 					+ LATTITUDE + " IS NULL  AND " + LONGITUDE + " IS NULL"; // Only records with latitude and longitude values
-			//System.out.println(query);
+	
 			ResultSet rs = dm.makeQuery(query, connection);
 
 			try {
@@ -82,7 +82,7 @@ public class CWRModelReaderImpl implements DataModelReader {
 						array[0] = rs.getString(ID_FIELD_NAME);
 						array[1] = "";
 						
-						// Generate a localiton query to geocoding
+						// Generate a location query to geocoding
 						if(rs.getString(COUNTRY_FIELD_NAME) != null){
 							array[1] += rs.getString(COUNTRY_FIELD_NAME).trim().replace(" ","+") + ",+";
 						}
