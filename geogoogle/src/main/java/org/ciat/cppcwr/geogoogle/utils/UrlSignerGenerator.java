@@ -75,7 +75,7 @@ public class UrlSignerGenerator {
 		 * */
 		keyString = keyString.replace('-', '+');
 		keyString = keyString.replace('_', '/');
-		System.out.println("Key: " + keyString);
+		//System.out.println("Key: " + keyString);
 	    this.key = Base64.decode(keyString);
 		this.clientID = pm.getProperty("google.client");
 	}
