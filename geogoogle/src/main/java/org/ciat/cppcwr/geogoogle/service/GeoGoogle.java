@@ -30,8 +30,10 @@ import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.ciat.cppcwr.geogoogle.config.GeoGoogleModule;
 import org.ciat.cppcwr.geogoogle.utils.UrlSignerGenerator;
+import org.ciat.cppcwr.geogoogle.utils.Validator;
 import org.ciat.cppcwr.geogoogle.dataconnector.reader.DataModelReader;
 import org.ciat.cppcwr.geogoogle.dataconnector.writer.DataModelWriter;
+import org.ciat.cppcwr.geogoogle.utils.GeocodeUtilities;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -39,6 +41,7 @@ import org.w3c.dom.NodeList;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.google.inject.Inject;
+
 
 public class GeoGoogle {
 
@@ -51,6 +54,7 @@ public class GeoGoogle {
 	private final String URL_SEND = "https://maps.googleapis.com/maps/api/geocode/xml?sensor=false&";
 	private final String OPTION_DATABASE = "1";
 	private final String OPTION_FILE = "2";
+	private final static String OPTION_NO_PREMIUM = "-np";
 	private double THRESHOLD = 10;
 	private Console console = System.console();
 
@@ -59,27 +63,29 @@ public class GeoGoogle {
 	 */
 	public void init(String crit_gen) {// Critical genus
 
+		System.out.println("Genus: "+ crit_gen);
+		
 		Injector inject = Guice.createInjector(new GeoGoogleModule());
 		UrlSignerGenerator usg = inject.getInstance(UrlSignerGenerator.class);
 		mr = inject.getInstance(DataModelReader.class);
 		mw = inject.getInstance(DataModelWriter.class);
 
-		ArrayList<String[]> data = mr.getDBData(crit_gen);
-		ArrayList<String> queries = transformToValidQuery(data);
-		ArrayList<String> ids = returnIds(data);
+		ArrayList<String[]> data = mr.getDBData(crit_gen); // Get data by priority genus
+		System.out.println("Data Size : " + data.size());
+		ArrayList<String> queries = GeocodeUtilities.transformToValidQuery(data);
+		ArrayList<String> ids = GeocodeUtilities.returnIds(data);
 		String user_dec = console
-				.readLine("       OPTIONS \n [1] Save into database \n [2] Save into a file \n Select your response: ");
+				.readLine("OPTIONS \n [1] Save into database \n [2] Save into a file \n Select your option: ");
 
 		String filename = "";
 		if (user_dec.equals(OPTION_FILE)) {
 			filename = console
-					.readLine("Enter a filename (with a pat if you wish, default c:/)");
+					.readLine("Enter a filename: ");
 		}
 
 		try {
 			for (int k = 0; k < queries.size(); k++) {
 				URL url = new URL(URL_SEND + queries.get(k));
-				// System.out.println(url.getPath() + url.getQuery());
 				URL file_url = new URL(url.getProtocol() + "://"
 						+ url.getHost()
 						+ usg.signRequest(url.getPath(), url.getQuery()));
@@ -135,6 +141,7 @@ public class GeoGoogle {
 											.item(3);
 								}
 
+								/* Extract data from viewport field*/
 								if (northeast.hasChildNodes()) {
 									lat_northeast = northeast.getChildNodes()
 											.item(1);
@@ -172,14 +179,14 @@ public class GeoGoogle {
 						coordValuesSouthwest[1] = Double
 								.parseDouble(lng_southwest.getTextContent());
 
-						double distance = getDistance(coordValuesNortheast,
-								coordValuesSouthwest);
+						double distance = GeocodeUtilities.getDistance(coordValuesNortheast,
+								coordValuesSouthwest); // Distance - km  between Northeast and Southeast
 
-						if (distance <= THRESHOLD) {
+						if (distance <= THRESHOLD) { // Condition
 							if (user_dec.equals(OPTION_DATABASE)) {
 								if (mw.writeCoordValues(coordValues,
 										locationType.getTextContent(),
-										distance, ids.get(k))) {
+										distance, ids.get(k))) { // Write into bd
 									System.out.println(k
 											+ " Update Success: Id record -> "
 											+ ids.get(k));
@@ -204,8 +211,8 @@ public class GeoGoogle {
 								System.out.println("Error: Invalid option");
 							}
 						}else{
-							System.out.println("Warning: "+distance+ " is more big than threshold "+THRESHOLD);
-							if (mw.changeGeorefFlagStatus(ids.get(k))) {
+							System.out.println("Warning: "+distance+ " is bigger than the threshold "+THRESHOLD);
+							if (mw.changeGeorefFlagStatus(ids.get(k))) { // Flag it
 								System.out.println(k
 										+ " Warning - No values but remove to future query: Id record -> "
 										+ ids.get(k));
@@ -218,13 +225,13 @@ public class GeoGoogle {
 					}
 				} else { // Try less location values
 					queries.remove(k);
-					queries.add((k - 1), lessLocationValues(queries.get(k)));
+					queries.add((k - 1), GeocodeUtilities.lessLocationValues(queries.get(k)));
 					String[] array = queries.get(k).split("+");
 
 					if (array.length >= 2) { // Only if size >= 2
 						k--; // Repeat again
 					}else{
-						if (mw.changeGeorefFlagStatus(ids.get(k))) {
+						if (mw.changeGeorefFlagStatus(ids.get(k))) { // No results, flag it
 							System.out.println(k
 									+ " Warning - No values but remove to future query: Id record -> "
 									+ ids.get(k));
@@ -243,64 +250,25 @@ public class GeoGoogle {
 		}
 	}
 
-	/* Remove any strange value from the query */
-	public ArrayList<String> transformToValidQuery(
-			ArrayList<String[]> dataLocationList) {
-		ArrayList<String> queries = new ArrayList<String>();
-
-		for (int i = 0; i < dataLocationList.size(); i++) {
-			queries.add("address="
-					+ URLEncoder.encode(dataLocationList.get(i)[1]) + "%");
-		}
-
-		return queries;
-	}
-
-	/* Get Ids from location List */
-	public ArrayList<String> returnIds(ArrayList<String[]> dataLocationList) {
-		ArrayList<String> ids = new ArrayList<String>();
-
-		for (int i = 0; i < dataLocationList.size(); i++) {
-			ids.add(dataLocationList.get(i)[0]);
-		}
-
-		return ids;
-	}
-
-	// Get the distance to 2 coordinates (km)
-	public double getDistance(double[] coord1, double[] coord2) {
-		double d = 0;
-		if (coord1.length == 2 && coord2.length == 2) {
-			double LatA = (coord1[0] * Math.PI) / 180;
-			double LatB = (coord2[0] * Math.PI) / 180;
-			double LngA = (coord1[1] * Math.PI) / 180;
-			double LngB = (coord2[1] * Math.PI) / 180;
-
-			d = 6371 * Math.acos(Math.cos(LatA) * Math.cos(LatB)
-					* Math.cos(LngB - LngA) + Math.sin(LatA) * Math.sin(LatB));
-			return d; // Retorna la distancia en kilometros
-		} else {
-			System.out.println("Error: coord length is not correct");
-			return -1;
-		}
-	}
-
-	// Take less precision to geocoding
-	public String lessLocationValues(String query) {
-		String[] array = query.split("+");
-		String result = "";
-
-		for (int i = 0; i < (array.length) - 1; i++) {
-			result += array[i] + "+";
-		}
-
-		return result;
-	}
-
-	// Start
 	public static void main(String[] args) {
 		GeoGoogle geo = new GeoGoogle();
-		geo.init(args[0]);
+		
+		// Exception
+		if(args.length == 0){
+			System.out.println("Error: You need provide a genus \n Example: java -jar -Xmx750m exec.jar Aegilops");
+		}else if(args.length == 1){
+			geo.init(args[0]);
+		}else if(args.length == 2){
+			if(Validator.isString(args[0])){
+				if(args[1].toLowerCase().equals(OPTION_NO_PREMIUM)){
+					System.out.println("Not implemented yet");
+				}else{
+					System.out.println("Error: Bad parameter, try with java -jar -Xmx750m exec.jar Aegilops -np");
+				}
+			}
+		}else{
+			System.out.println("Error: Wrong parameters");
+		}
 	}
 
 }

@@ -49,33 +49,15 @@ public class UrlSignerGenerator {
 	// This variable stores the binary key, which is computed from the string
 	// (util.Base64) key
 	private byte[] key;
-/*
-	public static void main(String[] args) throws IOException,
-			InvalidKeyException, NoSuchAlgorithmException, URISyntaxException {
 
-		// Convert the string to a URL so we can parse it
-		URL url = new URL("https://maps.googleapis.com/maps/api/geocode/xml?sensor=false&address=Colombia,+Valle+del+Cauca,+Cali,+Universidad+Icesi");
-		//URL url = new URL("https://maps.googleapis.com/api/geocode/json?sensor=false&"+parameters);
-		UrlSignerGenerator signer = new UrlSignerGenerator();
-		String request = signer.signRequest(url.getPath(), url.getQuery());
-
-		System.out.println("Signed URL :" + url.getProtocol() + "://"
-				+ url.getHost() + request);
-	}
-	*/
 	public UrlSignerGenerator() throws IOException {		
 		// Convert the key from 'web safe' base 64 to binary
 		// TESTS
 		Injector inject = Guice.createInjector(new GeoGoogleModule());
-		pm = inject.getInstance(PropertiesManager.class);// New
-		keyString = pm.getProperty("google.key"); // pm null, how get instance?
-		/*
-		 * Injector inject = Guice.createInjector(new GeoGoogleModule()); so, I need to create a PropertiesManagerModule in config package and same way <-
-		 * UrlSignerGenerator usg = inject.getInstance(UrlSignerGenerator.class);
-		 * */
+		pm = inject.getInstance(PropertiesManager.class);
+		keyString = pm.getProperty("google.key"); 
 		keyString = keyString.replace('-', '+');
 		keyString = keyString.replace('_', '/');
-		//System.out.println("Key: " + keyString);
 	    this.key = Base64.decode(keyString);
 		this.clientID = pm.getProperty("google.client");
 	}

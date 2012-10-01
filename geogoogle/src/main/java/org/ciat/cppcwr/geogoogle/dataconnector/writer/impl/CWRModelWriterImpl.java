@@ -47,7 +47,6 @@ public class CWRModelWriterImpl implements DataModelWriter {
 	private final String DISTANCE = "distance_georef";
 	private final String ID_FIELD_NAME = "id";
 	private final String GEOREF_FLAG = "georef_flag";
-	private final double THRESHOLD = 10; // Threshold to distance
 	/*------------------------------------------------------*/
 	private MySQLDataBaseManager dm;
 
@@ -95,7 +94,8 @@ public class CWRModelWriterImpl implements DataModelWriter {
 				updateQuery += "UPDATE " + TABLE_NAME + " SET " + LATTITUDE
 						+ " = " + coordList.get(i)[0] + "," + LONGITUDE + " = "
 						+ coordList.get(i)[1] + "," + DISTANCE + " = "
-						+ distance + " WHERE " + ID_FIELD_NAME + " = "
+						+ distance + ", " + GEOREF_FLAG + " = 1" +
+						" WHERE " + ID_FIELD_NAME + " = "
 						+ idOccurrencesList.get(i)[j] + ";";
 			}
 		}
@@ -130,10 +130,8 @@ public class CWRModelWriterImpl implements DataModelWriter {
 
 		updateQuery += "UPDATE " + TABLE_NAME + " SET " + LATTITUDE + " = "
 				+ coord[0] + "," + LONGITUDE + " = " + coord[1] + ","
-				+ DISTANCE + " = " + distance + " WHERE " + ID_FIELD_NAME
+				+ DISTANCE + " = " + distance + ", " +  GEOREF_FLAG + " = 1 WHERE " + ID_FIELD_NAME
 				+ " = " + idOccurrence + ";";
-
-		if (distance <= THRESHOLD) {
 
 			Connection connection = dm.openConnection(); // Get database
 															// connection
@@ -145,7 +143,7 @@ public class CWRModelWriterImpl implements DataModelWriter {
 																			// rows
 																			// on
 																			// db
-				dm.closeConnection(connection);
+				dm.closeConnection(connection); //  Close BD Connection
 				if (affected_rows != -1) { // No errors
 					System.out.println("SUCCESS: Affected rows => "
 							+ affected_rows);
@@ -160,12 +158,11 @@ public class CWRModelWriterImpl implements DataModelWriter {
 						.println("ERROR: Connection error, please check the data base configuration");
 				return false;
 			}
-		}else{
-			System.out.println("WARNING: Distance value is more than threshold value " + THRESHOLD);
-			return false;
-		}
+		
 	}
 	
+	
+	/* Change Flag Status field */
 	public boolean changeGeorefFlagStatus(String idOccurrence){
 		String updateQuery = "";
 

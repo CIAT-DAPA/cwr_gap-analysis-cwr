@@ -66,7 +66,7 @@ public class CWRModelReaderImpl implements DataModelReader {
 		Connection connection = dm.openConnection();
 
 		if (connection != null) {
-			String query = "SELECT DISTINCT " + ID_FIELD_NAME + "," + COUNTRY_FIELD_NAME
+			String query = "SELECT " + ID_FIELD_NAME + "," + COUNTRY_FIELD_NAME
 					+ "," + ADM1_FIELD_NAME + "," + ADM2_FIELD_NAME + ","
 					+ ADM3_FIELD_NAME + "," + LOCAL_AREA_FIELD_NAME + ","
 					+ LOCALITY_FIELD_NAME + "  FROM " + TABLE_NAME + " WHERE "
@@ -74,6 +74,8 @@ public class CWRModelReaderImpl implements DataModelReader {
 					+ LATTITUDE + " IS NULL  AND " + LONGITUDE + " IS NULL AND "+GEOREF_FLAG+" = 0 AND x1_genus = '" + crit_gen + "';"; // Only records with latitude and longitude values and no georef_flag = 1 
 			ResultSet rs = dm.makeQuery(query, connection);
 
+			System.out.println(query);
+			
 			try {
 				if (rs != null) { 
 					String[] array = null;
