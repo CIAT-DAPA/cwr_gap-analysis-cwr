@@ -13,23 +13,6 @@ stop("Warning: do not run the whole thing")
 src.dir <- "C:/Users/ncp148/Documents/CPP_CWR/_google_code/gap-analysis/gap-code"
 gap.dir <-"C:/Users/ncp148/Documents/PhD"
 
-#basic stuff - organizing occurrences files
-croplist <- list.files(paste(gap.dir,"/_occurrences",sep=""))
-
-for(i in croplist){
-  i <- substr(i, 1, nchar(i)-4)
-	if(!file.exists(paste(gap.dir,"/gap_",i,sep=""))) 
-	{dir.create(paste(gap.dir,"/gap_",i,sep=""))}
-	
-	if(!file.exists(paste(gap.dir,"/gap_",i,"/occurrences",sep=""))) 
-	{dir.create(paste(gap.dir,"/gap_",i,"/occurrences",sep=""))}
-	
-	occ_orig <- paste(gap.dir,"/_occurrences",sep="")
-	occ_finl <- paste(gap.dir,"/gap_",i,"/occurrences",sep="")
-	
-  file.rename(paste(occ_orig,"/",i,".csv",sep=""),paste(occ_finl,"/",i,".csv",sep=""))
-}
-
 #crop details
 crop <- "tomato-test" #change accordingly
 crop_dir <- paste(gap.dir,"/gap_",crop,sep="")
@@ -126,10 +109,6 @@ x <- GapProcess(inputDir, OSys="LINUX", ncpu=2)
 #== summarize the metrics ==#
 source(paste(src.dir,"/006.summarizeMetrics.R",sep=""))
 x <- summarizeMetrics(idir=paste(crop_dir,"/biomod_modeling",sep=""))
-
-#== calculate area with SD<0.15 (aSD15) ==# APARENTEMENTE NO NECESITO ESTA PARTE
-#source(paste(src.dir,"/007.calcASD15.R",sep=""))
-#x <- summarizeASD15(idir=paste(crop_dir,"/maxent_modeling",sep=""))
 
 #== calculate size of distributional range ==#
 source(paste(src.dir,"/008.sizeDR.R",sep=""))
@@ -238,11 +217,23 @@ for (spp in table_base$Taxon) {
   #asd15 <- model_met$ASD15[which(model_met$Taxon==paste(spp))]
   isval <- model_met$ValidModel[which(model_met$Taxon==paste(spp))]
   
-  if(is.na(atauc)){cat("hola")}
-  table_base$ATAUC[which(table_base$Taxon==paste(spp))] <- atauc
-  table_base$STAUC[which(table_base$Taxon==paste(spp))] <- stauc
-  #table_base$ASD15[which(table_base$Taxon==paste(spp))] <- asd15
-  table_base$IS_VALID[which(table_base$Taxon==paste(spp))] <- isval
+  if(identical(atauc,(numeric(0)))){
+    table_base$ATAUC[which(table_base$Taxon==paste(spp))] <- 0
+  }else{
+    table_base$ATAUC[which(table_base$Taxon==paste(spp))] <- atauc
+  }
+  
+  if(identical(stauc,(numeric(0)))){
+    table_base$STAUC[which(table_base$Taxon==paste(spp))] <- 0
+  }else{
+    table_base$STAUC[which(table_base$Taxon==paste(spp))] <- stauc
+  }
+  
+  if(identical(isval,(integer(0)))){
+    table_base$STAUC[which(table_base$Taxon==paste(spp))] <- 0
+  }else{
+    table_base$STAUC[which(table_base$Taxon==paste(spp))] <- isval
+  }
   
   #grs
   g_ca50 <- rsize$GBSize[which(rsize$taxon==paste(spp))]
