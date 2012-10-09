@@ -217,36 +217,37 @@ for (spp in table_base$Taxon) {
   #asd15 <- model_met$ASD15[which(model_met$Taxon==paste(spp))]
   isval <- model_met$ValidModel[which(model_met$Taxon==paste(spp))]
   
-  if(identical(atauc,(numeric(0)))){
+  if(identical(atauc,(numeric(0))) & identical(stauc,(numeric(0))) &
+    identical(isval,(integer(0)))){
+    
     table_base$ATAUC[which(table_base$Taxon==paste(spp))] <- 0
+    table_base$STAUC[which(table_base$Taxon==paste(spp))] <- 0
+    table_base$IS_VALID[which(table_base$Taxon==paste(spp))] <- 0
+  
   }else{
     table_base$ATAUC[which(table_base$Taxon==paste(spp))] <- atauc
-  }
-  
-  if(identical(stauc,(numeric(0)))){
-    table_base$STAUC[which(table_base$Taxon==paste(spp))] <- 0
-  }else{
     table_base$STAUC[which(table_base$Taxon==paste(spp))] <- stauc
+    table_base$IS_VALID[which(table_base$Taxon==paste(spp))] <- isval
   }
-  
-  if(identical(isval,(integer(0)))){
-    table_base$STAUC[which(table_base$Taxon==paste(spp))] <- 0
-  }else{
-    table_base$STAUC[which(table_base$Taxon==paste(spp))] <- isval
-  }
-  
+    
   #grs
   g_ca50 <- rsize$GBSize[which(rsize$taxon==paste(spp))]
   
-  if (isval==1) {
+  if (identical(isval,integer(0))){
+    drsize <-  0
+  } else if (isval==1){
     drsize <- rsize$DRSize[which(rsize$taxon==paste(spp))]
   } else {
     drsize <- rsize$CHSize[which(rsize$taxon==paste(spp))]
   }
   
-  grs <- g_ca50/drsize*10
-  if (!is.na(grs)) {
-    if (grs>10) {grs <- 10}
+  if (identical(g_ca50,numeric(0))){
+    grs <- 0
+  }else{
+    grs <- g_ca50/drsize*10
+    if (!is.na(grs)) {
+      if (grs>10) {grs <- 10}
+    }
   }
   table_base$GRS[which(table_base$Taxon==paste(spp))] <- grs
   
@@ -257,13 +258,22 @@ for (spp in table_base$Taxon) {
   dr_pc1 <- edist$DRDist.PC1[which(edist$taxon==paste(spp))]
   dr_pc2 <- edist$DRDist.PC2[which(edist$taxon==paste(spp))]
   
-  ers_pc1 <- ecg_ca50_pc1/dr_pc1*10
-  if (!is.na(ers_pc1)) {
-    if (ers_pc1 > 10) {ers_pc1 <- 10}
+  if(identical(ecg_ca50_pc1,integer(0))){
+    ers_pc1 <- 0
+  } else {
+    ers_pc1 <- ecg_ca50_pc1/dr_pc1*10
+    if (!is.na(ers_pc1)) {
+      if (ers_pc1 > 10) {ers_pc1 <- 10}
+    }
   }
-  ers_pc2 <- ecg_ca50_pc2/dr_pc2*10
-  if (!is.na(ers_pc2)) {
-    if (ers_pc2 > 10) {ers_pc2 <- 10}
+  
+  if(identical(ecg_ca50_pc2,integer(0))){
+    ers_pc2 <- 0
+  } else {
+    ers_pc2 <- ecg_ca50_pc2/dr_pc2*10
+    if (!is.na(ers_pc2)) {
+      if (ers_pc2 > 10) {ers_pc2 <- 10}
+    }
   }
   
   ers <- ers_pc1*w_pc1 + ers_pc2*w_pc2
