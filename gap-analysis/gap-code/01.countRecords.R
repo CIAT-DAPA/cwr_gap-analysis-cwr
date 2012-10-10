@@ -4,6 +4,22 @@
 
 #read occurrences
 occ <- read.csv(paste("./occurrences/",crop,"_all.csv",sep=""))
+gpSpp <- read.csv("PsppofPcrops_template.csv")
+
+#prepare files
+occ$H <- ifelse(occ$Type =="H",1,0)
+occ$G <- ifelse(occ$Type =="G",1,0)
+occ <- occ[which(occ$final_cult_stat != "cultivated"),]
+occ <- occ[which(occ$final_origin_stat != "non_native"),]
+occ <- occ[which(occ$is_hybrid != 1),]
+
+template <- gpSpp$Taxon_name
+
+occ <- occ[occ$Taxon %in% template,] #Parece que si
+
+write.csv(occ,paste("./occurrences/",crop,"_all.csv",sep=""),quote=F,row.names=F)
+occ <- read.csv(paste("./occurrences/",crop,"_all.csv",sep=""))
+
 taxField <- "Taxon"
 hField <- "H"
 gField <- "G"
