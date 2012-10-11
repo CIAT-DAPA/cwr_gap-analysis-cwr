@@ -6,15 +6,15 @@
 stop("Warning: do not run the whole thing")
 
 #basic stuff - where is the code
-#src.dir <- "/curie_data2/ncastaneda/code/gap-analysis-cwr/gap-analysis/gap-code"
-#gap.dir <-"/curie_data2/ncastaneda/gap-analysis"
+src.dir <- "/curie_data2/ncastaneda/code/gap-analysis-cwr/gap-analysis/gap-code"
+gap.dir <-"/curie_data2/ncastaneda/gap-analysis"
 
 # ****************** TEST ON NPC148 ******************
-src.dir <- "C:/Users/ncp148/Documents/CPP_CWR/_google_code/gap-analysis/gap-code"
-gap.dir <-"C:/Users/ncp148/Documents/PhD"
+#src.dir <- "C:/Users/ncp148/Documents/CPP_CWR/_google_code/gap-analysis/gap-code"
+#gap.dir <-"C:/Users/ncp148/Documents/PhD"
 
 #crop details
-crop <- "tomato-test" #change accordingly
+crop <- "triticum" #change accordingly
 crop_dir <- paste(gap.dir,"/gap_",crop,sep="")
 
 if (!file.exists(crop_dir)) {dir.create(crop_dir)}

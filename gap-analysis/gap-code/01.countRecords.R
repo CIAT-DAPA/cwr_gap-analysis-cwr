@@ -4,7 +4,7 @@
 
 #read occurrences
 occ <- read.csv(paste("./occurrences/",crop,"_all.csv",sep=""))
-gpSpp <- read.csv("PsppofPcrops_template.csv")
+gpSpp <- read.csv("/curie_data2/ncastaneda/gap-analysis/PsppofPcrops_template.csv")
 
 #prepare files
 occ$H <- ifelse(occ$Type =="H",1,0)
