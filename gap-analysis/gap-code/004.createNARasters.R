@@ -58,6 +58,10 @@ inDir <- paste(crop_dir,"/biomod_modeling",sep="")
 spList <- list.files(paste(inDir, "/native-areas/polyshps", sep=""))
 #src.dir <- "C:/Users/ncp148/Documents/CPP_CWR/_collaboration/_may2012/gap-analysis/code"
 
+gpSpp <- read.csv("/curie_data2/ncastaneda/gap-analysis/PsppofPcrops_template.csv")
+template <- gpSpp$Taxon_name
+spList <- spList[spList %in% template] #Filter only for priority species
+
 for (spp in spList) {
 	ot <- createNARaster(spp, inDir)
 }
