@@ -19,5 +19,18 @@ maskVariables <- function(crop_dir, env_dir){
     rs <- raster(paste(env_dir, "/bio_", i, ".asc",sep=""))
     rs <- crop(rs,e)
     writeRaster(rs, paste(out_dir,"/bio_",i,".asc",sep=""), overwrite=T)    
-  }    
+  }
+  # crop pca_reclass files
+  for(i in 1:2){
+    cat("Reading pca reclass",i,"\n")
+    rs <- raster(paste(env_dir,"/pca_result_raw/pc_",i,".asc",sep=""))
+    rs <- crop(rs,e)
+    
+    out_dir_pca <- paste(out_dir,"/pca_result_raw",sep="")
+    if (!file.exists(out_dir_pca)) {dir.create(out_dir_pca)}
+
+    writeRaster(rs,paste(out_dir_pca, "/pc_",i,".asc",sep=""), overwrite=T)
+    
+  }
+  
 }
