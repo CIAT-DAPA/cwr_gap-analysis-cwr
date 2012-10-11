@@ -87,7 +87,7 @@ x <- extractClimates(input_dir=occ_dir,sample_file=sample_file,env_dir=env_dir,
 #== preparing kernel density files ==#
 # source(paste(src.dir,"/000.kernelDensity.R", sep="")) NEEDS TO BE FIXED!
 
-#== splitting the occurrence files for biomod==#
+#== splitting the occurrence files for biomod==# THIS NEEDS TIME!
 source(paste(src.dir,"/003.createOccurrenceFilesBiomod.R",sep=""))
 oDir <- paste(crop_dir,"/biomod_modeling/occurrence_files",sep="")
 if (!file.exists(oDir)) {dir.create(oDir)}

@@ -92,5 +92,3 @@ grid(lwd=0.75)
 #     "S. pimpinellifolium",cex=0.55, font=3)
 
 dev.off()
-
-

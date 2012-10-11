@@ -54,6 +54,7 @@ createNARaster <- function(spID,inDir) {
 #crop_dir <- "C:/Users/ncp148/Documents/CPP_CWR/_collaboration/_may2012/gap-analysis/tomato"
 #inDir <- paste(crop_dir,"/maxent_modeling",sep="")
 #spID <- "Solanum_arcanum"
+inDir <- paste(crop_dir,"/biomod_modeling",sep="")
 spList <- list.files(paste(inDir, "/native-areas/polyshps", sep=""))
 #src.dir <- "C:/Users/ncp148/Documents/CPP_CWR/_collaboration/_may2012/gap-analysis/code"
 
