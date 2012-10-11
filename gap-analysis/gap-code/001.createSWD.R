@@ -19,7 +19,7 @@ extractClimates <- function(input_dir,sample_file,env_dir,env_prefix,
   for(i in 1:19){
   cat("Reading environmental layer",i,"\n")
   #rs <- raster(paste(env_dir,"/",env_prefix,i,env_ext,sep=""))
-  rs <- raster(paste(env_dir,"/bio_",i,sep=""))
+  rs <- raster(paste(env_dir,"/bio_",i,".asc",sep=""))
   swd$NEW <- extract(rs,xy)
   names(swd)[i+3] <- paste(env_prefix,i,sep="")
   }
