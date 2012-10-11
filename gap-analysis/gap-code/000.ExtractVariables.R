@@ -16,7 +16,7 @@ maskVariables <- function(crop_dir, env_dir){
   
   for(i in 1:19){
     cat("Reading environmental layer", i, "\n")
-    rs <- raster(paste(env_dir, "/bio_", i, sep=""))
+    rs <- raster(paste(env_dir, "/bio_", i, ".asc",sep=""))
     rs <- crop(rs,e)
     writeRaster(rs, paste(out_dir,"/bio_",i,".asc",sep=""), overwrite=T)    
   }    
