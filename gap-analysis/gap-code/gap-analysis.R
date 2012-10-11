@@ -24,6 +24,9 @@ setwd(crop_dir)
 biomod <- paste(crop_dir,"/biomod_modeling",sep="")
 if (!file.exists(biomod)) {dir.create(biomod)}
 
+figs <- paste(crop_dir,"/figures",sep="")
+if (!file.exists(figs)) {dir.create(figs)}
+
 msks <- paste(crop_dir,"/masks",sep="")
 if (!file.exists(msks)) {dir.create(msks)}
 rm(msks)
@@ -58,7 +61,8 @@ source(paste(src.dir,"/02.splitHG.R",sep=""))
 #== prepare masks ==#
 source(paste(src.dir,"/000.prepareMasks.R",sep=""))
 #set climate dir
-env_dir <- "C:/Users/ncp148/Documents/_geodata/bioclim/bio_10m_esri"
+#env_dir <- "C:/Users/ncp148/Documents/_geodata/bioclim/bio_10m_esri"
+env_dir <- "/curie_data2/ncastaneda/geodata/bio_2_5m"
 msks <- paste(crop_dir,"/masks",sep="")
 
 x <- createMasks(msks,env_dir)
