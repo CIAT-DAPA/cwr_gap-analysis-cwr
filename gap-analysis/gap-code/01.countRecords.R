@@ -11,7 +11,7 @@ occ$H <- ifelse(occ$Type =="H",1,0)
 occ$G <- ifelse(occ$Type =="G",1,0)
 occ <- occ[which(occ$final_cult_stat != "cultivated"),]
 occ <- occ[which(occ$final_origin_stat != "non_native"),]
-occ <- occ[which(occ$is_hybrid != 1),]
+occ <- occ[which(is.na(occ$is_hybrid)),]
 
 template <- gpSpp$Taxon_name
 
