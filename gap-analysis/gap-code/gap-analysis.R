@@ -108,7 +108,7 @@ source(paste(src.dir,"/004.createNARasters.R",sep=""))
 source(paste(src.dir,"/000.Biomod_modeling.R",sep=""))
 inputDir <- crop_dir
 
-x <- GapProcess(inputDir, OSys="LINUX", ncpu=2)
+x <- GapProcess(inputDir, OSys="LINUX", ncpu=6)
 
 #== summarize the metrics ==#
 source(paste(src.dir,"/006.summarizeMetrics.R",sep=""))
