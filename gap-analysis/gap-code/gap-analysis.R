@@ -14,7 +14,7 @@ gap.dir <-"/curie_data2/ncastaneda/gap-analysis"
 #gap.dir <-"C:/Users/ncp148/Documents/PhD"
 
 #crop details
-crop <- "triticum" #change accordingly
+crop <- "avena" #change accordingly
 crop_dir <- paste(gap.dir,"/gap_",crop,sep="")
 
 if (!file.exists(crop_dir)) {dir.create(crop_dir)}
@@ -108,7 +108,7 @@ source(paste(src.dir,"/004.createNARasters.R",sep=""))
 source(paste(src.dir,"/000.Biomod_modeling.R",sep=""))
 inputDir <- crop_dir
 
-x <- GapProcess(inputDir, OSys="LINUX", ncpu=6)
+x <- GapProcess(inputDir, OSys="LINUX", ncpu=4)
 
 #== summarize the metrics ==#
 source(paste(src.dir,"/006.summarizeMetrics.R",sep=""))

@@ -49,7 +49,7 @@ ModelingProcess <- function(sp, OSys, inputDir){
            MARS = T,
            # Calibration
            # OJO:  - CHANGE NbRunEval accordingly (25?) / set nb.absences according to amount of records!!!!
-           NbRunEval = 10, DataSplit = 70, Yweights=NULL,
+           NbRunEval = 5, DataSplit = 70, Yweights=NULL,
            NbRepPA=1, strategy="sre", coor=NULL, distance=2, nb.absences=10000,
            #Evaluation
            Roc = T, Optimized.Threshold.Roc = T, Kappa = F, TSS=T,
