@@ -25,7 +25,7 @@ createOccFilesBio <- function(occ, taxfield, outDir, env.dir) {
 	  }else{
 	    rs <- raster(paste(env.dir,"/bio_",i,".asc",sep=""))
 	    bio.stk <- addLayer(bio.stk,rs)
-	  }  
+	  }
 	}
 	
 	cat("Now printing \n")
@@ -55,6 +55,7 @@ createOccFilesBio <- function(occ, taxfield, outDir, env.dir) {
 		spData[is.na(spData)] <- 0 # Affects the species column
 		
 		spData <- cbind(spData,xy)
+    #rm(xy)
 		
 		spData <- as.data.frame(spData)
 		
@@ -64,7 +65,7 @@ createOccFilesBio <- function(occ, taxfield, outDir, env.dir) {
     # Save files
     
     csvName <- paste(outDir, "/", sp, ".csv", sep="")
-		write.csv(spData, csvName, row.names=F, quote=F)
+		write.csv2(spData, csvName, row.names=F, quote=F)
 		rm(spData)
 		
 		# Clean stack
