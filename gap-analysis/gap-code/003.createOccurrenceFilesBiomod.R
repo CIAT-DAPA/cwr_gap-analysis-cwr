@@ -65,7 +65,7 @@ createOccFilesBio <- function(occ, taxfield, outDir, env.dir) {
     # Save files
     
     csvName <- paste(outDir, "/", sp, ".csv", sep="")
-		write.csv2(spData, csvName, row.names=F, quote=F)
+		write.csv(spData, csvName, row.names=F, quote=F)
 		rm(spData)
 		
 		# Clean stack
