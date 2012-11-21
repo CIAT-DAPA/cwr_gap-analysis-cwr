@@ -104,6 +104,14 @@ x <- createOccFiles(occ=paste(crop_dir,"/swd/occurrences_swd_ok_kernel.csv",sep=
 #== prepare native areas ==#
 source(paste(src.dir,"/004.createNARasters.R",sep=""))
 
+
+
+
+
+##################################################
+# DO NOT RUN THIS PART
+##################################################
+
 #== perform the biomod modelling in parallel==#
 source(paste(src.dir,"/000.Biomod_modeling.R",sep=""))
 inputDir <- crop_dir

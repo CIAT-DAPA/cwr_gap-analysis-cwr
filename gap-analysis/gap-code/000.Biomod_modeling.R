@@ -15,7 +15,7 @@ require(BIOMOD)
 
 ###############################################
 # TEST AREA
-#x <- ModelingProcess("Solanum_arcanum", "NT", crop_dir)
+x <- ModelingProcess("Avena_abyssinica", "NT", crop_dir)
 ###############################################
 
 ModelingProcess <- function(sp, OSys, inputDir){
@@ -36,42 +36,43 @@ ModelingProcess <- function(sp, OSys, inputDir){
     Resp.Var <- Sp.Env[,20] # species occurrences
     
     # Prepare data for modelling
-    Initial.State(Response = Resp.Var, Explanatory=Expl.Var, sp.name=sp,
+      Initial.State(Response = Resp.Var, Explanatory=Expl.Var, sp.name=sp,
                   IndependentResponse =NULL, IndependentExplanatory=NULL)
     
     # Running the models + Evaluation + Calibration
     Models(GLM = T, TypeGLM = "poly", Test = "AIC",
-           GAM = T, Spline = 3, 
-           CTA = T, CV.tree = 50,
+           GAM = F, Spline = 3, 
+           CTA = F, CV.tree = 50,
            ANN = T, CV.ann = 3,
-           SRE = T, quant=0.025,
-           GBM = T, No.trees = 2000,
-           RF = T,
-           FDA = T,
-           MARS = T,
+           SRE = F, quant=0.025,
+           GBM = F, No.trees = 2000,
+           RF = F,
+           FDA = F,
+           MARS = F,
            # Calibration
            # OJO:  - CHANGE NbRunEval accordingly (25?) / set nb.absences according to amount of records!!!!
-           NbRunEval = 5, DataSplit = 70, Yweights=NULL,
+           #NbRunEval = 5, DataSplit = 70, Yweights=NULL,
+           NbRunEval = 2, DataSplit = 70, Yweights=NULL,
            NbRepPA=1, strategy="sre", coor=NULL, distance=2, nb.absences=10000,
            #Evaluation
            Roc = T, Optimized.Threshold.Roc = T, Kappa = F, TSS=T,
            KeepPredIndependent = T, VarImport=5)
     
     # Creating presence/absence binaries
-    CurrentPred(GLM=T, GBM=T, GAM=T, CTA=T, ANN=T, SRE=T, FDA=T, MARS=T, RF=T, 
+    CurrentPred(GLM=F, GBM=F, GAM=F, CTA=F, ANN=T, SRE=F, FDA=F, MARS=T, RF=T, 
                 BinRoc=T, BinKappa=F,BinTSS=T)
     
     # Projecting data
     Proj.name <- sp
     Proj <- Expl.Var
-    Projection(Proj = Proj, Proj.name, GLM = T, GBM = T, GAM = T, CTA = T, ANN = T, 
-               SRE = T, quant=0.025, FDA = T, MARS = T, RF = T, BinRoc = T, BinKappa = F, 
+    Projection(Proj = Proj, Proj.name, GLM = T, GBM = F, GAM = T, CTA = F, ANN = T, 
+               SRE = F, quant=0.025, FDA = F, MARS = F, RF = F, BinRoc = T, BinKappa = F, 
                BinTSS = T, FiltRoc = F, FiltKappa = F, FiltTSS = F, repetition.models=T, 
                compress="xz")
     
     # Ensamble Forecasting
-    Ensemble.Forecasting(ANN = T, CTA = T, GAM = T, GBM = T, GLM = T, MARS = T, FDA = T,
-                         RF = T, SRE = T, Proj.name = Proj.name, weight.method="Roc", 
+    Ensemble.Forecasting(ANN = T, CTA = F, GAM = F, GBM = F, GLM = T, MARS = F, FDA = F,
+                         RF = F, SRE = F, Proj.name = Proj.name, weight.method="Roc", 
                          decay = 1.6, PCA.median = F, binary = T, bin.method = "Roc", 
                          Test = T, repetition.models=T, final.model.out=F, 
                          qual.th=0, compress="xz")
@@ -190,7 +191,7 @@ GapProcess <- function(inputDir, OSys="LINUX", ncpu){
     cat("\n")
     cat("...Species", sp, "\n")
     out <- ModelingProcess(sp, OSys, inputDir)
-  }
+    }
   
   library(snowfall)
   sfInit(parallel=T,cpus=ncpu)
