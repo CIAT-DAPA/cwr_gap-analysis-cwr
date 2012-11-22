@@ -41,6 +41,7 @@ createOccFilesBio <- function(occ, taxfield, outDir, env.dir) {
 		# Points to Raster
 		mask <- raster(paste(env.dir,"/bio_1.asc",sep=""))
 		spData <- rasterize(spData, mask)
+    spData[spData[]>=1]=1
     
     # Add occurrences layer to bio.stk
 		bio.stk <- addLayer(bio.stk, spData)
