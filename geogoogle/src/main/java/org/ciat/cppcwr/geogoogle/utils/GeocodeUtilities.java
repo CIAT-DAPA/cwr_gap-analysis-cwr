@@ -58,8 +58,11 @@ public class GeocodeUtilities {
 		ArrayList<String> queries = new ArrayList<String>();
 
 		for (int i = 0; i < dataLocationList.size(); i++) {
-			queries.add("address="
-					+ URLEncoder.encode(dataLocationList.get(i)[1]) + "%");
+			queries.add("address=" + dataLocationList.get(i)[1]
+					.replace(" ","%20")
+					.replace(".","")
+					.replace(";",""));
+			System.out.println(dataLocationList.get(i)[1]);
 		}
 
 		return queries;

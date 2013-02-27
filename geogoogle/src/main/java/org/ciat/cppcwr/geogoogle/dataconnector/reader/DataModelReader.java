@@ -28,4 +28,6 @@ import java.util.ArrayList;
 public interface DataModelReader {
 	
 	public ArrayList<String[]> getDBData(String crit_gen);
+	public ArrayList<String[]> getDBData(int option);
+	public ArrayList<String[]> getFileData(String url);
 }

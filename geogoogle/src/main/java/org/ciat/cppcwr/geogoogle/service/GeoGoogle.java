@@ -19,6 +19,8 @@
 package org.ciat.cppcwr.geogoogle.service;
 
 import java.io.Console;
+import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.net.InetSocketAddress;
 import java.net.Proxy;
 import java.net.URL;
@@ -42,7 +44,6 @@ import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.google.inject.Inject;
 
-
 public class GeoGoogle {
 
 	@Inject
@@ -52,10 +53,14 @@ public class GeoGoogle {
 	private DataModelWriter mw;
 
 	private final String URL_SEND = "https://maps.googleapis.com/maps/api/geocode/xml?sensor=false&";
+	private final String OVER_QUERY_MSG = "OVER_QUERY_LIMIT";
 	private final String OPTION_DATABASE = "1";
 	private final String OPTION_FILE = "2";
+	private final String PRIORITY_GENUS = "0";
+	private final String NON_PRIORITY_GENUS = "1";
+	private final String DATA_FROM_FILE = "-file";
 	private final static String OPTION_NO_PREMIUM = "-np";
-	private double THRESHOLD = 10;
+	private double THRESHOLD = 1000;
 	private Console console = System.console();
 
 	/*
@@ -63,32 +68,49 @@ public class GeoGoogle {
 	 */
 	public void init(String crit_gen) {// Critical genus
 
-		System.out.println("Genus: "+ crit_gen);
-		
 		Injector inject = Guice.createInjector(new GeoGoogleModule());
 		UrlSignerGenerator usg = inject.getInstance(UrlSignerGenerator.class);
 		mr = inject.getInstance(DataModelReader.class);
 		mw = inject.getInstance(DataModelWriter.class);
+		ArrayList<String[]> data = null;
 
-		ArrayList<String[]> data = mr.getDBData(crit_gen); // Get data by priority genus
+		if (crit_gen.equals(PRIORITY_GENUS)) {
+			data = mr.getDBData(Integer.parseInt(PRIORITY_GENUS));
+		} else if (crit_gen.equals(NON_PRIORITY_GENUS)) {
+			data = mr.getDBData(Integer.parseInt(NON_PRIORITY_GENUS));
+		} else if (crit_gen.equals("2")){
+			data = mr.getDBData(Integer.parseInt("2"));
+		} else if (crit_gen.equals(DATA_FROM_FILE)) {
+		    String url = console.readLine("Please fill the file url: ");
+			data = mr.getFileData(url);
+		} else {
+			data = mr.getDBData(crit_gen);
+		}
+
 		System.out.println("Data Size : " + data.size());
-		ArrayList<String> queries = GeocodeUtilities.transformToValidQuery(data);
+		ArrayList<String> queries = GeocodeUtilities
+				.transformToValidQuery(data);
 		ArrayList<String> ids = GeocodeUtilities.returnIds(data);
 		String user_dec = console
 				.readLine("OPTIONS \n [1] Save into database \n [2] Save into a file \n Select your option: ");
 
 		String filename = "";
 		if (user_dec.equals(OPTION_FILE)) {
-			filename = console
-					.readLine("Enter a filename: ");
+			System.out.println("Usar la opcion para escritura de archivo");
+			filename = console.readLine("Enter a filename: ");
+			System.out.println(user_dec);
 		}
 
+		int k = 0;
+
 		try {
-			for (int k = 0; k < queries.size(); k++) {
+			for (k = 0; k < queries.size(); k++) {
 				URL url = new URL(URL_SEND + queries.get(k));
 				URL file_url = new URL(url.getProtocol() + "://"
 						+ url.getHost()
 						+ usg.signRequest(url.getPath(), url.getQuery()));
+				System.out.println(url.getQuery());
+
 
 				// Get information from URL
 				DocumentBuilderFactory dbf = DocumentBuilderFactory
@@ -96,6 +118,7 @@ public class GeoGoogle {
 				// Create a proxy to work in CIAT (erase this in another place)
 				Proxy proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress(
 						"proxy2.ciat.cgiar.org", 8080));
+
 				DocumentBuilder db = dbf.newDocumentBuilder();
 
 				Document doc = db.parse(file_url.openConnection(proxy)
@@ -104,14 +127,15 @@ public class GeoGoogle {
 											// data
 
 				if (doc != null) {// Don't make it empty document
+
 					NodeList locationList = doc
 							.getElementsByTagName("location");
 					NodeList locationTypeList = doc
 							.getElementsByTagName("location_type");
 					NodeList viewPortList = doc
 							.getElementsByTagName("viewport");
-
 					Node location = null, lat = null, lng = null;
+
 					if (locationList.getLength() > 0) {
 						for (int i = 0; i < locationList.getLength(); i++) {
 							location = locationList.item(i);
@@ -141,7 +165,7 @@ public class GeoGoogle {
 											.item(3);
 								}
 
-								/* Extract data from viewport field*/
+								/* Extract data from viewport field */
 								if (northeast.hasChildNodes()) {
 									lat_northeast = northeast.getChildNodes()
 											.item(1);
@@ -179,14 +203,20 @@ public class GeoGoogle {
 						coordValuesSouthwest[1] = Double
 								.parseDouble(lng_southwest.getTextContent());
 
-						double distance = GeocodeUtilities.getDistance(coordValuesNortheast,
-								coordValuesSouthwest); // Distance - km  between Northeast and Southeast
-
+						double distance = GeocodeUtilities.getDistance(
+								coordValuesNortheast, coordValuesSouthwest); // Distance
+																				// -
+																				// km
+																				// between
+																				// Northeast
+																				// and
+																				// Southeast
 						if (distance <= THRESHOLD) { // Condition
 							if (user_dec.equals(OPTION_DATABASE)) {
 								if (mw.writeCoordValues(coordValues,
 										locationType.getTextContent(),
-										distance, ids.get(k))) { // Write into bd
+										distance, ids.get(k))) { // Write into
+																	// bd
 									System.out.println(k
 											+ " Update Success: Id record -> "
 											+ ids.get(k));
@@ -210,12 +240,63 @@ public class GeoGoogle {
 							} else {
 								System.out.println("Error: Invalid option");
 							}
+						} else {
+							System.out.println("Warning: " + distance
+									+ " is bigger than the threshold "
+									+ THRESHOLD);
+							if(!user_dec.equals(OPTION_FILE)) {
+								if (mw.changeGeorefFlagStatus(ids.get(k))) { // Flag
+																				// it
+									System.out
+											.println(k
+													+ " Warning - No values but remove to future query: Id record -> "
+													+ ids.get(k));
+								} else {
+									System.out.println(k
+											+ " Update Error: Id record -> "
+											+ ids.get(k));
+								}
+							}
+						}
+
+					} else { // location elements = 0
+						String status = doc.getElementsByTagName("status").item(0).getTextContent();
+						if(!status.equals(OVER_QUERY_MSG)){ // The limit has been <>
+							if(!user_dec.equals(OPTION_FILE)) {
+								if (mw.changeGeorefFlagStatus(ids.get(k))) {
+										System.out
+												.println(k
+														+ " Warning - No values but remove to future query: Id record -> "
+														+ ids.get(k));
+									} else {
+										System.out.println(k
+												+ " Update Error: Id record -> "
+												+ ids.get(k));
+									}
+							}
 						}else{
-							System.out.println("Warning: "+distance+ " is bigger than the threshold "+THRESHOLD);
-							if (mw.changeGeorefFlagStatus(ids.get(k))) { // Flag it
-								System.out.println(k
-										+ " Warning - No values but remove to future query: Id record -> "
-										+ ids.get(k));
+							System.out.println("Sorry, " + OVER_QUERY_MSG + " we need finish this");
+							break;
+						}
+					}
+				} else { // Try less location values
+					queries.remove(k);
+					queries.add((k - 1),
+							GeocodeUtilities.lessLocationValues(queries.get(k)));
+					String[] array = queries.get(k).split("+");
+
+					if (array.length >= 2) { // Only if size >= 2
+						k--; // Repeat again
+					} else {
+						if(!user_dec.equals(OPTION_FILE)) {
+							if (mw.changeGeorefFlagStatus(ids.get(k))) { // No
+																			// results,
+																			// flag
+																			// it
+								System.out
+										.println(k
+												+ " Warning - No values but remove to future query: Id record -> "
+												+ ids.get(k));
 							} else {
 								System.out.println(k
 										+ " Update Error: Id record -> "
@@ -223,50 +304,37 @@ public class GeoGoogle {
 							}
 						}
 					}
-				} else { // Try less location values
-					queries.remove(k);
-					queries.add((k - 1), GeocodeUtilities.lessLocationValues(queries.get(k)));
-					String[] array = queries.get(k).split("+");
-
-					if (array.length >= 2) { // Only if size >= 2
-						k--; // Repeat again
-					}else{
-						if (mw.changeGeorefFlagStatus(ids.get(k))) { // No results, flag it
-							System.out.println(k
-									+ " Warning - No values but remove to future query: Id record -> "
-									+ ids.get(k));
-						} else {
-							System.out.println(k
-									+ " Update Error: Id record -> "
-									+ ids.get(k));
-						}
-					}
 
 				}
 			}
 
 		} catch (Exception e) {
-			e.printStackTrace();
+			if(!user_dec.equals(OPTION_FILE)) {
+				mw.changeGeorefFlagStatus(ids.get(k));
+				e.printStackTrace();
+			}
 		}
 	}
 
 	public static void main(String[] args) {
 		GeoGoogle geo = new GeoGoogle();
-		
+
 		// Exception
-		if(args.length == 0){
-			System.out.println("Error: You need provide a genus \n Example: java -jar -Xmx750m exec.jar Aegilops");
-		}else if(args.length == 1){
+		if (args.length == 0) {
+			System.out
+					.println("Error: You need provide a genus \n Example: java -jar -Xmx750m exec.jar Aegilops or a option as 0 (priority genus) or 1 (non priority genus)");
+		} else if (args.length == 1) {
 			geo.init(args[0]);
-		}else if(args.length == 2){
-			if(Validator.isString(args[0])){
-				if(args[1].toLowerCase().equals(OPTION_NO_PREMIUM)){
+		} else if (args.length == 2) {
+			if (Validator.isString(args[0])) {
+				if (args[1].toLowerCase().equals(OPTION_NO_PREMIUM)) {
 					System.out.println("Not implemented yet");
-				}else{
-					System.out.println("Error: Bad parameter, try with java -jar -Xmx750m exec.jar Aegilops -np");
+				} else {
+					System.out
+							.println("Error: Bad parameter, try with java -jar -Xmx750m exec.jar Aegilops -np");
 				}
 			}
-		}else{
+		} else {
 			System.out.println("Error: Wrong parameters");
 		}
 	}
