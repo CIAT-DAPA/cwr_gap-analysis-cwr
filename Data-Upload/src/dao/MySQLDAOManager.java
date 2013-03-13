@@ -28,7 +28,7 @@ public class MySQLDAOManager {
 		ArrayList<String> columns = new ArrayList<>();
 		// Preparar consulta
 		Statement statement = connection.createStatement();
-		ResultSet rs = statement.executeQuery ("SELECT COLUMN_NAME FROM information_schema.COLUMNS WHERE TABLE_NAME = 'raw_occurrences' ORDER BY ORDINAL_POSITION ASC");
+		ResultSet rs = statement.executeQuery ("SELECT COLUMN_NAME FROM information_schema.COLUMNS WHERE TABLE_NAME = 'cwr_occurrences' ORDER BY ORDINAL_POSITION ASC");
 		
 		// recorriendo todo el resultado.
 		while(rs.next()) {
