@@ -72,5 +72,6 @@ legend(x=-1,y=1,legend=c("Comparative","Contextual"),col=c("red","blue"),bg="whi
 grid()
 dev.off()
 
-
+#save the stuff
+save(list=c("all_res","com_fit","con_fit","com_res","con_res"),file=paste("./output/summary.RData",sep=""))
 
