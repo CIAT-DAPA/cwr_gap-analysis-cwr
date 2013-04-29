@@ -1,9 +1,76 @@
 #JRV April 2013
 #CIAT
 
+
+#scattergram
+plot_scatter_all <- function(fits,exp_res,file_name="./figures/scattergram/all_GPs_comparative.png") {
+  exp_lm <- fits$LM
+  exp_rho <- fits$RHO
+  gp_list <- names(exp_lm); gp_list <- gp_list[which(gp_list != "ALL")]
+  
+  #start the device
+  png(file_name,width=2048,height=1500,res=300,pointsize=13)
+  
+  #0. base graph
+  par(mar=c(4,4,1,1))
+  plot(0:10,0:10,xlim=c(0,10),ylim=c(0,10),pch=20,col="white",
+       xlab="Model",ylab="Expert",font.axis=1,font.lab=2)
+  grid()
+  
+  #1. shading of each expert and of the mean
+  for (gp in gp_list) {
+    #gp <- gp_list[1]
+    tpol <- c(exp_lm[[paste(gp)]]$lwr,rev(exp_lm[[paste(gp)]]$upr))
+    polygon(x=tpol,y=c(0:15,rev(0:15)),col="#00000020",border=NA)
+  }
+  
+  #2. any available experts experts (individual lines in gray)
+  for (gp in gp_list) {
+    lines(exp_lm[[paste(gp)]]$fit,exp_lm[[paste(gp)]]$eps,col="grey 40",lwd=1.5)
+  }
+  
+  #3. Shading of mean
+  tpol <- c(exp_lm$ALL$lwr,rev(exp_lm$ALL$upr))
+  polygon(x=tpol,y=c(0:15,rev(0:15)),col="#0000FF60",border=NA)
+  
+  #4. central line that is lm of average
+  lines(exp_lm$ALL$fit,exp_lm$ALL$eps,col="blue",lwd=3.5)
+  
+  #5. points in black for mean of expers
+  points(exp_res$FPS,exp_res$Expert,pch=21,cex=0.8)
+  
+  # #6. points in grey being individual experts
+  # for (gp in gp_list) {
+  #   this_gp <- exp_res[which(exp_res$Genepool == gp),]
+  #   points(this_gp$FPS,this_gp$Expert,col="grey 30",pch=21)
+  # }
+  
+  #put some text with the rho values
+  rho_m <- round(exp_rho$RHO[nrow(exp_rho)],2)
+  pval <- exp_rho$PVAL[nrow(exp_rho)]
+  if (pval > .1) {
+    signif <- "NS"
+  } else if (pval <= .1 & pval > 0.05) {
+    signif <- "*"
+  } else if (pval <= .05 & pval > 0.01) {
+    signif <- "**"
+  } else if (pval <= .01) {
+    signif <- "***"
+  }
+  wtext <- substitute(paste(rho,plain(" = "),rhm,plain(" "),sgn),list(rhm=rho_m,sgn=signif))
+  text(0,9.5,cex=1,pos=4,wtext)
+  
+  dev.off()
+  return(file_name)
+}
+
+
 ### fitting all genepools for a given indicator
 fit_gp <- function(exp_res) {
+  #list of genepools
   gp_list <- unique(exp_res$Genepool)
+  
+  #output objects
   exp_lm <- list()
   exp_rho <- data.frame()
   for (gp in gp_list) {
@@ -39,11 +106,14 @@ fit_gp <- function(exp_res) {
   rho <- cor.test(fitdata$fps,fitdata$eps,method="spearman")
   exp_rho <- rbind(exp_rho,data.frame(Genepool="ALL",RHO=rho$estimate,PVAL=rho$p.value))
   row.names(exp_rho) <- 1:nrow(exp_rho)
+  
+  out_obj <- list(LM=exp_lm,RHO=exp_rho)
+  return(out_obj)
 }
 
 #filter data for a given score
-filter_data <- function(in_data,score="Comparative") {
-  ex_score <- "Comparative" #contextual
+filter_data <- function(in_data,ex_score="Comparative") {
+  #ex_score <- "Comparative" #contextual
   ex_res <- in_data[,c("Genepool","Taxa","FPS",names(in_data)[grep(ex_score,names(in_data))])]
   ex_res$Expert <- apply(ex_res[,names(in_data)[grep(ex_score,names(in_data))]],1,FUN=function(x) {y <- x[which(!is.na(x))]; if (length(y)==0) {y<-NA} else {y <- mean(x,na.rm=T)}; return(y)})
   ex_res <- ex_res[which(!is.na(ex_res$Expert)),]
