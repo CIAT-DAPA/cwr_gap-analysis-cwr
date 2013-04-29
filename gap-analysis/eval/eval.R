@@ -42,3 +42,12 @@ con_bplot <- plot_bars(fits=con_fit,scores=con_scores,file_name=paste("./figures
 save(list=c("com_fit","com_scores","com_bplot","con_fit","con_scores","con_bplot"),file=paste("./output/",gpool,".RData",sep=""))
 
 
+##################################
+### generalised evaluation
+
+#load results
+rMod <- read.table("./general_table.tab",header=T,sep="\t")
+
+
+
+
