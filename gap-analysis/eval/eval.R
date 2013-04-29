@@ -64,10 +64,10 @@ con_plot <- plot_scatter_all(fits=con_fit,exp_res=con_res,file_name="./figures/s
 #plot a pdf of the rho values
 png("./figures/density_summary.png",width=2048,height=1800,res=300,pointsize=13)
 par(mar=c(4.5,4.5,1,1))
-plot(density(com_fit$RHO$RHO,na.rm=T),ylim=c(0,1),col="red",
+plot(density(com_fit$RHO$RHO,na.rm=T),ylim=c(0,1),xlim=c(-1,1),col="red",
      xlab=expression(paste(plain("Spearman coefficient ("),rho,plain(")"))),ylab="Density",main=NA,lwd=1.5)
 lines(density(con_fit$RHO$RHO,na.rm=T),ylim=c(0,1),col="blue",lwd=1.5)
-legend(x=-1.25,y=1,legend=c("Comparative","Contextual"),col=c("red","blue"),bg="white",
+legend(x=-1,y=1,legend=c("Comparative","Contextual"),col=c("red","blue"),bg="white",
        lty=c(1,1),lwd=c(1.5,1.5))
 grid()
 dev.off()
