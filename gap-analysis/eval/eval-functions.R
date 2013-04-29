@@ -1,6 +1,55 @@
 #JRV April 2013
 #CIAT
 
+### fitting all genepools for a given indicator
+fit_gp <- function(exp_res) {
+  gp_list <- unique(exp_res$Genepool)
+  exp_lm <- list()
+  exp_rho <- data.frame()
+  for (gp in gp_list) {
+    #gp <- gp_list[1]
+    fitdata <- exp_res[which(exp_res$Genepool == gp),]
+    fitdata <- data.frame(fps=fitdata$FPS,eps=fitdata$Expert)
+    fitdata <- fitdata[which(!is.na(fitdata$fps)),]
+    fitdata <- fitdata[which(!is.na(fitdata$eps)),]
+    
+    if (nrow(fitdata)>2) {
+      mod <- lm(fps ~ eps,data=fitdata)
+      fps_p <- predict(mod,newdata=data.frame(eps=0:15),interval="predict",level=0.2)
+      fps_p <- as.data.frame(cbind(eps=0:15,fps_p))
+      exp_lm[[paste(gp)]] <- fps_p
+      rho <- cor.test(fitdata$fps,fitdata$eps,method="spearman")
+      exp_rho <- rbind(exp_rho,data.frame(Genepool=gp,RHO=rho$estimate,PVAL=rho$p.value))
+    } else {
+      fps_p <- as.data.frame(cbind(eps=0:15,fit=NA,lwr=NA,upr=NA))
+      exp_lm[[paste(gp)]] <- fps_p
+      exp_rho <- rbind(exp_rho,data.frame(Genepool=gp,RHO=NA,PVAL=NA))
+    }
+  }
+  
+  #fit of average of both experts
+  fitdata <- data.frame(fps=exp_res$FPS,eps=exp_res$Expert)
+  fitdata <- fitdata[which(!is.na(fitdata$fps)),]
+  fitdata <- fitdata[which(!is.na(fitdata$eps)),]
+  
+  mod <- lm(fps ~ eps,data=fitdata)
+  fps_p <- predict(mod,newdata=data.frame(eps=0:15),interval="predict",level=0.2)
+  fps_p <- as.data.frame(cbind(eps=0:15,fps_p))
+  exp_lm[["ALL"]] <- fps_p
+  rho <- cor.test(fitdata$fps,fitdata$eps,method="spearman")
+  exp_rho <- rbind(exp_rho,data.frame(Genepool="ALL",RHO=rho$estimate,PVAL=rho$p.value))
+  row.names(exp_rho) <- 1:nrow(exp_rho)
+}
+
+#filter data for a given score
+filter_data <- function(in_data,score="Comparative") {
+  ex_score <- "Comparative" #contextual
+  ex_res <- in_data[,c("Genepool","Taxa","FPS",names(in_data)[grep(ex_score,names(in_data))])]
+  ex_res$Expert <- apply(ex_res[,names(in_data)[grep(ex_score,names(in_data))]],1,FUN=function(x) {y <- x[which(!is.na(x))]; if (length(y)==0) {y<-NA} else {y <- mean(x,na.rm=T)}; return(y)})
+  ex_res <- ex_res[which(!is.na(ex_res$Expert)),]
+  return(ex_res)
+}
+
 
 ###
 ### RD plot

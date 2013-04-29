@@ -1,456 +1,456 @@
-Taxa	Priority	Genepool or Taxon Group	Threat	Relevance to Food Security in Developing Countries	Current Breeding Demand	Total Score	HS	HS_RP	GS	GS_RP	TOTAL	TOTAL_RP	SRS	ATAUC	STAUC	ASD15	IS_VALID	GRS	ERS	FPS	FPCAT	Expert 1 Comparative	Expert 2 Comparative	Expert 3 Comparative	Expert 4 Comparative	Expert 1 Contextual	Expert 2 Contextual	Expert 3 Contextual	Expert 4 Contextual	Expert 1 Evaluation	Expert 2 Evlauation	Expert 3 Evaluation	Expert 4 Evaluation
-Aegilops_bicornis	1	2	1	3	0	22	68	12	643	12	711	23	9.04	0.94	0.09	4.81	1	1.27	7.67	5.99	LPS	2	7	1	NA	3	5	3	NA	4	3	4	NA
-Aegilops_bicornis_var._anathera	3	2	2	3	0	32	1	1	0	0	1	1	0	NA	NA	NA	NA	NA	NA	0	HPS	2	7	1	NA	3	5	3	NA	4	3	3	NA
-Aegilops_bicornis_var._bicornis	0	2	2	3	0	20	1	1	5	1	6	1	8.33	NA	NA	NA	NA	NA	NA	8.33	NFCR	2	7	1	NA	3	5	3	NA	3	3	2	NA
-Aegilops_biuncialis	1	2	1	3	0	22	166	53	1064	390	1230	441	8.65	0.98	0	0.06	1	3.77	10	7.47	LPS	4	9	1	NA	4	9	3	NA	4	3	4	NA
-Aegilops_columnaris	1	2	1	3	0	22	39	22	236	71	275	92	8.58	0.99	0	0	1	2.13	10	6.9	LPS	4	9	1	NA	2	9	3	NA	4	3	4	NA
-Aegilops_comosa	0	2	2	3	2	24	0	0	20	2	20	2	10	NA	NA	NA	NA	NA	NA	10	NFCR	3	2	1	NA	2	5	3	NA	3	2	2	NA
-Aegilops_comosa_var._comosa	1	2	2	3	2	28	3	2	19	6	22	7	8.64	0.99	0.01	16.34	0	7.03	6.75	7.47	LPS	3	2	1	NA	2	5	3	NA	4	3	2	NA
-Aegilops_comosa_var._subventricosa	1	2	1	3	2	26	41	17	167	85	208	99	8.03	0.99	0	0	1	2.35	10	6.79	LPS	3	5	1	NA	2	5	3	NA	4	3	2	NA
-Aegilops_crassa	1	2	1	3	0	22	97	35	242	46	339	79	7.14	0.99	0	0.06	1	0.99	10	6.04	LPS	0	5	1	NA	0	4	3	NA	3	3	4	NA
-Aegilops_cylindrica	1	2	1	3	2	26	510	170	1674	412	2184	579	7.66	0.96	0.01	0.26	1	4.53	10	7.4	LPS	4	7	2	NA	4	4	2	NA	4	3	4	NA
-Aegilops_geniculata	1	2	1	3	2	26	384	93	1040	390	1424	481	7.3	0.98	0	0.28	1	5.02	10	7.44	LPS	4	9	2	NA	4	9	2	NA	4	3	2	NA
-Aegilops_juvenalis	1	2	1	3	0	22	14	4	44	8	58	11	7.59	0.97	0.03	0	1	0.33	8.25	5.39	LPS	0	7	1	NA	0	4	3	NA	2	3	4	NA
-Aegilops_kotschyi	2	2	1	3	0	26	159	35	309	50	468	84	6.6	0.98	0.01	0	1	0.42	7.2	4.74	MPS	1	4	1	NA	2	4	3	NA	2	4	4	NA
-Aegilops_longissima	0	2	1	3	0	18	503	16	1951	37	2454	50	7.95	1	0	0	1	5.35	10	7.77	NFCR	3	7	1	NA	4	4	3	NA	3	2	4	NA
-Aegilops_markgrafii	0	2	1	3	0	18	50	26	303	101	353	124	8.58	0.99	0	2.65	1	4.17	10	7.58	NFCR	3	7	1	NA	3	5	3	NA	3	2	4	NA
-Aegilops_neglecta	1	2	1	3	0	22	296	88	1567	311	1863	391	8.41	0.98	0	0.08	1	2.98	10	7.13	LPS	3	9	1	NA	3	9	3	NA	3	3	4	NA
-Aegilops_peregrina	1	2	1	3	2	26	374	62	1414	141	1788	197	7.91	0.99	0	0.7	1	3.53	10	7.15	LPS	4	5	1	NA	4	7	3	NA	4	3	4	NA
-Aegilops_peregrina_var._brachyathera	3	2	2	3	0	32	0	0	0	0	0	0	NA	NA	NA	NA	NA	NA	NA	0	HPS	3	5	1	NA	2	7	3	NA	4	3	3	NA
-Aegilops_peregrina_var._peregrina	3	2	2	3	0	32	0	0	3	2	3	2	10	NA	NA	NA	NA	NA	NA	0	HPS	3	5	1	NA	2	7	3	NA	4	3	3	NA
-Aegilops_searsii	0	2	2	3	0	20	157	18	503	50	660	66	7.62	1	0	0	1	8.65	10	8.76	NFCR	3	5	1	NA	3	4	3	NA	3	2	4	NA
-Aegilops_sharonensis	1	2	1	3	2	26	430	16	3200	15	3630	26	8.82	0.97	0.05	12.7	0	0.08	10	6.3	LPS	3	7	1	NA	3	7	3	NA	4	3	4	NA
-Aegilops_speltoides	1	2	1	3	2	26	522	29	2196	127	2718	147	8.08	0.99	0.01	1.03	1	3.41	10	7.16	LPS	3	5	2	NA	3	4	0	NA	4	3	2	NA
-Aegilops_speltoides_var._ligustica	1	2	1	3	2	26	44	22	141	19	185	36	7.62	0.97	0.04	0.09	1	0.44	8.8	5.62	LPS	3	5	2	NA	3	4	0	NA	4	3	2	NA
-Aegilops_speltoides_var._speltoides	1	2	1	3	2	26	89	44	295	34	384	70	7.68	0.99	0.01	0.14	1	1.15	10	6.28	LPS	3	5	2	NA	3	4	0	NA	4	3	2	NA
-Aegilops_tauschii	1	2	1	3	2	26	372	93	1910	242	2282	329	8.37	0.98	0	1.21	1	2.87	10	7.08	LPS	4	3	2	NA	3	1	0	NA	4	2	1	NA
-Aegilops_triuncialis	0	2	1	3	0	18	929	287	3604	777	4533	1061	7.95	0.95	0	0	1	5.85	10	7.93	NFCR	4	9	1	NA	3	9	1	NA	3	3	4	NA
-Aegilops_triuncialis_var._persica	1	2	1	3	0	22	9	2	23	7	32	8	7.19	0.99	0.01	11.12	0	1.11	6.8	5.03	LPS	3	9	1	NA	3	9	2	NA	4	3	4	NA
-Aegilops_triuncialis_var._triuncialis	1	2	1	3	0	22	14	3	164	11	178	13	9.21	0.97	0.03	40.91	0	0.37	6.6	5.39	LPS	3	9	1	NA	3	9	2	NA	4	3	4	NA
-Aegilops_umbellulata	1	2	1	3	2	26	100	29	438	104	538	128	8.14	0.98	0.01	3.43	1	3.98	10	7.37	LPS	4	9	1	NA	3	7	2	NA	3	3	4	NA
-Aegilops_uniaristata	1	2	1	3	0	22	12	3	35	6	47	8	7.45	0.94	0.08	14.14	0	0.86	7.05	5.12	LPS	0	5	1	NA	0	3	2	NA	2	2	4	NA
-Aegilops_vavilovii	1	2	1	3	0	22	8	4	136	40	144	43	9.44	0.98	0.02	0	1	1.34	7.5	6.1	LPS	0	5	1	NA	0	5	2	NA	2	3	4	NA
-Aegilops_ventricosa	1	2	1	3	2	26	121	31	169	35	290	65	5.83	0.97	0.02	0.08	1	0.84	10	5.56	LPS	3	5	1	NA	3	5	1	NA	3	3	4	NA
-Amblyopyrum_muticum	1	2	1	3	0	22	27	11	33	11	60	19	5.5	0.99	0.01	28.26	0	2.8	7.25	5.18	LPS	0	3	NA	NA	0	3	NA	NA	1	2	3	NA
-Amblyopyrum_muticum_var._loliaceum	3	2	2	3	0	32	9	1	1	1	10	1	1	NA	NA	NA	NA	NA	NA	1	HPS	0	3	NA	NA	0	3	NA	NA	1	3	3	NA
-Amblyopyrum_muticum_var._muticum	1	2	2	3	0	24	12	2	33	6	45	7	7.33	0.98	0.01	3.95	1	0.64	7.25	5.07	LPS	0	3	NA	NA	0	3	NA	NA	1	2	3	NA
-Avena_abyssinica	2	1	1	1	2	20	909	165	511	102	1420	259	3.6	0.99	0	NA	0	0.45	10	4.68	MPS	5	2	NA	NA	1	3	NA	NA	2	3	NA	NA
-Avena_atherantha	3	3	2	1	0	26	0	0	0	0	0	0	NA	NA	NA	NA	NA	NA	NA	0	HPS	1	5	NA	NA	2	4	NA	NA	4	3	NA	NA
-Avena_byzantina	3	3	1	1	0	24	2333	318	528	1	2861	318	1.85	0.97	0	NA	0	0	NA	0.92	HPS	0	7	NA	NA	4	5	NA	NA	4	2	NA	NA
-Avena_fatua	1	3	1	1	0	16	0	0	0	0	0	0	NA	NA	NA	NA	NA	NA	NA	0	LPS	8	5	NA	NA	8	3	NA	NA	4	2	NA	NA
-Avena_hybrida	2	3	1	1	0	20	125	53	25	4	150	56	1.67	0.99	0.02	NA	0	0.13	10	3.93	MPS	0	3	NA	NA	1	2	NA	NA	4	4	NA	NA
-Avena_insularis	3	2	2	1	0	24	20	7	5	1	25	7	2	1	0.01	NA	0	0	NA	1	HPS	3	0	NA	NA	5	0	NA	NA	4	5	NA	NA
-Avena_macrostachya	3	1	2	1	2	26	0	0	0	0	0	0	NA	NA	NA	NA	NA	NA	NA	0	HPS	0	0	NA	NA	7	0	NA	NA	4	4	NA	NA
-Avena_maroccana	0	2	2	1	2	16	138	28	136	15	274	34	4.96	1	0	NA	0	10	10	8.32	NFCR	2	0	NA	NA	5	0	NA	NA	2	2	NA	NA
-Avena_murphyi	1	2	2	1	0	16	82	16	88	5	170	18	5.18	0.99	0.01	NA	0	6.55	10	7.24	LPS	2	0	NA	NA	5	0	NA	NA	2	1	NA	NA
-Avena_occidentalis	1	3	1	1	0	16	7	6	57	6	64	11	8.91	0.96	0.07	NA	0	0.2	10	6.37	LPS	8	4	NA	NA	8	3	NA	NA	4	4	NA	NA
-Avena_pilosa	3	1	2	1	0	22	0	0	0	0	0	0	NA	NA	NA	NA	NA	NA	NA	0	HPS	8	2	NA	NA	8	2	NA	NA	4	5	NA	NA
-Avena_prostrata	2	1	1	1	2	20	47	18	7	2	54	19	1.3	0.97	0.05	NA	0	0.08	10	3.79	MPS	8	1	NA	NA	8	1	NA	NA	4	4	NA	NA
-Avena_sterilis	1	3	1	1	2	20	0	0	0	0	0	0	NA	NA	NA	NA	NA	NA	NA	0	LPS	8	8	NA	NA	8	3	NA	NA	4	4	NA	NA
-Avena_strigosa	2	1	1	1	2	20	1551	388	249	35	1800	415	1.38	0.97	0.01	NA	0	0	10	3.8	MPS	0	3	NA	NA	1	0	NA	NA	2	4	NA	NA
-Avena_trichophylla	3	3	1	1	0	24	8	4	2	1	10	4	2	0.98	0.02	NA	0	0	NA	1	HPS	1	5	NA	NA	8	3	NA	NA	4	4	NA	NA
-Cajanus_acutifolius	3	2	1	2	0	26	492	169	173	42	665	210	2.6	0.96	0	1.28	1	0.05	2.76	1.81	HPS	2	6	2	NA	2	6	1	NA	4	5	5	NA
-Cajanus_albicans	2	2	1	2	1	24	141	10	21	9	162	18	1.3	0.9	0.09	60.28	0	0.35	10	3.88	MPS	3	0	4	NA	4	0	7	NA	4	3	5	NA
-Cajanus_cajanifolius	3	2	2	2	2	32	42	3	2	1	44	3	0.45	0.5	0	NA	0	NA	0	0.23	HPS	3	0	2	NA	3	0	0	NA	4	5	5	NA
-Cajanus_cinereus	3	2	1	2	1	28	268	127	6	1	274	127	0.22	0.96	0	2.3	1	0	0	0.07	HPS	2	0	2	NA	2	2	2	NA	4	5	5	NA
-Cajanus_confertiflorus	3	2	1	2	0	26	122	43	1	1	123	43	0.08	0.98	0.02	0.49	1	0	0	0.03	HPS	0	0	2	NA	0	0	2	NA	5	5	5	NA
-Cajanus_crassus	3	0	1	2	1	24	17	10	19	3	36	12	5.28	0.9	0.05	0.24	1	0.03	1.25	2.19	HPS	4	1	4	NA	2	1	5	NA	4	4	5	NA
-Cajanus_lanceolatus	3	2	1	2	0	26	133	35	5	2	138	36	0.36	0.98	0.02	3.52	1	0.34	3.4	1.37	HPS	2	3	2	NA	3	3	2	NA	4	5	5	NA
-Cajanus_latisepalus	3	2	1	2	0	26	228	84	4	1	232	84	0.17	0.97	0.02	0	1	0	0	0.06	HPS	1	0	2	NA	0	3	5	NA	5	5	5	NA
-Cajanus_lineatus	3	2	1	2	2	30	163	18	6	5	169	23	0.36	NA	NA	NA	NA	NA	NA	0.36	HPS	3	1	7	NA	3	0	5	NA	4	5	5	NA
-Cajanus_mollis	1	0	2	2	1	18	4	2	8	3	12	5	6.67	NA	NA	NA	NA	NA	NA	6.67	LPS	6	0	6	NA	6	0	5	NA	4	2	5	NA
-Cajanus_platycarpus	2	0	1	2	1	20	7	2	21	5	28	6	7.5	0.86	0.09	0.87	1	0.1	3.48	3.69	MPS	4	1	7	NA	5	1	8	NA	4	2	5	NA
-Cajanus_reticulatus	3	2	1	2	0	26	462	200	21	3	483	202	0.43	0	0.01	1.01	0	0.04	7.98	2.82	HPS	4	2	5	NA	2	2	5	NA	5	5	5	NA
-Cajanus_scarabaeoides	2	2	1	2	2	26	341	65	218	48	559	112	3.9	0.94	0.01	7.08	1	0.58	8.46	4.31	MPS	2	6	8	NA	4	6	8	NA	4	5	5	NA
-Cajanus_sericeus	3	2	1	2	2	30	83	20	4	2	87	21	0.46	0.97	0.03	2	1	0.07	4.68	1.74	HPS	3	1	7	NA	4	1	8	NA	4	5	5	NA
-Cajanus_trinervius	3	2	1	2	0	26	130	24	0	0	130	24	0	0.97	0.04	0.1	1	0	0	0	HPS	3	0	6	NA	3	0	5	NA	4	5	5	NA
-Cajanus_volubilis	3	1	2	2	0	26	0	0	0	0	0	0	NA	NA	NA	NA	NA	NA	NA	0	HPS	3	0	1	NA	2	0	2	NA	4	NA	5	NA
-Cicer_bijugum	1	0	1	2	1	16	11	7	44	16	55	22	8	0.98	0.02	0.29	1	0.67	7.33	5.33	LPS	2	2	3	4	2	2	3	2	3	2	2	3
-Cicer_echinospermum	2	2	1	2	2	26	43	12	29	13	72	23	4.03	0.99	0.01	0	1	1.35	8.6	4.66	MPS	1	2	2	1	1	1	1	2	2	2	3	5
-Cicer_judaicum	0	0	1	2	2	14	30	4	93	37	123	40	7.56	0.97	0.04	3.96	1	10	10	9.19	NFCR	2	8	6	1	2	8	7	2	2	4	4	4
-Cicer_pinnatifidum	1	1	1	2	2	20	45	6	88	23	133	28	6.62	0.99	0	0.08	1	2.72	10	6.45	LPS	2	6	6	3	2	6	7	2	3	4	4	4
-Cicer_reticulatum	1	3	2	2	2	26	60	8	66	19	126	25	5.24	1	0	0.15	1	7.27	9.25	7.25	LPS	1	1	1	1	1	0	1	2	1	1	2	5
-Daucus_capillifolius	3	2	2	1	2	28	12	12	2	1	14	13	1.43	0.99	0	2.33	1	0	0	0.48	HPS	1	3	NA	NA	1	NA	NA	NA	4	NA	NA	NA
-Daucus_carota_subsp._azoricus	3	3	1	1	0	24	45	28	2	1	47	28	0.43	1	0	0.38	1	0	0	0.14	HPS	3	0	NA	NA	2	NA	NA	NA	4	NA	NA	NA
-Daucus_carota_subsp._cantabricus	3	3	2	1	0	26	6	1	0	0	6	1	0	NA	NA	NA	NA	NA	NA	0	HPS	3	0	NA	NA	3	NA	NA	NA	3	NA	NA	NA
-Daucus_carota_subsp._carota	2	3	1	1	0	20	494	130	187	55	681	184	2.75	0.97	0.02	1.1	1	0.68	8.6	4.01	MPS	4	5	NA	NA	4	NA	NA	NA	4	NA	NA	NA
-Daucus_carota_subsp._commutatus	2	3	1	1	0	20	17	4	10	4	27	7	3.7	1	0	1.39	1	1.28	7.67	4.22	MPS	1	0	NA	NA	0	NA	NA	NA	2	NA	NA	NA
-Daucus_carota_subsp._drepanensis	3	3	2	1	0	26	23	2	0	0	23	2	0	NA	NA	NA	NA	NA	NA	0	HPS	1	0	NA	NA	1	NA	NA	NA	4	NA	NA	NA
-Daucus_carota_subsp._fontanesii	2	3	1	1	0	20	55	16	2	2	57	18	0.35	0.99	0.01	11.92	0	0.1	9.25	3.23	MPS	1	0	NA	NA	0	NA	NA	NA	2	NA	NA	NA
-Daucus_carota_subsp._gadecaei	3	3	2	1	0	26	0	0	3	1	3	1	10	NA	NA	NA	NA	NA	NA	0	HPS	1	0	NA	NA	0	NA	NA	NA	4	NA	NA	NA
-Daucus_carota_subsp._gummifer	3	3	1	1	0	24	211	47	15	4	226	50	0.66	0.99	0	0.88	1	0.07	5.17	1.97	HPS	2	0	NA	NA	4	NA	NA	NA	4	NA	NA	NA
-Daucus_carota_subsp._halophilus	3	3	2	1	0	26	83	19	5	1	88	19	0.57	1	0	5.18	1	0	0	0.19	HPS	1	0	NA	NA	1	NA	NA	NA	4	NA	NA	NA
-Daucus_carota_subsp._hispanicus	3	3	2	1	0	26	29	2	4	1	33	2	1.21	NA	NA	NA	NA	NA	NA	1.21	HPS	3	0	NA	NA	3	NA	NA	NA	4	NA	NA	NA
-Daucus_carota_subsp._major	2	3	1	1	0	20	12	8	11	5	23	12	4.78	0.91	0.07	0.01	1	0.67	6.25	3.9	MPS	4	9	NA	NA	4	NA	NA	NA	4	NA	NA	NA
-Daucus_carota_subsp._majoricus	3	3	2	1	0	26	7	1	0	0	7	1	0	NA	NA	NA	NA	NA	NA	0	HPS	3	0	NA	NA	3	NA	NA	NA	4	NA	NA	NA
-Daucus_carota_subsp._maritimus	3	3	1	1	0	24	213	113	8	3	221	115	0.36	0.98	0.02	0.67	1	0.08	4.7	1.71	HPS	5	0	NA	NA	6	NA	NA	NA	3	NA	NA	NA
-Daucus_carota_subsp._maximus	3	3	1	1	0	24	160	37	25	8	185	44	1.35	0.99	0.01	0.11	1	0.15	7.05	2.85	HPS	5	9	NA	NA	6	NA	NA	NA	2	NA	NA	NA
-Daucus_carota_subsp._parviflorus	3	3	2	1	0	26	13	2	0	0	13	2	0	NA	NA	NA	NA	NA	NA	0	HPS	3	0	NA	NA	3	NA	NA	NA	4	NA	NA	NA
-Daucus_carota_subsp._rupestris	3	3	2	1	0	26	1	1	0	0	1	1	0	NA	NA	NA	NA	NA	NA	0	HPS	2	0	NA	NA	2	NA	NA	NA	4	NA	NA	NA
-Daucus_syrticus	3	2	1	1	0	22	43	9	15	6	58	13	2.59	0.99	0.01	0.74	1	0.3	5	2.63	HPS	0	0	NA	NA	0	NA	NA	NA	4	NA	NA	NA
-Eleusine_africana	3	3	1	3	0	32	141	51	4	3	145	53	0.28	0.95	0.01	0.84	1	0.04	2.67	0.99	HPS	5	NA	NA	NA	5	NA	NA	NA	3	NA	NA	NA
-Eleusine_floccifolia	3	2	1	3	0	30	66	17	4	2	70	18	0.57	0.96	0.04	9.23	1	0.06	4.3	1.64	HPS	8	NA	NA	NA	8	NA	NA	NA	3	NA	NA	NA
-Eleusine_indica	3	3	1	3	0	32	7878	1133	61	18	7939	1150	0.08	0.88	0.01	0.05	1	0.08	3.03	1.06	HPS	7	NA	NA	NA	7	NA	NA	NA	3	NA	NA	NA
-Eleusine_intermedia	3	2	1	3	0	30	12	5	0	0	12	5	0	0.97	0.05	18.42	0	0	0	0	HPS	8	NA	NA	NA	8	NA	NA	NA	3	NA	NA	NA
-Eleusine_kigeziensis	2	3	2	3	0	30	13	6	9	3	22	8	4.09	0.99	0.02	24.11	0	1.33	5.3	3.57	MPS	8	NA	NA	NA	8	NA	NA	NA	3	NA	NA	NA
-Eleusine_tristachya	3	2	1	3	0	30	5482	438	24	6	5506	443	0.04	0.97	0.01	0.59	1	0.21	4.7	1.65	HPS	8	NA	NA	NA	8	NA	NA	NA	3	NA	NA	NA
-Helianthus_annuus	1	3	1	2	2	24	2045	706	3656	669	5701	1343	6.41	0.92	0.01	0.12	1	3.57	10	6.66	LPS	9	4	5	NA	9	1	3	NA	4	4	3	NA
-Helianthus_anomalus	3	2	1	2	2	30	60	12	9	8	69	17	1.3	0.96	0.07	2.89	1	0.47	6.5	2.76	HPS	3	0	0	NA	3	0	0	NA	2	5	5	NA
-Helianthus_argophyllus	3	2	1	2	2	30	71	33	55	26	126	53	4.37	0.98	0.03	0	1	0.19	3.83	2.8	HPS	10	4	5	NA	10	1	5	NA	2	4	2	NA
-Helianthus_arizonensis	3	0	2	2	1	26	5	4	2	2	7	6	2.86	1	0	1.1	1	0.72	5.05	2.88	HPS	1	3	0	NA	5	5	0	NA	2	4	5	NA
-Helianthus_atrorubens	3	0	1	2	1	24	70	31	13	11	83	40	1.57	0.99	0	0	1	0.95	5.33	2.62	HPS	5	2	3	NA	10	3	5	NA	2	4	2	NA
-Helianthus_bolanderi	3	2	1	2	2	30	315	134	9	5	324	138	0.28	0.99	0.01	2.64	1	0.6	6.67	2.51	HPS	1	3	1	NA	0	2	1	NA	5	4	5	NA
-Helianthus_debilis	3	2	1	2	2	30	91	34	8	2	99	35	0.81	0.98	0.01	0.05	1	0.03	2.25	1.03	HPS	6	4	NA	NA	6	5	NA	NA	3	4	1	NA
-Helianthus_debilis_subsp._cucumerifolius	3	2	1	2	2	30	89	36	17	13	106	48	1.6	0.97	0.03	0.01	1	0.32	6.17	2.7	HPS	7	5	4	NA	7	4	4	NA	2	4	2	NA
-Helianthus_debilis_subsp._debilis	3	2	1	2	2	30	22	9	17	15	39	22	4.36	0.93	0.11	0.97	1	0.11	2.61	2.36	HPS	7	4	9	NA	7	4	9	NA	4	4	1	NA
-Helianthus_debilis_subsp._silvestris	2	2	1	2	2	26	8	5	28	11	36	15	7.78	0.99	0.02	29.97	0	2.32	3.33	4.48	MPS	9	4	9	NA	9	4	9	NA	4	4	2	NA
-Helianthus_debilis_subsp._tardiflorus	1	2	2	2	2	24	15	9	5	4	20	11	2.5	1	0	10.32	0	10	8	6.83	LPS	4	4	2	NA	3	4	3	NA	4	4	2	NA
-Helianthus_debilis_subsp._vestitus	3	2	2	2	2	32	15	6	5	4	20	9	2.5	0.98	0.04	53.7	0	0.49	2.5	1.83	HPS	2	4	2	NA	2	4	3	NA	4	4	2	NA
-Helianthus_deserticola	1	2	2	2	2	24	42	13	16	14	58	24	2.76	1	0	0	1	4.03	10	5.6	LPS	8	0	8	NA	8	0	8	NA	4	4	5	NA
-Helianthus_divaricatus	3	1	1	2	2	28	340	133	25	15	365	145	0.68	0.97	0.01	2.17	1	0.64	5	2.11	HPS	10	5	2	NA	10	6	3	NA	2	4	5	NA
-Helianthus_exilis	2	2	1	2	0	22	50	26	30	23	80	48	3.75	0.99	0.01	0	1	1.04	5.87	3.55	MPS	10	3	6	NA	10	1	6	NA	4	4	5	NA
-Helianthus_giganteus	3	1	1	2	2	28	218	61	26	17	244	76	1.07	0.95	0.03	1.91	1	0.33	6.54	2.64	HPS	10	6	2	NA	10	6	3	NA	2	4	5	NA
-Helianthus_grosseserratus	2	1	1	2	2	24	175	48	50	32	225	79	2.22	0.96	0.02	0.16	1	0.72	7.6	3.51	MPS	10	5	2	NA	10	6	3	NA	2	4	2	NA
-Helianthus_hirsutus	3	1	1	2	2	28	177	78	11	8	188	83	0.59	0.98	0.01	0	1	0.18	6.75	2.5	HPS	8	5	2	NA	10	6	2	NA	2	4	5	NA
-Helianthus_maximilianii	3	1	2	2	2	30	0	0	0	0	0	0	NA	NA	NA	NA	NA	NA	NA	0	HPS	10	6	2	NA	10	6	3	NA	2	4	5	NA
-Helianthus_neglectus	0	2	2	2	2	20	5	2	58	12	63	13	9.21	1	0.01	55.59	0	9.41	5.75	8.12	NFCR	10	1	9	NA	10	1	9	NA	3	4	3	NA
-Helianthus_niveus	3	2	1	2	0	26	73	15	3	2	76	16	0.39	0.99	0.01	8.17	1	0.21	6.5	2.37	HPS	2	0	NA	NA	2	0	NA	NA	3	4	1	NA
-Helianthus_niveus_subsp._canescens	2	2	1	2	0	22	100	38	19	12	119	48	1.6	0.99	0.02	0.22	1	0.66	8.25	3.5	MPS	7	0	1	NA	7	0	2	NA	3	4	2	NA
-Helianthus_niveus_subsp._niveus	3	2	1	2	0	26	9	4	0	0	9	4	0	0.72	0.39	81.2	0	0	0	0	HPS	0	0	0	NA	0	0	0	NA	3	4	5	NA
-Helianthus_niveus_subsp._tephrodes	3	2	1	2	0	26	87	49	6	6	93	54	0.65	0.99	0.02	0.7	1	0.94	6.67	2.75	HPS	3	0	0	NA	2	0	1	NA	3	4	5	NA
-Helianthus_paradoxus	3	2	2	2	2	32	58	9	0	0	58	9	0	1	0	34.64	0	0	0	0	HPS	5	0	10	NA	5	0	10	NA	3	5	1	NA
-Helianthus_pauciflorus	2	1	1	2	2	24	10	6	22	11	32	16	6.88	0.92	0.02	0	1	0.19	6.67	4.58	MPS	10	6	3	NA	10	6	5	NA	3	4	2	NA
-Helianthus_petiolaris	3	2	1	2	2	30	337	112	45	15	382	126	1.18	0.96	0	2.7	1	0.18	6.96	2.77	HPS	5	4	NA	NA	3	2	NA	NA	3	4	1	NA
-Helianthus_petiolaris_subsp._fallax	2	2	1	2	2	26	34	11	30	24	64	34	4.69	0.98	0.01	2.02	1	0.95	8.25	4.63	MPS	5	3	10	NA	3	2	9	NA	3	4	1	NA
-Helianthus_petiolaris_subsp._petiolaris	1	2	1	2	2	22	101	69	106	88	207	154	5.12	0.97	0	2.3	1	1.51	10	5.54	LPS	10	3	3	NA	10	2	3	NA	3	4	2	NA
-Helianthus_praecox	3	2	3	2	2	34	0	0	0	0	0	0	NA	NA	NA	NA	NA	NA	NA	0	HPS	4	5	NA	NA	4	3	NA	NA	2	NA	1	NA
-Helianthus_praecox_subsp._hirtus	1	2	3	2	2	26	3	2	10	3	13	3	7.69	1	0	0	1	1.11	6.67	5.15	LPS	5	5	10	NA	5	6	10	NA	3	4	5	NA
-Helianthus_praecox_subsp._praecox	0	2	3	2	2	22	0	0	14	10	14	10	10	1	0	0	1	10	8.5	9.5	NFCR	3	5	10	NA	3	6	10	NA	2	4	5	NA
-Helianthus_praecox_subsp._runyonii	1	2	2	2	2	24	5	3	28	21	33	23	8.48	1	0	0	1	2.08	6.92	5.83	LPS	8	5	10	NA	8	6	10	NA	3	4	5	NA
-Helianthus_resinosus	2	1	1	2	2	24	75	29	29	10	104	38	2.79	0.99	0	0	1	0.83	10	4.54	MPS	10	5	5	NA	9	6	5	NA	3	4	5	NA
-Helianthus_salicifolius	2	0	1	2	1	20	42	12	40	17	82	28	4.88	1	0	0.01	1	2.85	5.5	4.41	MPS	9	5	4	NA	9	6	5	NA	3	4	5	NA
-Helianthus_silphioides	0	0	2	2	1	14	27	7	18	10	45	16	4	1	0	15.75	0	10	10	8	NFCR	9	5	4	NA	9	6	4	NA	3	4	1	NA
-Helianthus_strumosus	2	1	1	2	2	24	255	101	70	23	325	122	2.15	0.98	0.01	4.49	1	0.63	9	3.93	MPS	9	5	3	NA	9	6	4	NA	3	4	5	NA
-Helianthus_tuberosus	2	1	1	2	2	24	568	154	160	28	728	179	2.2	0.95	0.03	4.81	1	0.34	7.48	3.34	MPS	5	3	3	NA	3	1	3	NA	2	2	5	NA
-Hordeum_brevisubulatum	3	1	1	2	2	28	56	24	36	14	92	36	3.91	0.86	0.09	9.35	1	0.16	4.69	2.92	HPS	0	0	8	NA	0	0	8	NA	5	4	2	NA
-Hordeum_bulbosum	1	2	1	2	2	22	375	152	321	115	696	261	4.61	0.98	0	0.29	1	1.26	10	5.29	LPS	2	1	7	NA	2	1	7	NA	4	3	4	NA
-Hordeum_chilense	1	1	1	2	2	20	24	11	72	27	96	37	7.5	0.98	0.03	0	1	2.06	10	6.52	LPS	2	0	8	NA	2	0	8	NA	4	2	4	NA
-Hordeum_vulgare_subsp._spontaneum	0	3	1	2	2	20	1507	148	11415	349	12922	469	8.83	0.97	0	0.47	1	3.86	10	7.56	NFCR	2	0	4	NA	2	0	4	NA	2	2	1	NA
-Ipomoea_batatas_var._apiculata	3	3	2	3	0	34	0	0	0	0	0	0	NA	NA	NA	NA	NA	NA	NA	0	HPS	4	3	NA	NA	4	3	NA	NA	5	5	NA	NA
-Ipomoea_cordatotriloba	2	2	1	3	0	26	153	97	104	3	257	99	4.05	0.97	0.02	0.96	1	0.11	10	4.72	MPS	2	3	NA	NA	2	3	NA	NA	4	5	NA	NA
-Ipomoea_cynanchifolia	3	2	1	3	0	30	28	9	1	1	29	9	0.34	0.88	0.04	0	1	0	0	0.11	HPS	3	0	NA	NA	3	0	NA	NA	4	5	NA	NA
-Ipomoea_grandifolia	3	2	1	3	0	30	324	169	184	1	508	169	3.62	0.97	0.01	0.46	1	0	0	1.21	HPS	2	1	NA	NA	2	1	NA	NA	4	5	NA	NA
-Ipomoea_lacunosa	3	2	1	3	0	30	221	92	10	1	231	92	0.43	0.98	0.01	0.38	1	0	0	0.14	HPS	4	4	NA	NA	3	4	NA	NA	4	4	NA	NA
-Ipomoea_leucantha	3	2	1	3	0	30	19	9	18	1	37	9	4.86	0.89	0.04	0	1	0	0	1.62	HPS	2	4	NA	NA	2	4	NA	NA	4	5	NA	NA
-Ipomoea_littoralis	3	2	1	3	0	30	189	46	2	2	191	47	0.1	0.92	0.06	8.68	1	0.01	2	0.71	HPS	1	2	NA	NA	0	2	NA	NA	5	5	NA	NA
-Ipomoea_ramosissima	3	2	1	3	0	30	128	35	37	2	165	36	2.24	0.8	0.06	3.83	1	0.03	4.31	2.19	HPS	4	0	NA	NA	3	0	NA	NA	4	5	NA	NA
-Ipomoea_tabascana	3	3	3	3	0	36	0	0	4	2	4	2	10	0.5	0	NA	0	10	2.5	0	HPS	0	2	NA	NA	0	2	NA	NA	5	5	NA	NA
-Ipomoea_tenuissima	3	2	1	3	0	30	32	10	3	1	35	10	0.86	0.99	0.02	19.69	0	0.11	0.97	0.65	HPS	1	2	NA	NA	1	2	NA	NA	5	5	NA	NA
-Ipomoea_tiliacea	3	2	1	3	0	30	376	126	61	3	437	128	1.4	0.94	0.02	15.16	0	0.01	3.98	1.79	HPS	3	3	NA	NA	3	3	NA	NA	4	5	NA	NA
-Ipomoea_trifida	2	3	1	3	2	32	336	150	283	28	619	177	4.57	0.96	0.01	0.95	1	0.69	8.75	4.67	MPS	0	4	NA	NA	0	4	NA	NA	3	5	NA	NA
-Ipomoea_triloba	3	2	1	3	0	30	573	199	102	24	675	222	1.51	0.93	0.01	1.91	1	0.1	4.37	2	HPS	2	4	NA	NA	2	4	NA	NA	4	1	NA	NA
-Ipomoea_umbraticola	3	2	1	3	0	30	19	10	0	0	19	10	0	0.69	0.12	7.47	0	0	0	0	HPS	4	2	NA	NA	3	2	NA	NA	4	5	NA	NA
-Lathyrus_chrysanthus	1	2	3	2	0	22	5	2	8	7	13	8	6.15	NA	NA	NA	NA	NA	NA	6.15	LPS	10	1	2	NA	10	0	2	NA	5	4	3	NA
-Lathyrus_gorgoni	1	2	1	2	0	18	52	8	75	45	127	51	5.91	0.95	0.09	15.24	0	2.03	8.33	5.42	LPS	10	0	2	NA	10	1	2	NA	5	4	4	NA
-Lathyrus_marmoratus	1	2	1	2	0	18	4	3	34	24	38	26	8.95	0.5	0	NA	0	1.38	7.31	5.88	LPS	10	0	2	NA	10	1	2	NA	5	4	4	NA
-Lathyrus_pseudocicera	1	2	1	2	0	18	12	5	82	70	94	74	8.72	0.81	0.15	4.84	1	0.56	10	6.43	LPS	10	0	3	NA	10	1	3	NA	5	4	4	NA
-Lathyrus_sativus	0	3	1	2	1	18	497	92	2884	127	3381	218	8.53	0.94	0.03	7.26	1	10	8	8.84	NFCR	10	0	7	NA	10	3	6	NA	5	3	4	NA
-Lens_culinaris_subsp._odemensis	1	3	1	2	1	22	19	3	42	22	61	24	6.89	1	0	3.16	1	2.07	10	6.32	LPS	1	0	4	NA	1	0	2	NA	1	4	2	NA
-Lens_culinaris_subsp._orientalis	1	3	1	2	1	22	399	150	208	92	607	240	3.43	0.98	0	1.9	1	2.58	10	5.34	LPS	1	0	2	NA	1	2	0	NA	4	4	2	NA
-Lens_culinaris_subsp._tomentosus	1	3	3	2	0	24	1	1	6	3	7	3	8.57	0.5	0	NA	0	10	3.4	7.32	LPS	1	0	3	NA	1	0	2	NA	1	2	2	NA
-Lens_ervoides	2	2	1	2	0	22	139	32	175	72	314	101	5.57	0.99	0	1.26	1	1.25	7.67	4.83	MPS	1	1	5	NA	1	2	7	NA	4	4	4	NA
-Lens_nigricans	2	2	1	2	0	22	183	36	94	40	277	74	3.39	0.99	0	0	1	1.08	10	4.83	MPS	1	1	5	NA	1	2	7	NA	2	4	4	NA
-Malus_baccata	3	2	1	1	2	26	241	33	126	9	367	39	3.43	0.89	0.05	4.54	1	0.12	2.74	2.1	HPS	6	3	NA	NA	6	2	NA	NA	3	4	NA	NA
-Malus_baccata_var._baccata	3	2	2	1	2	28	60	1	4	1	64	1	0.63	NA	NA	NA	NA	NA	NA	0.63	HPS	6	3	NA	NA	6	2	NA	NA	3	4	NA	NA
-Malus_baccata_var._daochengensis	3	2	2	1	2	28	3	3	0	0	3	3	0	0.5	0	NA	0	NA	0	0	HPS	2	3	NA	NA	1	2	NA	NA	5	4	NA	NA
-Malus_baccata_var._jinxianensis	3	2	2	1	2	28	0	0	0	0	0	0	NA	NA	NA	NA	NA	NA	NA	0	HPS	2	3	NA	NA	1	2	NA	NA	5	4	NA	NA
-Malus_baccata_var._xiaojinensis	3	2	2	1	1	26	0	0	0	0	0	0	NA	NA	NA	NA	NA	NA	NA	0	HPS	2	3	NA	NA	1	2	NA	NA	5	4	NA	NA
-Malus_chitralensis	3	2	2	1	0	24	2	2	0	0	2	2	0	0.5	0	NA	0	NA	0	0	HPS	5	0	NA	NA	5	0	NA	NA	4	4	NA	NA
-Malus_crescimannoi	3	2	2	1	0	24	0	0	0	0	0	0	NA	NA	NA	NA	NA	NA	NA	0	HPS	5	0	NA	NA	5	0	NA	NA	4	4	NA	NA
-Malus_doumeri	3	1	1	1	2	24	50	5	1	1	51	5	0.2	0.8	0.16	61.24	0	0	0	0.07	HPS	1	1	NA	NA	2	0	NA	NA	5	4	NA	NA
-Malus_floribunda	3	2	1	1	2	26	35	6	18	1	53	6	3.4	0.98	0.02	75.61	0	0	0	1.13	HPS	1	1	NA	NA	2	2	NA	NA	5	4	NA	NA
-Malus_fusca	2	1	1	1	2	20	811	119	86	24	897	125	0.96	0.97	0.02	0.21	1	0.51	8.33	3.27	MPS	7	7	NA	NA	7	7	NA	NA	5	3	NA	NA
-Malus_halliana	2	2	1	1	2	22	21	7	23	5	44	10	5.23	0.89	0.05	0.18	1	0.08	6.5	3.94	MPS	5	2	NA	NA	5	2	NA	NA	4	3	NA	NA
-Malus_honanensis	2	2	2	1	2	24	9	1	5	1	14	1	3.57	NA	NA	NA	NA	NA	NA	3.57	MPS	4	2	NA	NA	4	3	NA	NA	3	4	NA	NA
-Malus_hupehensis	2	2	1	1	2	22	150	29	161	8	311	29	5.18	0.97	0.01	0.17	1	0.13	5.5	3.6	MPS	3	3	NA	NA	3	2	NA	NA	2	4	NA	NA
-Malus_kansuensis	3	2	1	1	0	22	59	9	37	4	96	9	3.85	0.92	0.13	71.94	0	0.07	3.83	2.59	HPS	2	2	NA	NA	2	3	NA	NA	4	4	NA	NA
-Malus_komarovii	2	2	2	1	0	20	5	1	3	1	8	1	3.75	NA	NA	NA	NA	NA	NA	3.75	MPS	4	1	NA	NA	4	1	NA	NA	5	4	NA	NA
-Malus_mandshurica	3	2	1	1	2	26	69	3	9	1	78	3	1.15	0.5	0	NA	0	NA	0	0.58	HPS	4	1	NA	NA	4	1	NA	NA	4	4	NA	NA
-Malus_muliensis	3	2	2	1	0	24	0	0	0	0	0	0	NA	NA	NA	NA	NA	NA	NA	0	HPS	4	0	NA	NA	4	0	NA	NA	5	4	NA	NA
-Malus_ombrophila	3	2	1	1	0	22	39	7	6	1	45	7	1.33	0.98	0.03	0.02	1	0	0	0.44	HPS	3	1	NA	NA	3	1	NA	NA	4	4	NA	NA
-Malus_orientalis	1	3	1	1	0	16	279	53	1585	48	1864	76	8.5	0.99	0.01	0.26	1	1.06	10	6.52	LPS	7	6	NA	NA	7	5	NA	NA	5	4	NA	NA
-Malus_prattii	3	2	1	1	0	22	186	12	29	5	215	12	1.35	0.98	0.01	0	1	0.15	4.3	1.93	HPS	3	3	NA	NA	3	2	NA	NA	4	4	NA	NA
-Malus_prunifolia	3	2	1	1	2	26	255	19	94	1	349	19	2.69	0.95	0.06	16.36	0	0	0	0.9	HPS	6	3	NA	NA	6	2	NA	NA	4	4	NA	NA
-Malus_pumila	3	2	1	1	2	26	2012	167	76	3	2088	169	0.36	0.97	0.01	0.87	1	0.45	7.5	2.77	HPS	10	9	NA	NA	10	9	NA	NA	2	2	NA	NA
-Malus_sargentii	3	2	1	1	2	26	38	4	54	1	92	4	5.87	0.63	0.32	35.37	0	0	0	1.96	HPS	7	3	NA	NA	7	2	NA	NA	4	4	NA	NA
-Malus_sieversii	1	3	2	1	2	22	3241	127	3043	92	6284	138	4.84	0.98	0.02	2.49	1	2.69	10	5.84	LPS	4	6	NA	NA	4	5	NA	NA	2	4	NA	NA
-Malus_sikkimensis	3	2	1	1	2	26	43	6	35	1	78	6	4.49	0.96	0.04	5.89	1	0	0	1.5	HPS	3	2	NA	NA	3	2	NA	NA	5	4	NA	NA
-Malus_spectabilis	3	2	2	1	0	24	67	2	18	1	85	2	2.12	NA	NA	NA	NA	NA	NA	2.12	HPS	3	2	NA	NA	3	1	NA	NA	5	4	NA	NA
-Malus_sylvestris	3	3	2	1	2	30	4532	120	323	2	4855	120	0.67	0.96	0.01	2.01	1	0.03	2.35	1.01	HPS	8	3	NA	NA	8	1	NA	NA	2	4	NA	NA
-Malus_toringo	2	2	1	1	2	22	209	22	332	7	541	26	6.14	0.94	0.04	6.16	1	0.14	4.5	3.59	MPS	4	4	NA	NA	4	3	NA	NA	3	4	NA	NA
-Malus_toringoides	2	2	1	1	2	22	103	13	96	7	199	14	4.82	0.99	0.02	0.15	1	0.21	5.75	3.59	MPS	4	4	NA	NA	4	3	NA	NA	3	4	NA	NA
-Malus_transitoria	2	2	2	1	2	24	112	5	149	3	261	5	5.71	0.74	0.43	90.51	0	1.94	3.06	3.57	MPS	4	3	NA	NA	4	1	NA	NA	3	4	NA	NA
-Malus_tschonoskii	3	2	1	1	0	22	23	5	16	2	39	6	4.1	0.85	0.16	0.33	0	0.01	3.83	2.65	HPS	0	1	NA	NA	0	1	NA	NA	5	4	NA	NA
-Malus_yunnanensis	3	2	1	1	2	26	78	17	58	2	136	17	4.26	0.97	0.04	21.84	0	0.11	4.58	2.99	HPS	1	1	NA	NA	1	2	NA	NA	5	4	NA	NA
-Malus_zumi	1	2	1	1	0	14	21	2	14	2	35	3	4	0.5	0	NA	0	10	4.33	6.11	LPS	2	1	NA	NA	2	1	NA	NA	3	3	NA	NA
-Medicago_papillosa	3	2	1	1	0	22	40	15	14	9	54	21	2.59	0.95	0.06	17.39	0	0.17	5.75	2.84	HPS	2	5	NA	NA	4	5	NA	NA	4	4	NA	NA
-Medicago_papillosa_subsp._macrocarpa	3	2	2	1	0	24	1	1	0	0	1	1	0	NA	NA	NA	NA	NA	NA	0	HPS	1	4	NA	NA	3	4	NA	NA	5	4	NA	NA
-Medicago_papillosa_subsp._papillosa	3	2	2	1	0	24	5	2	0	0	5	2	0	NA	NA	NA	NA	NA	NA	0	HPS	2	6	NA	NA	4	6	NA	NA	4	4	NA	NA
-Medicago_prostrata	2	3	1	1	2	24	40	9	22	7	62	15	3.55	0.97	0.02	32.33	0	0.92	7.5	3.99	MPS	3	3	NA	NA	5	3	NA	NA	2	2	NA	NA
-Medicago_sativa_subsp._caerulea	1	2	1	1	2	18	62	15	94	59	156	73	6.03	0.97	0.03	0.77	1	1.17	10	5.73	LPS	4	8	NA	NA	1	8	NA	NA	2	4	NA	NA
-Medicago_sativa_subsp._falcata_var._falcata	3	3	2	1	2	30	0	0	0	0	0	0	NA	NA	NA	NA	NA	NA	NA	0	HPS	7	8	NA	NA	2	8	NA	NA	2	4	NA	NA
-Medicago_sativa_subsp._falcata_var._viscosa	3	3	2	1	2	30	0	0	0	0	0	0	NA	NA	NA	NA	NA	NA	NA	0	HPS	2	6	NA	NA	0	6	NA	NA	5	4	NA	NA
-Medicago_sativa_subsp._glomerata	2	3	1	1	2	24	19	8	23	4	42	11	5.48	0.67	0.23	0.02	0	0.01	5.61	3.7	MPS	3	8	NA	NA	0	8	NA	NA	4	3	NA	NA
-Medicago_sativa_subsp._hemicycla	3	2	2	1	0	24	0	0	0	0	0	0	NA	NA	NA	NA	NA	NA	NA	0	HPS	4	3	NA	NA	2	3	NA	NA	2	5	NA	NA
-Medicago_sativa_subsp._sativa	1	3	1	1	0	16	1023	213	923	354	1946	542	4.74	0.9	0.01	0.57	1	6.62	10	7.12	LPS	7	10	NA	NA	5	10	NA	NA	5	5	NA	NA
-Medicago_sativa_subsp._tunetana	3	2	2	1	0	24	0	0	0	0	0	0	NA	NA	NA	NA	NA	NA	NA	0	HPS	3	3	NA	NA	0	3	NA	NA	4	4	NA	NA
-Medicago_sativa_subsp._varia	3	3	2	1	0	26	0	0	0	0	0	0	NA	NA	NA	NA	NA	NA	NA	0	HPS	6	8	NA	NA	4	8	NA	NA	2	2	NA	NA
-Medicago_saxatilis	3	2	3	1	0	26	4	2	0	0	4	2	0	NA	NA	NA	NA	NA	NA	0	HPS	0	0	NA	NA	4	0	NA	NA	4	4	NA	NA
-Musa_acuminata	3	3	2	3	2	38	90	14	1	1	91	14	0.11	0.94	0.03	10.18	0	0	0	0.04	HPS	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
-Musa_balbisiana	3	3	2	3	2	38	22	6	0	0	22	6	0	0.89	0.06	11.63	0	0	0	0	HPS	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
-Musa_flaviflora	3	2	2	3	0	32	0	0	0	0	0	0	NA	NA	NA	NA	NA	NA	NA	0	HPS	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
-Musa_schizocarpa	2	2	1	3	0	26	39	6	11	3	50	8	2.2	0.94	0.02	11.75	0	0.43	8.5	3.71	MPS	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
-Musa_textilis	3	2	1	3	0	30	154	21	4	1	158	21	0.25	0.97	0.03	0.63	1	0	0	0.08	HPS	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
-Musa_yunnanensis	3	2	2	3	0	32	2	1	0	0	2	1	0	NA	NA	NA	NA	NA	NA	0	HPS	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
-Oryza_alta	3	2	1	3	0	30	95	25	6	1	101	25	0.59	0.95	0.06	2.47	1	0	0	0.2	HPS	5	0	NA	NA	5	0	NA	NA	3	5	NA	NA
-Oryza_australiensis	2	2	1	3	2	30	340	156	85	31	425	181	2	0.92	0.01	1.87	1	1.76	10	4.59	MPS	3	8	NA	NA	2	8	NA	NA	2	2	NA	NA
-Oryza_barthii	1	3	1	3	0	24	325	44	623	157	948	198	6.57	0.92	0.03	3.82	1	3.79	10	6.79	LPS	1	3	NA	NA	1	1	NA	NA	1	2	NA	NA
-Oryza_brachyantha	1	2	1	3	2	26	45	4	53	16	98	19	5.41	0.81	0.16	3.9	0	0.08	10	5.16	LPS	5	4	NA	NA	5	3	NA	NA	3	4	NA	NA
-Oryza_eichingeri	2	2	1	3	0	26	121	19	73	33	194	47	3.76	0.98	0.01	10.98	0	0.21	10	4.66	MPS	5	5	NA	NA	5	5	NA	NA	3	3	NA	NA
-Oryza_glaberrima	0	3	1	3	2	24	519	3	5398	356	5917	358	9.12	0.95	0.02	5.28	1	6.55	10	8.56	NFCR	2	NA	NA	NA	2	NA	NA	NA	2	NA	NA	NA
-Oryza_glumipatula	2	3	1	3	2	32	68	11	28	3	96	11	2.92	0.95	0.04	2.67	1	0.17	6.2	3.1	MPS	1	3	NA	NA	2	1	NA	NA	1	2	NA	NA
-Oryza_grandiglumis	3	2	1	3	2	34	58	16	21	8	79	22	2.66	0.8	0.08	0.59	1	0.07	3.72	2.15	HPS	5	1	NA	NA	5	1	NA	NA	2	5	NA	NA
-Oryza_latifolia	3	2	1	3	0	30	403	184	108	45	511	210	2.11	0.94	0.02	2.95	1	0.51	4.98	2.54	HPS	5	1	NA	NA	5	1	NA	NA	2	5	NA	NA
-Oryza_longistaminata	1	3	1	3	2	28	622	313	694	261	1316	567	5.27	0.91	0.01	1.07	1	3.91	9.3	6.16	LPS	2	2	NA	NA	3	1	NA	NA	2	2	NA	NA
-Oryza_malampuzhaensis	3	2	2	3	0	32	0	0	0	0	0	0	NA	NA	NA	NA	NA	NA	NA	0	HPS	5	6	NA	NA	5	6	NA	NA	2	2	NA	NA
-Oryza_meridionalis	3	3	1	3	0	32	239	109	38	1	277	109	1.37	0.97	0.01	2.1	1	0	0	0.46	HPS	1	6	NA	NA	1	5	NA	NA	5	3	NA	NA
-Oryza_minuta	2	2	1	3	2	30	109	19	103	25	212	41	4.86	0.98	0.02	0.06	1	2.8	6.95	4.87	MPS	5	8	NA	NA	5	8	NA	NA	3	3	NA	NA
-Oryza_nivara	1	3	1	3	2	28	1091	314	820	393	1911	644	4.29	0.95	0	0.21	1	7.43	9.7	7.14	LPS	1	6	NA	NA	1	5	NA	NA	2	3	NA	NA
-Oryza_officinalis	1	2	1	3	2	26	344	85	495	152	839	189	5.9	0.96	0.01	0.5	1	2.04	7.18	5.04	LPS	5	5	NA	NA	5	5	NA	NA	3	5	NA	NA
-Oryza_perennis_var._cubensis	3	1	2	3	0	30	0	0	0	0	0	0	NA	NA	NA	NA	NA	NA	NA	0	HPS	NA	NA	NA	NA	NA	NA	NA	NA	NA	1	NA	NA
-Oryza_punctata	2	2	1	3	0	26	231	15	139	48	370	60	3.76	0.89	0.09	6.76	1	1.21	10	4.99	MPS	2	2	NA	NA	2	2	NA	NA	3	2	NA	NA
-Oryza_rhizomatis	1	2	2	3	0	24	25	7	22	10	47	12	4.68	1	0	0	1	6.49	10	7.06	LPS	5	6	NA	NA	5	6	NA	NA	3	3	NA	NA
-Oryza_ridleyi	2	1	1	3	2	28	43	4	36	14	79	17	4.56	0.94	0.02	3.19	1	0.32	6.75	3.87	MPS	5	5	NA	NA	5	5	NA	NA	3	4	NA	NA
-Oryza_rufipogon	0	3	1	3	2	24	1011	233	3849	1512	4860	1681	7.92	0.95	0.01	0.66	1	6.91	10	8.28	NFCR	1	8	NA	NA	1	8	NA	NA	2	4	NA	NA
-Oryza_schweinfurthiana	3	2	2	3	0	32	0	0	3	1	3	1	10	NA	NA	NA	NA	NA	NA	0	HPS	NA	2	NA	NA	NA	2	NA	NA	NA	4	NA	NA
-Pennisetum_glaucum_subsp._monodii	3	3	2	3	2	38	0	0	0	0	0	0	NA	NA	NA	NA	NA	NA	NA	0	HPS	4	4	NA	NA	4	NA	NA	NA	4	NA	NA	NA
-Pennisetum_orientale	3	1	1	3	0	28	261	75	53	16	314	88	1.69	0.94	0.03	1.99	1	0.15	3.68	1.84	HPS	8	8	NA	NA	8	NA	NA	NA	3	NA	NA	NA
-Pennisetum_purpureum	3	2	1	3	2	34	1058	242	91	25	1149	265	0.79	0.91	0.01	0.78	1	0.35	6.9	2.68	HPS	7	7	NA	NA	7	NA	NA	NA	4	NA	NA	NA
-Pennisetum_squamulatum	1	2	3	3	2	30	26	3	8	3	34	5	2.35	0.98	0.03	27.86	0	3.52	10	5.29	LPS	8	8	NA	NA	8	NA	NA	NA	3	NA	NA	NA
-Pennisetum_stenostachyum	3	3	2	3	0	34	0	0	0	0	0	0	NA	NA	NA	NA	NA	NA	NA	0	HPS	8	8	NA	NA	9	NA	NA	NA	3	NA	NA	NA
-Phaseolus_albescens	3	2	2	2	0	28	11	9	0	0	11	9	0	0.99	0	0	1	0	0	0	HPS	0	2	NA	NA	0	2	NA	NA	4	NA	NA	NA
-Phaseolus_augusti	1	2	1	2	0	18	45	35	64	50	109	71	5.87	0.96	0.02	1.61	1	2.42	10	6.1	LPS	4	7	NA	NA	0	2	NA	NA	4	NA	NA	NA
-Phaseolus_coccineus	1	2	1	2	2	22	1295	520	668	234	1963	698	3.4	0.95	0.01	0.04	1	6.06	10	6.49	LPS	7	4	NA	NA	10	1	NA	NA	4	NA	NA	NA
-Phaseolus_costaricensis	1	2	2	2	2	24	59	41	7	6	66	44	1.06	1	0	0	1	7.05	10	6.04	LPS	0	6	NA	NA	0	2	NA	NA	4	NA	NA	NA
-Phaseolus_dumosus	1	2	1	2	0	18	191	132	63	24	254	151	2.48	0.96	0.01	3.8	1	6.09	9.22	5.93	LPS	0	5	NA	NA	0	1	NA	NA	2	NA	NA	NA
-Phaseolus_longiplacentifer	3	2	2	2	0	28	1	1	0	0	1	1	0	NA	NA	NA	NA	NA	NA	0	HPS	0	NA	NA	NA	0	NA	NA	NA	4	NA	NA	NA
-Phaseolus_lunatus	1	1	1	2	0	16	1188	457	1184	357	2372	781	4.99	0.92	0.01	0.09	1	2.33	8.36	5.23	LPS	7	4	NA	NA	10	1	NA	NA	4	NA	NA	NA
-Phaseolus_mollis	3	2	2	2	0	28	8	1	0	0	8	1	0	NA	NA	NA	NA	NA	NA	0	HPS	0	1	NA	NA	0	3	NA	NA	4	NA	NA	NA
-Phaseolus_pachyrrhizoides	1	2	1	2	0	18	9	4	34	24	43	27	7.91	1	0.01	0.03	1	3.82	10	7.24	LPS	4	8	NA	NA	0	2	NA	NA	4	NA	NA	NA
-Phaseolus_persistentus	3	2	3	2	0	30	2	2	0	0	2	2	0	0.5	0	NA	0	NA	0	0	HPS	0	NA	NA	NA	0	NA	NA	NA	4	NA	NA	NA
-Phaseolus_vulgaris_var._aborigineus	0	1	1	2	2	16	317	38	1513	437	1830	473	8.27	0.95	0.01	1.86	1	8.79	10	9.02	NFCR	7	7	NA	NA	10	1	NA	NA	4	NA	NA	NA
-Pisum_abyssinicum	3	2	1	2	2	30	86	13	31	8	117	20	2.65	0.96	0.05	1.47	1	0.18	5.9	2.91	HPS	2	3	6	NA	0	3	6	NA	5	2	2	NA
-Pisum_fulvum	1	2	1	2	2	22	189	49	126	40	315	88	4	0.99	0	0	1	1.57	10	5.19	LPS	1	0	5	NA	1	0	4	NA	4	3	4	NA
-Pisum_sativum_subsp._elatius_var._brevipedunculatum	3	3	3	2	0	32	7	4	0	0	7	4	0	NA	NA	NA	NA	NA	NA	0	HPS	0	0	3	NA	2	0	4	NA	4	2	1	NA
-Pisum_sativum_subsp._elatius_var._elatius	3	3	2	2	0	30	2	1	0	0	2	1	0	NA	NA	NA	NA	NA	NA	0	HPS	0	0	1	NA	3	0	1	NA	4	2	1	NA
-Pisum_sativum_subsp._elatius_var._pumilo	3	3	2	2	0	30	0	0	0	0	0	0	NA	NA	NA	NA	NA	NA	NA	0	HPS	0	0	5	NA	2	0	4	NA	4	2	1	NA
-Secale_cereale_subsp._afghanicum	3	3	2	1	0	26	40	2	14	1	54	2	2.59	NA	NA	NA	0	NA	NA	2.59	HPS	1	NA	NA	NA	1	NA	NA	NA	4	NA	NA	NA
-Secale_cereale_subsp._ancestrale	3	3	1	1	0	24	22	11	11	1	33	11	3.33	0.95	0.05	0.63	1	0	0	1.11	HPS	1	NA	NA	NA	1	NA	NA	NA	4	NA	NA	NA
-Secale_cereale_subsp._dighoricum	1	3	2	1	0	18	4	1	5	1	9	1	5.56	NA	NA	NA	NA	NA	NA	5.56	LPS	1	NA	NA	NA	1	NA	NA	NA	4	NA	NA	NA
-Secale_cereale_subsp._segetale	2	3	1	1	0	20	56	27	51	3	107	29	4.77	0.99	0.01	4.61	1	0.26	8.5	4.51	MPS	3	NA	NA	NA	2	NA	NA	NA	4	NA	NA	NA
-Solanum_acaule	0	3	1	3	2	24	3162	744	1749	476	4911	1122	3.56	0.95	0	0	1	10	10	7.85	NFCR	10	10	NA	NA	10	NA	NA	NA	5	NA	NA	NA
-Solanum_acroglossum	3	2	2	3	0	32	41	13	3	3	44	15	0.68	0.93	0.1	17.99	0	3.94	4.13	2.92	HPS	3	0	NA	NA	3	NA	NA	NA	5	NA	NA	NA
-Solanum_acroscopicum	2	2	1	3	0	26	63	19	14	5	77	22	1.82	0.98	0.04	0.78	1	0.46	7.4	3.23	MPS	7	2	NA	NA	3	NA	NA	NA	5	NA	NA	NA
-Solanum_aculeatissimum	2	2	1	2	0	22	124	42	65	10	189	51	3.44	0.96	0.04	0.2	1	0.29	6.67	3.46	MPS	3	NA	NA	NA	4	NA	NA	NA	1	NA	NA	NA
-Solanum_adoense	3	2	1	2	0	26	52	4	0	0	52	4	0	0.89	0.15	18.96	0	0	0	0	HPS	1	NA	NA	NA	0	NA	NA	NA	4	NA	NA	NA
-Solanum_aethiopicum	2	1	1	2	2	24	225	51	395	48	620	90	6.37	0.91	0.04	3.34	1	0.2	5.18	3.92	MPS	5	NA	NA	NA	4	NA	NA	NA	4	NA	NA	NA
-Solanum_agnewiorum	3	2	2	2	0	28	12	1	0	0	12	1	0	NA	NA	NA	NA	NA	NA	0	HPS	1	NA	NA	NA	0	NA	NA	NA	4	NA	NA	NA
-Solanum_agrimonifolium	2	2	1	3	0	26	392	123	27	13	419	132	0.64	0.98	0.01	0.48	1	2.65	7.7	3.66	MPS	9	9	NA	NA	9	NA	NA	NA	3	NA	NA	NA
-Solanum_albicans	1	2	1	3	0	22	214	43	77	24	291	61	2.65	0.99	0	0.07	1	2.69	10	5.11	LPS	10	10	NA	NA	10	NA	NA	NA	5	NA	NA	NA
-Solanum_albornozii	1	2	3	3	0	26	26	7	8	7	34	10	2.35	0.99	0.03	39.37	0	10	10	7.45	LPS	6	0	NA	NA	6	NA	NA	NA	1	NA	NA	NA
-Solanum_aldabrense	3	2	2	2	0	28	33	2	2	2	35	3	0.57	NA	NA	NA	NA	NA	NA	0.57	HPS	1	NA	NA	NA	0	NA	NA	NA	4	NA	NA	NA
-Solanum_andreanum	2	2	1	3	0	26	451	212	89	46	540	247	1.65	0.99	0	1.03	1	3.87	7.86	4.46	MPS	10	3	NA	NA	9	NA	NA	NA	4	NA	NA	NA
-Solanum_anguivi	3	2	1	2	0	26	998	136	146	9	1144	144	1.28	0.92	0.03	2.5	1	0.12	6.7	2.7	HPS	5	NA	NA	NA	4	NA	NA	NA	4	NA	NA	NA
-Solanum_anomalum	3	2	1	2	0	26	70	6	1	1	71	6	0.14	0.77	0.2	60.69	0	0	0	0.05	HPS	4	NA	NA	NA	1	NA	NA	NA	4	NA	NA	NA
-Solanum_asperolanatum	3	2	1	2	0	26	555	209	4	2	559	210	0.07	0.97	0.01	1.29	1	0.08	6.45	2.2	HPS	3	NA	NA	NA	3	NA	NA	NA	4	NA	NA	NA
-Solanum_aureitomentosum	3	2	2	2	0	28	25	2	0	0	25	2	0	NA	NA	NA	NA	NA	NA	0	HPS	1	NA	NA	NA	0	NA	NA	NA	4	NA	NA	NA
-Solanum_ayacuchense	3	2	3	3	0	34	5	4	0	0	5	4	0	0.92	0.14	80.08	0	0	0	0	HPS	0	0	NA	NA	0	NA	NA	NA	5	NA	NA	NA
-Solanum_berthaultii	1	3	1	3	2	28	968	286	355	117	1323	359	2.68	0.97	0.01	0.29	1	6.54	10	6.41	LPS	10	10	NA	NA	10	NA	NA	NA	2	NA	NA	NA
-Solanum_boliviense	1	2	1	3	0	22	2056	633	537	201	2593	766	2.07	0.96	0.01	0	1	7.76	10	6.61	LPS	9	10	NA	NA	10	NA	NA	NA	2	NA	NA	NA
-Solanum_bombycinum	3	2	3	3	0	34	7	5	0	0	7	5	0	0.98	0.01	0.12	1	0	0	0	HPS	0	10	NA	NA	0	NA	NA	NA	5	NA	NA	NA
-Solanum_brevicaule	1	3	1	3	0	24	5191	1425	1304	420	6495	1699	2.01	0.93	0	0	1	10	10	7.34	LPS	10	10	NA	NA	10	NA	NA	NA	2	NA	NA	NA
-Solanum_buesii	3	2	2	3	0	32	41	22	2	2	43	22	0.47	0.99	0.01	0	1	0.32	6.8	2.53	HPS	5	0	NA	NA	5	NA	NA	NA	4	NA	NA	NA
-Solanum_bulbocastanum	1	1	1	2	2	20	1115	402	153	48	1268	420	1.21	0.98	0	1.12	1	4.68	10	5.3	LPS	8	10	NA	NA	3	NA	NA	NA	4	NA	NA	NA
-Solanum_burchellii	3	1	2	2	0	26	40	5	4	1	44	5	0.91	0.84	0.24	15.77	0	0	0	0.3	HPS	1	NA	NA	NA	0	NA	NA	NA	4	NA	NA	NA
-Solanum_burkartii	3	2	3	3	0	34	14	7	2	1	16	7	1.25	1	0	1.06	1	0	0	0.42	HPS	3	0	NA	NA	3	NA	NA	NA	4	NA	NA	NA
-Solanum_cajamarquense	3	2	2	3	0	32	52	22	8	3	60	24	1.33	0.98	0.03	0.57	1	0.47	4.8	2.2	HPS	9	0	NA	NA	0	NA	NA	NA	4	NA	NA	NA
-Solanum_campylacanthum	3	2	1	2	0	26	1043	35	65	2	1108	36	0.59	0.93	0.05	13.1	0	0.02	4	1.54	HPS	5	NA	NA	NA	4	NA	NA	NA	4	NA	NA	NA
-Solanum_candolleanum	1	3	1	3	0	24	2042	817	535	175	2577	939	2.08	0.96	0	0.57	1	9.6	10	7.23	LPS	10	10	NA	NA	10	NA	NA	NA	4	NA	NA	NA
-Solanum_cantense	3	2	2	3	0	32	84	44	3	2	87	44	0.34	1	0	0	1	0.56	5.8	2.24	HPS	10	0	NA	NA	3	NA	NA	NA	4	NA	NA	NA
-Solanum_capense	3	1	1	2	0	24	67	11	22	1	89	11	2.47	0.94	0.04	3.9	1	0	0	0.82	HPS	1	NA	NA	NA	1	NA	NA	NA	4	NA	NA	NA
-Solanum_catombelense	3	1	1	2	0	24	99	12	10	4	109	15	0.92	0.93	0.08	5.66	1	0.08	3.55	1.52	HPS	1	NA	NA	NA	0	NA	NA	NA	4	NA	NA	NA
-Solanum_cerasiferum	3	1	1	2	0	24	56	8	5	1	61	8	0.82	0.6	0.15	1.62	0	0	0	0.27	HPS	1	NA	NA	NA	0	NA	NA	NA	4	NA	NA	NA
-Solanum_chacoense	2	2	1	3	2	30	3061	1067	555	116	3616	1149	1.53	0.94	0.01	0.1	1	1.85	8	3.8	MPS	10	10	NA	NA	3	NA	NA	NA	4	NA	NA	NA
-Solanum_chilliasense	1	2	2	3	0	24	14	6	5	2	19	7	2.63	0.84	0.25	91.45	0	10	6.8	6.48	LPS	2	0	NA	NA	3	NA	NA	NA	4	NA	NA	NA
-Solanum_chiquidenum	2	2	1	3	0	26	179	83	14	10	193	92	0.73	0.99	0.01	0	1	1.17	8	3.3	MPS	10	2	NA	NA	3	NA	NA	NA	4	NA	NA	NA
-Solanum_chomatophilum	1	2	1	3	0	22	680	247	99	30	779	269	1.27	0.98	0.01	0.69	1	4.1	10	5.12	LPS	10	6	NA	NA	10	NA	NA	NA	2	NA	NA	NA
-Solanum_clarum	2	2	2	3	0	28	275	94	6	4	281	95	0.21	0.99	0.01	0	1	3.3	10	4.51	MPS	0	2	NA	NA	0	NA	NA	NA	4	NA	NA	NA
-Solanum_coelestipetalum	2	3	1	3	0	28	87	26	40	15	127	38	3.15	0.99	0.02	0.26	1	1.96	9.25	4.79	MPS	10	NA	NA	NA	10	NA	NA	NA	2	NA	NA	NA
-Solanum_colombianum	1	2	1	3	0	22	1111	437	183	80	1294	475	1.41	0.97	0	0.16	1	5.13	10	5.52	LPS	10	10	NA	NA	10	NA	NA	NA	2	NA	NA	NA
-Solanum_commersonii	2	0	1	2	1	20	681	267	90	15	771	278	1.17	0.97	0	0.12	1	0.9	8.25	3.44	MPS	10	9	NA	NA	10	NA	NA	NA	2	NA	NA	NA
-Solanum_contumazaense	3	2	3	3	0	34	17	9	2	1	19	9	1.05	1	0	1.26	1	0	0	0.35	HPS	2	0	NA	NA	3	NA	NA	NA	4	NA	NA	NA
-Solanum_cumingii	3	3	1	2	0	28	13	6	0	0	13	6	0	0.96	0.04	6.58	1	0	0	0	HPS	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
-Solanum_cyaneopurpureum	3	1	2	2	0	26	34	2	1	1	35	2	0.29	NA	NA	NA	NA	NA	NA	0.29	HPS	0	NA	NA	NA	0	NA	NA	NA	4	NA	NA	NA
-Solanum_dasyphyllum	3	1	1	2	0	24	227	18	36	3	263	20	1.37	0.81	0.2	31.39	0	0.01	2.02	1.14	HPS	1	NA	NA	NA	1	NA	NA	NA	4	NA	NA	NA
-Solanum_deflexicarpum	3	2	2	2	0	28	3	2	0	0	3	2	0	NA	NA	NA	NA	NA	NA	0	HPS	0	NA	NA	NA	0	NA	NA	NA	4	NA	NA	NA
-Solanum_demissum	1	2	1	3	2	26	1937	573	539	102	2476	601	2.18	0.97	0	1.51	1	6.59	10	6.25	LPS	10	10	NA	NA	10	NA	NA	NA	2	NA	NA	NA
-Solanum_flahaultii	2	2	1	3	0	26	121	43	28	8	149	47	1.88	0.97	0.03	0.81	1	1.12	6.09	3.03	MPS	10	3	NA	NA	3	NA	NA	NA	4	NA	NA	NA
-Solanum_flavoviridens	3	2	3	3	0	34	4	2	0	0	4	2	0	0.5	0	NA	0	NA	0	0	HPS	0	NA	NA	NA	0	NA	NA	NA	5	NA	NA	NA
-Solanum_gandarillasii	2	2	1	3	0	26	55	28	16	6	71	33	2.25	0.95	0.07	0.76	1	2.2	7.51	3.99	MPS	2	3	NA	NA	3	NA	NA	NA	4	NA	NA	NA
-Solanum_garcia-barrigae	3	2	2	2	0	28	21	10	2	2	23	11	0.87	0.98	0.03	0.61	1	0.41	6.13	2.47	HPS	1	0	NA	NA	1	NA	NA	NA	4	NA	NA	NA
-Solanum_glabratum	3	2	2	2	0	28	101	10	0	0	101	10	0	0.93	0.05	11.62	0	0	0	0	HPS	1	NA	NA	NA	1	NA	NA	NA	4	NA	NA	NA
-Solanum_gracilifrons	3	2	3	3	0	34	17	6	0	0	17	6	0	1	0	0	1	0	0	0	HPS	1	0	NA	NA	0	NA	NA	NA	5	NA	NA	NA
-Solanum_grandiflorum	3	2	1	2	0	26	138	50	0	0	138	50	0	0.94	0.06	3.98	1	0	0	0	HPS	1	NA	NA	NA	1	NA	NA	NA	4	NA	NA	NA
-Solanum_guerreroense	1	2	3	3	0	26	8	3	9	2	17	3	5.29	0.5	0	NA	0	10	3.91	6.4	LPS	5	4	NA	NA	3	NA	NA	NA	4	NA	NA	NA
-Solanum_hastifolium	3	1	2	2	0	26	137	6	2	1	139	6	0.14	0.89	0.14	17.67	0	0	0	0.05	HPS	1	NA	NA	NA	0	NA	NA	NA	4	NA	NA	NA
-Solanum_hastiforme	3	2	2	3	0	32	40	21	0	0	40	21	0	1	0	0	1	0	0	0	HPS	10	0	NA	NA	3	NA	NA	NA	4	NA	NA	NA
-Solanum_hintonii	3	2	1	3	0	30	41	18	0	0	41	18	0	0.99	0.01	0.01	1	0	0	0	HPS	0	0	NA	NA	0	NA	NA	NA	4	NA	NA	NA
-Solanum_hjertingii	3	2	1	3	0	30	181	68	38	10	219	71	1.74	0.98	0.02	1.16	1	1.55	3.75	2.34	HPS	3	5	NA	NA	3	NA	NA	NA	4	NA	NA	NA
-Solanum_hougasii	2	2	1	3	1	28	194	81	27	10	221	82	1.22	0.98	0.03	1.12	1	1.56	8.6	3.79	MPS	3	4	NA	NA	3	NA	NA	NA	4	NA	NA	NA
-Solanum_hovei	3	2	2	2	0	28	9	1	0	0	9	1	0	NA	NA	NA	NA	NA	NA	0	HPS	0	NA	NA	NA	0	NA	NA	NA	1	NA	NA	NA
-Solanum_huancabambense	1	2	2	3	0	24	42	19	18	7	60	23	3	0.99	0.02	25.86	0	10	7.2	6.73	LPS	10	2	NA	NA	10	NA	NA	NA	2	NA	NA	NA
-Solanum_humile	2	1	1	2	0	20	57	5	19	3	76	7	2.5	0.65	0.26	1.79	0	0.02	10	4.17	MPS	1	NA	NA	NA	0	NA	NA	NA	4	NA	NA	NA
-Solanum_inaequiradians	3	2	2	2	0	28	11	1	0	0	11	1	0	NA	NA	NA	NA	NA	NA	0	HPS	0	NA	NA	NA	0	NA	NA	NA	4	NA	NA	NA
-Solanum_incanum	2	2	1	2	2	26	349	41	137	18	486	58	2.82	0.79	0.07	9.71	1	0.33	10	4.38	MPS	0	NA	NA	NA	2	NA	NA	NA	4	NA	NA	NA
-Solanum_incasicum	3	2	3	3	0	34	5	2	0	0	5	2	0	0.5	0	NA	0	NA	0	0	HPS	3	0	NA	NA	3	NA	NA	NA	4	NA	NA	NA
-Solanum_infundibuliforme	1	3	1	3	0	24	858	261	206	109	1064	346	1.94	0.98	0.01	1.32	1	4.6	10	5.51	LPS	10	10	NA	NA	3	NA	NA	NA	4	NA	NA	NA
-Solanum_insanum	3	3	2	2	0	30	71	1	9	1	80	1	1.13	NA	NA	NA	NA	NA	NA	1.13	HPS	2	NA	NA	NA	4	NA	NA	NA	4	NA	NA	NA
-Solanum_iopetalum	2	2	1	3	0	26	696	334	127	51	823	348	1.54	0.98	0.01	2.22	1	3.89	8.75	4.73	MPS	10	9	NA	NA	10	NA	NA	NA	2	NA	NA	NA
-Solanum_kurtzianum	1	2	1	3	2	26	858	265	200	29	1058	280	1.89	0.98	0	0.43	1	3.66	10	5.18	LPS	3	10	NA	NA	3	NA	NA	NA	4	NA	NA	NA
-Solanum_lamprocarpum	3	1	2	2	0	26	10	2	1	1	11	2	0.91	NA	NA	NA	NA	NA	NA	0.91	HPS	0	NA	NA	NA	0	NA	NA	NA	4	NA	NA	NA
-Solanum_laxissimum	2	2	1	3	0	26	114	62	19	5	133	66	1.43	0.99	0.01	0	1	0.67	8.7	3.6	MPS	3	2	NA	NA	3	NA	NA	NA	4	NA	NA	NA
-Solanum_lesteri	2	2	1	3	0	26	24	12	10	7	34	17	2.94	0.96	0.08	31.74	0	1.21	7.25	3.8	MPS	3	4	NA	NA	3	NA	NA	NA	4	NA	NA	NA
-Solanum_lichtensteinii	3	1	1	2	0	24	103	14	16	2	119	15	1.34	0.93	0.02	0	1	0.04	4.25	1.88	HPS	0	NA	NA	NA	0	NA	NA	NA	4	NA	NA	NA
-Solanum_lidii	0	2	3	2	0	18	9	2	15	3	24	4	6.25	1	0	0	1	10	10	8.75	NFCR	2	NA	NA	NA	2	NA	NA	NA	4	NA	NA	NA
-Solanum_limbaniense	3	2	2	3	0	32	37	18	2	1	39	18	0.51	0.99	0.02	31.42	0	0	0	0.17	HPS	8	0	NA	NA	3	NA	NA	NA	4	NA	NA	NA
-Solanum_linnaeanum	2	2	1	2	0	22	3409	146	77	7	3486	152	0.22	0.98	0.01	0.08	1	1.72	7.2	3.05	MPS	4	NA	NA	NA	4	NA	NA	NA	4	NA	NA	NA
-Solanum_litoraneum	3	2	2	2	0	28	9	3	0	0	9	3	0	0.5	0	NA	0	NA	0	0	HPS	1	NA	NA	NA	0	NA	NA	NA	4	NA	NA	NA
-Solanum_lobbianum	3	2	2	3	0	32	0	0	0	0	0	0	NA	NA	NA	NA	NA	NA	NA	0	HPS	3	0	NA	NA	3	NA	NA	NA	4	NA	NA	NA
-Solanum_longiconicum	1	2	2	3	0	24	545	201	11	10	556	208	0.2	0.99	0	0	1	10	10	6.73	LPS	10	2	NA	NA	10	NA	NA	NA	2	NA	NA	NA
-Solanum_macracanthum	3	2	1	2	0	26	24	8	0	0	24	8	0	0.92	0.17	96.04	0	0	0	0	HPS	1	NA	NA	NA	1	NA	NA	NA	4	NA	NA	NA
-Solanum_macrocarpon	2	1	1	2	2	24	77	19	114	5	191	23	5.97	0.87	0.07	9.18	1	0.03	3.46	3.15	MPS	4	NA	NA	NA	4	NA	NA	NA	4	NA	NA	NA
-Solanum_maglia	3	2	1	3	0	30	288	60	9	4	297	62	0.3	0.99	0.01	0.58	1	0.16	3.53	1.33	HPS	3	0	NA	NA	3	NA	NA	NA	4	NA	NA	NA
-Solanum_malindiense	3	2	3	2	0	30	18	3	0	0	18	3	0	0.5	0	NA	0	NA	0	0	HPS	0	NA	NA	NA	0	NA	NA	NA	4	NA	NA	NA
-Solanum_marginatum	3	2	1	2	1	28	101	41	12	2	113	42	1.06	0.96	0	1.78	1	0.04	4.7	1.93	HPS	3	NA	NA	NA	3	NA	NA	NA	4	NA	NA	NA
-Solanum_marinasense	2	3	1	3	0	28	144	42	47	22	191	61	2.46	0.98	0.03	1.3	1	2.29	10	4.92	MPS	10	3	NA	NA	10	NA	NA	NA	2	NA	NA	NA
-Solanum_mauense	3	2	2	2	0	28	48	2	2	1	50	2	0.4	NA	NA	NA	NA	NA	NA	0.4	HPS	0	NA	NA	NA	0	NA	NA	NA	4	NA	NA	NA
-Solanum_medians	2	2	1	3	0	26	784	227	61	13	845	237	0.72	0.99	0	1.3	1	2.06	10	4.26	MPS	10	7	NA	NA	10	NA	NA	NA	2	NA	NA	NA
-Solanum_microdontum	1	2	1	3	0	22	1404	361	351	90	1755	424	2	0.97	0.01	0.6	1	5.66	10	5.89	LPS	10	10	NA	NA	10	NA	NA	NA	4	NA	NA	NA
-Solanum_morelliforme	1	2	1	3	0	22	401	142	45	19	446	150	1.01	0.98	0.01	2.86	1	4.4	10	5.14	LPS	3	0	NA	NA	3	NA	NA	NA	4	NA	NA	NA
-Solanum_multiflorum	3	2	2	2	0	28	0	0	0	0	0	0	NA	NA	NA	NA	NA	NA	NA	0	HPS	0	NA	NA	NA	0	NA	NA	NA	4	NA	NA	NA
-Solanum_multiinterruptum	1	2	1	3	0	22	401	145	61	20	462	161	1.32	0.99	0.01	0.15	1	5.45	10	5.59	LPS	10	3	NA	NA	10	NA	NA	NA	2	NA	NA	NA
-Solanum_neocardenasii	2	2	1	3	0	26	24	16	8	4	32	17	2.5	0.96	0.03	9.39	1	0.24	6.75	3.16	MPS	3	0	NA	NA	3	NA	NA	NA	4	NA	NA	NA
-Solanum_neorossii	2	2	2	3	0	28	100	32	25	10	125	40	2	1	0	0	1	2.23	10	4.74	MPS	3	1	NA	NA	3	NA	NA	NA	4	NA	NA	NA
-Solanum_neovavilovii	3	2	3	3	0	34	18	9	1	1	19	9	0.53	0.99	0	0	1	0	0	0.18	HPS	0	0	NA	NA	0	NA	NA	NA	5	NA	NA	NA
-Solanum_nigriviolaceum	3	1	3	2	0	28	33	4	4	1	37	4	1.08	1	0.01	29.73	0	0	0	0.36	HPS	0	NA	NA	NA	0	NA	NA	NA	4	NA	NA	NA
-Solanum_nubicola	3	2	2	3	0	32	20	10	0	0	20	10	0	0.95	0.11	81.01	0	0	0	0	HPS	3	0	NA	NA	3	NA	NA	NA	4	NA	NA	NA
-Solanum_okadae	3	3	1	3	0	32	158	51	61	20	219	64	2.79	0.98	0.02	0.33	1	1.43	4.5	2.91	HPS	9	3	NA	NA	10	NA	NA	NA	2	NA	NA	NA
-Solanum_olmosense	3	2	1	3	0	30	24	13	0	0	24	13	0	0.92	0.12	39.76	0	0	0	0	HPS	0	0	NA	NA	0	NA	NA	NA	5	NA	NA	NA
-Solanum_ortegae	3	3	2	3	0	34	2	1	0	0	2	1	0	NA	NA	NA	NA	NA	NA	0	HPS	0	NA	NA	NA	0	NA	NA	NA	5	NA	NA	NA
-Solanum_oxycarpum	2	2	1	3	0	26	216	80	52	20	268	91	1.94	0.98	0.02	0.14	1	2.33	10	4.76	MPS	10	6	NA	NA	5	NA	NA	NA	4	NA	NA	NA
-Solanum_palustre	0	1	1	2	2	16	90	15	167	73	257	87	6.5	1	0	0	1	7.41	10	7.97	NFCR	3	10	NA	NA	3	NA	NA	NA	4	NA	NA	NA
-Solanum_paucissectum	1	2	3	3	0	26	48	12	16	5	64	16	2.5	1	0	13.56	0	10	6.5	6.33	LPS	10	0	NA	NA	10	NA	NA	NA	4	NA	NA	NA
-Solanum_pillahuatense	2	2	2	3	0	28	17	11	1	1	18	12	0.56	0.98	0.02	0.78	1	0.15	10	3.57	MPS	3	0	NA	NA	3	NA	NA	NA	4	NA	NA	NA
-Solanum_piurae	3	2	1	3	0	30	72	26	9	4	81	27	1.11	0.99	0.01	3.69	1	0.91	6.5	2.84	HPS	3	0	NA	NA	3	NA	NA	NA	4	NA	NA	NA
-Solanum_platacanthum	3	2	2	2	0	28	16	1	1	1	17	1	0.59	NA	NA	NA	NA	NA	NA	0.59	HPS	0	NA	NA	NA	0	NA	NA	NA	4	NA	NA	NA
-Solanum_polhillii	3	2	3	2	0	30	56	4	0	0	56	4	0	1	0	33.79	0	NA	0	0	HPS	0	NA	NA	NA	0	NA	NA	NA	4	NA	NA	NA
-Solanum_polyadenium	2	2	1	3	0	26	276	106	83	12	359	107	2.31	0.99	0.01	1.02	1	1.57	6.54	3.47	MPS	8	6	NA	NA	8	NA	NA	NA	4	NA	NA	NA
-Solanum_raphanifolium	1	2	1	3	2	26	446	141	166	44	612	165	2.71	0.98	0.02	2.91	1	4.59	10	5.77	LPS	10	9	NA	NA	10	NA	NA	NA	2	NA	NA	NA
-Solanum_rhomboideilanceolatum	3	2	2	3	0	32	45	22	2	1	47	22	0.43	1	0	0.68	1	0.39	7.1	2.64	HPS	0	0	NA	NA	0	NA	NA	NA	5	NA	NA	NA
-Solanum_richardii	3	1	1	2	0	24	112	8	2	1	114	8	0.18	0.95	0.03	0.36	1	0	0	0.06	HPS	0	NA	NA	NA	0	NA	NA	NA	4	NA	NA	NA
-Solanum_rubetorum	3	2	2	2	0	28	43	2	9	1	52	2	1.73	NA	NA	NA	NA	NA	NA	1.73	HPS	0	NA	NA	NA	0	NA	NA	NA	4	NA	NA	NA
-Solanum_ruvu	3	2	3	2	0	30	1	1	0	0	1	1	0	NA	NA	NA	NA	NA	NA	0	HPS	0	NA	NA	NA	0	NA	NA	NA	1	NA	NA	NA
-Solanum_salasianum	3	2	3	3	0	34	6	2	0	0	6	2	0	0.5	0	NA	0	NA	0	0	HPS	0	0	NA	NA	0	NA	NA	NA	5	NA	NA	NA
-Solanum_schenckii	2	2	1	3	0	26	124	44	41	12	165	48	2.48	0.95	0.05	2.19	1	1.27	8.07	3.94	MPS	3	9	NA	NA	3	NA	NA	NA	4	NA	NA	NA
-Solanum_setaceum	3	2	2	2	0	28	38	2	0	0	38	2	0	NA	NA	NA	NA	NA	NA	0	HPS	0	NA	NA	NA	0	NA	NA	NA	4	NA	NA	NA
-Solanum_sisymbriifolium	2	1	1	2	2	24	1968	234	97	12	2065	244	0.47	0.94	0.01	0.3	1	0.18	10	3.55	MPS	3	NA	NA	NA	4	NA	NA	NA	4	NA	NA	NA
-Solanum_sodomeodes	3	2	2	2	0	28	25	2	0	0	25	2	0	NA	NA	NA	NA	NA	NA	0	HPS	1	NA	NA	NA	0	NA	NA	NA	4	NA	NA	NA
-Solanum_sogarandinum	3	2	2	3	0	32	106	50	17	4	123	52	1.38	0.99	0.01	0	1	0.95	6.45	2.93	HPS	10	0	NA	NA	10	NA	NA	NA	4	NA	NA	NA
-Solanum_stipitatostellatum	3	2	2	2	0	28	52	2	0	0	52	2	0	NA	NA	NA	NA	NA	NA	0	HPS	1	NA	NA	NA	0	NA	NA	NA	4	NA	NA	NA
-Solanum_stoloniferum	0	2	1	3	2	22	4061	1520	1443	290	5504	1693	2.62	0.93	0	0.02	1	10	10	7.54	NFCR	10	10	NA	NA	10	NA	NA	NA	4	NA	NA	NA
-Solanum_supinum	3	1	2	2	0	26	28	3	6	1	34	3	1.76	0.5	0	NA	0	NA	0	0.88	HPS	1	NA	NA	NA	0	NA	NA	NA	4	NA	NA	NA
-Solanum_taitense	3	2	2	2	0	28	39	1	0	0	39	1	0	NA	NA	NA	NA	NA	NA	0	HPS	1	NA	NA	NA	0	NA	NA	NA	4	NA	NA	NA
-Solanum_tarnii	2	1	2	2	2	26	78	33	42	9	120	38	3.5	0.99	0.01	0.39	1	1.33	6.52	3.78	MPS	3	2	NA	NA	3	NA	NA	NA	4	NA	NA	NA
-Solanum_taulisense	3	2	3	3	0	34	5	3	0	0	5	3	0	0.5	0	NA	0	NA	0	0	HPS	0	NA	NA	NA	0	NA	NA	NA	5	NA	NA	NA
-Solanum_tomentosum	3	2	1	2	0	26	65	6	33	2	98	7	3.37	0.76	0.12	0	1	0.1	3.83	2.43	HPS	1	NA	NA	NA	3	NA	NA	NA	4	NA	NA	NA
-Solanum_torreanum	3	2	3	2	0	30	17	3	1	1	18	3	0.56	0.5	0	NA	0	NA	0	0.28	HPS	1	NA	NA	NA	0	NA	NA	NA	4	NA	NA	NA
-Solanum_torvum	2	1	1	2	2	24	2594	411	157	33	2751	443	0.57	0.93	0.01	0.27	1	0.64	9.18	3.46	MPS	1	NA	NA	NA	4	NA	NA	NA	4	NA	NA	NA
-Solanum_umtuma	3	2	2	2	0	28	19	1	0	0	19	1	0	NA	NA	NA	NA	NA	NA	0	HPS	0	NA	NA	NA	0	NA	NA	NA	4	NA	NA	NA
-Solanum_usambarense	3	2	2	2	0	28	43	2	0	0	43	2	0	NA	NA	NA	NA	NA	NA	0	HPS	1	NA	NA	NA	0	NA	NA	NA	4	NA	NA	NA
-Solanum_usaramense	3	2	2	2	0	28	17	1	0	0	17	1	0	NA	NA	NA	NA	NA	NA	0	HPS	1	NA	NA	NA	0	NA	NA	NA	4	NA	NA	NA
-Solanum_venturii	3	2	1	3	0	30	189	63	29	6	218	68	1.33	0.98	0.01	0	1	0.45	0	0.59	HPS	3	0	NA	NA	3	NA	NA	NA	4	NA	NA	NA
-Solanum_vernei	2	1	1	3	1	26	493	126	211	37	704	154	3	0.99	0	1.01	1	1.95	10	4.98	MPS	10	9	NA	NA	9	NA	NA	NA	4	NA	NA	NA
-Solanum_verrucosum	2	2	1	3	2	30	1165	435	185	33	1350	445	1.37	0.98	0	0.25	1	2.73	8.23	4.11	MPS	9	9	NA	NA	9	NA	NA	NA	4	NA	NA	NA
-Solanum_vespertilio	2	2	3	2	0	26	24	3	17	6	41	8	4.15	1	0	4.46	1	1.68	6.92	4.25	MPS	2	NA	NA	NA	1	NA	NA	NA	4	NA	NA	NA
-Solanum_viarum	2	1	1	2	0	20	436	72	88	8	524	79	1.68	0.91	0.07	0.9	1	0.15	10	3.94	MPS	2	NA	NA	NA	4	NA	NA	NA	4	NA	NA	NA
-Solanum_vicinum	3	0	2	2	0	24	130	16	2	2	132	16	0.15	0.99	0.01	0.9	1	0.56	5.75	2.15	HPS	3	NA	NA	NA	4	NA	NA	NA	4	NA	NA	NA
-Solanum_violaceimarmoratum	2	2	1	3	0	26	229	78	38	7	267	81	1.42	0.98	0.02	0	1	0.28	7.36	3.02	MPS	10	0	NA	NA	3	NA	NA	NA	4	NA	NA	NA
-Solanum_violaceum	3	2	1	2	0	26	264	26	80	12	344	37	2.33	0.96	0.02	6.19	1	0.26	2.2	1.6	HPS	2	NA	NA	NA	1	NA	NA	NA	4	NA	NA	NA
-Solanum_zanzibarense	3	2	2	2	0	28	75	3	1	1	76	3	0.13	0.5	0	NA	0	NA	0	0.07	HPS	2	NA	NA	NA	1	NA	NA	NA	4	NA	NA	NA
-Sorghum_angustum	3	0	1	3	1	28	65	51	11	1	76	51	1.45	0.99	0	0.81	1	0	0	0.48	HPS	3	9	NA	NA	3	9	NA	NA	5	3	NA	NA
-Sorghum_bicolor_subsp._drummondii	2	3	1	3	0	28	214	65	87	27	301	89	2.89	0.92	0.07	0.92	1	0.86	5.5	3.08	MPS	7	5	NA	NA	6	6	NA	NA	4	4	NA	NA
-Sorghum_bicolor_subsp._verticilliflorum	3	3	1	3	0	32	797	241	84	35	881	271	0.95	0.9	0.02	1.74	1	0.32	5.5	2.26	HPS	7	6	NA	NA	6	5	NA	NA	3	4	NA	NA
-Sorghum_ecarinatum	3	0	1	3	1	28	28	18	13	1	41	18	3.17	0.97	0.01	0	1	0	0	1.06	HPS	2	9	NA	NA	2	9	NA	NA	5	3	NA	NA
-Sorghum_exstans	3	0	2	3	1	30	71	22	4	1	75	22	0.53	0.99	0.01	0	1	0	0	0.18	HPS	2	9	NA	NA	2	9	NA	NA	5	3	NA	NA
-Sorghum_halepense	3	2	1	3	0	30	5017	978	78	24	5095	1001	0.15	0.9	0.01	0.13	1	0.57	6.77	2.5	HPS	7	7	NA	NA	6	6	NA	NA	3	4	NA	NA
-Sorghum_interjectum	3	0	1	3	1	28	118	74	23	1	141	74	1.63	0.97	0.01	3.19	1	0	0	0.54	HPS	3	9	NA	NA	3	9	NA	NA	5	3	NA	NA
-Sorghum_intrans	3	0	1	3	1	28	290	83	37	1	327	83	1.13	0.99	0	0.13	1	0	0	0.38	HPS	3	9	NA	NA	3	9	NA	NA	5	3	NA	NA
-Sorghum_laxiflorum	3	0	1	3	1	28	122	74	29	2	151	74	1.92	0.95	0.01	2.59	1	0.11	1.6	1.21	HPS	5	9	NA	NA	3	9	NA	NA	5	3	NA	NA
-Sorghum_macrospermum	3	1	1	3	2	32	47	9	4	1	51	9	0.78	0.97	0.07	99.77	0	0	0	0.26	HPS	0	9	NA	NA	1	8	NA	NA	5	3	NA	NA
-Sorghum_matarankense	3	0	1	3	1	28	49	25	11	1	60	25	1.83	0.98	0.02	2.17	1	0	0	0.61	HPS	3	9	NA	NA	3	9	NA	NA	5	3	NA	NA
-Sorghum_nitidum	3	0	1	3	1	28	339	104	13	2	352	105	0.37	0.97	0.01	1.58	1	0.04	0.85	0.42	HPS	4	8	NA	NA	1	7	NA	NA	5	3	NA	NA
-Sorghum_propinquum	3	3	1	3	2	36	131	19	6	1	137	19	0.44	0.97	0.01	7.51	1	0	0	0.15	HPS	6	4	NA	NA	6	4	NA	NA	5	3	NA	NA
-Sorghum_purpureosericeum	3	0	1	3	2	30	49	8	18	9	67	16	2.69	0.9	0.03	10.28	0	0.09	3.91	2.23	HPS	4	7	NA	NA	4	6	NA	NA	5	3	NA	NA
-Sorghum_stipoideum	3	0	1	3	1	28	552	214	57	3	609	216	0.94	0.95	0.01	1.37	1	0.28	5.5	2.24	HPS	6	8	NA	NA	6	7	NA	NA	5	3	NA	NA
-Sorghum_timorense	3	0	1	3	1	28	376	175	49	2	425	176	1.15	0.93	0.01	4.86	1	0.11	1.33	0.87	HPS	4	8	NA	NA	1	6	NA	NA	5	3	NA	NA
-Sorghum_versicolor	2	0	1	3	1	24	24	5	16	5	40	9	4	0.72	0.1	0.03	1	0.08	5.3	3.13	MPS	6	7	NA	NA	4	6	NA	NA	5	4	NA	NA
-Tornabenea_annua	3	2	2	1	0	24	2	1	0	0	2	1	0	NA	NA	NA	NA	NA	NA	0	HPS	5	0	NA	NA	6	NA	NA	NA	3	NA	NA	NA
-Tornabenea_insularis	3	2	2	1	0	24	4	1	0	0	4	1	0	NA	NA	NA	NA	NA	NA	0	HPS	5	0	NA	NA	6	NA	NA	NA	3	NA	NA	NA
-Tornabenea_tenuissima	3	2	2	1	0	24	3	1	0	0	3	1	0	NA	NA	NA	NA	NA	NA	0	HPS	5	0	NA	NA	6	NA	NA	NA	3	NA	NA	NA
-Triticum_aestivum_subsp._tibeticum	3	3	2	3	0	34	0	0	0	0	0	0	NA	NA	NA	NA	NA	NA	NA	0	HPS	0	0	3	NA	0	0	1	NA	5	4	3	NA
-Triticum_aestivum_subsp._yunnanense	3	3	2	3	0	34	0	0	0	0	0	0	NA	NA	NA	NA	NA	NA	NA	0	HPS	0	0	3	NA	0	0	1	NA	5	4	3	NA
-Triticum_boeoticum	3	3	2	3	2	38	0	0	0	0	0	0	NA	NA	NA	NA	NA	NA	NA	0	HPS	4	6	1	NA	4	5	1	NA	2	3	5	NA
-Triticum_monococcum	1	3	1	3	2	28	141	10	845	136	986	142	8.57	0.98	0.01	1.94	1	2.98	10	7.18	LPS	4	6	1	NA	4	5	1	NA	4	3	2	NA
-Triticum_monococcum_subsp._aegilopoides	0	3	1	3	2	24	168	73	2752	307	2920	359	9.42	0.98	0	0.37	1	5.95	10	8.46	NFCR	4	6	1	NA	4	5	1	NA	3	2	4	NA
-Triticum_timopheevii	0	3	1	3	2	24	10	1	160	30	170	30	9.41	0.99	0.01	0.06	1	3.75	10	7.72	NFCR	4	0	1	NA	3	2	2	NA	3	2	2	NA
-Triticum_timopheevii_subsp._armeniacum	1	3	1	3	2	28	28	12	826	57	854	60	9.67	0.97	0.03	0.01	1	1.32	9.25	6.75	LPS	4	0	1	NA	3	2	2	NA	4	2	2	NA
-Triticum_turgidum_subsp._dicoccoides	0	3	1	3	2	24	951	60	5089	283	6040	322	8.43	0.98	0.01	2.65	1	4.6	10	7.68	NFCR	4	6	4	NA	4	2	1	NA	3	2	4	NA
-Triticum_turgidum_subsp._paleocolchicum	0	3	2	3	0	22	0	0	23	2	23	2	10	NA	NA	NA	NA	NA	NA	10	NFCR	NA	6	2	NA	3	2	1	NA	3	2	4	NA
-Triticum_urartu	0	3	1	3	2	24	212	65	1392	118	1604	171	8.68	0.99	0.01	1.39	1	4.82	10	7.83	NFCR	4	3	1	NA	4	2	1	NA	3	2	2	NA
-Vicia_barbazitae	1	2	2	2	0	20	6	1	2	2	8	3	2.5	0.5	0	NA	0	10	4.36	5.62	LPS	10	2	3	NA	10	0	3	NA	5	4	2	NA
-Vicia_faba_subsp._faba	3	3	2	2	0	30	0	0	0	0	0	0	NA	NA	NA	NA	NA	NA	NA	0	HPS	1	0	5	NA	1	4	4	NA	1	1	2	NA
-Vicia_faba_subsp._paucijuga	3	3	2	2	0	30	0	0	0	0	0	0	NA	NA	NA	NA	NA	NA	NA	0	HPS	1	0	0	NA	1	0	1	NA	1	4	1	NA
-Vicia_grandiflora	2	2	1	2	0	22	252	93	62	22	314	114	1.97	0.98	0.01	5.61	1	0.83	7.85	3.55	MPS	1	3	5	NA	10	3	3	NA	5	4	4	NA
-Vicia_pyrenaica	3	2	1	2	0	26	139	16	4	1	143	16	0.28	0.99	0.01	5.92	1	0	0	0.09	HPS	10	2	NA	NA	10	2	NA	NA	2	3	NA	NA
-Vicia_qatmensis	3	2	3	2	0	30	0	0	4	4	4	4	10	1	0	5.17	1	10	7.67	0	HPS	10	2	NA	NA	10	1	NA	NA	2	3	NA	NA
-Vicia_sativa_subsp._amphicarpa	1	3	1	2	0	20	23	10	38	19	61	28	6.23	1	0	0.34	1	1.33	8.25	5.27	LPS	5	0	5	NA	5	0	5	NA	5	5	4	NA
-Vicia_sativa_subsp._devia	3	3	2	2	0	30	0	0	0	0	0	0	NA	NA	NA	NA	NA	NA	NA	0	HPS	5	10	4	NA	5	10	5	NA	1	1	4	NA
-Vicia_sativa_subsp._incisa	1	3	2	2	0	22	21	11	6	2	27	12	2.22	1	0	21.08	0	10	3.08	5.1	LPS	5	3	4	NA	5	3	5	NA	5	2	4	NA
-Vicia_sativa_subsp._macrocarpa	2	3	1	2	0	24	12	6	20	5	32	10	6.25	0.92	0.04	0	1	0.08	4.63	3.65	MPS	5	3	5	NA	5	2	5	NA	5	5	4	NA
-Vicia_sativa_subsp._nigra	2	3	1	2	0	24	5347	1006	243	81	5590	1080	0.43	0.93	0.01	0.2	1	0.95	10	3.8	MPS	5	3	5	NA	5	3	5	NA	2	4	4	NA
-Vigna_hosei	2	2	1	3	0	26	84	12	58	19	142	30	4.08	0.91	0.04	0.23	1	2.49	6.9	4.49	MPS	2	NA	NA	NA	2	NA	NA	NA	4	NA	NA	NA
-Vigna_keraudrenii	3	2	2	3	0	32	29	8	0	0	29	8	0	1	0	NA	0	0	NA	0	HPS	2	NA	NA	NA	0	NA	NA	NA	4	NA	NA	NA
-Vigna_monantha	3	2	2	3	0	32	14	7	0	0	14	7	0	1	0	NA	0	0	NA	0	HPS	2	NA	NA	NA	0	NA	NA	NA	4	NA	NA	NA
-Vigna_schlecteri	3	2	2	3	0	32	0	0	0	0	0	0	NA	NA	NA	NA	NA	NA	NA	0	HPS	2	NA	NA	NA	2	NA	NA	NA	4	NA	NA	NA
-Vigna_subterranea_var._spontanea	3	3	2	3	0	34	16	7	0	0	16	7	0	0.96	0.03	19.6	0	0	0	0	HPS	0	NA	NA	NA	0	NA	NA	NA	4	NA	NA	NA
-Vigna_unguiculata_subsp._aduensis	3	3	2	3	0	34	4	2	0	0	4	2	0	0.5	0	NA	0	NA	NA	0	HPS	1	NA	NA	NA	1	NA	NA	NA	4	NA	NA	NA
-Vigna_unguiculata_subsp._alba	3	3	2	3	0	34	0	0	0	0	0	0	NA	NA	NA	NA	NA	NA	NA	0	HPS	1	NA	NA	NA	1	NA	NA	NA	4	NA	NA	NA
-Vigna_unguiculata_subsp._baoulensis	1	3	1	3	0	24	4	2	15	7	19	8	7.89	0.79	0.32	NA	0	0.29	10	6.06	LPS	1	NA	NA	NA	1	NA	NA	NA	2	NA	NA	NA
-Vigna_unguiculata_subsp._burundiensis	3	3	2	3	0	34	0	0	0	0	0	0	NA	NA	NA	NA	NA	NA	NA	0	HPS	1	NA	NA	NA	1	NA	NA	NA	4	NA	NA	NA
-Vigna_unguiculata_subsp._dekindtiana	2	3	1	3	0	28	1071	187	747	85	1818	266	4.11	0.93	0.01	NA	0	0.25	10	4.79	MPS	1	NA	NA	NA	1	NA	NA	NA	2	NA	NA	NA
-Vigna_unguiculata_subsp._letouzeyi	2	3	2	3	0	30	13	2	8	1	21	2	3.81	NA	NA	NA	0	NA	NA	3.81	MPS	1	NA	NA	NA	1	NA	NA	NA	2	NA	NA	NA
-Vigna_unguiculata_subsp._pawekiae	2	3	1	3	0	28	66	14	6	2	72	15	0.83	0.89	0.1	NA	0	0.01	10	3.62	MPS	1	NA	NA	NA	1	NA	NA	NA	3	NA	NA	NA
-Vigna_unguiculata_subsp._pubescens	1	3	1	3	0	24	43	10	51	7	94	16	5.43	NA	NA	NA	0	0.04	10	5.16	LPS	1	NA	NA	NA	1	NA	NA	NA	3	NA	NA	NA
-Vigna_unguiculata_subsp._stenophylla	2	3	1	3	0	28	452	278	160	15	612	291	2.61	0.94	0.01	NA	0	0.06	10	4.22	MPS	1	NA	NA	NA	1	NA	NA	NA	3	NA	NA	NA
-Vigna_unguiculata_subsp._tenuis	2	3	1	3	0	28	148	60	63	8	211	67	2.99	0.96	0.02	NA	0	0.14	10	4.37	MPS	1	NA	NA	NA	1	NA	NA	NA	3	NA	NA	NA
-Vigna_unguiculata_subsp._unguiculata_var._spontanea	1	3	1	3	0	24	22	8	44	8	66	15	6.67	0.84	0.14	NA	0	0.03	10	5.57	LPS	0	NA	NA	NA	0	NA	NA	NA	1	NA	NA	NA
+Genepool	Taxa	Priority	Genepool or Taxon Group	Threat	Relevance to Food Security in Developing Countries	Current Breeding Demand	Total Score	HS	HS_RP	GS	GS_RP	TOTAL	TOTAL_RP	SRS	ATAUC	STAUC	ASD15	IS_VALID	GRS	ERS	FPS	FPCAT	Expert 1 Comparative	Expert 2 Comparative	Expert 3 Comparative	Expert 4 Comparative	Expert 1 Contextual	Expert 2 Contextual	Expert 3 Contextual	Expert 4 Contextual	Expert 1 Evaluation	Expert 2 Evlauation	Expert 3 Evaluation	Expert 4 Evaluation
+triticum	Aegilops_bicornis	1	2	1	3	0	22	68	12	643	12	711	23	9.04	0.94	0.09	4.81	1	1.27	7.67	5.99	LPS	2	7	1	NA	3	5	3	NA	4	3	4	NA
+triticum	Aegilops_bicornis_var._anathera	3	2	2	3	0	32	1	1	0	0	1	1	0	NA	NA	NA	NA	NA	NA	0	HPS	2	7	1	NA	3	5	3	NA	4	3	3	NA
+triticum	Aegilops_bicornis_var._bicornis	0	2	2	3	0	20	1	1	5	1	6	1	8.33	NA	NA	NA	NA	NA	NA	8.33	NFCR	2	7	1	NA	3	5	3	NA	3	3	2	NA
+triticum	Aegilops_biuncialis	1	2	1	3	0	22	166	53	1064	390	1230	441	8.65	0.98	0	0.06	1	3.77	10	7.47	LPS	4	9	1	NA	4	9	3	NA	4	3	4	NA
+triticum	Aegilops_columnaris	1	2	1	3	0	22	39	22	236	71	275	92	8.58	0.99	0	0	1	2.13	10	6.9	LPS	4	9	1	NA	2	9	3	NA	4	3	4	NA
+triticum	Aegilops_comosa	0	2	2	3	2	24	0	0	20	2	20	2	10	NA	NA	NA	NA	NA	NA	10	NFCR	3	2	1	NA	2	5	3	NA	3	2	2	NA
+triticum	Aegilops_comosa_var._comosa	1	2	2	3	2	28	3	2	19	6	22	7	8.64	0.99	0.01	16.34	0	7.03	6.75	7.47	LPS	3	2	1	NA	2	5	3	NA	4	3	2	NA
+triticum	Aegilops_comosa_var._subventricosa	1	2	1	3	2	26	41	17	167	85	208	99	8.03	0.99	0	0	1	2.35	10	6.79	LPS	3	5	1	NA	2	5	3	NA	4	3	2	NA
+triticum	Aegilops_crassa	1	2	1	3	0	22	97	35	242	46	339	79	7.14	0.99	0	0.06	1	0.99	10	6.04	LPS	0	5	1	NA	0	4	3	NA	3	3	4	NA
+triticum	Aegilops_cylindrica	1	2	1	3	2	26	510	170	1674	412	2184	579	7.66	0.96	0.01	0.26	1	4.53	10	7.4	LPS	4	7	2	NA	4	4	2	NA	4	3	4	NA
+triticum	Aegilops_geniculata	1	2	1	3	2	26	384	93	1040	390	1424	481	7.3	0.98	0	0.28	1	5.02	10	7.44	LPS	4	9	2	NA	4	9	2	NA	4	3	2	NA
+triticum	Aegilops_juvenalis	1	2	1	3	0	22	14	4	44	8	58	11	7.59	0.97	0.03	0	1	0.33	8.25	5.39	LPS	0	7	1	NA	0	4	3	NA	2	3	4	NA
+triticum	Aegilops_kotschyi	2	2	1	3	0	26	159	35	309	50	468	84	6.6	0.98	0.01	0	1	0.42	7.2	4.74	MPS	1	4	1	NA	2	4	3	NA	2	4	4	NA
+triticum	Aegilops_longissima	0	2	1	3	0	18	503	16	1951	37	2454	50	7.95	1	0	0	1	5.35	10	7.77	NFCR	3	7	1	NA	4	4	3	NA	3	2	4	NA
+triticum	Aegilops_markgrafii	0	2	1	3	0	18	50	26	303	101	353	124	8.58	0.99	0	2.65	1	4.17	10	7.58	NFCR	3	7	1	NA	3	5	3	NA	3	2	4	NA
+triticum	Aegilops_neglecta	1	2	1	3	0	22	296	88	1567	311	1863	391	8.41	0.98	0	0.08	1	2.98	10	7.13	LPS	3	9	1	NA	3	9	3	NA	3	3	4	NA
+triticum	Aegilops_peregrina	1	2	1	3	2	26	374	62	1414	141	1788	197	7.91	0.99	0	0.7	1	3.53	10	7.15	LPS	4	5	1	NA	4	7	3	NA	4	3	4	NA
+triticum	Aegilops_peregrina_var._brachyathera	3	2	2	3	0	32	0	0	0	0	0	0	NA	NA	NA	NA	NA	NA	NA	0	HPS	3	5	1	NA	2	7	3	NA	4	3	3	NA
+triticum	Aegilops_peregrina_var._peregrina	3	2	2	3	0	32	0	0	3	2	3	2	10	NA	NA	NA	NA	NA	NA	0	HPS	3	5	1	NA	2	7	3	NA	4	3	3	NA
+triticum	Aegilops_searsii	0	2	2	3	0	20	157	18	503	50	660	66	7.62	1	0	0	1	8.65	10	8.76	NFCR	3	5	1	NA	3	4	3	NA	3	2	4	NA
+triticum	Aegilops_sharonensis	1	2	1	3	2	26	430	16	3200	15	3630	26	8.82	0.97	0.05	12.7	0	0.08	10	6.3	LPS	3	7	1	NA	3	7	3	NA	4	3	4	NA
+triticum	Aegilops_speltoides	1	2	1	3	2	26	522	29	2196	127	2718	147	8.08	0.99	0.01	1.03	1	3.41	10	7.16	LPS	3	5	2	NA	3	4	0	NA	4	3	2	NA
+triticum	Aegilops_speltoides_var._ligustica	1	2	1	3	2	26	44	22	141	19	185	36	7.62	0.97	0.04	0.09	1	0.44	8.8	5.62	LPS	3	5	2	NA	3	4	0	NA	4	3	2	NA
+triticum	Aegilops_speltoides_var._speltoides	1	2	1	3	2	26	89	44	295	34	384	70	7.68	0.99	0.01	0.14	1	1.15	10	6.28	LPS	3	5	2	NA	3	4	0	NA	4	3	2	NA
+triticum	Aegilops_tauschii	1	2	1	3	2	26	372	93	1910	242	2282	329	8.37	0.98	0	1.21	1	2.87	10	7.08	LPS	4	3	2	NA	3	1	0	NA	4	2	1	NA
+triticum	Aegilops_triuncialis	0	2	1	3	0	18	929	287	3604	777	4533	1061	7.95	0.95	0	0	1	5.85	10	7.93	NFCR	4	9	1	NA	3	9	1	NA	3	3	4	NA
+triticum	Aegilops_triuncialis_var._persica	1	2	1	3	0	22	9	2	23	7	32	8	7.19	0.99	0.01	11.12	0	1.11	6.8	5.03	LPS	3	9	1	NA	3	9	2	NA	4	3	4	NA
+triticum	Aegilops_triuncialis_var._triuncialis	1	2	1	3	0	22	14	3	164	11	178	13	9.21	0.97	0.03	40.91	0	0.37	6.6	5.39	LPS	3	9	1	NA	3	9	2	NA	4	3	4	NA
+triticum	Aegilops_umbellulata	1	2	1	3	2	26	100	29	438	104	538	128	8.14	0.98	0.01	3.43	1	3.98	10	7.37	LPS	4	9	1	NA	3	7	2	NA	3	3	4	NA
+triticum	Aegilops_uniaristata	1	2	1	3	0	22	12	3	35	6	47	8	7.45	0.94	0.08	14.14	0	0.86	7.05	5.12	LPS	0	5	1	NA	0	3	2	NA	2	2	4	NA
+triticum	Aegilops_vavilovii	1	2	1	3	0	22	8	4	136	40	144	43	9.44	0.98	0.02	0	1	1.34	7.5	6.1	LPS	0	5	1	NA	0	5	2	NA	2	3	4	NA
+triticum	Aegilops_ventricosa	1	2	1	3	2	26	121	31	169	35	290	65	5.83	0.97	0.02	0.08	1	0.84	10	5.56	LPS	3	5	1	NA	3	5	1	NA	3	3	4	NA
+triticum	Amblyopyrum_muticum	1	2	1	3	0	22	27	11	33	11	60	19	5.5	0.99	0.01	28.26	0	2.8	7.25	5.18	LPS	0	3	NA	NA	0	3	NA	NA	1	2	3	NA
+triticum	Amblyopyrum_muticum_var._loliaceum	3	2	2	3	0	32	9	1	1	1	10	1	1	NA	NA	NA	NA	NA	NA	1	HPS	0	3	NA	NA	0	3	NA	NA	1	3	3	NA
+triticum	Amblyopyrum_muticum_var._muticum	1	2	2	3	0	24	12	2	33	6	45	7	7.33	0.98	0.01	3.95	1	0.64	7.25	5.07	LPS	0	3	NA	NA	0	3	NA	NA	1	2	3	NA
+avena	Avena_abyssinica	2	1	1	1	2	20	909	165	511	102	1420	259	3.6	0.99	0	NA	0	0.45	10	4.68	MPS	5	2	NA	NA	1	3	NA	NA	2	3	NA	NA
+avena	Avena_atherantha	3	3	2	1	0	26	0	0	0	0	0	0	NA	NA	NA	NA	NA	NA	NA	0	HPS	1	5	NA	NA	2	4	NA	NA	4	3	NA	NA
+avena	Avena_byzantina	3	3	1	1	0	24	2333	318	528	1	2861	318	1.85	0.97	0	NA	0	0	NA	0.92	HPS	0	7	NA	NA	4	5	NA	NA	4	2	NA	NA
+avena	Avena_fatua	1	3	1	1	0	16	0	0	0	0	0	0	NA	NA	NA	NA	NA	NA	NA	0	LPS	8	5	NA	NA	8	3	NA	NA	4	2	NA	NA
+avena	Avena_hybrida	2	3	1	1	0	20	125	53	25	4	150	56	1.67	0.99	0.02	NA	0	0.13	10	3.93	MPS	0	3	NA	NA	1	2	NA	NA	4	4	NA	NA
+avena	Avena_insularis	3	2	2	1	0	24	20	7	5	1	25	7	2	1	0.01	NA	0	0	NA	1	HPS	3	0	NA	NA	5	0	NA	NA	4	5	NA	NA
+avena	Avena_macrostachya	3	1	2	1	2	26	0	0	0	0	0	0	NA	NA	NA	NA	NA	NA	NA	0	HPS	0	0	NA	NA	7	0	NA	NA	4	4	NA	NA
+avena	Avena_maroccana	0	2	2	1	2	16	138	28	136	15	274	34	4.96	1	0	NA	0	10	10	8.32	NFCR	2	0	NA	NA	5	0	NA	NA	2	2	NA	NA
+avena	Avena_murphyi	1	2	2	1	0	16	82	16	88	5	170	18	5.18	0.99	0.01	NA	0	6.55	10	7.24	LPS	2	0	NA	NA	5	0	NA	NA	2	1	NA	NA
+avena	Avena_occidentalis	1	3	1	1	0	16	7	6	57	6	64	11	8.91	0.96	0.07	NA	0	0.2	10	6.37	LPS	8	4	NA	NA	8	3	NA	NA	4	4	NA	NA
+avena	Avena_pilosa	3	1	2	1	0	22	0	0	0	0	0	0	NA	NA	NA	NA	NA	NA	NA	0	HPS	8	2	NA	NA	8	2	NA	NA	4	5	NA	NA
+avena	Avena_prostrata	2	1	1	1	2	20	47	18	7	2	54	19	1.3	0.97	0.05	NA	0	0.08	10	3.79	MPS	8	1	NA	NA	8	1	NA	NA	4	4	NA	NA
+avena	Avena_sterilis	1	3	1	1	2	20	0	0	0	0	0	0	NA	NA	NA	NA	NA	NA	NA	0	LPS	8	8	NA	NA	8	3	NA	NA	4	4	NA	NA
+avena	Avena_strigosa	2	1	1	1	2	20	1551	388	249	35	1800	415	1.38	0.97	0.01	NA	0	0	10	3.8	MPS	0	3	NA	NA	1	0	NA	NA	2	4	NA	NA
+avena	Avena_trichophylla	3	3	1	1	0	24	8	4	2	1	10	4	2	0.98	0.02	NA	0	0	NA	1	HPS	1	5	NA	NA	8	3	NA	NA	4	4	NA	NA
+cajanus	Cajanus_acutifolius	3	2	1	2	0	26	492	169	173	42	665	210	2.6	0.96	0	1.28	1	0.05	2.76	1.81	HPS	2	6	2	NA	2	6	1	NA	4	5	5	NA
+cajanus	Cajanus_albicans	2	2	1	2	1	24	141	10	21	9	162	18	1.3	0.9	0.09	60.28	0	0.35	10	3.88	MPS	3	0	4	NA	4	0	7	NA	4	3	5	NA
+cajanus	Cajanus_cajanifolius	3	2	2	2	2	32	42	3	2	1	44	3	0.45	0.5	0	NA	0	NA	0	0.23	HPS	3	0	2	NA	3	0	0	NA	4	5	5	NA
+cajanus	Cajanus_cinereus	3	2	1	2	1	28	268	127	6	1	274	127	0.22	0.96	0	2.3	1	0	0	0.07	HPS	2	0	2	NA	2	2	2	NA	4	5	5	NA
+cajanus	Cajanus_confertiflorus	3	2	1	2	0	26	122	43	1	1	123	43	0.08	0.98	0.02	0.49	1	0	0	0.03	HPS	0	0	2	NA	0	0	2	NA	5	5	5	NA
+cajanus	Cajanus_crassus	3	0	1	2	1	24	17	10	19	3	36	12	5.28	0.9	0.05	0.24	1	0.03	1.25	2.19	HPS	4	1	4	NA	2	1	5	NA	4	4	5	NA
+cajanus	Cajanus_lanceolatus	3	2	1	2	0	26	133	35	5	2	138	36	0.36	0.98	0.02	3.52	1	0.34	3.4	1.37	HPS	2	3	2	NA	3	3	2	NA	4	5	5	NA
+cajanus	Cajanus_latisepalus	3	2	1	2	0	26	228	84	4	1	232	84	0.17	0.97	0.02	0	1	0	0	0.06	HPS	1	0	2	NA	0	3	5	NA	5	5	5	NA
+cajanus	Cajanus_lineatus	3	2	1	2	2	30	163	18	6	5	169	23	0.36	NA	NA	NA	NA	NA	NA	0.36	HPS	3	1	7	NA	3	0	5	NA	4	5	5	NA
+cajanus	Cajanus_mollis	1	0	2	2	1	18	4	2	8	3	12	5	6.67	NA	NA	NA	NA	NA	NA	6.67	LPS	6	0	6	NA	6	0	5	NA	4	2	5	NA
+cajanus	Cajanus_platycarpus	2	0	1	2	1	20	7	2	21	5	28	6	7.5	0.86	0.09	0.87	1	0.1	3.48	3.69	MPS	4	1	7	NA	5	1	8	NA	4	2	5	NA
+cajanus	Cajanus_reticulatus	3	2	1	2	0	26	462	200	21	3	483	202	0.43	0	0.01	1.01	0	0.04	7.98	2.82	HPS	4	2	5	NA	2	2	5	NA	5	5	5	NA
+cajanus	Cajanus_scarabaeoides	2	2	1	2	2	26	341	65	218	48	559	112	3.9	0.94	0.01	7.08	1	0.58	8.46	4.31	MPS	2	6	8	NA	4	6	8	NA	4	5	5	NA
+cajanus	Cajanus_sericeus	3	2	1	2	2	30	83	20	4	2	87	21	0.46	0.97	0.03	2	1	0.07	4.68	1.74	HPS	3	1	7	NA	4	1	8	NA	4	5	5	NA
+cajanus	Cajanus_trinervius	3	2	1	2	0	26	130	24	0	0	130	24	0	0.97	0.04	0.1	1	0	0	0	HPS	3	0	6	NA	3	0	5	NA	4	5	5	NA
+cajanus	Cajanus_volubilis	3	1	2	2	0	26	0	0	0	0	0	0	NA	NA	NA	NA	NA	NA	NA	0	HPS	3	0	1	NA	2	0	2	NA	4	NA	5	NA
+cicer	Cicer_bijugum	1	0	1	2	1	16	11	7	44	16	55	22	8	0.98	0.02	0.29	1	0.67	7.33	5.33	LPS	2	2	3	4	2	2	3	2	3	2	2	3
+cicer	Cicer_echinospermum	2	2	1	2	2	26	43	12	29	13	72	23	4.03	0.99	0.01	0	1	1.35	8.6	4.66	MPS	1	2	2	1	1	1	1	2	2	2	3	5
+cicer	Cicer_judaicum	0	0	1	2	2	14	30	4	93	37	123	40	7.56	0.97	0.04	3.96	1	10	10	9.19	NFCR	2	8	6	1	2	8	7	2	2	4	4	4
+cicer	Cicer_pinnatifidum	1	1	1	2	2	20	45	6	88	23	133	28	6.62	0.99	0	0.08	1	2.72	10	6.45	LPS	2	6	6	3	2	6	7	2	3	4	4	4
+cicer	Cicer_reticulatum	1	3	2	2	2	26	60	8	66	19	126	25	5.24	1	0	0.15	1	7.27	9.25	7.25	LPS	1	1	1	1	1	0	1	2	1	1	2	5
+daucus	Daucus_capillifolius	3	2	2	1	2	28	12	12	2	1	14	13	1.43	0.99	0	2.33	1	0	0	0.48	HPS	1	3	NA	NA	1	NA	NA	NA	4	NA	NA	NA
+daucus	Daucus_carota_subsp._azoricus	3	3	1	1	0	24	45	28	2	1	47	28	0.43	1	0	0.38	1	0	0	0.14	HPS	3	0	NA	NA	2	NA	NA	NA	4	NA	NA	NA
+daucus	Daucus_carota_subsp._cantabricus	3	3	2	1	0	26	6	1	0	0	6	1	0	NA	NA	NA	NA	NA	NA	0	HPS	3	0	NA	NA	3	NA	NA	NA	3	NA	NA	NA
+daucus	Daucus_carota_subsp._carota	2	3	1	1	0	20	494	130	187	55	681	184	2.75	0.97	0.02	1.1	1	0.68	8.6	4.01	MPS	4	5	NA	NA	4	NA	NA	NA	4	NA	NA	NA
+daucus	Daucus_carota_subsp._commutatus	2	3	1	1	0	20	17	4	10	4	27	7	3.7	1	0	1.39	1	1.28	7.67	4.22	MPS	1	0	NA	NA	0	NA	NA	NA	2	NA	NA	NA
+daucus	Daucus_carota_subsp._drepanensis	3	3	2	1	0	26	23	2	0	0	23	2	0	NA	NA	NA	NA	NA	NA	0	HPS	1	0	NA	NA	1	NA	NA	NA	4	NA	NA	NA
+daucus	Daucus_carota_subsp._fontanesii	2	3	1	1	0	20	55	16	2	2	57	18	0.35	0.99	0.01	11.92	0	0.1	9.25	3.23	MPS	1	0	NA	NA	0	NA	NA	NA	2	NA	NA	NA
+daucus	Daucus_carota_subsp._gadecaei	3	3	2	1	0	26	0	0	3	1	3	1	10	NA	NA	NA	NA	NA	NA	0	HPS	1	0	NA	NA	0	NA	NA	NA	4	NA	NA	NA
+daucus	Daucus_carota_subsp._gummifer	3	3	1	1	0	24	211	47	15	4	226	50	0.66	0.99	0	0.88	1	0.07	5.17	1.97	HPS	2	0	NA	NA	4	NA	NA	NA	4	NA	NA	NA
+daucus	Daucus_carota_subsp._halophilus	3	3	2	1	0	26	83	19	5	1	88	19	0.57	1	0	5.18	1	0	0	0.19	HPS	1	0	NA	NA	1	NA	NA	NA	4	NA	NA	NA
+daucus	Daucus_carota_subsp._hispanicus	3	3	2	1	0	26	29	2	4	1	33	2	1.21	NA	NA	NA	NA	NA	NA	1.21	HPS	3	0	NA	NA	3	NA	NA	NA	4	NA	NA	NA
+daucus	Daucus_carota_subsp._major	2	3	1	1	0	20	12	8	11	5	23	12	4.78	0.91	0.07	0.01	1	0.67	6.25	3.9	MPS	4	9	NA	NA	4	NA	NA	NA	4	NA	NA	NA
+daucus	Daucus_carota_subsp._majoricus	3	3	2	1	0	26	7	1	0	0	7	1	0	NA	NA	NA	NA	NA	NA	0	HPS	3	0	NA	NA	3	NA	NA	NA	4	NA	NA	NA
+daucus	Daucus_carota_subsp._maritimus	3	3	1	1	0	24	213	113	8	3	221	115	0.36	0.98	0.02	0.67	1	0.08	4.7	1.71	HPS	5	0	NA	NA	6	NA	NA	NA	3	NA	NA	NA
+daucus	Daucus_carota_subsp._maximus	3	3	1	1	0	24	160	37	25	8	185	44	1.35	0.99	0.01	0.11	1	0.15	7.05	2.85	HPS	5	9	NA	NA	6	NA	NA	NA	2	NA	NA	NA
+daucus	Daucus_carota_subsp._parviflorus	3	3	2	1	0	26	13	2	0	0	13	2	0	NA	NA	NA	NA	NA	NA	0	HPS	3	0	NA	NA	3	NA	NA	NA	4	NA	NA	NA
+daucus	Daucus_carota_subsp._rupestris	3	3	2	1	0	26	1	1	0	0	1	1	0	NA	NA	NA	NA	NA	NA	0	HPS	2	0	NA	NA	2	NA	NA	NA	4	NA	NA	NA
+daucus	Daucus_syrticus	3	2	1	1	0	22	43	9	15	6	58	13	2.59	0.99	0.01	0.74	1	0.3	5	2.63	HPS	0	0	NA	NA	0	NA	NA	NA	4	NA	NA	NA
+eleusine	Eleusine_africana	3	3	1	3	0	32	141	51	4	3	145	53	0.28	0.95	0.01	0.84	1	0.04	2.67	0.99	HPS	5	NA	NA	NA	5	NA	NA	NA	3	NA	NA	NA
+eleusine	Eleusine_floccifolia	3	2	1	3	0	30	66	17	4	2	70	18	0.57	0.96	0.04	9.23	1	0.06	4.3	1.64	HPS	8	NA	NA	NA	8	NA	NA	NA	3	NA	NA	NA
+eleusine	Eleusine_indica	3	3	1	3	0	32	7878	1133	61	18	7939	1150	0.08	0.88	0.01	0.05	1	0.08	3.03	1.06	HPS	7	NA	NA	NA	7	NA	NA	NA	3	NA	NA	NA
+eleusine	Eleusine_intermedia	3	2	1	3	0	30	12	5	0	0	12	5	0	0.97	0.05	18.42	0	0	0	0	HPS	8	NA	NA	NA	8	NA	NA	NA	3	NA	NA	NA
+eleusine	Eleusine_kigeziensis	2	3	2	3	0	30	13	6	9	3	22	8	4.09	0.99	0.02	24.11	0	1.33	5.3	3.57	MPS	8	NA	NA	NA	8	NA	NA	NA	3	NA	NA	NA
+eleusine	Eleusine_tristachya	3	2	1	3	0	30	5482	438	24	6	5506	443	0.04	0.97	0.01	0.59	1	0.21	4.7	1.65	HPS	8	NA	NA	NA	8	NA	NA	NA	3	NA	NA	NA
+helianthus	Helianthus_annuus	1	3	1	2	2	24	2045	706	3656	669	5701	1343	6.41	0.92	0.01	0.12	1	3.57	10	6.66	LPS	9	4	5	NA	9	1	3	NA	4	4	3	NA
+helianthus	Helianthus_anomalus	3	2	1	2	2	30	60	12	9	8	69	17	1.3	0.96	0.07	2.89	1	0.47	6.5	2.76	HPS	3	0	0	NA	3	0	0	NA	2	5	5	NA
+helianthus	Helianthus_argophyllus	3	2	1	2	2	30	71	33	55	26	126	53	4.37	0.98	0.03	0	1	0.19	3.83	2.8	HPS	10	4	5	NA	10	1	5	NA	2	4	2	NA
+helianthus	Helianthus_arizonensis	3	0	2	2	1	26	5	4	2	2	7	6	2.86	1	0	1.1	1	0.72	5.05	2.88	HPS	1	3	0	NA	5	5	0	NA	2	4	5	NA
+helianthus	Helianthus_atrorubens	3	0	1	2	1	24	70	31	13	11	83	40	1.57	0.99	0	0	1	0.95	5.33	2.62	HPS	5	2	3	NA	10	3	5	NA	2	4	2	NA
+helianthus	Helianthus_bolanderi	3	2	1	2	2	30	315	134	9	5	324	138	0.28	0.99	0.01	2.64	1	0.6	6.67	2.51	HPS	1	3	1	NA	0	2	1	NA	5	4	5	NA
+helianthus	Helianthus_debilis	3	2	1	2	2	30	91	34	8	2	99	35	0.81	0.98	0.01	0.05	1	0.03	2.25	1.03	HPS	6	4	NA	NA	6	5	NA	NA	3	4	1	NA
+helianthus	Helianthus_debilis_subsp._cucumerifolius	3	2	1	2	2	30	89	36	17	13	106	48	1.6	0.97	0.03	0.01	1	0.32	6.17	2.7	HPS	7	5	4	NA	7	4	4	NA	2	4	2	NA
+helianthus	Helianthus_debilis_subsp._debilis	3	2	1	2	2	30	22	9	17	15	39	22	4.36	0.93	0.11	0.97	1	0.11	2.61	2.36	HPS	7	4	9	NA	7	4	9	NA	4	4	1	NA
+helianthus	Helianthus_debilis_subsp._silvestris	2	2	1	2	2	26	8	5	28	11	36	15	7.78	0.99	0.02	29.97	0	2.32	3.33	4.48	MPS	9	4	9	NA	9	4	9	NA	4	4	2	NA
+helianthus	Helianthus_debilis_subsp._tardiflorus	1	2	2	2	2	24	15	9	5	4	20	11	2.5	1	0	10.32	0	10	8	6.83	LPS	4	4	2	NA	3	4	3	NA	4	4	2	NA
+helianthus	Helianthus_debilis_subsp._vestitus	3	2	2	2	2	32	15	6	5	4	20	9	2.5	0.98	0.04	53.7	0	0.49	2.5	1.83	HPS	2	4	2	NA	2	4	3	NA	4	4	2	NA
+helianthus	Helianthus_deserticola	1	2	2	2	2	24	42	13	16	14	58	24	2.76	1	0	0	1	4.03	10	5.6	LPS	8	0	8	NA	8	0	8	NA	4	4	5	NA
+helianthus	Helianthus_divaricatus	3	1	1	2	2	28	340	133	25	15	365	145	0.68	0.97	0.01	2.17	1	0.64	5	2.11	HPS	10	5	2	NA	10	6	3	NA	2	4	5	NA
+helianthus	Helianthus_exilis	2	2	1	2	0	22	50	26	30	23	80	48	3.75	0.99	0.01	0	1	1.04	5.87	3.55	MPS	10	3	6	NA	10	1	6	NA	4	4	5	NA
+helianthus	Helianthus_giganteus	3	1	1	2	2	28	218	61	26	17	244	76	1.07	0.95	0.03	1.91	1	0.33	6.54	2.64	HPS	10	6	2	NA	10	6	3	NA	2	4	5	NA
+helianthus	Helianthus_grosseserratus	2	1	1	2	2	24	175	48	50	32	225	79	2.22	0.96	0.02	0.16	1	0.72	7.6	3.51	MPS	10	5	2	NA	10	6	3	NA	2	4	2	NA
+helianthus	Helianthus_hirsutus	3	1	1	2	2	28	177	78	11	8	188	83	0.59	0.98	0.01	0	1	0.18	6.75	2.5	HPS	8	5	2	NA	10	6	2	NA	2	4	5	NA
+helianthus	Helianthus_maximilianii	3	1	2	2	2	30	0	0	0	0	0	0	NA	NA	NA	NA	NA	NA	NA	0	HPS	10	6	2	NA	10	6	3	NA	2	4	5	NA
+helianthus	Helianthus_neglectus	0	2	2	2	2	20	5	2	58	12	63	13	9.21	1	0.01	55.59	0	9.41	5.75	8.12	NFCR	10	1	9	NA	10	1	9	NA	3	4	3	NA
+helianthus	Helianthus_niveus	3	2	1	2	0	26	73	15	3	2	76	16	0.39	0.99	0.01	8.17	1	0.21	6.5	2.37	HPS	2	0	NA	NA	2	0	NA	NA	3	4	1	NA
+helianthus	Helianthus_niveus_subsp._canescens	2	2	1	2	0	22	100	38	19	12	119	48	1.6	0.99	0.02	0.22	1	0.66	8.25	3.5	MPS	7	0	1	NA	7	0	2	NA	3	4	2	NA
+helianthus	Helianthus_niveus_subsp._niveus	3	2	1	2	0	26	9	4	0	0	9	4	0	0.72	0.39	81.2	0	0	0	0	HPS	0	0	0	NA	0	0	0	NA	3	4	5	NA
+helianthus	Helianthus_niveus_subsp._tephrodes	3	2	1	2	0	26	87	49	6	6	93	54	0.65	0.99	0.02	0.7	1	0.94	6.67	2.75	HPS	3	0	0	NA	2	0	1	NA	3	4	5	NA
+helianthus	Helianthus_paradoxus	3	2	2	2	2	32	58	9	0	0	58	9	0	1	0	34.64	0	0	0	0	HPS	5	0	10	NA	5	0	10	NA	3	5	1	NA
+helianthus	Helianthus_pauciflorus	2	1	1	2	2	24	10	6	22	11	32	16	6.88	0.92	0.02	0	1	0.19	6.67	4.58	MPS	10	6	3	NA	10	6	5	NA	3	4	2	NA
+helianthus	Helianthus_petiolaris	3	2	1	2	2	30	337	112	45	15	382	126	1.18	0.96	0	2.7	1	0.18	6.96	2.77	HPS	5	4	NA	NA	3	2	NA	NA	3	4	1	NA
+helianthus	Helianthus_petiolaris_subsp._fallax	2	2	1	2	2	26	34	11	30	24	64	34	4.69	0.98	0.01	2.02	1	0.95	8.25	4.63	MPS	5	3	10	NA	3	2	9	NA	3	4	1	NA
+helianthus	Helianthus_petiolaris_subsp._petiolaris	1	2	1	2	2	22	101	69	106	88	207	154	5.12	0.97	0	2.3	1	1.51	10	5.54	LPS	10	3	3	NA	10	2	3	NA	3	4	2	NA
+helianthus	Helianthus_praecox	3	2	3	2	2	34	0	0	0	0	0	0	NA	NA	NA	NA	NA	NA	NA	0	HPS	4	5	NA	NA	4	3	NA	NA	2	NA	1	NA
+helianthus	Helianthus_praecox_subsp._hirtus	1	2	3	2	2	26	3	2	10	3	13	3	7.69	1	0	0	1	1.11	6.67	5.15	LPS	5	5	10	NA	5	6	10	NA	3	4	5	NA
+helianthus	Helianthus_praecox_subsp._praecox	0	2	3	2	2	22	0	0	14	10	14	10	10	1	0	0	1	10	8.5	9.5	NFCR	3	5	10	NA	3	6	10	NA	2	4	5	NA
+helianthus	Helianthus_praecox_subsp._runyonii	1	2	2	2	2	24	5	3	28	21	33	23	8.48	1	0	0	1	2.08	6.92	5.83	LPS	8	5	10	NA	8	6	10	NA	3	4	5	NA
+helianthus	Helianthus_resinosus	2	1	1	2	2	24	75	29	29	10	104	38	2.79	0.99	0	0	1	0.83	10	4.54	MPS	10	5	5	NA	9	6	5	NA	3	4	5	NA
+helianthus	Helianthus_salicifolius	2	0	1	2	1	20	42	12	40	17	82	28	4.88	1	0	0.01	1	2.85	5.5	4.41	MPS	9	5	4	NA	9	6	5	NA	3	4	5	NA
+helianthus	Helianthus_silphioides	0	0	2	2	1	14	27	7	18	10	45	16	4	1	0	15.75	0	10	10	8	NFCR	9	5	4	NA	9	6	4	NA	3	4	1	NA
+helianthus	Helianthus_strumosus	2	1	1	2	2	24	255	101	70	23	325	122	2.15	0.98	0.01	4.49	1	0.63	9	3.93	MPS	9	5	3	NA	9	6	4	NA	3	4	5	NA
+helianthus	Helianthus_tuberosus	2	1	1	2	2	24	568	154	160	28	728	179	2.2	0.95	0.03	4.81	1	0.34	7.48	3.34	MPS	5	3	3	NA	3	1	3	NA	2	2	5	NA
+hordeum	Hordeum_brevisubulatum	3	1	1	2	2	28	56	24	36	14	92	36	3.91	0.86	0.09	9.35	1	0.16	4.69	2.92	HPS	0	0	8	NA	0	0	8	NA	5	4	2	NA
+hordeum	Hordeum_bulbosum	1	2	1	2	2	22	375	152	321	115	696	261	4.61	0.98	0	0.29	1	1.26	10	5.29	LPS	2	1	7	NA	2	1	7	NA	4	3	4	NA
+hordeum	Hordeum_chilense	1	1	1	2	2	20	24	11	72	27	96	37	7.5	0.98	0.03	0	1	2.06	10	6.52	LPS	2	0	8	NA	2	0	8	NA	4	2	4	NA
+hordeum	Hordeum_vulgare_subsp._spontaneum	0	3	1	2	2	20	1507	148	11415	349	12922	469	8.83	0.97	0	0.47	1	3.86	10	7.56	NFCR	2	0	4	NA	2	0	4	NA	2	2	1	NA
+ipomoea	Ipomoea_batatas_var._apiculata	3	3	2	3	0	34	0	0	0	0	0	0	NA	NA	NA	NA	NA	NA	NA	0	HPS	4	3	NA	NA	4	3	NA	NA	5	5	NA	NA
+ipomoea	Ipomoea_cordatotriloba	2	2	1	3	0	26	153	97	104	3	257	99	4.05	0.97	0.02	0.96	1	0.11	10	4.72	MPS	2	3	NA	NA	2	3	NA	NA	4	5	NA	NA
+ipomoea	Ipomoea_cynanchifolia	3	2	1	3	0	30	28	9	1	1	29	9	0.34	0.88	0.04	0	1	0	0	0.11	HPS	3	0	NA	NA	3	0	NA	NA	4	5	NA	NA
+ipomoea	Ipomoea_grandifolia	3	2	1	3	0	30	324	169	184	1	508	169	3.62	0.97	0.01	0.46	1	0	0	1.21	HPS	2	1	NA	NA	2	1	NA	NA	4	5	NA	NA
+ipomoea	Ipomoea_lacunosa	3	2	1	3	0	30	221	92	10	1	231	92	0.43	0.98	0.01	0.38	1	0	0	0.14	HPS	4	4	NA	NA	3	4	NA	NA	4	4	NA	NA
+ipomoea	Ipomoea_leucantha	3	2	1	3	0	30	19	9	18	1	37	9	4.86	0.89	0.04	0	1	0	0	1.62	HPS	2	4	NA	NA	2	4	NA	NA	4	5	NA	NA
+ipomoea	Ipomoea_littoralis	3	2	1	3	0	30	189	46	2	2	191	47	0.1	0.92	0.06	8.68	1	0.01	2	0.71	HPS	1	2	NA	NA	0	2	NA	NA	5	5	NA	NA
+ipomoea	Ipomoea_ramosissima	3	2	1	3	0	30	128	35	37	2	165	36	2.24	0.8	0.06	3.83	1	0.03	4.31	2.19	HPS	4	0	NA	NA	3	0	NA	NA	4	5	NA	NA
+ipomoea	Ipomoea_tabascana	3	3	3	3	0	36	0	0	4	2	4	2	10	0.5	0	NA	0	10	2.5	0	HPS	0	2	NA	NA	0	2	NA	NA	5	5	NA	NA
+ipomoea	Ipomoea_tenuissima	3	2	1	3	0	30	32	10	3	1	35	10	0.86	0.99	0.02	19.69	0	0.11	0.97	0.65	HPS	1	2	NA	NA	1	2	NA	NA	5	5	NA	NA
+ipomoea	Ipomoea_tiliacea	3	2	1	3	0	30	376	126	61	3	437	128	1.4	0.94	0.02	15.16	0	0.01	3.98	1.79	HPS	3	3	NA	NA	3	3	NA	NA	4	5	NA	NA
+ipomoea	Ipomoea_trifida	2	3	1	3	2	32	336	150	283	28	619	177	4.57	0.96	0.01	0.95	1	0.69	8.75	4.67	MPS	0	4	NA	NA	0	4	NA	NA	3	5	NA	NA
+ipomoea	Ipomoea_triloba	3	2	1	3	0	30	573	199	102	24	675	222	1.51	0.93	0.01	1.91	1	0.1	4.37	2	HPS	2	4	NA	NA	2	4	NA	NA	4	1	NA	NA
+ipomoea	Ipomoea_umbraticola	3	2	1	3	0	30	19	10	0	0	19	10	0	0.69	0.12	7.47	0	0	0	0	HPS	4	2	NA	NA	3	2	NA	NA	4	5	NA	NA
+lathyrus	Lathyrus_chrysanthus	1	2	3	2	0	22	5	2	8	7	13	8	6.15	NA	NA	NA	NA	NA	NA	6.15	LPS	10	1	2	NA	10	0	2	NA	5	4	3	NA
+lathyrus	Lathyrus_gorgoni	1	2	1	2	0	18	52	8	75	45	127	51	5.91	0.95	0.09	15.24	0	2.03	8.33	5.42	LPS	10	0	2	NA	10	1	2	NA	5	4	4	NA
+lathyrus	Lathyrus_marmoratus	1	2	1	2	0	18	4	3	34	24	38	26	8.95	0.5	0	NA	0	1.38	7.31	5.88	LPS	10	0	2	NA	10	1	2	NA	5	4	4	NA
+lathyrus	Lathyrus_pseudocicera	1	2	1	2	0	18	12	5	82	70	94	74	8.72	0.81	0.15	4.84	1	0.56	10	6.43	LPS	10	0	3	NA	10	1	3	NA	5	4	4	NA
+lathyrus	Lathyrus_sativus	0	3	1	2	1	18	497	92	2884	127	3381	218	8.53	0.94	0.03	7.26	1	10	8	8.84	NFCR	10	0	7	NA	10	3	6	NA	5	3	4	NA
+lens	Lens_culinaris_subsp._odemensis	1	3	1	2	1	22	19	3	42	22	61	24	6.89	1	0	3.16	1	2.07	10	6.32	LPS	1	0	4	NA	1	0	2	NA	1	4	2	NA
+lens	Lens_culinaris_subsp._orientalis	1	3	1	2	1	22	399	150	208	92	607	240	3.43	0.98	0	1.9	1	2.58	10	5.34	LPS	1	0	2	NA	1	2	0	NA	4	4	2	NA
+lens	Lens_culinaris_subsp._tomentosus	1	3	3	2	0	24	1	1	6	3	7	3	8.57	0.5	0	NA	0	10	3.4	7.32	LPS	1	0	3	NA	1	0	2	NA	1	2	2	NA
+lens	Lens_ervoides	2	2	1	2	0	22	139	32	175	72	314	101	5.57	0.99	0	1.26	1	1.25	7.67	4.83	MPS	1	1	5	NA	1	2	7	NA	4	4	4	NA
+lens	Lens_nigricans	2	2	1	2	0	22	183	36	94	40	277	74	3.39	0.99	0	0	1	1.08	10	4.83	MPS	1	1	5	NA	1	2	7	NA	2	4	4	NA
+malus	Malus_baccata	3	2	1	1	2	26	241	33	126	9	367	39	3.43	0.89	0.05	4.54	1	0.12	2.74	2.1	HPS	6	3	NA	NA	6	2	NA	NA	3	4	NA	NA
+malus	Malus_baccata_var._baccata	3	2	2	1	2	28	60	1	4	1	64	1	0.63	NA	NA	NA	NA	NA	NA	0.63	HPS	6	3	NA	NA	6	2	NA	NA	3	4	NA	NA
+malus	Malus_baccata_var._daochengensis	3	2	2	1	2	28	3	3	0	0	3	3	0	0.5	0	NA	0	NA	0	0	HPS	2	3	NA	NA	1	2	NA	NA	5	4	NA	NA
+malus	Malus_baccata_var._jinxianensis	3	2	2	1	2	28	0	0	0	0	0	0	NA	NA	NA	NA	NA	NA	NA	0	HPS	2	3	NA	NA	1	2	NA	NA	5	4	NA	NA
+malus	Malus_baccata_var._xiaojinensis	3	2	2	1	1	26	0	0	0	0	0	0	NA	NA	NA	NA	NA	NA	NA	0	HPS	2	3	NA	NA	1	2	NA	NA	5	4	NA	NA
+malus	Malus_chitralensis	3	2	2	1	0	24	2	2	0	0	2	2	0	0.5	0	NA	0	NA	0	0	HPS	5	0	NA	NA	5	0	NA	NA	4	4	NA	NA
+malus	Malus_crescimannoi	3	2	2	1	0	24	0	0	0	0	0	0	NA	NA	NA	NA	NA	NA	NA	0	HPS	5	0	NA	NA	5	0	NA	NA	4	4	NA	NA
+malus	Malus_doumeri	3	1	1	1	2	24	50	5	1	1	51	5	0.2	0.8	0.16	61.24	0	0	0	0.07	HPS	1	1	NA	NA	2	0	NA	NA	5	4	NA	NA
+malus	Malus_floribunda	3	2	1	1	2	26	35	6	18	1	53	6	3.4	0.98	0.02	75.61	0	0	0	1.13	HPS	1	1	NA	NA	2	2	NA	NA	5	4	NA	NA
+malus	Malus_fusca	2	1	1	1	2	20	811	119	86	24	897	125	0.96	0.97	0.02	0.21	1	0.51	8.33	3.27	MPS	7	7	NA	NA	7	7	NA	NA	5	3	NA	NA
+malus	Malus_halliana	2	2	1	1	2	22	21	7	23	5	44	10	5.23	0.89	0.05	0.18	1	0.08	6.5	3.94	MPS	5	2	NA	NA	5	2	NA	NA	4	3	NA	NA
+malus	Malus_honanensis	2	2	2	1	2	24	9	1	5	1	14	1	3.57	NA	NA	NA	NA	NA	NA	3.57	MPS	4	2	NA	NA	4	3	NA	NA	3	4	NA	NA
+malus	Malus_hupehensis	2	2	1	1	2	22	150	29	161	8	311	29	5.18	0.97	0.01	0.17	1	0.13	5.5	3.6	MPS	3	3	NA	NA	3	2	NA	NA	2	4	NA	NA
+malus	Malus_kansuensis	3	2	1	1	0	22	59	9	37	4	96	9	3.85	0.92	0.13	71.94	0	0.07	3.83	2.59	HPS	2	2	NA	NA	2	3	NA	NA	4	4	NA	NA
+malus	Malus_komarovii	2	2	2	1	0	20	5	1	3	1	8	1	3.75	NA	NA	NA	NA	NA	NA	3.75	MPS	4	1	NA	NA	4	1	NA	NA	5	4	NA	NA
+malus	Malus_mandshurica	3	2	1	1	2	26	69	3	9	1	78	3	1.15	0.5	0	NA	0	NA	0	0.58	HPS	4	1	NA	NA	4	1	NA	NA	4	4	NA	NA
+malus	Malus_muliensis	3	2	2	1	0	24	0	0	0	0	0	0	NA	NA	NA	NA	NA	NA	NA	0	HPS	4	0	NA	NA	4	0	NA	NA	5	4	NA	NA
+malus	Malus_ombrophila	3	2	1	1	0	22	39	7	6	1	45	7	1.33	0.98	0.03	0.02	1	0	0	0.44	HPS	3	1	NA	NA	3	1	NA	NA	4	4	NA	NA
+malus	Malus_orientalis	1	3	1	1	0	16	279	53	1585	48	1864	76	8.5	0.99	0.01	0.26	1	1.06	10	6.52	LPS	7	6	NA	NA	7	5	NA	NA	5	4	NA	NA
+malus	Malus_prattii	3	2	1	1	0	22	186	12	29	5	215	12	1.35	0.98	0.01	0	1	0.15	4.3	1.93	HPS	3	3	NA	NA	3	2	NA	NA	4	4	NA	NA
+malus	Malus_prunifolia	3	2	1	1	2	26	255	19	94	1	349	19	2.69	0.95	0.06	16.36	0	0	0	0.9	HPS	6	3	NA	NA	6	2	NA	NA	4	4	NA	NA
+malus	Malus_pumila	3	2	1	1	2	26	2012	167	76	3	2088	169	0.36	0.97	0.01	0.87	1	0.45	7.5	2.77	HPS	10	9	NA	NA	10	9	NA	NA	2	2	NA	NA
+malus	Malus_sargentii	3	2	1	1	2	26	38	4	54	1	92	4	5.87	0.63	0.32	35.37	0	0	0	1.96	HPS	7	3	NA	NA	7	2	NA	NA	4	4	NA	NA
+malus	Malus_sieversii	1	3	2	1	2	22	3241	127	3043	92	6284	138	4.84	0.98	0.02	2.49	1	2.69	10	5.84	LPS	4	6	NA	NA	4	5	NA	NA	2	4	NA	NA
+malus	Malus_sikkimensis	3	2	1	1	2	26	43	6	35	1	78	6	4.49	0.96	0.04	5.89	1	0	0	1.5	HPS	3	2	NA	NA	3	2	NA	NA	5	4	NA	NA
+malus	Malus_spectabilis	3	2	2	1	0	24	67	2	18	1	85	2	2.12	NA	NA	NA	NA	NA	NA	2.12	HPS	3	2	NA	NA	3	1	NA	NA	5	4	NA	NA
+malus	Malus_sylvestris	3	3	2	1	2	30	4532	120	323	2	4855	120	0.67	0.96	0.01	2.01	1	0.03	2.35	1.01	HPS	8	3	NA	NA	8	1	NA	NA	2	4	NA	NA
+malus	Malus_toringo	2	2	1	1	2	22	209	22	332	7	541	26	6.14	0.94	0.04	6.16	1	0.14	4.5	3.59	MPS	4	4	NA	NA	4	3	NA	NA	3	4	NA	NA
+malus	Malus_toringoides	2	2	1	1	2	22	103	13	96	7	199	14	4.82	0.99	0.02	0.15	1	0.21	5.75	3.59	MPS	4	4	NA	NA	4	3	NA	NA	3	4	NA	NA
+malus	Malus_transitoria	2	2	2	1	2	24	112	5	149	3	261	5	5.71	0.74	0.43	90.51	0	1.94	3.06	3.57	MPS	4	3	NA	NA	4	1	NA	NA	3	4	NA	NA
+malus	Malus_tschonoskii	3	2	1	1	0	22	23	5	16	2	39	6	4.1	0.85	0.16	0.33	0	0.01	3.83	2.65	HPS	0	1	NA	NA	0	1	NA	NA	5	4	NA	NA
+malus	Malus_yunnanensis	3	2	1	1	2	26	78	17	58	2	136	17	4.26	0.97	0.04	21.84	0	0.11	4.58	2.99	HPS	1	1	NA	NA	1	2	NA	NA	5	4	NA	NA
+malus	Malus_zumi	1	2	1	1	0	14	21	2	14	2	35	3	4	0.5	0	NA	0	10	4.33	6.11	LPS	2	1	NA	NA	2	1	NA	NA	3	3	NA	NA
+medicago	Medicago_papillosa	3	2	1	1	0	22	40	15	14	9	54	21	2.59	0.95	0.06	17.39	0	0.17	5.75	2.84	HPS	2	5	NA	NA	4	5	NA	NA	4	4	NA	NA
+medicago	Medicago_papillosa_subsp._macrocarpa	3	2	2	1	0	24	1	1	0	0	1	1	0	NA	NA	NA	NA	NA	NA	0	HPS	1	4	NA	NA	3	4	NA	NA	5	4	NA	NA
+medicago	Medicago_papillosa_subsp._papillosa	3	2	2	1	0	24	5	2	0	0	5	2	0	NA	NA	NA	NA	NA	NA	0	HPS	2	6	NA	NA	4	6	NA	NA	4	4	NA	NA
+medicago	Medicago_prostrata	2	3	1	1	2	24	40	9	22	7	62	15	3.55	0.97	0.02	32.33	0	0.92	7.5	3.99	MPS	3	3	NA	NA	5	3	NA	NA	2	2	NA	NA
+medicago	Medicago_sativa_subsp._caerulea	1	2	1	1	2	18	62	15	94	59	156	73	6.03	0.97	0.03	0.77	1	1.17	10	5.73	LPS	4	8	NA	NA	1	8	NA	NA	2	4	NA	NA
+medicago	Medicago_sativa_subsp._falcata_var._falcata	3	3	2	1	2	30	0	0	0	0	0	0	NA	NA	NA	NA	NA	NA	NA	0	HPS	7	8	NA	NA	2	8	NA	NA	2	4	NA	NA
+medicago	Medicago_sativa_subsp._falcata_var._viscosa	3	3	2	1	2	30	0	0	0	0	0	0	NA	NA	NA	NA	NA	NA	NA	0	HPS	2	6	NA	NA	0	6	NA	NA	5	4	NA	NA
+medicago	Medicago_sativa_subsp._glomerata	2	3	1	1	2	24	19	8	23	4	42	11	5.48	0.67	0.23	0.02	0	0.01	5.61	3.7	MPS	3	8	NA	NA	0	8	NA	NA	4	3	NA	NA
+medicago	Medicago_sativa_subsp._hemicycla	3	2	2	1	0	24	0	0	0	0	0	0	NA	NA	NA	NA	NA	NA	NA	0	HPS	4	3	NA	NA	2	3	NA	NA	2	5	NA	NA
+medicago	Medicago_sativa_subsp._sativa	1	3	1	1	0	16	1023	213	923	354	1946	542	4.74	0.9	0.01	0.57	1	6.62	10	7.12	LPS	7	10	NA	NA	5	10	NA	NA	5	5	NA	NA
+medicago	Medicago_sativa_subsp._tunetana	3	2	2	1	0	24	0	0	0	0	0	0	NA	NA	NA	NA	NA	NA	NA	0	HPS	3	3	NA	NA	0	3	NA	NA	4	4	NA	NA
+medicago	Medicago_sativa_subsp._varia	3	3	2	1	0	26	0	0	0	0	0	0	NA	NA	NA	NA	NA	NA	NA	0	HPS	6	8	NA	NA	4	8	NA	NA	2	2	NA	NA
+medicago	Medicago_saxatilis	3	2	3	1	0	26	4	2	0	0	4	2	0	NA	NA	NA	NA	NA	NA	0	HPS	0	0	NA	NA	4	0	NA	NA	4	4	NA	NA
+#N/A	Musa_acuminata	3	3	2	3	2	38	90	14	1	1	91	14	0.11	0.94	0.03	10.18	0	0	0	0.04	HPS	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
+#N/A	Musa_balbisiana	3	3	2	3	2	38	22	6	0	0	22	6	0	0.89	0.06	11.63	0	0	0	0	HPS	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
+musa	Musa_flaviflora	3	2	2	3	0	32	0	0	0	0	0	0	NA	NA	NA	NA	NA	NA	NA	0	HPS	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
+musa	Musa_schizocarpa	2	2	1	3	0	26	39	6	11	3	50	8	2.2	0.94	0.02	11.75	0	0.43	8.5	3.71	MPS	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
+musa	Musa_textilis	3	2	1	3	0	30	154	21	4	1	158	21	0.25	0.97	0.03	0.63	1	0	0	0.08	HPS	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
+musa	Musa_yunnanensis	3	2	2	3	0	32	2	1	0	0	2	1	0	NA	NA	NA	NA	NA	NA	0	HPS	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
+rice	Oryza_alta	3	2	1	3	0	30	95	25	6	1	101	25	0.59	0.95	0.06	2.47	1	0	0	0.2	HPS	5	0	NA	NA	5	0	NA	NA	3	5	NA	NA
+rice	Oryza_australiensis	2	2	1	3	2	30	340	156	85	31	425	181	2	0.92	0.01	1.87	1	1.76	10	4.59	MPS	3	8	NA	NA	2	8	NA	NA	2	2	NA	NA
+rice	Oryza_barthii	1	3	1	3	0	24	325	44	623	157	948	198	6.57	0.92	0.03	3.82	1	3.79	10	6.79	LPS	1	3	NA	NA	1	1	NA	NA	1	2	NA	NA
+rice	Oryza_brachyantha	1	2	1	3	2	26	45	4	53	16	98	19	5.41	0.81	0.16	3.9	0	0.08	10	5.16	LPS	5	4	NA	NA	5	3	NA	NA	3	4	NA	NA
+rice	Oryza_eichingeri	2	2	1	3	0	26	121	19	73	33	194	47	3.76	0.98	0.01	10.98	0	0.21	10	4.66	MPS	5	5	NA	NA	5	5	NA	NA	3	3	NA	NA
+rice	Oryza_glaberrima	0	3	1	3	2	24	519	3	5398	356	5917	358	9.12	0.95	0.02	5.28	1	6.55	10	8.56	NFCR	2	NA	NA	NA	2	NA	NA	NA	2	NA	NA	NA
+rice	Oryza_glumipatula	2	3	1	3	2	32	68	11	28	3	96	11	2.92	0.95	0.04	2.67	1	0.17	6.2	3.1	MPS	1	3	NA	NA	2	1	NA	NA	1	2	NA	NA
+rice	Oryza_grandiglumis	3	2	1	3	2	34	58	16	21	8	79	22	2.66	0.8	0.08	0.59	1	0.07	3.72	2.15	HPS	5	1	NA	NA	5	1	NA	NA	2	5	NA	NA
+rice	Oryza_latifolia	3	2	1	3	0	30	403	184	108	45	511	210	2.11	0.94	0.02	2.95	1	0.51	4.98	2.54	HPS	5	1	NA	NA	5	1	NA	NA	2	5	NA	NA
+rice	Oryza_longistaminata	1	3	1	3	2	28	622	313	694	261	1316	567	5.27	0.91	0.01	1.07	1	3.91	9.3	6.16	LPS	2	2	NA	NA	3	1	NA	NA	2	2	NA	NA
+rice	Oryza_malampuzhaensis	3	2	2	3	0	32	0	0	0	0	0	0	NA	NA	NA	NA	NA	NA	NA	0	HPS	5	6	NA	NA	5	6	NA	NA	2	2	NA	NA
+rice	Oryza_meridionalis	3	3	1	3	0	32	239	109	38	1	277	109	1.37	0.97	0.01	2.1	1	0	0	0.46	HPS	1	6	NA	NA	1	5	NA	NA	5	3	NA	NA
+rice	Oryza_minuta	2	2	1	3	2	30	109	19	103	25	212	41	4.86	0.98	0.02	0.06	1	2.8	6.95	4.87	MPS	5	8	NA	NA	5	8	NA	NA	3	3	NA	NA
+rice	Oryza_nivara	1	3	1	3	2	28	1091	314	820	393	1911	644	4.29	0.95	0	0.21	1	7.43	9.7	7.14	LPS	1	6	NA	NA	1	5	NA	NA	2	3	NA	NA
+rice	Oryza_officinalis	1	2	1	3	2	26	344	85	495	152	839	189	5.9	0.96	0.01	0.5	1	2.04	7.18	5.04	LPS	5	5	NA	NA	5	5	NA	NA	3	5	NA	NA
+rice	Oryza_perennis_var._cubensis	3	1	2	3	0	30	0	0	0	0	0	0	NA	NA	NA	NA	NA	NA	NA	0	HPS	NA	NA	NA	NA	NA	NA	NA	NA	NA	1	NA	NA
+rice	Oryza_punctata	2	2	1	3	0	26	231	15	139	48	370	60	3.76	0.89	0.09	6.76	1	1.21	10	4.99	MPS	2	2	NA	NA	2	2	NA	NA	3	2	NA	NA
+rice	Oryza_rhizomatis	1	2	2	3	0	24	25	7	22	10	47	12	4.68	1	0	0	1	6.49	10	7.06	LPS	5	6	NA	NA	5	6	NA	NA	3	3	NA	NA
+rice	Oryza_ridleyi	2	1	1	3	2	28	43	4	36	14	79	17	4.56	0.94	0.02	3.19	1	0.32	6.75	3.87	MPS	5	5	NA	NA	5	5	NA	NA	3	4	NA	NA
+rice	Oryza_rufipogon	0	3	1	3	2	24	1011	233	3849	1512	4860	1681	7.92	0.95	0.01	0.66	1	6.91	10	8.28	NFCR	1	8	NA	NA	1	8	NA	NA	2	4	NA	NA
+rice	Oryza_schweinfurthiana	3	2	2	3	0	32	0	0	3	1	3	1	10	NA	NA	NA	NA	NA	NA	0	HPS	NA	2	NA	NA	NA	2	NA	NA	NA	4	NA	NA
+pennisetum	Pennisetum_glaucum_subsp._monodii	3	3	2	3	2	38	0	0	0	0	0	0	NA	NA	NA	NA	NA	NA	NA	0	HPS	4	4	NA	NA	4	NA	NA	NA	4	NA	NA	NA
+pennisetum	Pennisetum_orientale	3	1	1	3	0	28	261	75	53	16	314	88	1.69	0.94	0.03	1.99	1	0.15	3.68	1.84	HPS	8	8	NA	NA	8	NA	NA	NA	3	NA	NA	NA
+pennisetum	Pennisetum_purpureum	3	2	1	3	2	34	1058	242	91	25	1149	265	0.79	0.91	0.01	0.78	1	0.35	6.9	2.68	HPS	7	7	NA	NA	7	NA	NA	NA	4	NA	NA	NA
+pennisetum	Pennisetum_squamulatum	1	2	3	3	2	30	26	3	8	3	34	5	2.35	0.98	0.03	27.86	0	3.52	10	5.29	LPS	8	8	NA	NA	8	NA	NA	NA	3	NA	NA	NA
+pennisetum	Pennisetum_stenostachyum	3	3	2	3	0	34	0	0	0	0	0	0	NA	NA	NA	NA	NA	NA	NA	0	HPS	8	8	NA	NA	9	NA	NA	NA	3	NA	NA	NA
+bean	Phaseolus_albescens	3	2	2	2	0	28	11	9	0	0	11	9	0	0.99	0	0	1	0	0	0	HPS	0	2	NA	NA	0	2	NA	NA	4	NA	NA	NA
+lima_bean	Phaseolus_augusti	1	2	1	2	0	18	45	35	64	50	109	71	5.87	0.96	0.02	1.61	1	2.42	10	6.1	LPS	4	7	NA	NA	0	2	NA	NA	4	NA	NA	NA
+bean	Phaseolus_coccineus	1	2	1	2	2	22	1295	520	668	234	1963	698	3.4	0.95	0.01	0.04	1	6.06	10	6.49	LPS	7	4	NA	NA	10	1	NA	NA	4	NA	NA	NA
+bean	Phaseolus_costaricensis	1	2	2	2	2	24	59	41	7	6	66	44	1.06	1	0	0	1	7.05	10	6.04	LPS	0	6	NA	NA	0	2	NA	NA	4	NA	NA	NA
+bean	Phaseolus_dumosus	1	2	1	2	0	18	191	132	63	24	254	151	2.48	0.96	0.01	3.8	1	6.09	9.22	5.93	LPS	0	5	NA	NA	0	1	NA	NA	2	NA	NA	NA
+lima_bean	Phaseolus_longiplacentifer	3	2	2	2	0	28	1	1	0	0	1	1	0	NA	NA	NA	NA	NA	NA	0	HPS	0	NA	NA	NA	0	NA	NA	NA	4	NA	NA	NA
+lima_bean	Phaseolus_lunatus	1	1	1	2	0	16	1188	457	1184	357	2372	781	4.99	0.92	0.01	0.09	1	2.33	8.36	5.23	LPS	7	4	NA	NA	10	1	NA	NA	4	NA	NA	NA
+lima_bean	Phaseolus_mollis	3	2	2	2	0	28	8	1	0	0	8	1	0	NA	NA	NA	NA	NA	NA	0	HPS	0	1	NA	NA	0	3	NA	NA	4	NA	NA	NA
+lima_bean	Phaseolus_pachyrrhizoides	1	2	1	2	0	18	9	4	34	24	43	27	7.91	1	0.01	0.03	1	3.82	10	7.24	LPS	4	8	NA	NA	0	2	NA	NA	4	NA	NA	NA
+bean	Phaseolus_persistentus	3	2	3	2	0	30	2	2	0	0	2	2	0	0.5	0	NA	0	NA	0	0	HPS	0	NA	NA	NA	0	NA	NA	NA	4	NA	NA	NA
+bean	Phaseolus_vulgaris_var._aborigineus	0	1	1	2	2	16	317	38	1513	437	1830	473	8.27	0.95	0.01	1.86	1	8.79	10	9.02	NFCR	7	7	NA	NA	10	1	NA	NA	4	NA	NA	NA
+pisum	Pisum_abyssinicum	3	2	1	2	2	30	86	13	31	8	117	20	2.65	0.96	0.05	1.47	1	0.18	5.9	2.91	HPS	2	3	6	NA	0	3	6	NA	5	2	2	NA
+pisum	Pisum_fulvum	1	2	1	2	2	22	189	49	126	40	315	88	4	0.99	0	0	1	1.57	10	5.19	LPS	1	0	5	NA	1	0	4	NA	4	3	4	NA
+pisum	Pisum_sativum_subsp._elatius_var._brevipedunculatum	3	3	3	2	0	32	7	4	0	0	7	4	0	NA	NA	NA	NA	NA	NA	0	HPS	0	0	3	NA	2	0	4	NA	4	2	1	NA
+pisum	Pisum_sativum_subsp._elatius_var._elatius	3	3	2	2	0	30	2	1	0	0	2	1	0	NA	NA	NA	NA	NA	NA	0	HPS	0	0	1	NA	3	0	1	NA	4	2	1	NA
+pisum	Pisum_sativum_subsp._elatius_var._pumilo	3	3	2	2	0	30	0	0	0	0	0	0	NA	NA	NA	NA	NA	NA	NA	0	HPS	0	0	5	NA	2	0	4	NA	4	2	1	NA
+secale	Secale_cereale_subsp._afghanicum	3	3	2	1	0	26	40	2	14	1	54	2	2.59	NA	NA	NA	0	NA	NA	2.59	HPS	1	NA	NA	NA	1	NA	NA	NA	4	NA	NA	NA
+secale	Secale_cereale_subsp._ancestrale	3	3	1	1	0	24	22	11	11	1	33	11	3.33	0.95	0.05	0.63	1	0	0	1.11	HPS	1	NA	NA	NA	1	NA	NA	NA	4	NA	NA	NA
+secale	Secale_cereale_subsp._dighoricum	1	3	2	1	0	18	4	1	5	1	9	1	5.56	NA	NA	NA	NA	NA	NA	5.56	LPS	1	NA	NA	NA	1	NA	NA	NA	4	NA	NA	NA
+secale	Secale_cereale_subsp._segetale	2	3	1	1	0	20	56	27	51	3	107	29	4.77	0.99	0.01	4.61	1	0.26	8.5	4.51	MPS	3	NA	NA	NA	2	NA	NA	NA	4	NA	NA	NA
+potato	Solanum_acaule	0	3	1	3	2	24	3162	744	1749	476	4911	1122	3.56	0.95	0	0	1	10	10	7.85	NFCR	10	10	NA	NA	10	NA	NA	NA	5	NA	NA	NA
+potato	Solanum_acroglossum	3	2	2	3	0	32	41	13	3	3	44	15	0.68	0.93	0.1	17.99	0	3.94	4.13	2.92	HPS	3	0	NA	NA	3	NA	NA	NA	5	NA	NA	NA
+potato	Solanum_acroscopicum	2	2	1	3	0	26	63	19	14	5	77	22	1.82	0.98	0.04	0.78	1	0.46	7.4	3.23	MPS	7	2	NA	NA	3	NA	NA	NA	5	NA	NA	NA
+eggplant	Solanum_aculeatissimum	2	2	1	2	0	22	124	42	65	10	189	51	3.44	0.96	0.04	0.2	1	0.29	6.67	3.46	MPS	3	NA	NA	NA	4	NA	NA	NA	1	NA	NA	NA
+eggplant	Solanum_adoense	3	2	1	2	0	26	52	4	0	0	52	4	0	0.89	0.15	18.96	0	0	0	0	HPS	1	NA	NA	NA	0	NA	NA	NA	4	NA	NA	NA
+eggplant	Solanum_aethiopicum	2	1	1	2	2	24	225	51	395	48	620	90	6.37	0.91	0.04	3.34	1	0.2	5.18	3.92	MPS	5	NA	NA	NA	4	NA	NA	NA	4	NA	NA	NA
+eggplant	Solanum_agnewiorum	3	2	2	2	0	28	12	1	0	0	12	1	0	NA	NA	NA	NA	NA	NA	0	HPS	1	NA	NA	NA	0	NA	NA	NA	4	NA	NA	NA
+potato	Solanum_agrimonifolium	2	2	1	3	0	26	392	123	27	13	419	132	0.64	0.98	0.01	0.48	1	2.65	7.7	3.66	MPS	9	9	NA	NA	9	NA	NA	NA	3	NA	NA	NA
+potato	Solanum_albicans	1	2	1	3	0	22	214	43	77	24	291	61	2.65	0.99	0	0.07	1	2.69	10	5.11	LPS	10	10	NA	NA	10	NA	NA	NA	5	NA	NA	NA
+potato	Solanum_albornozii	1	2	3	3	0	26	26	7	8	7	34	10	2.35	0.99	0.03	39.37	0	10	10	7.45	LPS	6	0	NA	NA	6	NA	NA	NA	1	NA	NA	NA
+eggplant	Solanum_aldabrense	3	2	2	2	0	28	33	2	2	2	35	3	0.57	NA	NA	NA	NA	NA	NA	0.57	HPS	1	NA	NA	NA	0	NA	NA	NA	4	NA	NA	NA
+potato	Solanum_andreanum	2	2	1	3	0	26	451	212	89	46	540	247	1.65	0.99	0	1.03	1	3.87	7.86	4.46	MPS	10	3	NA	NA	9	NA	NA	NA	4	NA	NA	NA
+eggplant	Solanum_anguivi	3	2	1	2	0	26	998	136	146	9	1144	144	1.28	0.92	0.03	2.5	1	0.12	6.7	2.7	HPS	5	NA	NA	NA	4	NA	NA	NA	4	NA	NA	NA
+eggplant	Solanum_anomalum	3	2	1	2	0	26	70	6	1	1	71	6	0.14	0.77	0.2	60.69	0	0	0	0.05	HPS	4	NA	NA	NA	1	NA	NA	NA	4	NA	NA	NA
+eggplant	Solanum_asperolanatum	3	2	1	2	0	26	555	209	4	2	559	210	0.07	0.97	0.01	1.29	1	0.08	6.45	2.2	HPS	3	NA	NA	NA	3	NA	NA	NA	4	NA	NA	NA
+eggplant	Solanum_aureitomentosum	3	2	2	2	0	28	25	2	0	0	25	2	0	NA	NA	NA	NA	NA	NA	0	HPS	1	NA	NA	NA	0	NA	NA	NA	4	NA	NA	NA
+potato	Solanum_ayacuchense	3	2	3	3	0	34	5	4	0	0	5	4	0	0.92	0.14	80.08	0	0	0	0	HPS	0	0	NA	NA	0	NA	NA	NA	5	NA	NA	NA
+potato	Solanum_berthaultii	1	3	1	3	2	28	968	286	355	117	1323	359	2.68	0.97	0.01	0.29	1	6.54	10	6.41	LPS	10	10	NA	NA	10	NA	NA	NA	2	NA	NA	NA
+potato	Solanum_boliviense	1	2	1	3	0	22	2056	633	537	201	2593	766	2.07	0.96	0.01	0	1	7.76	10	6.61	LPS	9	10	NA	NA	10	NA	NA	NA	2	NA	NA	NA
+potato	Solanum_bombycinum	3	2	3	3	0	34	7	5	0	0	7	5	0	0.98	0.01	0.12	1	0	0	0	HPS	0	10	NA	NA	0	NA	NA	NA	5	NA	NA	NA
+potato	Solanum_brevicaule	1	3	1	3	0	24	5191	1425	1304	420	6495	1699	2.01	0.93	0	0	1	10	10	7.34	LPS	10	10	NA	NA	10	NA	NA	NA	2	NA	NA	NA
+potato	Solanum_buesii	3	2	2	3	0	32	41	22	2	2	43	22	0.47	0.99	0.01	0	1	0.32	6.8	2.53	HPS	5	0	NA	NA	5	NA	NA	NA	4	NA	NA	NA
+potato	Solanum_bulbocastanum	1	1	1	2	2	20	1115	402	153	48	1268	420	1.21	0.98	0	1.12	1	4.68	10	5.3	LPS	8	10	NA	NA	3	NA	NA	NA	4	NA	NA	NA
+eggplant	Solanum_burchellii	3	1	2	2	0	26	40	5	4	1	44	5	0.91	0.84	0.24	15.77	0	0	0	0.3	HPS	1	NA	NA	NA	0	NA	NA	NA	4	NA	NA	NA
+potato	Solanum_burkartii	3	2	3	3	0	34	14	7	2	1	16	7	1.25	1	0	1.06	1	0	0	0.42	HPS	3	0	NA	NA	3	NA	NA	NA	4	NA	NA	NA
+potato	Solanum_cajamarquense	3	2	2	3	0	32	52	22	8	3	60	24	1.33	0.98	0.03	0.57	1	0.47	4.8	2.2	HPS	9	0	NA	NA	0	NA	NA	NA	4	NA	NA	NA
+eggplant	Solanum_campylacanthum	3	2	1	2	0	26	1043	35	65	2	1108	36	0.59	0.93	0.05	13.1	0	0.02	4	1.54	HPS	5	NA	NA	NA	4	NA	NA	NA	4	NA	NA	NA
+potato	Solanum_candolleanum	1	3	1	3	0	24	2042	817	535	175	2577	939	2.08	0.96	0	0.57	1	9.6	10	7.23	LPS	10	10	NA	NA	10	NA	NA	NA	4	NA	NA	NA
+potato	Solanum_cantense	3	2	2	3	0	32	84	44	3	2	87	44	0.34	1	0	0	1	0.56	5.8	2.24	HPS	10	0	NA	NA	3	NA	NA	NA	4	NA	NA	NA
+eggplant	Solanum_capense	3	1	1	2	0	24	67	11	22	1	89	11	2.47	0.94	0.04	3.9	1	0	0	0.82	HPS	1	NA	NA	NA	1	NA	NA	NA	4	NA	NA	NA
+eggplant	Solanum_catombelense	3	1	1	2	0	24	99	12	10	4	109	15	0.92	0.93	0.08	5.66	1	0.08	3.55	1.52	HPS	1	NA	NA	NA	0	NA	NA	NA	4	NA	NA	NA
+eggplant	Solanum_cerasiferum	3	1	1	2	0	24	56	8	5	1	61	8	0.82	0.6	0.15	1.62	0	0	0	0.27	HPS	1	NA	NA	NA	0	NA	NA	NA	4	NA	NA	NA
+potato	Solanum_chacoense	2	2	1	3	2	30	3061	1067	555	116	3616	1149	1.53	0.94	0.01	0.1	1	1.85	8	3.8	MPS	10	10	NA	NA	3	NA	NA	NA	4	NA	NA	NA
+potato	Solanum_chilliasense	1	2	2	3	0	24	14	6	5	2	19	7	2.63	0.84	0.25	91.45	0	10	6.8	6.48	LPS	2	0	NA	NA	3	NA	NA	NA	4	NA	NA	NA
+potato	Solanum_chiquidenum	2	2	1	3	0	26	179	83	14	10	193	92	0.73	0.99	0.01	0	1	1.17	8	3.3	MPS	10	2	NA	NA	3	NA	NA	NA	4	NA	NA	NA
+potato	Solanum_chomatophilum	1	2	1	3	0	22	680	247	99	30	779	269	1.27	0.98	0.01	0.69	1	4.1	10	5.12	LPS	10	6	NA	NA	10	NA	NA	NA	2	NA	NA	NA
+potato	Solanum_clarum	2	2	2	3	0	28	275	94	6	4	281	95	0.21	0.99	0.01	0	1	3.3	10	4.51	MPS	0	2	NA	NA	0	NA	NA	NA	4	NA	NA	NA
+potato	Solanum_coelestipetalum	2	3	1	3	0	28	87	26	40	15	127	38	3.15	0.99	0.02	0.26	1	1.96	9.25	4.79	MPS	10	NA	NA	NA	10	NA	NA	NA	2	NA	NA	NA
+potato	Solanum_colombianum	1	2	1	3	0	22	1111	437	183	80	1294	475	1.41	0.97	0	0.16	1	5.13	10	5.52	LPS	10	10	NA	NA	10	NA	NA	NA	2	NA	NA	NA
+potato	Solanum_commersonii	2	0	1	2	1	20	681	267	90	15	771	278	1.17	0.97	0	0.12	1	0.9	8.25	3.44	MPS	10	9	NA	NA	10	NA	NA	NA	2	NA	NA	NA
+potato	Solanum_contumazaense	3	2	3	3	0	34	17	9	2	1	19	9	1.05	1	0	1.26	1	0	0	0.35	HPS	2	0	NA	NA	3	NA	NA	NA	4	NA	NA	NA
+eggplant	Solanum_cumingii	3	3	1	2	0	28	13	6	0	0	13	6	0	0.96	0.04	6.58	1	0	0	0	HPS	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
+eggplant	Solanum_cyaneopurpureum	3	1	2	2	0	26	34	2	1	1	35	2	0.29	NA	NA	NA	NA	NA	NA	0.29	HPS	0	NA	NA	NA	0	NA	NA	NA	4	NA	NA	NA
+eggplant	Solanum_dasyphyllum	3	1	1	2	0	24	227	18	36	3	263	20	1.37	0.81	0.2	31.39	0	0.01	2.02	1.14	HPS	1	NA	NA	NA	1	NA	NA	NA	4	NA	NA	NA
+eggplant	Solanum_deflexicarpum	3	2	2	2	0	28	3	2	0	0	3	2	0	NA	NA	NA	NA	NA	NA	0	HPS	0	NA	NA	NA	0	NA	NA	NA	4	NA	NA	NA
+potato	Solanum_demissum	1	2	1	3	2	26	1937	573	539	102	2476	601	2.18	0.97	0	1.51	1	6.59	10	6.25	LPS	10	10	NA	NA	10	NA	NA	NA	2	NA	NA	NA
+potato	Solanum_flahaultii	2	2	1	3	0	26	121	43	28	8	149	47	1.88	0.97	0.03	0.81	1	1.12	6.09	3.03	MPS	10	3	NA	NA	3	NA	NA	NA	4	NA	NA	NA
+potato	Solanum_flavoviridens	3	2	3	3	0	34	4	2	0	0	4	2	0	0.5	0	NA	0	NA	0	0	HPS	0	NA	NA	NA	0	NA	NA	NA	5	NA	NA	NA
+potato	Solanum_gandarillasii	2	2	1	3	0	26	55	28	16	6	71	33	2.25	0.95	0.07	0.76	1	2.2	7.51	3.99	MPS	2	3	NA	NA	3	NA	NA	NA	4	NA	NA	NA
+potato	Solanum_garcia-barrigae	3	2	2	2	0	28	21	10	2	2	23	11	0.87	0.98	0.03	0.61	1	0.41	6.13	2.47	HPS	1	0	NA	NA	1	NA	NA	NA	4	NA	NA	NA
+eggplant	Solanum_glabratum	3	2	2	2	0	28	101	10	0	0	101	10	0	0.93	0.05	11.62	0	0	0	0	HPS	1	NA	NA	NA	1	NA	NA	NA	4	NA	NA	NA
+potato	Solanum_gracilifrons	3	2	3	3	0	34	17	6	0	0	17	6	0	1	0	0	1	0	0	0	HPS	1	0	NA	NA	0	NA	NA	NA	5	NA	NA	NA
+eggplant	Solanum_grandiflorum	3	2	1	2	0	26	138	50	0	0	138	50	0	0.94	0.06	3.98	1	0	0	0	HPS	1	NA	NA	NA	1	NA	NA	NA	4	NA	NA	NA
+potato	Solanum_guerreroense	1	2	3	3	0	26	8	3	9	2	17	3	5.29	0.5	0	NA	0	10	3.91	6.4	LPS	5	4	NA	NA	3	NA	NA	NA	4	NA	NA	NA
+eggplant	Solanum_hastifolium	3	1	2	2	0	26	137	6	2	1	139	6	0.14	0.89	0.14	17.67	0	0	0	0.05	HPS	1	NA	NA	NA	0	NA	NA	NA	4	NA	NA	NA
+potato	Solanum_hastiforme	3	2	2	3	0	32	40	21	0	0	40	21	0	1	0	0	1	0	0	0	HPS	10	0	NA	NA	3	NA	NA	NA	4	NA	NA	NA
+potato	Solanum_hintonii	3	2	1	3	0	30	41	18	0	0	41	18	0	0.99	0.01	0.01	1	0	0	0	HPS	0	0	NA	NA	0	NA	NA	NA	4	NA	NA	NA
+potato	Solanum_hjertingii	3	2	1	3	0	30	181	68	38	10	219	71	1.74	0.98	0.02	1.16	1	1.55	3.75	2.34	HPS	3	5	NA	NA	3	NA	NA	NA	4	NA	NA	NA
+potato	Solanum_hougasii	2	2	1	3	1	28	194	81	27	10	221	82	1.22	0.98	0.03	1.12	1	1.56	8.6	3.79	MPS	3	4	NA	NA	3	NA	NA	NA	4	NA	NA	NA
+eggplant	Solanum_hovei	3	2	2	2	0	28	9	1	0	0	9	1	0	NA	NA	NA	NA	NA	NA	0	HPS	0	NA	NA	NA	0	NA	NA	NA	1	NA	NA	NA
+potato	Solanum_huancabambense	1	2	2	3	0	24	42	19	18	7	60	23	3	0.99	0.02	25.86	0	10	7.2	6.73	LPS	10	2	NA	NA	10	NA	NA	NA	2	NA	NA	NA
+eggplant	Solanum_humile	2	1	1	2	0	20	57	5	19	3	76	7	2.5	0.65	0.26	1.79	0	0.02	10	4.17	MPS	1	NA	NA	NA	0	NA	NA	NA	4	NA	NA	NA
+eggplant	Solanum_inaequiradians	3	2	2	2	0	28	11	1	0	0	11	1	0	NA	NA	NA	NA	NA	NA	0	HPS	0	NA	NA	NA	0	NA	NA	NA	4	NA	NA	NA
+eggplant	Solanum_incanum	2	2	1	2	2	26	349	41	137	18	486	58	2.82	0.79	0.07	9.71	1	0.33	10	4.38	MPS	0	NA	NA	NA	2	NA	NA	NA	4	NA	NA	NA
+potato	Solanum_incasicum	3	2	3	3	0	34	5	2	0	0	5	2	0	0.5	0	NA	0	NA	0	0	HPS	3	0	NA	NA	3	NA	NA	NA	4	NA	NA	NA
+potato	Solanum_infundibuliforme	1	3	1	3	0	24	858	261	206	109	1064	346	1.94	0.98	0.01	1.32	1	4.6	10	5.51	LPS	10	10	NA	NA	3	NA	NA	NA	4	NA	NA	NA
+eggplant	Solanum_insanum	3	3	2	2	0	30	71	1	9	1	80	1	1.13	NA	NA	NA	NA	NA	NA	1.13	HPS	2	NA	NA	NA	4	NA	NA	NA	4	NA	NA	NA
+potato	Solanum_iopetalum	2	2	1	3	0	26	696	334	127	51	823	348	1.54	0.98	0.01	2.22	1	3.89	8.75	4.73	MPS	10	9	NA	NA	10	NA	NA	NA	2	NA	NA	NA
+potato	Solanum_kurtzianum	1	2	1	3	2	26	858	265	200	29	1058	280	1.89	0.98	0	0.43	1	3.66	10	5.18	LPS	3	10	NA	NA	3	NA	NA	NA	4	NA	NA	NA
+eggplant	Solanum_lamprocarpum	3	1	2	2	0	26	10	2	1	1	11	2	0.91	NA	NA	NA	NA	NA	NA	0.91	HPS	0	NA	NA	NA	0	NA	NA	NA	4	NA	NA	NA
+potato	Solanum_laxissimum	2	2	1	3	0	26	114	62	19	5	133	66	1.43	0.99	0.01	0	1	0.67	8.7	3.6	MPS	3	2	NA	NA	3	NA	NA	NA	4	NA	NA	NA
+potato	Solanum_lesteri	2	2	1	3	0	26	24	12	10	7	34	17	2.94	0.96	0.08	31.74	0	1.21	7.25	3.8	MPS	3	4	NA	NA	3	NA	NA	NA	4	NA	NA	NA
+eggplant	Solanum_lichtensteinii	3	1	1	2	0	24	103	14	16	2	119	15	1.34	0.93	0.02	0	1	0.04	4.25	1.88	HPS	0	NA	NA	NA	0	NA	NA	NA	4	NA	NA	NA
+eggplant	Solanum_lidii	0	2	3	2	0	18	9	2	15	3	24	4	6.25	1	0	0	1	10	10	8.75	NFCR	2	NA	NA	NA	2	NA	NA	NA	4	NA	NA	NA
+potato	Solanum_limbaniense	3	2	2	3	0	32	37	18	2	1	39	18	0.51	0.99	0.02	31.42	0	0	0	0.17	HPS	8	0	NA	NA	3	NA	NA	NA	4	NA	NA	NA
+eggplant	Solanum_linnaeanum	2	2	1	2	0	22	3409	146	77	7	3486	152	0.22	0.98	0.01	0.08	1	1.72	7.2	3.05	MPS	4	NA	NA	NA	4	NA	NA	NA	4	NA	NA	NA
+eggplant	Solanum_litoraneum	3	2	2	2	0	28	9	3	0	0	9	3	0	0.5	0	NA	0	NA	0	0	HPS	1	NA	NA	NA	0	NA	NA	NA	4	NA	NA	NA
+potato	Solanum_lobbianum	3	2	2	3	0	32	0	0	0	0	0	0	NA	NA	NA	NA	NA	NA	NA	0	HPS	3	0	NA	NA	3	NA	NA	NA	4	NA	NA	NA
+potato	Solanum_longiconicum	1	2	2	3	0	24	545	201	11	10	556	208	0.2	0.99	0	0	1	10	10	6.73	LPS	10	2	NA	NA	10	NA	NA	NA	2	NA	NA	NA
+eggplant	Solanum_macracanthum	3	2	1	2	0	26	24	8	0	0	24	8	0	0.92	0.17	96.04	0	0	0	0	HPS	1	NA	NA	NA	1	NA	NA	NA	4	NA	NA	NA
+eggplant	Solanum_macrocarpon	2	1	1	2	2	24	77	19	114	5	191	23	5.97	0.87	0.07	9.18	1	0.03	3.46	3.15	MPS	4	NA	NA	NA	4	NA	NA	NA	4	NA	NA	NA
+potato	Solanum_maglia	3	2	1	3	0	30	288	60	9	4	297	62	0.3	0.99	0.01	0.58	1	0.16	3.53	1.33	HPS	3	0	NA	NA	3	NA	NA	NA	4	NA	NA	NA
+eggplant	Solanum_malindiense	3	2	3	2	0	30	18	3	0	0	18	3	0	0.5	0	NA	0	NA	0	0	HPS	0	NA	NA	NA	0	NA	NA	NA	4	NA	NA	NA
+eggplant	Solanum_marginatum	3	2	1	2	1	28	101	41	12	2	113	42	1.06	0.96	0	1.78	1	0.04	4.7	1.93	HPS	3	NA	NA	NA	3	NA	NA	NA	4	NA	NA	NA
+potato	Solanum_marinasense	2	3	1	3	0	28	144	42	47	22	191	61	2.46	0.98	0.03	1.3	1	2.29	10	4.92	MPS	10	3	NA	NA	10	NA	NA	NA	2	NA	NA	NA
+eggplant	Solanum_mauense	3	2	2	2	0	28	48	2	2	1	50	2	0.4	NA	NA	NA	NA	NA	NA	0.4	HPS	0	NA	NA	NA	0	NA	NA	NA	4	NA	NA	NA
+potato	Solanum_medians	2	2	1	3	0	26	784	227	61	13	845	237	0.72	0.99	0	1.3	1	2.06	10	4.26	MPS	10	7	NA	NA	10	NA	NA	NA	2	NA	NA	NA
+potato	Solanum_microdontum	1	2	1	3	0	22	1404	361	351	90	1755	424	2	0.97	0.01	0.6	1	5.66	10	5.89	LPS	10	10	NA	NA	10	NA	NA	NA	4	NA	NA	NA
+potato	Solanum_morelliforme	1	2	1	3	0	22	401	142	45	19	446	150	1.01	0.98	0.01	2.86	1	4.4	10	5.14	LPS	3	0	NA	NA	3	NA	NA	NA	4	NA	NA	NA
+eggplant	Solanum_multiflorum	3	2	2	2	0	28	0	0	0	0	0	0	NA	NA	NA	NA	NA	NA	NA	0	HPS	0	NA	NA	NA	0	NA	NA	NA	4	NA	NA	NA
+potato	Solanum_multiinterruptum	1	2	1	3	0	22	401	145	61	20	462	161	1.32	0.99	0.01	0.15	1	5.45	10	5.59	LPS	10	3	NA	NA	10	NA	NA	NA	2	NA	NA	NA
+potato	Solanum_neocardenasii	2	2	1	3	0	26	24	16	8	4	32	17	2.5	0.96	0.03	9.39	1	0.24	6.75	3.16	MPS	3	0	NA	NA	3	NA	NA	NA	4	NA	NA	NA
+potato	Solanum_neorossii	2	2	2	3	0	28	100	32	25	10	125	40	2	1	0	0	1	2.23	10	4.74	MPS	3	1	NA	NA	3	NA	NA	NA	4	NA	NA	NA
+potato	Solanum_neovavilovii	3	2	3	3	0	34	18	9	1	1	19	9	0.53	0.99	0	0	1	0	0	0.18	HPS	0	0	NA	NA	0	NA	NA	NA	5	NA	NA	NA
+eggplant	Solanum_nigriviolaceum	3	1	3	2	0	28	33	4	4	1	37	4	1.08	1	0.01	29.73	0	0	0	0.36	HPS	0	NA	NA	NA	0	NA	NA	NA	4	NA	NA	NA
+potato	Solanum_nubicola	3	2	2	3	0	32	20	10	0	0	20	10	0	0.95	0.11	81.01	0	0	0	0	HPS	3	0	NA	NA	3	NA	NA	NA	4	NA	NA	NA
+potato	Solanum_okadae	3	3	1	3	0	32	158	51	61	20	219	64	2.79	0.98	0.02	0.33	1	1.43	4.5	2.91	HPS	9	3	NA	NA	10	NA	NA	NA	2	NA	NA	NA
+potato	Solanum_olmosense	3	2	1	3	0	30	24	13	0	0	24	13	0	0.92	0.12	39.76	0	0	0	0	HPS	0	0	NA	NA	0	NA	NA	NA	5	NA	NA	NA
+potato	Solanum_ortegae	3	3	2	3	0	34	2	1	0	0	2	1	0	NA	NA	NA	NA	NA	NA	0	HPS	0	NA	NA	NA	0	NA	NA	NA	5	NA	NA	NA
+potato	Solanum_oxycarpum	2	2	1	3	0	26	216	80	52	20	268	91	1.94	0.98	0.02	0.14	1	2.33	10	4.76	MPS	10	6	NA	NA	5	NA	NA	NA	4	NA	NA	NA
+potato	Solanum_palustre	0	1	1	2	2	16	90	15	167	73	257	87	6.5	1	0	0	1	7.41	10	7.97	NFCR	3	10	NA	NA	3	NA	NA	NA	4	NA	NA	NA
+potato	Solanum_paucissectum	1	2	3	3	0	26	48	12	16	5	64	16	2.5	1	0	13.56	0	10	6.5	6.33	LPS	10	0	NA	NA	10	NA	NA	NA	4	NA	NA	NA
+potato	Solanum_pillahuatense	2	2	2	3	0	28	17	11	1	1	18	12	0.56	0.98	0.02	0.78	1	0.15	10	3.57	MPS	3	0	NA	NA	3	NA	NA	NA	4	NA	NA	NA
+potato	Solanum_piurae	3	2	1	3	0	30	72	26	9	4	81	27	1.11	0.99	0.01	3.69	1	0.91	6.5	2.84	HPS	3	0	NA	NA	3	NA	NA	NA	4	NA	NA	NA
+eggplant	Solanum_platacanthum	3	2	2	2	0	28	16	1	1	1	17	1	0.59	NA	NA	NA	NA	NA	NA	0.59	HPS	0	NA	NA	NA	0	NA	NA	NA	4	NA	NA	NA
+eggplant	Solanum_polhillii	3	2	3	2	0	30	56	4	0	0	56	4	0	1	0	33.79	0	NA	0	0	HPS	0	NA	NA	NA	0	NA	NA	NA	4	NA	NA	NA
+potato	Solanum_polyadenium	2	2	1	3	0	26	276	106	83	12	359	107	2.31	0.99	0.01	1.02	1	1.57	6.54	3.47	MPS	8	6	NA	NA	8	NA	NA	NA	4	NA	NA	NA
+potato	Solanum_raphanifolium	1	2	1	3	2	26	446	141	166	44	612	165	2.71	0.98	0.02	2.91	1	4.59	10	5.77	LPS	10	9	NA	NA	10	NA	NA	NA	2	NA	NA	NA
+potato	Solanum_rhomboideilanceolatum	3	2	2	3	0	32	45	22	2	1	47	22	0.43	1	0	0.68	1	0.39	7.1	2.64	HPS	0	0	NA	NA	0	NA	NA	NA	5	NA	NA	NA
+eggplant	Solanum_richardii	3	1	1	2	0	24	112	8	2	1	114	8	0.18	0.95	0.03	0.36	1	0	0	0.06	HPS	0	NA	NA	NA	0	NA	NA	NA	4	NA	NA	NA
+eggplant	Solanum_rubetorum	3	2	2	2	0	28	43	2	9	1	52	2	1.73	NA	NA	NA	NA	NA	NA	1.73	HPS	0	NA	NA	NA	0	NA	NA	NA	4	NA	NA	NA
+eggplant	Solanum_ruvu	3	2	3	2	0	30	1	1	0	0	1	1	0	NA	NA	NA	NA	NA	NA	0	HPS	0	NA	NA	NA	0	NA	NA	NA	1	NA	NA	NA
+potato	Solanum_salasianum	3	2	3	3	0	34	6	2	0	0	6	2	0	0.5	0	NA	0	NA	0	0	HPS	0	0	NA	NA	0	NA	NA	NA	5	NA	NA	NA
+potato	Solanum_schenckii	2	2	1	3	0	26	124	44	41	12	165	48	2.48	0.95	0.05	2.19	1	1.27	8.07	3.94	MPS	3	9	NA	NA	3	NA	NA	NA	4	NA	NA	NA
+eggplant	Solanum_setaceum	3	2	2	2	0	28	38	2	0	0	38	2	0	NA	NA	NA	NA	NA	NA	0	HPS	0	NA	NA	NA	0	NA	NA	NA	4	NA	NA	NA
+eggplant	Solanum_sisymbriifolium	2	1	1	2	2	24	1968	234	97	12	2065	244	0.47	0.94	0.01	0.3	1	0.18	10	3.55	MPS	3	NA	NA	NA	4	NA	NA	NA	4	NA	NA	NA
+eggplant	Solanum_sodomeodes	3	2	2	2	0	28	25	2	0	0	25	2	0	NA	NA	NA	NA	NA	NA	0	HPS	1	NA	NA	NA	0	NA	NA	NA	4	NA	NA	NA
+potato	Solanum_sogarandinum	3	2	2	3	0	32	106	50	17	4	123	52	1.38	0.99	0.01	0	1	0.95	6.45	2.93	HPS	10	0	NA	NA	10	NA	NA	NA	4	NA	NA	NA
+eggplant	Solanum_stipitatostellatum	3	2	2	2	0	28	52	2	0	0	52	2	0	NA	NA	NA	NA	NA	NA	0	HPS	1	NA	NA	NA	0	NA	NA	NA	4	NA	NA	NA
+potato	Solanum_stoloniferum	0	2	1	3	2	22	4061	1520	1443	290	5504	1693	2.62	0.93	0	0.02	1	10	10	7.54	NFCR	10	10	NA	NA	10	NA	NA	NA	4	NA	NA	NA
+eggplant	Solanum_supinum	3	1	2	2	0	26	28	3	6	1	34	3	1.76	0.5	0	NA	0	NA	0	0.88	HPS	1	NA	NA	NA	0	NA	NA	NA	4	NA	NA	NA
+eggplant	Solanum_taitense	3	2	2	2	0	28	39	1	0	0	39	1	0	NA	NA	NA	NA	NA	NA	0	HPS	1	NA	NA	NA	0	NA	NA	NA	4	NA	NA	NA
+potato	Solanum_tarnii	2	1	2	2	2	26	78	33	42	9	120	38	3.5	0.99	0.01	0.39	1	1.33	6.52	3.78	MPS	3	2	NA	NA	3	NA	NA	NA	4	NA	NA	NA
+potato	Solanum_taulisense	3	2	3	3	0	34	5	3	0	0	5	3	0	0.5	0	NA	0	NA	0	0	HPS	0	NA	NA	NA	0	NA	NA	NA	5	NA	NA	NA
+eggplant	Solanum_tomentosum	3	2	1	2	0	26	65	6	33	2	98	7	3.37	0.76	0.12	0	1	0.1	3.83	2.43	HPS	1	NA	NA	NA	3	NA	NA	NA	4	NA	NA	NA
+eggplant	Solanum_torreanum	3	2	3	2	0	30	17	3	1	1	18	3	0.56	0.5	0	NA	0	NA	0	0.28	HPS	1	NA	NA	NA	0	NA	NA	NA	4	NA	NA	NA
+eggplant	Solanum_torvum	2	1	1	2	2	24	2594	411	157	33	2751	443	0.57	0.93	0.01	0.27	1	0.64	9.18	3.46	MPS	1	NA	NA	NA	4	NA	NA	NA	4	NA	NA	NA
+eggplant	Solanum_umtuma	3	2	2	2	0	28	19	1	0	0	19	1	0	NA	NA	NA	NA	NA	NA	0	HPS	0	NA	NA	NA	0	NA	NA	NA	4	NA	NA	NA
+eggplant	Solanum_usambarense	3	2	2	2	0	28	43	2	0	0	43	2	0	NA	NA	NA	NA	NA	NA	0	HPS	1	NA	NA	NA	0	NA	NA	NA	4	NA	NA	NA
+eggplant	Solanum_usaramense	3	2	2	2	0	28	17	1	0	0	17	1	0	NA	NA	NA	NA	NA	NA	0	HPS	1	NA	NA	NA	0	NA	NA	NA	4	NA	NA	NA
+potato	Solanum_venturii	3	2	1	3	0	30	189	63	29	6	218	68	1.33	0.98	0.01	0	1	0.45	0	0.59	HPS	3	0	NA	NA	3	NA	NA	NA	4	NA	NA	NA
+potato	Solanum_vernei	2	1	1	3	1	26	493	126	211	37	704	154	3	0.99	0	1.01	1	1.95	10	4.98	MPS	10	9	NA	NA	9	NA	NA	NA	4	NA	NA	NA
+potato	Solanum_verrucosum	2	2	1	3	2	30	1165	435	185	33	1350	445	1.37	0.98	0	0.25	1	2.73	8.23	4.11	MPS	9	9	NA	NA	9	NA	NA	NA	4	NA	NA	NA
+eggplant	Solanum_vespertilio	2	2	3	2	0	26	24	3	17	6	41	8	4.15	1	0	4.46	1	1.68	6.92	4.25	MPS	2	NA	NA	NA	1	NA	NA	NA	4	NA	NA	NA
+eggplant	Solanum_viarum	2	1	1	2	0	20	436	72	88	8	524	79	1.68	0.91	0.07	0.9	1	0.15	10	3.94	MPS	2	NA	NA	NA	4	NA	NA	NA	4	NA	NA	NA
+eggplant	Solanum_vicinum	3	0	2	2	0	24	130	16	2	2	132	16	0.15	0.99	0.01	0.9	1	0.56	5.75	2.15	HPS	3	NA	NA	NA	4	NA	NA	NA	4	NA	NA	NA
+potato	Solanum_violaceimarmoratum	2	2	1	3	0	26	229	78	38	7	267	81	1.42	0.98	0.02	0	1	0.28	7.36	3.02	MPS	10	0	NA	NA	3	NA	NA	NA	4	NA	NA	NA
+eggplant	Solanum_violaceum	3	2	1	2	0	26	264	26	80	12	344	37	2.33	0.96	0.02	6.19	1	0.26	2.2	1.6	HPS	2	NA	NA	NA	1	NA	NA	NA	4	NA	NA	NA
+eggplant	Solanum_zanzibarense	3	2	2	2	0	28	75	3	1	1	76	3	0.13	0.5	0	NA	0	NA	0	0.07	HPS	2	NA	NA	NA	1	NA	NA	NA	4	NA	NA	NA
+sorghum	Sorghum_angustum	3	0	1	3	1	28	65	51	11	1	76	51	1.45	0.99	0	0.81	1	0	0	0.48	HPS	3	9	NA	NA	3	9	NA	NA	5	3	NA	NA
+sorghum	Sorghum_bicolor_subsp._drummondii	2	3	1	3	0	28	214	65	87	27	301	89	2.89	0.92	0.07	0.92	1	0.86	5.5	3.08	MPS	7	5	NA	NA	6	6	NA	NA	4	4	NA	NA
+sorghum	Sorghum_bicolor_subsp._verticilliflorum	3	3	1	3	0	32	797	241	84	35	881	271	0.95	0.9	0.02	1.74	1	0.32	5.5	2.26	HPS	7	6	NA	NA	6	5	NA	NA	3	4	NA	NA
+sorghum	Sorghum_ecarinatum	3	0	1	3	1	28	28	18	13	1	41	18	3.17	0.97	0.01	0	1	0	0	1.06	HPS	2	9	NA	NA	2	9	NA	NA	5	3	NA	NA
+sorghum	Sorghum_exstans	3	0	2	3	1	30	71	22	4	1	75	22	0.53	0.99	0.01	0	1	0	0	0.18	HPS	2	9	NA	NA	2	9	NA	NA	5	3	NA	NA
+sorghum	Sorghum_halepense	3	2	1	3	0	30	5017	978	78	24	5095	1001	0.15	0.9	0.01	0.13	1	0.57	6.77	2.5	HPS	7	7	NA	NA	6	6	NA	NA	3	4	NA	NA
+sorghum	Sorghum_interjectum	3	0	1	3	1	28	118	74	23	1	141	74	1.63	0.97	0.01	3.19	1	0	0	0.54	HPS	3	9	NA	NA	3	9	NA	NA	5	3	NA	NA
+sorghum	Sorghum_intrans	3	0	1	3	1	28	290	83	37	1	327	83	1.13	0.99	0	0.13	1	0	0	0.38	HPS	3	9	NA	NA	3	9	NA	NA	5	3	NA	NA
+sorghum	Sorghum_laxiflorum	3	0	1	3	1	28	122	74	29	2	151	74	1.92	0.95	0.01	2.59	1	0.11	1.6	1.21	HPS	5	9	NA	NA	3	9	NA	NA	5	3	NA	NA
+sorghum	Sorghum_macrospermum	3	1	1	3	2	32	47	9	4	1	51	9	0.78	0.97	0.07	99.77	0	0	0	0.26	HPS	0	9	NA	NA	1	8	NA	NA	5	3	NA	NA
+sorghum	Sorghum_matarankense	3	0	1	3	1	28	49	25	11	1	60	25	1.83	0.98	0.02	2.17	1	0	0	0.61	HPS	3	9	NA	NA	3	9	NA	NA	5	3	NA	NA
+sorghum	Sorghum_nitidum	3	0	1	3	1	28	339	104	13	2	352	105	0.37	0.97	0.01	1.58	1	0.04	0.85	0.42	HPS	4	8	NA	NA	1	7	NA	NA	5	3	NA	NA
+sorghum	Sorghum_propinquum	3	3	1	3	2	36	131	19	6	1	137	19	0.44	0.97	0.01	7.51	1	0	0	0.15	HPS	6	4	NA	NA	6	4	NA	NA	5	3	NA	NA
+sorghum	Sorghum_purpureosericeum	3	0	1	3	2	30	49	8	18	9	67	16	2.69	0.9	0.03	10.28	0	0.09	3.91	2.23	HPS	4	7	NA	NA	4	6	NA	NA	5	3	NA	NA
+sorghum	Sorghum_stipoideum	3	0	1	3	1	28	552	214	57	3	609	216	0.94	0.95	0.01	1.37	1	0.28	5.5	2.24	HPS	6	8	NA	NA	6	7	NA	NA	5	3	NA	NA
+sorghum	Sorghum_timorense	3	0	1	3	1	28	376	175	49	2	425	176	1.15	0.93	0.01	4.86	1	0.11	1.33	0.87	HPS	4	8	NA	NA	1	6	NA	NA	5	3	NA	NA
+sorghum	Sorghum_versicolor	2	0	1	3	1	24	24	5	16	5	40	9	4	0.72	0.1	0.03	1	0.08	5.3	3.13	MPS	6	7	NA	NA	4	6	NA	NA	5	4	NA	NA
+daucus	Tornabenea_annua	3	2	2	1	0	24	2	1	0	0	2	1	0	NA	NA	NA	NA	NA	NA	0	HPS	5	0	NA	NA	6	NA	NA	NA	3	NA	NA	NA
+daucus	Tornabenea_insularis	3	2	2	1	0	24	4	1	0	0	4	1	0	NA	NA	NA	NA	NA	NA	0	HPS	5	0	NA	NA	6	NA	NA	NA	3	NA	NA	NA
+daucus	Tornabenea_tenuissima	3	2	2	1	0	24	3	1	0	0	3	1	0	NA	NA	NA	NA	NA	NA	0	HPS	5	0	NA	NA	6	NA	NA	NA	3	NA	NA	NA
+triticum	Triticum_aestivum_subsp._tibeticum	3	3	2	3	0	34	0	0	0	0	0	0	NA	NA	NA	NA	NA	NA	NA	0	HPS	0	0	3	NA	0	0	1	NA	5	4	3	NA
+triticum	Triticum_aestivum_subsp._yunnanense	3	3	2	3	0	34	0	0	0	0	0	0	NA	NA	NA	NA	NA	NA	NA	0	HPS	0	0	3	NA	0	0	1	NA	5	4	3	NA
+triticum	Triticum_boeoticum	3	3	2	3	2	38	0	0	0	0	0	0	NA	NA	NA	NA	NA	NA	NA	0	HPS	4	6	1	NA	4	5	1	NA	2	3	5	NA
+triticum	Triticum_monococcum	1	3	1	3	2	28	141	10	845	136	986	142	8.57	0.98	0.01	1.94	1	2.98	10	7.18	LPS	4	6	1	NA	4	5	1	NA	4	3	2	NA
+triticum	Triticum_monococcum_subsp._aegilopoides	0	3	1	3	2	24	168	73	2752	307	2920	359	9.42	0.98	0	0.37	1	5.95	10	8.46	NFCR	4	6	1	NA	4	5	1	NA	3	2	4	NA
+triticum	Triticum_timopheevii	0	3	1	3	2	24	10	1	160	30	170	30	9.41	0.99	0.01	0.06	1	3.75	10	7.72	NFCR	4	0	1	NA	3	2	2	NA	3	2	2	NA
+triticum	Triticum_timopheevii_subsp._armeniacum	1	3	1	3	2	28	28	12	826	57	854	60	9.67	0.97	0.03	0.01	1	1.32	9.25	6.75	LPS	4	0	1	NA	3	2	2	NA	4	2	2	NA
+triticum	Triticum_turgidum_subsp._dicoccoides	0	3	1	3	2	24	951	60	5089	283	6040	322	8.43	0.98	0.01	2.65	1	4.6	10	7.68	NFCR	4	6	4	NA	4	2	1	NA	3	2	4	NA
+triticum	Triticum_turgidum_subsp._paleocolchicum	0	3	2	3	0	22	0	0	23	2	23	2	10	NA	NA	NA	NA	NA	NA	10	NFCR	NA	6	2	NA	3	2	1	NA	3	2	4	NA
+triticum	Triticum_urartu	0	3	1	3	2	24	212	65	1392	118	1604	171	8.68	0.99	0.01	1.39	1	4.82	10	7.83	NFCR	4	3	1	NA	4	2	1	NA	3	2	2	NA
+vetch	Vicia_barbazitae	1	2	2	2	0	20	6	1	2	2	8	3	2.5	0.5	0	NA	0	10	4.36	5.62	LPS	10	2	3	NA	10	0	3	NA	5	4	2	NA
+faba_bean	Vicia_faba_subsp._faba	3	3	2	2	0	30	0	0	0	0	0	0	NA	NA	NA	NA	NA	NA	NA	0	HPS	1	0	5	NA	1	4	4	NA	1	1	2	NA
+faba_bean	Vicia_faba_subsp._paucijuga	3	3	2	2	0	30	0	0	0	0	0	0	NA	NA	NA	NA	NA	NA	NA	0	HPS	1	0	0	NA	1	0	1	NA	1	4	1	NA
+vetch	Vicia_grandiflora	2	2	1	2	0	22	252	93	62	22	314	114	1.97	0.98	0.01	5.61	1	0.83	7.85	3.55	MPS	1	3	5	NA	10	3	3	NA	5	4	4	NA
+vetch	Vicia_pyrenaica	3	2	1	2	0	26	139	16	4	1	143	16	0.28	0.99	0.01	5.92	1	0	0	0.09	HPS	10	2	NA	NA	10	2	NA	NA	2	3	NA	NA
+vetch	Vicia_qatmensis	3	2	3	2	0	30	0	0	4	4	4	4	10	1	0	5.17	1	10	7.67	0	HPS	10	2	NA	NA	10	1	NA	NA	2	3	NA	NA
+vetch	Vicia_sativa_subsp._amphicarpa	1	3	1	2	0	20	23	10	38	19	61	28	6.23	1	0	0.34	1	1.33	8.25	5.27	LPS	5	0	5	NA	5	0	5	NA	5	5	4	NA
+vetch	Vicia_sativa_subsp._devia	3	3	2	2	0	30	0	0	0	0	0	0	NA	NA	NA	NA	NA	NA	NA	0	HPS	5	10	4	NA	5	10	5	NA	1	1	4	NA
+vetch	Vicia_sativa_subsp._incisa	1	3	2	2	0	22	21	11	6	2	27	12	2.22	1	0	21.08	0	10	3.08	5.1	LPS	5	3	4	NA	5	3	5	NA	5	2	4	NA
+vetch	Vicia_sativa_subsp._macrocarpa	2	3	1	2	0	24	12	6	20	5	32	10	6.25	0.92	0.04	0	1	0.08	4.63	3.65	MPS	5	3	5	NA	5	2	5	NA	5	5	4	NA
+vetch	Vicia_sativa_subsp._nigra	2	3	1	2	0	24	5347	1006	243	81	5590	1080	0.43	0.93	0.01	0.2	1	0.95	10	3.8	MPS	5	3	5	NA	5	3	5	NA	2	4	4	NA
+bambara	Vigna_hosei	2	2	1	3	0	26	84	12	58	19	142	30	4.08	0.91	0.04	0.23	1	2.49	6.9	4.49	MPS	2	NA	NA	NA	2	NA	NA	NA	4	NA	NA	NA
+cowpea	Vigna_keraudrenii	3	2	2	3	0	32	29	8	0	0	29	8	0	1	0	NA	0	0	NA	0	HPS	2	NA	NA	NA	0	NA	NA	NA	4	NA	NA	NA
+cowpea	Vigna_monantha	3	2	2	3	0	32	14	7	0	0	14	7	0	1	0	NA	0	0	NA	0	HPS	2	NA	NA	NA	0	NA	NA	NA	4	NA	NA	NA
+cowpea	Vigna_schlecteri	3	2	2	3	0	32	0	0	0	0	0	0	NA	NA	NA	NA	NA	NA	NA	0	HPS	2	NA	NA	NA	2	NA	NA	NA	4	NA	NA	NA
+bambara	Vigna_subterranea_var._spontanea	3	3	2	3	0	34	16	7	0	0	16	7	0	0.96	0.03	19.6	0	0	0	0	HPS	0	NA	NA	NA	0	NA	NA	NA	4	NA	NA	NA
+cowpea	Vigna_unguiculata_subsp._aduensis	3	3	2	3	0	34	4	2	0	0	4	2	0	0.5	0	NA	0	NA	NA	0	HPS	1	NA	NA	NA	1	NA	NA	NA	4	NA	NA	NA
+cowpea	Vigna_unguiculata_subsp._alba	3	3	2	3	0	34	0	0	0	0	0	0	NA	NA	NA	NA	NA	NA	NA	0	HPS	1	NA	NA	NA	1	NA	NA	NA	4	NA	NA	NA
+cowpea	Vigna_unguiculata_subsp._baoulensis	1	3	1	3	0	24	4	2	15	7	19	8	7.89	0.79	0.32	NA	0	0.29	10	6.06	LPS	1	NA	NA	NA	1	NA	NA	NA	2	NA	NA	NA
+cowpea	Vigna_unguiculata_subsp._burundiensis	3	3	2	3	0	34	0	0	0	0	0	0	NA	NA	NA	NA	NA	NA	NA	0	HPS	1	NA	NA	NA	1	NA	NA	NA	4	NA	NA	NA
+cowpea	Vigna_unguiculata_subsp._dekindtiana	2	3	1	3	0	28	1071	187	747	85	1818	266	4.11	0.93	0.01	NA	0	0.25	10	4.79	MPS	1	NA	NA	NA	1	NA	NA	NA	2	NA	NA	NA
+cowpea	Vigna_unguiculata_subsp._letouzeyi	2	3	2	3	0	30	13	2	8	1	21	2	3.81	NA	NA	NA	0	NA	NA	3.81	MPS	1	NA	NA	NA	1	NA	NA	NA	2	NA	NA	NA
+cowpea	Vigna_unguiculata_subsp._pawekiae	2	3	1	3	0	28	66	14	6	2	72	15	0.83	0.89	0.1	NA	0	0.01	10	3.62	MPS	1	NA	NA	NA	1	NA	NA	NA	3	NA	NA	NA
+cowpea	Vigna_unguiculata_subsp._pubescens	1	3	1	3	0	24	43	10	51	7	94	16	5.43	NA	NA	NA	0	0.04	10	5.16	LPS	1	NA	NA	NA	1	NA	NA	NA	3	NA	NA	NA
+cowpea	Vigna_unguiculata_subsp._stenophylla	2	3	1	3	0	28	452	278	160	15	612	291	2.61	0.94	0.01	NA	0	0.06	10	4.22	MPS	1	NA	NA	NA	1	NA	NA	NA	3	NA	NA	NA
+cowpea	Vigna_unguiculata_subsp._tenuis	2	3	1	3	0	28	148	60	63	8	211	67	2.99	0.96	0.02	NA	0	0.14	10	4.37	MPS	1	NA	NA	NA	1	NA	NA	NA	3	NA	NA	NA
+cowpea	Vigna_unguiculata_subsp._unguiculata_var._spontanea	1	3	1	3	0	24	22	8	44	8	66	15	6.67	0.84	0.14	NA	0	0.03	10	5.57	LPS	0	NA	NA	NA	0	NA	NA	NA	1	NA	NA	NA
