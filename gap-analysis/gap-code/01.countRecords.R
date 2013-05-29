@@ -13,8 +13,9 @@ if(sum(occ$final_cult_stat != "cultivated",na.rm=T)!=0){
 occ <- occ[which(occ$final_cult_stat != "cultivated"),]}
 if(sum(occ$final_origin_stat != "non_native",na.rm=T)!=0){
   occ <- occ[which(occ$final_origin_stat != "non_native"),]}
+occ$is_hybrid[which(is.na(occ$is_hybrid))] <- 0
 if(sum(occ$is_hybrid == 1, na.rm = T)!=0){
-  occ <- occ[which(occ$is_hybrid == 1),]}
+  occ <- occ[which(occ$is_hybrid != 1),]}
 
 #template <- gpSpp$Taxon_name
 #occ <- occ[occ$Taxon %in% template,] #Parece que si
