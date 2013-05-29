@@ -1,4 +1,3 @@
-# Modified for BIOMOD
 require(rgdal)
 require(raster)
 
@@ -11,7 +10,7 @@ source(paste(src.dir,"/000.bufferPoints.R",sep=""))
 
 sizeDR <- function(bdir, spID) {
 	
-	idir <- paste(bdir, "/biomod_modeling", sep="")
+	idir <- paste(bdir, "/maxent_modeling", sep="")
 	ddir <- paste(bdir, "/samples_calculations", sep="")
 	
 	#Creating the directories
@@ -26,10 +25,9 @@ sizeDR <- function(bdir, spID) {
 	
   #Read the thresholded raster (PA), multiply it by the area raster and sum up those cells that are != 0
 	cat("Taxon", spID, "\n")
-	#spFolder <- paste(idir, "/models/", spID, sep="")
-	#projFolder <- paste(spFolder, "/projections", sep="")
-	spFolder <- paste(idir, "/models/proj.", spID, sep="")
-	projFolder <- paste(spFolder, "/grdfiles", sep="")
+	#spFolder <- paste(idir, "/maxent_modeling/models/", spID, sep="")
+	spFolder <- paste(bdir, "/maxent_modeling/models/", spID, sep="")
+	projFolder <- paste(spFolder, "/projections", sep="")
 	
 	mskArea <- paste(bdir, "/masks/cellArea.asc", sep="")
 	mskArea <- raster(mskArea, values=T)
@@ -38,14 +36,12 @@ sizeDR <- function(bdir, spID) {
 	
 	#Size of the DR
 	cat("Reading raster files \n")
-	#grd <- paste(spID, "_worldclim2_5_EMN_PA.asc.gz", sep="")
-	grd <- paste(spID, "_PA_NA.asc", sep="")
+	grd <- paste(spID, "_worldclim2_5_EMN_PA.asc.gz", sep="")
 	if (file.exists(paste(projFolder, "/", grd, sep=""))) {
+		grd <- zipRead(projFolder, grd)
 		
-    #grd <- zipRead(projFolder, grd)
 		cat("Size of the DR \n")
-		grd <- raster(paste(projFolder, "/",grd,sep=""))
-    grd <- grd * mskArea
+		grd <- grd * mskArea
 		areaDR <- sum(grd[which(grd[] != 0)])
 		rm(grd)
 	} else {
@@ -84,7 +80,7 @@ sizeDR <- function(bdir, spID) {
 	#Size of the native area
 	
 	cat("Reading native area \n")
-	naFolder <- paste(idir, "/native-areas/asciigrids/",spID, sep="")
+	naFolder <- paste(bdir, "/biomod_modeling/native-areas/asciigrids/", spID, sep="")
 	
 	if (file.exists(paste(naFolder, "/narea.asc.gz", sep=""))) {
 		grd <- zipRead(naFolder, "narea.asc.gz")
@@ -143,7 +139,6 @@ sizeDR <- function(bdir, spID) {
 	}
 	
 	outDF <- data.frame(DRSize=areaDR, CHSize=areaCH, NASize=areaNA, HBSize=areaHB, GBSize=areaGB)
-	
 	write.csv(outDF, paste(spOutFolder, "/areas.csv", sep=""), quote=F, row.names=F)
 	return(outDF)
 }
@@ -152,19 +147,18 @@ summarizeDR <- function(idir) {
 	
 	ddir <- paste(idir, "/samples_calculations", sep="")
 	
-	odir <- paste(idir, "/biomod_modeling/summary-files", sep="")
+	odir <- paste(idir, "/maxent_modeling/summary-files", sep="")
 	if (!file.exists(odir)) {
 		dir.create(odir)
 	}
 	
-	#spList <- list.files(paste(idir, "/biomod_modeling/occurrence_files", sep=""))
 	spList <- list.files(paste(idir, "/occurrence_files", sep=""))
 	
 	sppC <- 1
 	for (spp in spList) {
 		spp <- unlist(strsplit(spp, ".", fixed=T))[1]
 		fdName <- spp #paste("sp-", spp, sep="")
-		spFolder <- paste(idir, "/biomod_modeling/models/proj.", fdName, sep="")
+		spFolder <- paste(idir, "/maxent_modeling/models/", fdName, sep="")
 		spOutFolder <- paste(ddir, "/", spp, sep="")
 		
 		if (file.exists(spFolder)) {

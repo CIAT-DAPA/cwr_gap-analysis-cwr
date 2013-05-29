@@ -4,25 +4,35 @@
 
 #read occurrences
 occ <- read.csv(paste("./occurrences/",crop,"_all.csv",sep=""))
-gpSpp <- read.csv("/curie_data2/ncastaneda/gap-analysis/PsppofPcrops_template.csv")
+#gpSpp <- read.csv("/curie_data2/ncastaneda/gap-analysis/PsppofPcrops_template.csv")
 
-#prepare files
+#prepare files - OJO CORRER PASO POR PASO Y VERIFICAR NUMERO DE REGISTROS CON nrow(occ)
 occ$H <- ifelse(occ$Type =="H",1,0)
 occ$G <- ifelse(occ$Type =="G",1,0)
-occ <- occ[which(occ$final_cult_stat != "cultivated"),]
-occ <- occ[which(occ$final_origin_stat != "non_native"),]
-occ <- occ[which(is.na(occ$is_hybrid)),]
+if(sum(occ$final_cult_stat != "cultivated",na.rm=T)!=0){
+occ <- occ[which(occ$final_cult_stat != "cultivated"),]}
+if(sum(occ$final_origin_stat != "non_native",na.rm=T)!=0){
+  occ <- occ[which(occ$final_origin_stat != "non_native"),]}
+if(sum(occ$is_hybrid == 1, na.rm = T)!=0){
+  occ <- occ[which(occ$is_hybrid == 1),]}
 
-template <- gpSpp$Taxon_name
+#template <- gpSpp$Taxon_name
+#occ <- occ[occ$Taxon %in% template,] #Parece que si
 
-occ <- occ[occ$Taxon %in% template,] #Parece que si
+#occ <- read.csv(paste("./occurrences/",crop,"_all.csv",sep=""))
 
-write.csv(occ,paste("./occurrences/",crop,"_all.csv",sep=""),quote=F,row.names=F)
-occ <- read.csv(paste("./occurrences/",crop,"_all.csv",sep=""))
+if(sum(names(occ)=="taxon")==0){
+  pos <- which(names(occ)=="taxon")
+  names(occ)[pos] <- "Taxon"
+}else{
+  cat("No need to change taxon field name")
+}
 
 taxField <- "Taxon"
 hField <- "H"
 gField <- "G"
+
+write.csv(occ,paste("./occurrences/",crop,"_all.csv",sep=""),quote=F,row.names=F)
 
 #taxon unique values
 taxNames <- unique(occ[,taxField])
@@ -77,8 +87,8 @@ tiff("./figures/genebank_vs_total.tif",
          res=300,pointsize=8, width=1000,height=1000,units="px",compression="lzw")
 par(mar=c(5,5,1,1),cex=0.8)
 plot(sampAll$TOTAL,sampAll$GNUM,pch=20, col="red",cex=1,xlim=lims,ylim=lims,
-     xlab="Total samples",
-     ylab="Germplasm accessions")
+     xlab="Total number of samples",
+     ylab="Number of genebank accessions")
 abline(0,1,lwd=0.75,lty=2)
 #abline(h=500,lwd=0.75,lty=1,col="red")
 #abline(h=100,lwd=0.75,lty=2,col="red")

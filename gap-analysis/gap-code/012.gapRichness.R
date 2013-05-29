@@ -29,11 +29,12 @@ gapRichness <- function(bdir) {
 	sppC <- 1
 	rcount <- 1
 	scount <- 1
-	for (spp in spList$Taxon) {
+	for (spp in spList$TAXON) {
 		
 		cat("Processing taxon", paste(spp), "\n")
 		
-		isValid <- spList$IS_VALID[which(spList$Taxon == paste(spp))]
+		names(spList)[1]="TAXON"
+    isValid <- spList$IS_VALID[which(spList$TAXON == paste(spp))]
 		
 		sppFolder <- paste(idir, "/models/", spp, sep="")
 		projFolder <- paste(sppFolder, "/projections", sep="")

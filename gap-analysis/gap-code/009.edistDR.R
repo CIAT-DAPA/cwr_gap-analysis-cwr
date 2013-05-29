@@ -1,4 +1,3 @@
-# Modified for BIOMOD ouputs
 require(rgdal)
 require(raster)
 
@@ -9,18 +8,14 @@ source(paste(src.dir,"/000.bufferPoints.R",sep=""))
 #Calculate the size of the DR, of the convexhull in km2, of the native area, and of the herbarium samples
 #based on the area of the cells
 
-#==== TEST PURPOSES ====
-#bdir <- "C:/Users/ncp148/Documents/PhD/gap_tomato-test"
-#spID <- "Solanum_arcanum"
-#edistDR(bdir,spID)
-#summarizeDR_env(crop_dir)
+#bdir <- "F:/gap_analysis_publications/gap_phaseolus"
+#spID <- "Phaseolus_acutifolius"
 
 edistDR <- function(bdir, spID) {
 	
-	idir <- paste(bdir, "/biomod_modeling", sep="")
+	idir <- paste(bdir, "/maxent_modeling", sep="")
 	ddir <- paste(bdir, "/samples_calculations", sep="")
-	#pcdir <- paste(bdir, "/maxent_modeling/climate_data/pca_result_reclass", sep="")
-  pcdir <- paste(bdir,"/biomod_modeling/current-clim/pca_result_reclass",sep="")
+	pcdir <- paste(bdir, "/biomod_modeling/current-clim/pca_result_reclass", sep="")
 	
 	#Creating the directories
 	if (!file.exists(ddir)) {
@@ -34,8 +29,8 @@ edistDR <- function(bdir, spID) {
 	
 	#Read the thresholded raster (PA), multiply it by the area raster and sum up those cells that are != 0
 	cat("Taxon", spID, "\n")
-	spFolder <- paste(idir, "/models/proj.", spID, sep="")
-	projFolder <- paste(spFolder, "/grdfiles", sep="")
+	spFolder <- paste(idir, "/models/", spID, sep="")
+	projFolder <- paste(spFolder, "/projections", sep="")
 	
 	cat("Loading principal components \n")
 	pc1 <- raster(paste(pcdir,"/pc_r_1.asc",sep="")) #zipRead(pcdir, "bio_pcac1_r.asc.gz")
@@ -43,11 +38,9 @@ edistDR <- function(bdir, spID) {
 	
 	#Edist of the DR
 	cat("Reading presence/absence surface \n")
-	grd <- paste(spID, "_PA_NA.asc", sep="")
+	grd <- paste(spID, "_worldclim2_5_EMN_PA.asc.gz", sep="")
 	if (file.exists(paste(projFolder, "/", grd, sep=""))) {
-		#grd <- zipRead(projFolder, grd)
-	  grd <- paste(projFolder, "/",grd,sep="")
-    grd <- raster(grd)
+		grd <- zipRead(projFolder, grd)
 		
 		cat("Env. distribution of the DR \n")
 		grda <- grd * pc1 #PC1
@@ -89,7 +82,7 @@ edistDR <- function(bdir, spID) {
 	}
 	
 	#Edist of the native area
-	naFolder <- paste(idir, "/native-areas/asciigrids/", spID, sep="")
+	naFolder <- paste(bdir, "/biomod_modeling/native-areas/asciigrids/", spID, sep="")
 	if (file.exists(paste(naFolder, "/narea.asc.gz", sep=""))) {
 		cat("Reading native area \n")
 		grd <- zipRead(naFolder, "narea.asc.gz")
@@ -166,7 +159,7 @@ summarizeDR_env <- function(idir) {
 	
 	ddir <- paste(idir, "/samples_calculations", sep="")
 	
-	odir <- paste(idir, "/biomod_modeling/summary-files", sep="")
+	odir <- paste(idir, "/maxent_modeling/summary-files", sep="")
 	if (!file.exists(odir)) {
 		dir.create(odir)
 	}
@@ -177,7 +170,7 @@ summarizeDR_env <- function(idir) {
 	for (spp in spList) {
 		spp <- unlist(strsplit(spp, ".", fixed=T))[1]
 		fdName <- spp #paste("sp-", spp, sep="")
-		spFolder <- paste(idir, "/biomod_modeling/models/proj.", fdName, sep="")
+		spFolder <- paste(idir, "/maxent_modeling/models/", fdName, sep="")
 		spOutFolder <- paste(ddir, "/", spp, sep="")
 		
 		if (file.exists(spFolder)) {

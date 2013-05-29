@@ -1,4 +1,6 @@
 #Take the list of species to model and create a new file with occurrences of selected species and climate data
+# N. Castaneda 2012
+
 require(raster)
 
 createOccFilesBio <- function(occ, taxfield, outDir, env.dir) {

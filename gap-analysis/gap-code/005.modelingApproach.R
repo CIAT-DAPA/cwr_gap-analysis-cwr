@@ -58,7 +58,7 @@ theEntireProcess <- function(spID, OSys, inputDir) {
 #   OSys <- "NT"
 #   inputDir <- "D:/CIAT_work/Gap_analysis/ICARDA-collab/lathyrus/maxent_modelling"
   
-  mxe_out <- paste(inputDir,"/models",sep="")
+  mxe_out <- paste(inputDir,"/maxent_modeling/models",sep="")
   if (!file.exists(mxe_out)) {dir.create(mxe_out)}
   spDir <- paste(mxe_out,"/",spID,sep="")
   
@@ -77,11 +77,11 @@ theEntireProcess <- function(spID, OSys, inputDir) {
       }
 		}
     
-		inProjClimDir <- paste(inputDir, "/climate_data/esri_ascii", sep="")
-		maxentApp <- paste(inputDir, "/lib/maxent.jar", sep="")
+		inProjClimDir <- paste(inputDir, "/biomod_modeling/current-clim", sep="")
+		maxentApp <- paste(inputDir, "/maxent_modeling/lib/maxent.jar", sep="")
 		mskDir <- paste(inputDir, "/masks", sep="")
-		backoutdir <- paste(inputDir, "/background", sep="")
-		NADir <- paste(inputDir, "/native-areas/asciigrids", sep="")
+		backoutdir <- paste(inputDir, "/maxent_modeling/background", sep="")
+		NADir <- paste(inputDir, "/biomod_modeling/native-areas/asciigrids", sep="")
 		
 		cat("Taxon ", spID, "\n")
 	  
@@ -116,7 +116,7 @@ theEntireProcess <- function(spID, OSys, inputDir) {
 				
 				cat("Crossvalidating the model... \n")
         if (!file.exists(paste(outFolder,"/crossval/",spID,".html",sep=""))) {
-				  system(paste("java", "-mx8192m", "-jar", maxentApp, "-s", outFileName, "-e", backFileSwd, "-o", paste(outFolder, "/crossval", sep=""), "-P", "replicates=5", "replicatetype=crossvalidate", "nowarnings", "-a", "-z"), wait=TRUE)
+				  system(paste("java", "-mx16384m", "-jar", maxentApp, "-s", outFileName, "-e", backFileSwd, "-o", paste(outFolder, "/crossval", sep=""), "-P", "replicates=5", "replicatetype=crossvalidate", "nowarnings", "-a", "-z"), wait=TRUE)
         }
 				
 				if (file.exists(paste(outFolder, "/crossval/", spID,".html", sep=""))) {
@@ -171,7 +171,7 @@ theEntireProcess <- function(spID, OSys, inputDir) {
 							outGrid <- paste(outFolder, "/projections/", spID, "_", suffix, "_f", fd, sep="")
 							lambdaFile <- paste(outFolder, "/crossval/", spID, "_", fdID, ".lambdas", sep="")
               if (!file.exists(paste(outGrid,".asc",sep=""))) {
-							  system(paste("java", "-mx8192m", "-cp", maxentApp, "density.Project", lambdaFile, projLayers, outGrid, "nowarnings", "fadebyclamping", "-r", "-a", "-z"), wait=TRUE)
+							  system(paste("java", "-mx16384m", "-cp", maxentApp, "density.Project", lambdaFile, projLayers, outGrid, "nowarnings", "fadebyclamping", "-r", "-a", "-z"), wait=TRUE)
               }
 							if (file.exists(paste(outGrid, ".asc", sep=""))) {
 								cat("Projection is OK!", "\n")
@@ -225,6 +225,7 @@ theEntireProcess <- function(spID, OSys, inputDir) {
 						if (!file.exists(NAGridName)) {
 							cat("The native area does not exist, generating one \n")
 							NAGrid <- chullBuffer(inputDir, occFile, paste(NADir, "/", spID, sep=""), 500000)
+              zipWrite(NAGrid, paste(NADir, "/", spID, sep=""), "narea.asc.gz")
 						} else {
 							cat("The native area exists, using it \n")
 							NAGrid <- zipRead(paste(NADir, "/", spID, sep=""), "narea.asc.gz")
@@ -296,19 +297,6 @@ theEntireProcess <- function(spID, OSys, inputDir) {
 	}
 	return("Done!")
 }
-
-#Initial stuff
-
-#setOptions(overwrite=T)
-#idir <- "C:/CIAT_work/COP_CONDESAN"
-#ddir <- "/mnt/GeoData/COP_CONDESAN"
-#outp <- NagoyaProcess(idir, ddir, 1, 10, OSys="NT")
-#setOptions(overwrite=T)
-
-#inputDir <- "F:/gap_analysis_publications/gap_phaseolus/modeling_data"
-#destDir <- "F:/gap_analysis_publications/gap_phaseolus/modeling_data"
-#spID <- "Phaseolus_acutifolius"
-#OSys <- "nt"
 
 GapProcess <- function(inputDir, OSys="LINUX", ncpu) {
 	

@@ -6,12 +6,17 @@ source(paste(src.dir,"/000.zipWrite.R",sep=""))
 source(paste(src.dir,"/000.bufferPoints.R",sep=""))
 
 #bdir <- "F:/gap_analysis_publications/gap_phaseolus"
+#bdir = crop_dir
 #When presence surface not available, get all the populations and use the 50km buffer
 
 speciesRichness <- function(bdir) {
-	idir <- paste(bdir, "/biomod_modeling", sep="")
+	idir <- paste(bdir, "/maxent_modeling", sep="")
 	ddir <- paste(bdir, "/samples_calculations", sep="")
-	
+
+	if (!file.exists(ddir)) {
+	  dir.create(ddir)
+	}
+    
 	outFolder <- paste(bdir, "/species_richness", sep="")
 	if (!file.exists(outFolder)) {
 		dir.create(outFolder)
@@ -32,17 +37,14 @@ speciesRichness <- function(bdir) {
 		if (isValid == 1) {
 			exOcc <- T
 			cat("Load presence/absence raster and sd raster \n")
-			sppFolder <- paste(idir, "/models/proj.", spp, sep="")
-			projFolder <- paste(sppFolder, "/grdfiles", sep="")
+			sppFolder <- paste(idir, "/models/", spp, sep="")
+			projFolder <- paste(sppFolder, "/projections", sep="")
 			
-			pagrid <- paste(spp, "_PA_NA.asc", sep="")
-			#pagrid <- zipRead(projFolder, pagrid)
-			pagrid <- raster(paste(projFolder,"/",pagrid,sep=""))
+			pagrid <- paste(spp, "_worldclim2_5_EMN_PA.asc.gz", sep="")
+			pagrid <- zipRead(projFolder, pagrid)
 			
-			assign(paste("sdgrid",sppC,sep=""), pagrid)
-      #assign(paste("sdgrid",sppC,sep=""), paste(spp, "_PA_NA.asc", sep=""))
-			#assign(paste("sdgrid",sppC,sep=""), zipRead(projFolder, get(paste("sdgrid",sppC,sep=""))))
-      
+			assign(paste("sdgrid",sppC,sep=""), paste(spp, "_worldclim2_5_ESD_PR.asc.gz", sep=""))
+			assign(paste("sdgrid",sppC,sep=""), zipRead(projFolder, get(paste("sdgrid",sppC,sep=""))))
 		} else {
 			cat("Samples buffer \n")
 			tallOcc <- allOcc[which(allOcc$Taxon == paste(spp)),]

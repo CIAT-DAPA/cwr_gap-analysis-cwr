@@ -5,12 +5,12 @@ source(paste(src.dir,"/000.zipRead.R",sep=""))
 
 # Script to calculate proportion of the dist. range with SD above 0.15 (ASD15)
 
-#idir <- "F:/gap_analysis_publications/gap_phaseolus/modeling_data"
-#spID <- "Phaseolus_acutifolius"
+# idir <- crop_dir
+# spID <- "Avena_abyssinica"
 
 calcASD15 <- function(idir, spID) {
 	cat("Taxon", spID, "\n")
-	spFolder <- paste(idir, "/models/", spID, sep="")
+	spFolder <- paste(idir, "/maxent_modeling/models/", spID, sep="")
 	projFolder <- paste(spFolder, "/projections", sep="")
 	
 	esdCpt <- paste(spID, "_worldclim2_5_ESD.asc.gz", sep="")
@@ -65,7 +65,7 @@ summarizeASD15 <- function(idir) {
 	for (spp in spList) {
 		spp <- unlist(strsplit(spp, ".", fixed=T))[1]
 		fdName <- spp #paste("sp-", spp, sep="")
-		spFolder <- paste(idir, "/models/", fdName, sep="")
+		spFolder <- paste(idir, "/maxent_modeling/models/", fdName, sep="")
 		
 		if (file.exists(spFolder)) {
 			
@@ -82,8 +82,7 @@ summarizeASD15 <- function(idir) {
 			sppC <- sppC + 1
 		}
 	}
-	
-	outFile <- paste(odir, "/ASD15.csv", sep="")
+	outFile <- paste(idir, "/maxent_modeling/summary-files/ASD15.csv", sep="")
 	write.csv(outSum, outFile, quote=F, row.names=F)
 	
 }

@@ -36,7 +36,7 @@ aspect <- (z@ymax-z@ymin)*1.4/(z@xmax-z@xmin)
 tiff("./figures/h_samples_count.tif",
          res=300,pointsize=5,width=1500,height=1500*aspect,units="px",compression="lzw")
 par(mar=c(2.5,2.5,1,1),cex=0.8,lwd=0.8)
-plot(h_ras,col=cols,zlim=c(min(brks),max(brks)),
+plot(h_ras,col=cols,zlim=c(min(brks),max(brks)), main = "Herbarium samples",
      breaks=brks,lab.breaks=brks.lab,useRaster=F,
      horizontal=T,
      legend.width=1,
@@ -49,7 +49,7 @@ dev.off()
 tiff("./figures/g_samples_count.tif",
          res=300,pointsize=5,width=1500,height=1500*aspect,units="px",compression="lzw")
 par(mar=c(2.5,2.5,1,1),cex=0.8, lwd=0.8)
-plot(g_ras,col=cols,zlim=c(min(brks),max(brks)),useRaster=F,
+plot(g_ras,col=cols,zlim=c(min(brks),max(brks)),useRaster=F, main="Genebank accessions",
      breaks=brks,lab.breaks=brks.lab,
      horizontal=T,
      legend.width=1,
