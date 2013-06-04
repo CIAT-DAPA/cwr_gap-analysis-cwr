@@ -257,8 +257,7 @@ for (spp in table_base$TAXON) {
   table_base$TOTAL[which(table_base$TAXON==paste(spp))] <- total
   table_base$TOTAL_RP[which(table_base$TAXON==paste(spp))] <- total_rp
   table_base$SRS[which(table_base$TAXON==paste(spp))] <- srs
-  
-  
+    
   #modelling metrics
   if(sum(model_met$TAXON==paste(spp))==0){atauc <- NA
                                           stauc <- NA

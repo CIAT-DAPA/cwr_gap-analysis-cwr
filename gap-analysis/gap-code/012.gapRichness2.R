@@ -21,7 +21,7 @@ gapRaster <- function(bdir) {
     if (!file.exists(outFolder)) {dir.create(outFolder)}
     
     spList <- read.csv(paste(bdir, "/priorities/priorities.csv", sep=""))
-    spList$IS_VALID[which(is.na(spList$IS_VALID))]<-0
+    #spList$IS_VALID[which(is.na(spList$IS_VALID))]<-0
     
     names(spList)[1]="TAXON"
     spList <- spList[which(spList$FPCAT == p),]

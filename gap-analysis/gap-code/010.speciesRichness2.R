@@ -35,7 +35,7 @@ speciesRichness_alt <- function(bdir) {
     print("Buffer files exist")} else{
       for (spp in spList_buffer$TAXON) {
         
-        cat("Samples buffer \n")
+        cat("Samples buffer for", spp, "\n")
         tallOcc <- allOcc[which(allOcc$Taxon == paste(spp)),]
         if (nrow(tallOcc) != 0) {
           exOcc <- T

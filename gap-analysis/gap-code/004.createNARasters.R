@@ -15,7 +15,7 @@ createNARaster <- function(spID,inDir) {
   inNADir <- paste(inDir, "/native-areas/polyshps", sep="")
   outNADir <- paste(inDir, "/native-areas/asciigrids", sep="")
   outFolder <- paste(outNADir, "/", spID, sep="")
-  allOcc <- read.csv(paste(inDir, "/occurrences/",crop,".csv", sep=""))
+  allOcc <- read.csv(paste(crop_dir, "/occurrences/",crop,".csv", sep=""))
   
   if (!file.exists(paste(outFolder, "/narea.asc.gz", sep=""))) {
     
@@ -34,19 +34,19 @@ createNARaster <- function(spID,inDir) {
     if(!file.exists(shpName)){
       #Creating convex hull instead
       cat("No shapefile available, thus creating convex hull \n")
-      occFile <- paste(inDir, "/occurrence_files/", spID, ".csv", sep="")
+      occFile <- paste(crop_dir, "/occurrence_files/", spID, ".csv", sep="")
       tallOcc <- allOcc[which(allOcc$Taxon == paste(spID)),]
       if(nrow(tallOcc)==0){
         cat("No coordinates for this species /n")
       }else{
-        NAGrid <- chullBuffer(inDir, occFile, outFolder, 500000)
+        NAGrid <- chullBuffer(crop_dir, occFile, outFolder, 500000)
         zipWrite(NAGrid, outFolder, "narea.asc.gz")
       }
     }else{
       #Reading polygon shapefile and mask  
       cat("Reading and converting \n")
       pol <- readShapePoly(shpName)
-      rs <- raster(paste(inDir, "/masks/mask.asc", sep=""))
+      rs <- raster(paste(crop_dir, "/masks/mask.asc", sep=""))
       
       #pa <- polygonsToRaster(pol, rs)
       pa <- rasterize(pol,rs)
