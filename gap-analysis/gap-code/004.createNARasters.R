@@ -67,7 +67,7 @@ createNARaster <- function(spID,inDir) {
 
 inDir <- paste(crop_dir,"/biomod_modeling",sep="")
 #spList <- list.files(paste(inDir, "/native-areas/polyshps", sep=""))
-spList <- read.csv(paste(inDir,"/sample_counts/sample_count_table.csv",sep=""))
+spList <- read.csv(paste(crop_dir,"/sample_counts/sample_count_table.csv",sep=""))
 spList <- spList$TAXON
 
 for (spp in spList) {

@@ -11,7 +11,8 @@ speciesRichness_alt <- function(bdir) {
   idir <- paste(bdir, "/maxent_modeling", sep="")
   ddir <- paste(bdir, "/samples_calculations", sep="")
   ndir <- paste(bdir, "/biomod_modeling/native-areas/asciigrids",sep="")
-  
+  mask <- raster(paste(bdir, "/masks/mask.asc", sep="")) # New line
+    
   if (!file.exists(ddir)) {
     dir.create(ddir)
   }
@@ -83,6 +84,8 @@ speciesRichness_alt <- function(bdir) {
   }
   
   for(i in 1:length(results_1)){
+    results_sum=extend(results_sum, mask) # New line
+    results_1[[i]] = extend(results_1[[i]], mask) # New line
     results_sum=sum(results_sum,results_1[[i]])}
   
   cat("Calculating mean sd raster \n")
