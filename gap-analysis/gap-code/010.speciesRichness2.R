@@ -61,51 +61,72 @@ speciesRichness_alt <- function(bdir) {
       spList_buffer=spList_buffer[spList_buffer$TAXON!=spp,]}
   }
   results_0=list()
-  for(i in 1:length(spList_buffer$TAXON)){  
-    results_0[[i]]=zipRead(paste(ddir, "/", spList_buffer$TAXON[i], sep=""),"samples-buffer-na.asc.gz")}
+  if(length(spList_buffer$TAXON)==0){
+    cat("All species have valid niche models \n")
+  }else{
+    for(i in 1:length(spList_buffer$TAXON)){  
+      results_0[[i]]=zipRead(paste(ddir, "/", spList_buffer$TAXON[i], sep=""),"samples-buffer-na.asc.gz")}
+  }
   
   spList_buffer=spList[spList$IS_VALID==1,]
   results_1=list()
-  for(spp in spList_buffer$TAXON){
-    pos=which(spList_buffer$TAXON==spp)
-    sppFolder <- paste(idir, "/models/", spp, sep="")
-    projFolder <- paste(sppFolder, "/projections", sep="")
-    pagrid <- paste(spp, "_worldclim2_5_EMN_PA.asc.gz", sep="")
-    results_1[[pos]] <- zipRead(projFolder, pagrid)}
-  
+  if(length(spList_buffer$TAXON)==0){
+    cat("None species have valid niche models \n")
+  }else{
+    for(spp in spList_buffer$TAXON){
+      pos=which(spList_buffer$TAXON==spp)
+      sppFolder <- paste(idir, "/models/", spp, sep="")
+      projFolder <- paste(sppFolder, "/projections", sep="")
+      pagrid <- paste(spp, "_worldclim2_5_EMN_PA.asc.gz", sep="")
+      results_1[[pos]] <- zipRead(projFolder, pagrid)}
+  }
+    
   cat("Writing richness raster \n")
   if(length(results_0)==1){
     results_sum=results_0[[1]]
+  }else if(length(results_0)==0){
+      cat("No occurrence data to map")
   }else{
     results_sum=results_0[[1]]
-    
     for(i in 2:length(results_0)){
       results_sum=sum(results_sum,results_0[[i]])}
   }
-  
+   
+  if(length(results_0)==0){
+    results_sum=results_1[[1]]
+  }
+
   for(i in 1:length(results_1)){
     results_sum=extend(results_sum, mask) # New line
     results_1[[i]] = extend(results_1[[i]], mask) # New line
     results_sum=sum(results_sum,results_1[[i]])}
-  
+
   cat("Calculating mean sd raster \n")
   results_mean=results_sum/(length(results_0)+length(results_1))
   
-  results_sd=(results_mean-results_0[[1]])^2
-  
-  if(length(results_0)==1){
+  if(length(results_0)!=0){
     results_sd=(results_mean-results_0[[1]])^2
     
-  }else{
-    for(i in 2:length(results_0)){
-      sum_sqrt=(results_mean-results_0[[i]])^2
-      results_sd=sum(results_sd,sum_sqrt)}
+    if(length(results_0)==1){
+      results_sd=(results_mean-results_0[[1]])^2
+      
+    }else{
+      for(i in 2:length(results_0)){
+        sum_sqrt=(results_mean-results_0[[i]])^2
+        results_sd=sum(results_sd,sum_sqrt)}
+    }
   }
   
   for(i in 1:length(results_1)){
     
     sum_sqrt=(results_mean-results_1[[i]])^2
+    
+    if(length(results_0)==0){
+      results_sd=sum_sqrt
+    }
     results_sd=sum(results_sd,sum_sqrt)}
+  
+  
   
   results_mean_sd=results_sd/(length(results_0)+length(results_1))
   
