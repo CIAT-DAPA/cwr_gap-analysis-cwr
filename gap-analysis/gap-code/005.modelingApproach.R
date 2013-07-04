@@ -53,7 +53,7 @@ source(paste(src.dir,"/000.createChullBuffer.R",sep=""))
 ###############################################################################################
 ###############################################################################################
 
-theEntireProcess <- function(spID, OSys, inputDir) {
+theEntireProcess <- function(spID, OSys, inputDir, j.size) {
 #   spID <- "Lathyrus_aphaca"
 #   OSys <- "NT"
 #   inputDir <- "D:/CIAT_work/Gap_analysis/ICARDA-collab/lathyrus/maxent_modelling"
@@ -116,7 +116,7 @@ theEntireProcess <- function(spID, OSys, inputDir) {
 				
 				cat("Crossvalidating the model... \n")
         if (!file.exists(paste(outFolder,"/crossval/",spID,".html",sep=""))) {
-				  system(paste("java", "-mx16384m", "-jar", maxentApp, "-s", outFileName, "-e", backFileSwd, "-o", paste(outFolder, "/crossval", sep=""), "-P", "replicates=5", "replicatetype=crossvalidate", "nowarnings", "-a", "-z"), wait=TRUE)
+				  system(paste("java", j.size, "-jar", maxentApp, "-s", outFileName, "-e", backFileSwd, "-o", paste(outFolder, "/crossval", sep=""), "-P", "replicates=5", "replicatetype=crossvalidate", "nowarnings", "-a", "-z"), wait=TRUE)
         }
 				
 				if (file.exists(paste(outFolder, "/crossval/", spID,".html", sep=""))) {
@@ -171,7 +171,7 @@ theEntireProcess <- function(spID, OSys, inputDir) {
 							outGrid <- paste(outFolder, "/projections/", spID, "_", suffix, "_f", fd, sep="")
 							lambdaFile <- paste(outFolder, "/crossval/", spID, "_", fdID, ".lambdas", sep="")
               if (!file.exists(paste(outGrid,".asc",sep=""))) {
-							  system(paste("java", "-mx16384m", "-cp", maxentApp, "density.Project", lambdaFile, projLayers, outGrid, "nowarnings", "fadebyclamping", "-r", "-a", "-z"), wait=TRUE)
+							  system(paste("java", j.size, "-cp", maxentApp, "density.Project", lambdaFile, projLayers, outGrid, "nowarnings", "fadebyclamping", "-r", "-a", "-z"), wait=TRUE)
               }
 							if (file.exists(paste(outGrid, ".asc", sep=""))) {
 								cat("Projection is OK!", "\n")
@@ -268,20 +268,6 @@ theEntireProcess <- function(spID, OSys, inputDir) {
 					cat("Modelled on", date(), file=opnFile)
 					close.connection(opnFile)
 					
-					#Now copy the files
-# 					cat("Copying to output folder... \n")
-# 					if (OSys == "linux") {
-# 						destName <- paste(destDir, "/mxe_outputs/.", sep="")
-# 						system(paste("cp", "-rf", outName, destName))
-# 						system(paste("rm", "-rf", outName))
-# 					} else {
-# 						destName <- paste(destDir, "/mxe_outputs/sp-", spID, sep="")
-# 						idir <- gsub("/", "\\\\", outName)
-# 						odir <- gsub("/", "\\\\", destName)
-# 						system(paste("xcopy", "/E", "/I", idir, odir))
-# 						system(paste("rm", "-r", outName))
-# 					}
-					
 					return("Done")
 				} else {
 					cat("Species with invalid maxent model, and thus not modeled \n")
@@ -298,15 +284,9 @@ theEntireProcess <- function(spID, OSys, inputDir) {
 	return("Done!")
 }
 
-GapProcess <- function(inputDir, OSys="LINUX", ncpu) {
+GapProcess <- function(inputDir, OSys="LINUX", ncpu, j.size) {
 	
 	spList <- list.files(paste(inputDir, "/occurrence_files", sep=""),pattern=".csv")
-# 	if (fin > length(spList)) {
-# 		cat("The final number of spp is greater than the number of spp, using NSPP instead \n")
-# 		fin <- length(spList)
-# 	}
-# 	
-# 	spList <- spList[ini:fin]
 	
 	gap_wrapper <- function(i) {
     library(raster)
@@ -315,12 +295,8 @@ GapProcess <- function(inputDir, OSys="LINUX", ncpu) {
 		sp <- unlist(strsplit(sp, ".", fixed=T))[1]
 		cat("\n")
 		cat("...Species", sp, "\n")
-		out <- theEntireProcess(sp, OSys, inputDir)
+		out <- theEntireProcess(sp, OSys, inputDir, j.size)
 	}
-  
-#   for (spi in spList) {
-#     gap_wrapper(spi)
-#   }
   
   library(snowfall)
   sfInit(parallel=T,cpus=ncpu)
@@ -334,6 +310,7 @@ GapProcess <- function(inputDir, OSys="LINUX", ncpu) {
   sfExport("inputDir")
   sfExport("OSys")
   sfExport("spList")
+  sfExport("j.size") # NEW ADDITION
   
 	#run the control function
   system.time(sfSapply(as.vector(1:length(spList)), gap_wrapper))

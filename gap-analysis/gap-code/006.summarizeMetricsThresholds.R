@@ -13,8 +13,6 @@ cat(" \n")
 
 summarizeMetrics <- function(idir) {
   
-	#idir <- "/mnt/GeoData/Gap-analysis/cwr-gap-analysis/gap-phaeolus/modeling_data"
-	
 	#Setting the output directory
 	odir <- paste(idir, "/maxent_modeling/summary-files", sep="")
 

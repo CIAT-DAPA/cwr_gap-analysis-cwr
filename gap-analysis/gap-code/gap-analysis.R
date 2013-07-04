@@ -118,7 +118,7 @@ for (f in fList) {
 
 #== perform the maxent modelling in parallel ==#
 source(paste(src.dir,"/005.modelingApproach.R",sep=""))
-GapProcess(inputDir=crop_dir, OSys="linux", ncpu=3)
+GapProcess(inputDir=crop_dir, OSys="linux", ncpu=3, j.size="-mx8192m")
 
 #== summarise the metrics ==#
 source(paste(src.dir,"/006.summarizeMetricsThresholds.R",sep=""))
