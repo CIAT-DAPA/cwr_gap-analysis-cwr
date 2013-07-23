@@ -46,7 +46,7 @@ gapRaster <- function(bdir) {
         sppFolder <- paste(idir, "/models/", spp, sep="")
         projFolder <- paste(sppFolder, "/projections", sep="")
         
-        if(file.exists(paste(outFolder,"/",spp,".asc",sep=""))){
+        if(file.exists(paste(outFolder,"/",spp,".asc.gz",sep=""))){
           cat("The file already exists",spp,"\n")
         }else{
           
