@@ -22,7 +22,8 @@ speciesRichness_alt <- function(bdir) {
     dir.create(outFolder)
   }
   
-  spList <- read.csv(paste(bdir, "/priorities/priorities.csv", sep=""))
+#   spList <- read.csv(paste(bdir, "/priorities/priorities.csv", sep=""))
+  spList <- read.csv(paste(bdir, "/summary-files/taxaForRichness.csv", sep=""))
   allOcc <- read.csv(paste(bdir, "/occurrences/",crop,".csv", sep=""))
   
   spList_buffer=spList[spList$IS_VALID==0,]

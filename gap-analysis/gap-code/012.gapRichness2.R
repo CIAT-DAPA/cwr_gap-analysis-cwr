@@ -108,12 +108,16 @@ gapRaster <- function(bdir) {
               pagrid[which(grd.ga[] == 1)] <- 0
             }
             
-            assign(paste("dpgrid",sppC,sep=""), zipRead(spOutFolder, "pop-dist.asc.gz"))
-            assign(paste("dpgrid",sppC,sep=""), get(paste("dpgrid",sppC,sep="")) * pagrid)
-            
-            cat("Writing", spp, "raster gap \n")
-            #writeRaster(pagrid, paste(outFolder,"/",spp,".asc",sep=""), overwrite=TRUE)
-            zipWrite(pagrid, outFolder, paste(spp,".asc.gz",sep=""))
+            if(sum(pagrid[], na.rm=T)==0){
+              cat("No mapable gap for", spp, "\n")
+            }else{
+              assign(paste("dpgrid",sppC,sep=""), zipRead(spOutFolder, "pop-dist.asc.gz"))
+              assign(paste("dpgrid",sppC,sep=""), get(paste("dpgrid",sppC,sep="")) * pagrid)
+              
+              cat("Writing", spp, "raster gap \n")
+              #writeRaster(pagrid, paste(outFolder,"/",spp,".asc",sep=""), overwrite=TRUE)
+              zipWrite(pagrid, outFolder, paste(spp,".asc.gz",sep=""))
+            }
             
           } else if (file.exists(hbuffFile)) {
             cat("Presence/absence surf. does not exist or is not reliable, using hsamples instead \n")
@@ -121,15 +125,18 @@ gapRaster <- function(bdir) {
             
             if (file.exists(gbuffFile)) {
               pagrid[which(grd.ga[] == 1)] <- 0
-              
             }
             
-            assign(paste("dpgrid",sppC,sep=""), zipRead(spOutFolder, "pop-dist.asc.gz"))
-            assign(paste("dpgrid",sppC,sep=""), get(paste("dpgrid",sppC,sep="")) * pagrid)
-            
-            cat("Writing", spp, "raster gap \n")
-            #writeRaster(pagrid, paste(outFolder,"/",spp,".asc",sep=""), overwrite=TRUE)
-            zipWrite(pagrid, outFolder, paste(spp,".asc.gz",sep=""))
+            if(sum(pagrid[], na.rm=T)==0){
+              cat("No mapable gap for", spp, "\n")
+            }else{
+              assign(paste("dpgrid",sppC,sep=""), zipRead(spOutFolder, "pop-dist.asc.gz"))
+              assign(paste("dpgrid",sppC,sep=""), get(paste("dpgrid",sppC,sep="")) * pagrid)
+              
+              cat("Writing", spp, "raster gap \n")
+              #writeRaster(pagrid, paste(outFolder,"/",spp,".asc",sep=""), overwrite=TRUE)
+              zipWrite(pagrid, outFolder, paste(spp,".asc.gz",sep=""))
+            }
             
           } else {
             cat("No PA surface, no HSamples, cannot map it out \n")

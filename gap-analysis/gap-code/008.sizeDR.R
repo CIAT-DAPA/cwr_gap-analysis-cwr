@@ -1,5 +1,7 @@
 require(rgdal)
 require(raster)
+require(sp)
+require(maptools)
 
 source(paste(src.dir,"/000.zipRead.R",sep=""))
 source(paste(src.dir,"/000.zipWrite.R",sep=""))
@@ -9,9 +11,9 @@ source(paste(src.dir,"/000.bufferPoints.R",sep=""))
 #based on the area of the cells
 
 sizeDR <- function(bdir, spID) {
-	
 	idir <- paste(bdir, "/maxent_modeling", sep="")
 	ddir <- paste(bdir, "/samples_calculations", sep="")
+	naDir = paste(crop_dir, "/biomod_modeling/native-areas/polyshps", sep="") #Now restrict data to known native areas
 	
 	#Creating the directories
 	if (!file.exists(ddir)) {
@@ -23,38 +25,22 @@ sizeDR <- function(bdir, spID) {
 		dir.create(spOutFolder)
 	}
 	
-  #Read the thresholded raster (PA), multiply it by the area raster and sum up those cells that are != 0
+  #Start estimating areas
 	cat("Taxon", spID, "\n")
-	#spFolder <- paste(idir, "/maxent_modeling/models/", spID, sep="")
-	spFolder <- paste(bdir, "/maxent_modeling/models/", spID, sep="")
-	projFolder <- paste(spFolder, "/projections", sep="")
 	
 	mskArea <- paste(bdir, "/masks/cellArea.asc", sep="")
 	mskArea <- raster(mskArea, values=T)
 	msk <- paste(bdir, "/masks/mask.asc", sep="")
 	msk <- raster(msk)
 	
-	#Size of the DR
-	cat("Reading raster files \n")
-	grd <- paste(spID, "_worldclim2_5_EMN_PA.asc.gz", sep="")
-	if (file.exists(paste(projFolder, "/", grd, sep=""))) {
-		grd <- zipRead(projFolder, grd)
-		
-		cat("Size of the DR \n")
-		grd <- grd * mskArea
-		areaDR <- sum(grd[which(grd[] != 0)])
-		rm(grd)
-	} else {
-		areaDR <- NA
-	}
-	
 	#Size of the convex-hull
 	cat("Reading occurrences \n")
-	occ <- read.csv(paste(bdir, "/occurrence_files/", spID, ".csv", sep=""))
+	occ <- read.csv(paste(bdir, "/occurrence_files_narea/", spID, ".csv", sep="")) #Only uses records within native area
 	
   if (!file.exists(paste(spOutFolder, "/convex-hull.asc.gz",sep=""))) {
   	cat("Creating the convex hull \n")
-  	ch <- occ[chull(cbind(occ$lon, occ$lat)),2:3]
+    ch <- occ[chull(occ$lon,occ$lat)]
+#   	ch <- occ[chull(cbind(occ$lon, occ$lat)),2:3]
   	ch <- rbind(ch, ch[1,])
   	
   	cat("Transforming to polygons \n")
@@ -78,7 +64,6 @@ sizeDR <- function(bdir, spID) {
 	rm(grd)
 	
 	#Size of the native area
-	
 	cat("Reading native area \n")
 	naFolder <- paste(bdir, "/biomod_modeling/native-areas/asciigrids/", spID, sep="")
 	
@@ -100,11 +85,29 @@ sizeDR <- function(bdir, spID) {
 	cat("Size of the h-samples buffer \n")
 	hOcc <- allOcc[which(allOcc$H == 1),]
 	if (nrow(hOcc) != 0) {
-		hOcc <- as.data.frame(cbind(as.character(hOcc$Taxon), hOcc$lon, hOcc$lat))
-		names(hOcc) <- c("taxon", "lon", "lat")
-		
-		write.csv(hOcc, paste(spOutFolder, "/hsamples.csv", sep=""), quote=F, row.names=F)
-		rm(hOcc)
+    xy <- cbind(hOcc$lon, hOcc$lat)
+    occ <- SpatialPoints(xy)
+    
+    cat("Loading", spID, "native areas \n")
+    narea = paste(naDir, "/", spID, "/narea.shp", sep="")
+    if(!file.exists(narea)){
+      hOcc <- as.data.frame(cbind(as.character(hOcc$Taxon), hOcc$lon, hOcc$lat))
+      names(hOcc) <- c("taxon", "lon", "lat")
+      write.csv(hOcc, paste(spOutFolder, "/hsamples.csv", sep=""), quote=F, row.names=F)
+    }else{
+      narea = readShapeSpatial(narea)
+      cat ("Projecting files \n")
+      proj4string(occ) = CRS("+proj=longlat +datum=WGS84")
+      proj4string(narea) = CRS("+proj=longlat +datum=WGS84")
+      cat("Selecting occurrences within native area \n")
+      occ = occ[narea]
+      occ = as.data.frame(occ)
+      names(occ) = c("lon","lat")
+      occ["taxon"] <- spID
+      write.csv(occ, paste(spOutFolder, "/hsamples.csv", sep=""), quote=F, row.names=F)
+    }
+    rm(hOcc)
+		rm(occ)
     
     if (!file.exists(paste(spOutFolder, "/hsamples-buffer.asc.gz",sep=""))) {
 		  grd <- createBuffers(paste(spOutFolder, "/hsamples.csv", sep=""), spOutFolder, "hsamples-buffer.asc", 50000, paste(bdir, "/masks/mask.asc", sep=""))
@@ -121,11 +124,29 @@ sizeDR <- function(bdir, spID) {
 	cat("Size of the g-samples buffer \n")
 	gOcc <- allOcc[which(allOcc$G == 1),]
 	if (nrow(gOcc) != 0) {
-		gOcc <- as.data.frame(cbind(as.character(gOcc$Taxon), gOcc$lon, gOcc$lat))
-		names(gOcc) <- c("taxon", "lon", "lat")
+		xy <- cbind(gOcc$lon, gOcc$lat)
+		occ <- SpatialPoints(xy)
 		
-		write.csv(gOcc, paste(spOutFolder, "/gsamples.csv", sep=""), quote=F, row.names=F)
+		cat("Loading", spID, "native areas \n")
+		narea = paste(naDir, "/", spID, "/narea.shp", sep="")
+		if(!file.exists(narea)){
+		  gOcc <- as.data.frame(cbind(as.character(gOcc$Taxon), gOcc$lon, gOcc$lat))
+		  names(gOcc) <- c("taxon", "lon", "lat")
+		  write.csv(gOcc, paste(spOutFolder, "/hsamples.csv", sep=""), quote=F, row.names=F)
+		}else{
+		  narea = readShapeSpatial(narea)
+		  cat ("Projecting files \n")
+		  proj4string(occ) = CRS("+proj=longlat +datum=WGS84")
+		  proj4string(narea) = CRS("+proj=longlat +datum=WGS84")
+		  cat("Selecting occurrences within native area \n")
+		  occ = occ[narea]
+		  occ = as.data.frame(occ)
+		  names(occ) = c("lon","lat")
+		  occ["taxon"] <- spID
+		  write.csv(occ, paste(spOutFolder, "/hsamples.csv", sep=""), quote=F, row.names=F)
+		}
 		rm(gOcc)
+		rm(occ)
     
     if (!file.exists(paste(spOutFolder,"/gsamples-buffer.asc.gz",sep=""))) {
 		  grd <- createBuffers(paste(spOutFolder, "/gsamples.csv", sep=""), spOutFolder, "gsamples-buffer.asc", 50000, paste(bdir, "/masks/mask.asc", sep=""))
@@ -136,6 +157,26 @@ sizeDR <- function(bdir, spID) {
 		areaGB <- sum(grd[which(grd[] != 0)])
 	} else {
 		areaGB <- 0
+	}
+  
+	#Size of the DR
+	spFolder <- paste(bdir, "/maxent_modeling/models/", spID, sep="")
+	projFolder <- paste(spFolder, "/projections", sep="")
+	spList <- read.csv(paste(idir, "/summary-files/taxaForRichness.csv", sep=""))
+	isValid <- spList$ValidModel[which(spList$Taxon == paste(spID))]
+	
+	if (isValid == 1){
+	  cat("Reading raster files \n")
+	  grd <- paste(spID, "_worldclim2_5_EMN_PA.asc.gz", sep="")
+	  grd <- zipRead(projFolder, grd)
+    
+	  cat("Size of the DR \n")
+	  grd <- grd * mskArea
+	  areaDR <- sum(grd[which(grd[] != 0)])
+	  rm(grd) 
+	  
+	} else {
+	  areaDR <- areaHB + areaGB
 	}
 	
 	outDF <- data.frame(DRSize=areaDR, CHSize=areaCH, NASize=areaNA, HBSize=areaHB, GBSize=areaGB)

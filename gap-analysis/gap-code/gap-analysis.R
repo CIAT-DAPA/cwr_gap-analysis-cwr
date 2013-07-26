@@ -128,45 +128,6 @@ x <- summarizeMetrics(idir=crop_dir)
 source(paste(src.dir,"/007.calcASD15.R",sep=""))
 x <- summarizeASD15(idir=crop_dir)
 
-#== calculate size of distributional range ==#
-source(paste(src.dir,"/008.sizeDR.R",sep=""))
-x <- summarizeDR(crop_dir)
-
-clim <- paste(crop_dir,"/biomod_modeling/current-clim",sep="")
-
-pca_rclass <- paste(clim,"/pca_result_reclass",sep="")
-dir.create(pca_rclass)
-
-for (i in 1:2) {
-  cat("\nVariable",i,"\n")
-  rs <- raster(paste(clim,"/pca_result_raw/pc_",i,".asc",sep=""))
-  rs_res <- rs
-  
-  mx <- max(rs[],na.rm=T)
-  mn <- min(rs[],na.rm=T)
-  intval <- (mx-mn)/22
-  brks <- seq(mn,mx,by=intval)
-  
-  for (cls in 1:20) {
-    cat(cls," ")
-    if (cls!=20) {
-      rs_res[which(rs[]>=brks[cls] & rs[]<brks[cls+1])] <- cls
-    } else {
-      rs_res[which(rs[]>=brks[cls] & rs[]<=brks[cls+1])] <- cls
-    }
-  }
-  cat("\n")
-  rs_res <- writeRaster(rs_res,
-                        paste(clim,"/pca_result_reclass/pc_r_",i,".asc",sep=""),
-                        format='ascii')
-#   plot(rs_res)
-  rm(rs_res); g=gc(); rm(g)
-  }
-
-#== calculate environmental distance of distributional range ==#
-source(paste(src.dir,"/009.edistDR.R",sep=""))
-x <- summarizeDR_env(crop_dir)
-
 #select which taxa are of use for species richness
 #get the following modelling metrics:
 # a. 25-fold average test AUC (ATAUC)
@@ -208,7 +169,90 @@ for (spp in acc$SPID) {
   }
   
 }
-write.csv(res_all,paste(crop_dir,"/maxent_modeling/summary-files/taxaForRichness.csv",sep=""),quote=F,row.names=F)
+write.csv(res_all,paste(crop_dir,"/maxent_modeling/summary-files/modelsMets.csv",sep=""),quote=F,row.names=F)
+
+#== create taxa for spp richness table ==#
+table_base <- read.csv(paste(crop_dir,"/sample_counts/sample_count_table.csv",sep=""))
+table_base <- data.frame(Taxon=table_base$TAXON)
+table_base$IS_VALID <- NA
+
+#== reading tables ==#
+samples <- read.csv(paste(crop_dir,"/sample_counts/sample_count_table.csv",sep=""))
+model_met <- read.csv(paste(crop_dir,"/maxent_modeling/summary-files/modelsMets.csv",sep=""))
+
+names(model_met)[1]="TAXON"
+table_base <- samples
+
+for (spp in table_base$TAXON) {
+  cat("Processing species",paste(spp),"\n")
+  
+  #modelling metrics
+  if(sum(model_met$TAXON==paste(spp))==0){atauc <- NA
+                                          stauc <- NA
+                                          asd15 <- NA
+                                          isval <- NA}else{
+                                            atauc <- model_met$ATAUC[which(model_met$TAXON==paste(spp))]
+                                            stauc <- model_met$STAUC[which(model_met$TAXON==paste(spp))]
+                                            asd15 <- model_met$ASD15[which(model_met$TAXON==paste(spp))]
+                                            isval <- model_met$ValidModel[which(model_met$TAXON==paste(spp))]}
+  
+  table_base$ATAUC[which(table_base$TAXON==paste(spp))] <- atauc
+  table_base$STAUC[which(table_base$TAXON==paste(spp))] <- stauc
+  table_base$ASD15[which(table_base$TAXON==paste(spp))] <- asd15
+  table_base$IS_VALID[which(table_base$TAXON==paste(spp))] <- isval
+  
+}
+
+table_base=table_base[c(1,11)]
+
+table_base$IS_VALID[which(is.na(table_base$IS_VALID))]<-0
+
+write.csv(table_base,paste(crop_dir,"/summary-files/taxaForRichness.csv",sep=""),row.names=F,quote=F)
+
+rm(table_base, samples, model_met)
+
+#== calculate species richness ==#
+source(paste(src.dir,"/010.speciesRichness2.R",sep=""))
+x <- speciesRichness_alt(bdir=crop_dir)
+
+#== calculate size of distributional range ==#
+source(paste(src.dir,"/008.sizeDR.R",sep=""))
+x <- summarizeDR(crop_dir)
+
+clim <- paste(crop_dir,"/biomod_modeling/current-clim",sep="")
+
+pca_rclass <- paste(clim,"/pca_result_reclass",sep="")
+dir.create(pca_rclass)
+
+for (i in 1:2) {
+  cat("\nVariable",i,"\n")
+  rs <- raster(paste(clim,"/pca_result_raw/pc_",i,".asc",sep=""))
+  rs_res <- rs
+  
+  mx <- max(rs[],na.rm=T)
+  mn <- min(rs[],na.rm=T)
+  intval <- (mx-mn)/22
+  brks <- seq(mn,mx,by=intval)
+  
+  for (cls in 1:20) {
+    cat(cls," ")
+    if (cls!=20) {
+      rs_res[which(rs[]>=brks[cls] & rs[]<brks[cls+1])] <- cls
+    } else {
+      rs_res[which(rs[]>=brks[cls] & rs[]<=brks[cls+1])] <- cls
+    }
+  }
+  cat("\n")
+  rs_res <- writeRaster(rs_res,
+                        paste(clim,"/pca_result_reclass/pc_r_",i,".asc",sep=""),
+                        format='ascii')
+#   plot(rs_res)
+  rm(rs_res); g=gc(); rm(g)
+  }
+
+#== calculate environmental distance of distributional range ==#
+source(paste(src.dir,"/009.edistDR.R",sep=""))
+x <- summarizeDR_env(crop_dir)
 
 #== create the priorities table ==#
 #1. SRS=GS/(GS+HS)*10
@@ -218,12 +262,12 @@ table_base$HS <- NA; table_base$HS_RP <- NA
 table_base$GS <- NA; table_base$GS_RP <- NA
 table_base$TOTAL <- NA; table_base$TOTAL_RP <- NA
 table_base$ATAUC <- NA; table_base$STAUC <- NA; table_base$ASD15 <- NA; table_base$IS_VALID <- NA
-table_base$SRS <- NA; table_base$GRS <- NA; table_base$ERS <- NA
+table_base$SRS <- NA; table_base$ <- NA; table_base$ERS <- NA
 table_base$ERTS <- NA; table_base$FPS <- NA; table_base$FPCAT <- NA
 
 #== reading specific tables ==#
 samples <- read.csv(paste(crop_dir,"/sample_counts/sample_count_table.csv",sep=""))
-model_met <- read.csv(paste(crop_dir,"/maxent_modeling/summary-files/taxaForRichness.csv",sep=""))
+model_met <- read.csv(paste(crop_dir,"/maxent_modeling/summary-files/modelsMets.csv",sep=""))
 rsize <- read.csv(paste(crop_dir,"/maxent_modeling/summary-files/areas.csv",sep=""))
 edist <- read.csv(paste(crop_dir,"/maxent_modeling/summary-files/edist.csv",sep=""))
 
@@ -351,10 +395,6 @@ table_base$IS_VALID[which(is.na(table_base$IS_VALID))]<-0
 
 write.csv(table_base,paste(crop_dir,"/priorities/priorities.csv",sep=""),row.names=F,quote=F)
 
-#== calculate species richness ==#
-source(paste(src.dir,"/010.speciesRichness2.R",sep=""))
-x <- speciesRichness_alt(bdir=crop_dir)
-
 #== calculate distance to populations ==#
 source(paste(src.dir,"/011.distanceToPopulations.R",sep=""))
 summarizeDistances(bdir=crop_dir)
@@ -368,4 +408,3 @@ source(paste(src.dir,"/013.mapsAndFigures.R",sep=""))
 
 #== ensuring access to folders ==#
 system(paste("chmod", "-R", "777", crop_dir))
-
