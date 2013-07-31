@@ -51,49 +51,49 @@ gapRaster <- function(bdir) {
         }else{
           
           #Size of the herbarium samples CA50
-          cat("Calculating h-samples buffer \n")
-          tallOcc <- allOcc[which(allOcc$Taxon == paste(spp)),]
-          hOcc <- tallOcc[which(tallOcc$H == 1),]
-          if (nrow(hOcc) != 0) {
-            spOutFolder <- paste(ddir, "/", spp, sep="")
-            
-            if (!file.exists(paste(spOutFolder, "/hsamples-buffer.asc.gz", sep=""))) {
-              if (!file.exists(spOutFolder)) {
-                dir.create(spOutFolder)
-              }
-              hOcc <- as.data.frame(cbind(as.character(hOcc$Taxon), hOcc$lon, hOcc$lat))
-              names(hOcc) <- c("taxon", "lon", "lat")
-              
-              write.csv(hOcc, paste(spOutFolder, "/hsamples.csv", sep=""), quote=F, row.names=F)
-              rm(hOcc)
-              grd <- createBuffers(paste(spOutFolder, "/hsamples.csv", sep=""), spOutFolder, "hsamples-buffer.asc", 50000, paste(bdir, "/masks/mask.asc", sep=""))
-            } else {
-              grd <- zipRead(spOutFolder, "hsamples-buffer.asc.gz")
-            }
-          }
+#           cat("Calculating h-samples buffer \n")
+#           tallOcc <- allOcc[which(allOcc$Taxon == paste(spp)),]
+#           hOcc <- tallOcc[which(tallOcc$H == 1),]
+#           if (nrow(hOcc) != 0) {
+#             spOutFolder <- paste(ddir, "/", spp, sep="")
+#             
+#             if (!file.exists(paste(spOutFolder, "/hsamples-buffer.asc.gz", sep=""))) {
+#               if (!file.exists(spOutFolder)) {
+#                 dir.create(spOutFolder)
+#               }
+#               hOcc <- as.data.frame(cbind(as.character(hOcc$Taxon), hOcc$lon, hOcc$lat))
+#               names(hOcc) <- c("taxon", "lon", "lat")
+#               
+#               write.csv(hOcc, paste(spOutFolder, "/hsamples.csv", sep=""), quote=F, row.names=F)
+#               rm(hOcc)
+#               grd <- createBuffers(paste(spOutFolder, "/hsamples.csv", sep=""), spOutFolder, "hsamples-buffer.asc", 50000, paste(bdir, "/masks/mask.asc", sep=""))
+#             } else {
+#               grd <- zipRead(spOutFolder, "hsamples-buffer.asc.gz")
+#             }
+#           }
           
           hbuffFile <- paste(spOutFolder, "/hsamples-buffer.asc.gz", sep="")
           
           #Size of the genebank accessions CA50
-          cat("Calculating g-samples buffer \n")
-          gOcc <- tallOcc[which(tallOcc$G == 1),]
-          if (nrow(gOcc) != 0) {
-            spOutFolder <- paste(ddir, "/", spp, sep="")
-            
-            if (!file.exists(paste(spOutFolder, "/gsamples-buffer.asc.gz", sep=""))) {
-              if (!file.exists(spOutFolder)) {
-                dir.create(spOutFolder)
-              }
-              gOcc <- as.data.frame(cbind(as.character(gOcc$Taxon), gOcc$lon, gOcc$lat))
-              names(gOcc) <- c("taxon", "lon", "lat")
-              
-              write.csv(gOcc, paste(spOutFolder, "/gsamples.csv", sep=""), quote=F, row.names=F)
-              rm(hOcc)
-              grd.ga <- createBuffers(paste(spOutFolder, "/gsamples.csv", sep=""), spOutFolder, "gsamples-buffer.asc", 50000, paste(bdir, "/masks/mask.asc", sep=""))
-            } else {
-              grd.ga <- zipRead(spOutFolder, "gsamples-buffer.asc.gz")
-            }
-          }
+#           cat("Calculating g-samples buffer \n")
+#           gOcc <- tallOcc[which(tallOcc$G == 1),]
+#           if (nrow(gOcc) != 0) {
+#             spOutFolder <- paste(ddir, "/", spp, sep="")
+#             
+#             if (!file.exists(paste(spOutFolder, "/gsamples-buffer.asc.gz", sep=""))) {
+#               if (!file.exists(spOutFolder)) {
+#                 dir.create(spOutFolder)
+#               }
+#               gOcc <- as.data.frame(cbind(as.character(gOcc$Taxon), gOcc$lon, gOcc$lat))
+#               names(gOcc) <- c("taxon", "lon", "lat")
+#               
+#               write.csv(gOcc, paste(spOutFolder, "/gsamples.csv", sep=""), quote=F, row.names=F)
+#               rm(hOcc)
+#               grd.ga <- createBuffers(paste(spOutFolder, "/gsamples.csv", sep=""), spOutFolder, "gsamples-buffer.asc", 50000, paste(bdir, "/masks/mask.asc", sep=""))
+#             } else {
+#               grd.ga <- zipRead(spOutFolder, "gsamples-buffer.asc.gz")
+#             }
+#           }
           
           gbuffFile <- paste(spOutFolder, "/gsamples-buffer.asc.gz", sep="")
           

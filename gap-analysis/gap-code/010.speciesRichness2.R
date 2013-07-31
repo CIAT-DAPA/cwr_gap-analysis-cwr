@@ -134,4 +134,5 @@ speciesRichness_alt <- function(bdir) {
   zipWrite(results_sum, outFolder, "species-richness.asc.gz")
   zipWrite(results_mean_sd, outFolder, "species-richness-sdmean.asc.gz")
   
-  cat("Done! \n")}
+  cat("Done! \n")
+}

@@ -1,3 +1,11 @@
+# An R code to calculate the areas of potential distribution range, herbarium buffered samples, germplasm
+# buffered samples and convex hulls for crop wild relatives.
+#
+# "Adapting crops to climate change: collecting, protecting and preparing crop wild relatives"
+# www.cwrdiversity.org
+#
+# J. Ramirez, N. Castaneda,  H. Achicanoy - 2013
+
 require(rgdal)
 require(raster)
 require(sp)
@@ -10,10 +18,10 @@ source(paste(src.dir,"/000.bufferPoints.R",sep=""))
 #Calculate the size of the DR, of the convexhull in km2, of the native area, and of the herbarium samples
 #based on the area of the cells
 
-sizeDR <- function(bdir, spID) {
+sizeDR <- function(bdir, crop, spID) {
 	idir <- paste(bdir, "/maxent_modeling", sep="")
 	ddir <- paste(bdir, "/samples_calculations", sep="")
-	naDir = paste(crop_dir, "/biomod_modeling/native-areas/polyshps", sep="") #Now restrict data to known native areas
+	naDir = paste(bdir, "/biomod_modeling/native-areas/polyshps", sep="") #Now restrict data to known native areas
 	
 	#Creating the directories
 	if (!file.exists(ddir)) {
@@ -25,7 +33,7 @@ sizeDR <- function(bdir, spID) {
 		dir.create(spOutFolder)
 	}
 	
-  #Start estimating areas
+    #Start estimating areas
 	cat("Taxon", spID, "\n")
 	
 	mskArea <- paste(bdir, "/masks/cellArea.asc", sep="")
@@ -44,7 +52,7 @@ sizeDR <- function(bdir, spID) {
     
 #   	ch <- occ[chull(cbind(occ$lon, occ$lat)),2:3]
   	ch <- rbind(ch, ch[1,])
-  	
+  
   	cat("Transforming to polygons \n")
   	pol <- SpatialPolygons(list(Polygons(list(Polygon(ch)), 1)))
   	grd <- rasterize(pol, msk)
@@ -66,8 +74,9 @@ sizeDR <- function(bdir, spID) {
 	grd <- grd * mskArea
 	areaCH <- sum(grd[which(grd[] != 0)])
 	rm(grd)
+
 	
-	#Size of the native area
+	# Size of the native area
 	cat("Reading native area \n")
 	naFolder <- paste(bdir, "/biomod_modeling/native-areas/asciigrids/", spID, sep="")
 	
@@ -113,11 +122,12 @@ sizeDR <- function(bdir, spID) {
     rm(hOcc)
 		rm(occ)
     
-    if (!file.exists(paste(spOutFolder, "/hsamples-buffer.asc.gz",sep=""))) {
+#     if (!file.exists(paste(spOutFolder, "/hsamples-buffer.asc.gz",sep=""))) {
 		  grd <- createBuffers(paste(spOutFolder, "/hsamples.csv", sep=""), spOutFolder, "hsamples-buffer.asc", 50000, paste(bdir, "/masks/mask.asc", sep=""))
-    } else {
+      
+#     } else {
       grd <- zipRead(spOutFolder,"hsamples-buffer.asc.gz")
-    }
+#     }
 		grd <- grd * mskArea
 		areaHB <- sum(grd[which(grd[] != 0)])
 	} else {
@@ -152,11 +162,11 @@ sizeDR <- function(bdir, spID) {
 		rm(gOcc)
 		rm(occ)
     
-    if (!file.exists(paste(spOutFolder,"/gsamples-buffer.asc.gz",sep=""))) {
+#     if (!file.exists(paste(spOutFolder,"/gsamples-buffer.asc.gz",sep=""))) {
 		  grd <- createBuffers(paste(spOutFolder, "/gsamples.csv", sep=""), spOutFolder, "gsamples-buffer.asc", 50000, paste(bdir, "/masks/mask.asc", sep=""))
-    } else {
+#     } else {
       grd <- zipRead(spOutFolder,"gsamples-buffer.asc.gz")
-    }
+#     }
 		grd <- grd * mskArea
 		areaGB <- sum(grd[which(grd[] != 0)])
 	} else {
@@ -185,47 +195,44 @@ sizeDR <- function(bdir, spID) {
 	
 	outDF <- data.frame(DRSize=areaDR, CHSize=areaCH, NASize=areaNA, HBSize=areaHB, GBSize=areaGB)
 	write.csv(outDF, paste(spOutFolder, "/areas.csv", sep=""), quote=F, row.names=F)
-	return(outDF)
+# 	return(outDF)
 }
 
-summarizeDR <- function(idir) {
-	
-	ddir <- paste(idir, "/samples_calculations", sep="")
-	
-	odir <- paste(idir, "/maxent_modeling/summary-files", sep="")
-	if (!file.exists(odir)) {
-		dir.create(odir)
+sizeDRProcess <- function(inputDir, ncpu, crop){
+
+	spList <- list.files(paste(inputDir, "/occurrence_files", sep=""),pattern=".csv")
+
+	sizeDRwrapper <- function(i) {
+	  library(SDMTools) # UNDER TEST
+    library(rgdal)
+		library(raster)
+		library(sp)
+		library(maptools)
+		sp <- spList[i]
+		sp <- unlist(strsplit(sp, ".", fixed=T))[1]
+# 		cat("\n")
+# 		cat("...Species", sp, "\n")
+		out <- sizeDR(inputDir, crop, sp)
 	}
+
+	library(snowfall)
+	sfInit(parallel=T,cpus=ncpu)
+
+	sfExport("zipRead")
+	sfExport("zipWrite")
+  sfExport("createBuffers")
+# 	sfExport("bufferPoints")
+  sfExport("inputDir")
+  sfExport("crop")
+	sfExport("sizeDR")
+  sfExport("spList")
+  sfExport("sizeDRwrapper")
 	
-	spList <- list.files(paste(idir, "/occurrence_files", sep=""))
+	#run the control function
+	system.time(sfSapply(as.vector(1:length(spList)), sizeDRwrapper))
 	
-	sppC <- 1
-	for (spp in spList) {
-		spp <- unlist(strsplit(spp, ".", fixed=T))[1]
-		fdName <- spp #paste("sp-", spp, sep="")
-		spFolder <- paste(idir, "/maxent_modeling/models/", fdName, sep="")
-		spOutFolder <- paste(ddir, "/", spp, sep="")
-		
-		if (file.exists(spFolder)) {
-			
-			res <- sizeDR(idir, spp)
-			
-			metFile <- paste(spOutFolder, "/areas.csv", sep="")
-			metrics <- read.csv(metFile)
-			metrics <- cbind(taxon=spp, metrics)
-			
-			if (sppC == 1) {
-				outSum <- metrics
-			} else {
-				outSum <- rbind(outSum, metrics)
-			}
-			sppC <- sppC + 1
-		} else {
-			cat("The taxon was never modeled \n")
-		}
-	}
+	#stop the cluster
+	sfStop()
 	
-	outFile <- paste(odir, "/areas.csv", sep="")
-	write.csv(outSum, outFile, quote=F, row.names=F)
-	return(outSum)
+	return("Done!")
 }

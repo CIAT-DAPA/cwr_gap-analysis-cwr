@@ -120,7 +120,7 @@ for (f in fList) {
 source(paste(src.dir,"/005.modelingApproach.R",sep=""))
 GapProcess(inputDir=crop_dir, OSys="linux", ncpu=3, j.size="-mx8192m")
 
-#== summarise the metrics ==#
+#== summarise the models metrics ==#
 source(paste(src.dir,"/006.summarizeMetricsThresholds.R",sep=""))
 x <- summarizeMetrics(idir=crop_dir)
 
@@ -211,14 +211,15 @@ write.csv(table_base,paste(crop_dir,"/summary-files/taxaForRichness.csv",sep="")
 
 rm(table_base, samples, model_met)
 
-#== calculate species richness ==#
-source(paste(src.dir,"/010.speciesRichness2.R",sep=""))
-x <- speciesRichness_alt(bdir=crop_dir)
-
 #== calculate size of distributional range ==#
-source(paste(src.dir,"/008.sizeDR.R",sep=""))
-x <- summarizeDR(crop_dir)
+source(paste(src.dir,"/008.sizeDR2.R",sep=""))
+sizeDRProcess(inputDir=crop_dir, ncpu=3, crop=crop)
 
+#== summarise area files ==#
+source(paste(src.dir,"/008.summarizeDR.R",sep=""))
+summarizeDR(crop_dir)
+
+#== reclassify PCA raster files ==#
 clim <- paste(crop_dir,"/biomod_modeling/current-clim",sep="")
 
 pca_rclass <- paste(clim,"/pca_result_reclass",sep="")
@@ -253,6 +254,10 @@ for (i in 1:2) {
 #== calculate environmental distance of distributional range ==#
 source(paste(src.dir,"/009.edistDR.R",sep=""))
 x <- summarizeDR_env(crop_dir)
+
+#== calculate species richness ==#
+source(paste(src.dir,"/010.speciesRichness2.R",sep=""))
+x <- speciesRichness_alt(bdir=crop_dir)
 
 #== create the priorities table ==#
 #1. SRS=GS/(GS+HS)*10
@@ -322,16 +327,19 @@ for (spp in table_base$TAXON) {
   
   if(sum(rsize$TAXON==paste(spp))==0){
     drsize=NA
-    grs=NA}else{if (isval==1) {
+    grs=NA
+  } else {
+    if (isval==1) {
       drsize <- rsize$DRSize[which(rsize$TAXON==paste(spp))]
     } else {
       drsize <- rsize$CHSize[which(rsize$TAXON==paste(spp))]
     }
-                grs <- g_ca50/drsize*10
-                
-                if (!is.na(grs)) {
-                  if (grs>10) {grs <- 10}
-                }}
+    grs <- g_ca50/drsize*10
+    
+    if (!is.na(grs)) {
+      if (grs>10) {grs <- 10}
+    }
+  }
   table_base$GRS[which(table_base$TAXON==paste(spp))] <- grs
   
   #ers
@@ -342,26 +350,34 @@ for (spp in table_base$TAXON) {
     dr_pc2=NA
     ers_pc1=NA
     ers_pc1=NA
-    ers=NA} else{ecg_ca50_pc1 <- edist$GBDist.PC1[which(edist$TAXON==paste(spp))]
-                 ecg_ca50_pc2 <- edist$GBDist.PC2[which(edist$TAXON==paste(spp))]
+    ers=NA
+    } else {
+      ecg_ca50_pc1 <- edist$GBDist.PC1[which(edist$TAXON==paste(spp))]
+      ecg_ca50_pc2 <- edist$GBDist.PC2[which(edist$TAXON==paste(spp))]
+      if(isval==1){
+        dr_pc1 <- edist$DRDist.PC1[which(edist$TAXON==paste(spp))]
+        dr_pc2 <- edist$DRDist.PC2[which(edist$TAXON==paste(spp))]
+        
+      } else {
+        dr_pc1 <- edist$CHDist.PC1[which(edist$TAXON==paste(spp))]
+        dr_pc2 <- edist$CHDist.PC2[which(edist$TAXON==paste(spp))]
+        
+      }
                  
-                 dr_pc1 <- edist$DRDist.PC1[which(edist$TAXON==paste(spp))]
-                 dr_pc2 <- edist$DRDist.PC2[which(edist$TAXON==paste(spp))]
-                 
-                 ers_pc1 <- ecg_ca50_pc1/dr_pc1*10
-                 if (!is.na(ers_pc1)) {
-                   if (ers_pc1 > 10) {ers_pc1 <- 10}
-                 }
-                 ers_pc2 <- ecg_ca50_pc2/dr_pc2*10
-                 if (!is.na(ers_pc2)) {
-                   if (ers_pc2 > 10) {ers_pc2 <- 10}
-                 }
-                 
-                 ers <- ers_pc1*w_pc1 + ers_pc2*w_pc2
-                 if (!is.na(ers))
-                   if (ers > 10) {ers <- 10}}
-  
-  table_base$ERS[which(table_base$TAXON==paste(spp))] <- ers
+      ers_pc1 <- ecg_ca50_pc1/dr_pc1*10
+      if (!is.na(ers_pc1)) {
+        if (ers_pc1 > 10) {ers_pc1 <- 10}
+      }
+      ers_pc2 <- ecg_ca50_pc2/dr_pc2*10
+      if (!is.na(ers_pc2)) {
+        if (ers_pc2 > 10) {ers_pc2 <- 10}
+      }
+      
+      ers <- ers_pc1*w_pc1 + ers_pc2*w_pc2
+      if (!is.na(ers))
+        if (ers > 10) {ers <- 10}
+    }
+    table_base$ERS[which(table_base$TAXON==paste(spp))] <- ers
   
   #Final priority score
   if (gs==0) {
@@ -396,12 +412,31 @@ table_base$IS_VALID[which(is.na(table_base$IS_VALID))]<-0
 write.csv(table_base,paste(crop_dir,"/priorities/priorities.csv",sep=""),row.names=F,quote=F)
 
 #== calculate distance to populations ==#
-source(paste(src.dir,"/011.distanceToPopulations.R",sep=""))
-summarizeDistances(bdir=crop_dir)
+source(paste(src.dir,"/011.distanceToPopulations2.R",sep=""))
+ParProcess(crop_dir, ncpu=3)
 
 #== calculate final gap richness ==#
 source(paste(src.dir,"/012.gapRichness2.R",sep=""))
 x <- gapRichness(bdir=crop_dir)
+
+#== verify if gap map is available for each taxon ==#
+priFile <- read.csv(paste(crop_dir, "/priorities/priorities.csv", sep=""))
+newpriFile <- priFile
+newpriFile$MAP_AVAILABLE <- NA
+
+spList <- priFile$TAXON
+
+for (spp in spList){
+  fpcat <- priFile$FPCAT[which(priFile$TAXON==paste(spp))]
+  if(file.exists(paste(crop_dir, "/gap_spp/", fpcat, "/", spp, ".asc.gz", sep=""))){
+    newpriFile$MAP_AVAILABLE[which(newpriFile$TAXON==paste(spp))] <- 1
+  } else {
+    newpriFile$MAP_AVAILABLE[which(newpriFile$TAXON==paste(spp))] <- 0
+  }
+}
+
+write.csv(newpriFile, paste(crop_dir, "/priorities/priorities.csv", sep=""), row.names=F, quote=F)
+rm(newpriFile)
 
 #== getting maps and figures ==#
 source(paste(src.dir,"/013.mapsAndFigures.R",sep=""))

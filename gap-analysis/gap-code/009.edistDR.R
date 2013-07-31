@@ -38,7 +38,7 @@ edistDR <- function(bdir, spID) {
 	grd <- paste(spID, "_worldclim2_5_EMN_PA.asc.gz", sep="")
 	spList <- read.csv(paste(bdir, "/summary-files/taxaForRichness.csv", sep=""))
 	isValid <- spList$IS_VALID[which(spList$TAXON == paste(spID))]
-  
+	
 	if (isValid == 1) {
 		grd <- zipRead(projFolder, grd)
 		
@@ -55,25 +55,9 @@ edistDR <- function(bdir, spID) {
 		
 		rm(grd)
 	} else {
-    if(file.exists(paste(ddir, "/", spID, "/samples-buffer-na.asc.gz", sep=""))){
-      grd <- zipRead(paste(ddir, "/", spID, sep=""), "samples-buffer-na.asc.gz")
-      
-      cat("Env. distribution of the DR \n")
-      grda <- grd * pc1
-      edistDR1 <- unique(grda[])
-      edistDR1 <- edistDR1[which(edistDR1 != 0 & !is.na(edistDR1))]
-      rm(grda)
-      
-      grda <- grd * pc1
-      edistDR2 <- unique(grda[])
-      edistDR2 <- edistDR2[which(edistDR2 != 0 & !is.na(edistDR2))]
-      rm(grda)
-      
-	  } else {
-	    edistDR1 <- NULL
-	    edistDR2 <- NULL
-	  }
-	} 
+		edistDR1 <- NULL
+		edistDR2 <- NULL
+	}
 	
 	#Edist of the convex-hull
 	if (file.exists(paste(ddir, "/", spID, "/convex-hull.asc.gz", sep=""))) {
