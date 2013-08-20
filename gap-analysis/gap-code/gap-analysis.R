@@ -211,9 +211,13 @@ write.csv(table_base,paste(crop_dir,"/summary-files/taxaForRichness.csv",sep="")
 
 rm(table_base, samples, model_met)
 
+#== Filtering occurrences by native area ==#
+source(paste(src.dir,"/000.filterOccFilesByNArea.R",sep=""))
+OccFilterNArea (crop_dir)
+
 #== calculate size of distributional range ==#
 source(paste(src.dir,"/008.sizeDR2.R",sep=""))
-sizeDRProcess(inputDir=crop_dir, ncpu=3, crop=crop)
+sizeDRProcess(inputDir=crop_dir, ncpu=2, crop=crop)
 
 #== summarise area files ==#
 source(paste(src.dir,"/008.summarizeDR.R",sep=""))
@@ -267,7 +271,7 @@ table_base$HS <- NA; table_base$HS_RP <- NA
 table_base$GS <- NA; table_base$GS_RP <- NA
 table_base$TOTAL <- NA; table_base$TOTAL_RP <- NA
 table_base$ATAUC <- NA; table_base$STAUC <- NA; table_base$ASD15 <- NA; table_base$IS_VALID <- NA
-table_base$SRS <- NA; table_base$ <- NA; table_base$ERS <- NA
+table_base$SRS <- NA; table_base$GRS <- NA; table_base$ERS <- NA
 table_base$ERTS <- NA; table_base$FPS <- NA; table_base$FPCAT <- NA
 
 #== reading specific tables ==#

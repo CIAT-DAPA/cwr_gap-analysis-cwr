@@ -21,7 +21,6 @@ gapRaster <- function(bdir) {
     if (!file.exists(outFolder)) {dir.create(outFolder)}
     
     spList <- read.csv(paste(bdir, "/priorities/priorities.csv", sep=""))
-    #spList$IS_VALID[which(is.na(spList$IS_VALID))]<-0
     
     names(spList)[1]="TAXON"
     spList <- spList[which(spList$FPCAT == p),]
@@ -45,109 +44,73 @@ gapRaster <- function(bdir) {
         
         sppFolder <- paste(idir, "/models/", spp, sep="")
         projFolder <- paste(sppFolder, "/projections", sep="")
+        spOutFolder <- paste(ddir, "/", spp, sep="") #NUEVA UBICACION UNDER TEST
         
-        if(file.exists(paste(outFolder,"/",spp,".asc.gz",sep=""))){
-          cat("The file already exists",spp,"\n")
-        }else{
+        #Calling herbarium samples CA50
+        cat("Using h-samples buffer \n")
+        tallOcc <- allOcc[which(allOcc$Taxon == paste(spp)),]
+        hOcc <- tallOcc[which(tallOcc$H == 1),]
+        if (nrow(hOcc) != 0) {
+          spOutFolder <- paste(ddir, "/", spp, sep="")
+          grd <- zipRead(spOutFolder, "hsamples-buffer.asc.gz")
+        } 
+        
+        hbuffFile <- paste(spOutFolder, "/hsamples-buffer.asc.gz", sep="")
+        
+        #Calling genebank accessions CA50
+        cat("Using g-samples buffer \n")
+        gOcc <- tallOcc[which(tallOcc$G == 1),]
+        if (nrow(gOcc) != 0) {
+          grd.ga <- zipRead(spOutFolder, "gsamples-buffer.asc.gz")
+        }
+        
+        gbuffFile <- paste(spOutFolder, "/gsamples-buffer.asc.gz", sep="")
+        
+        #Presence absence surfaces
+        if (isValid == 1) {
+          cat("Presence/absence surf. exists, using it \n")
+          pagrid <- paste(spp, "_worldclim2_5_EMN_PA.asc.gz", sep="")
+          pagrid <- zipRead(projFolder, pagrid)
           
-          #Size of the herbarium samples CA50
-#           cat("Calculating h-samples buffer \n")
-#           tallOcc <- allOcc[which(allOcc$Taxon == paste(spp)),]
-#           hOcc <- tallOcc[which(tallOcc$H == 1),]
-#           if (nrow(hOcc) != 0) {
-#             spOutFolder <- paste(ddir, "/", spp, sep="")
-#             
-#             if (!file.exists(paste(spOutFolder, "/hsamples-buffer.asc.gz", sep=""))) {
-#               if (!file.exists(spOutFolder)) {
-#                 dir.create(spOutFolder)
-#               }
-#               hOcc <- as.data.frame(cbind(as.character(hOcc$Taxon), hOcc$lon, hOcc$lat))
-#               names(hOcc) <- c("taxon", "lon", "lat")
-#               
-#               write.csv(hOcc, paste(spOutFolder, "/hsamples.csv", sep=""), quote=F, row.names=F)
-#               rm(hOcc)
-#               grd <- createBuffers(paste(spOutFolder, "/hsamples.csv", sep=""), spOutFolder, "hsamples-buffer.asc", 50000, paste(bdir, "/masks/mask.asc", sep=""))
-#             } else {
-#               grd <- zipRead(spOutFolder, "hsamples-buffer.asc.gz")
-#             }
-#           }
-          
-          hbuffFile <- paste(spOutFolder, "/hsamples-buffer.asc.gz", sep="")
-          
-          #Size of the genebank accessions CA50
-#           cat("Calculating g-samples buffer \n")
-#           gOcc <- tallOcc[which(tallOcc$G == 1),]
-#           if (nrow(gOcc) != 0) {
-#             spOutFolder <- paste(ddir, "/", spp, sep="")
-#             
-#             if (!file.exists(paste(spOutFolder, "/gsamples-buffer.asc.gz", sep=""))) {
-#               if (!file.exists(spOutFolder)) {
-#                 dir.create(spOutFolder)
-#               }
-#               gOcc <- as.data.frame(cbind(as.character(gOcc$Taxon), gOcc$lon, gOcc$lat))
-#               names(gOcc) <- c("taxon", "lon", "lat")
-#               
-#               write.csv(gOcc, paste(spOutFolder, "/gsamples.csv", sep=""), quote=F, row.names=F)
-#               rm(hOcc)
-#               grd.ga <- createBuffers(paste(spOutFolder, "/gsamples.csv", sep=""), spOutFolder, "gsamples-buffer.asc", 50000, paste(bdir, "/masks/mask.asc", sep=""))
-#             } else {
-#               grd.ga <- zipRead(spOutFolder, "gsamples-buffer.asc.gz")
-#             }
-#           }
-          
-          gbuffFile <- paste(spOutFolder, "/gsamples-buffer.asc.gz", sep="")
-          
-          #Presence absence surfaces
-          
-          if (isValid == 1) {
-            cat("Presence/absence surf. exists, using it \n")
-            pagrid <- paste(spp, "_worldclim2_5_EMN_PA.asc.gz", sep="")
-            pagrid <- zipRead(projFolder, pagrid)
-            
-            if (file.exists(gbuffFile)) {
-              pagrid[which(grd.ga[] == 1)] <- 0
-            }
-            
-            if(sum(pagrid[], na.rm=T)==0){
-              cat("No mapable gap for", spp, "\n")
-            }else{
-              assign(paste("dpgrid",sppC,sep=""), zipRead(spOutFolder, "pop-dist.asc.gz"))
-              assign(paste("dpgrid",sppC,sep=""), get(paste("dpgrid",sppC,sep="")) * pagrid)
-              
-              cat("Writing", spp, "raster gap \n")
-              #writeRaster(pagrid, paste(outFolder,"/",spp,".asc",sep=""), overwrite=TRUE)
-              zipWrite(pagrid, outFolder, paste(spp,".asc.gz",sep=""))
-            }
-            
-          } else if (file.exists(hbuffFile)) {
-            cat("Presence/absence surf. does not exist or is not reliable, using hsamples instead \n")
-            pagrid <- grd
-            
-            if (file.exists(gbuffFile)) {
-              pagrid[which(grd.ga[] == 1)] <- 0
-            }
-            
-            if(sum(pagrid[], na.rm=T)==0){
-              cat("No mapable gap for", spp, "\n")
-            }else{
-              assign(paste("dpgrid",sppC,sep=""), zipRead(spOutFolder, "pop-dist.asc.gz"))
-              assign(paste("dpgrid",sppC,sep=""), get(paste("dpgrid",sppC,sep="")) * pagrid)
-              
-              cat("Writing", spp, "raster gap \n")
-              #writeRaster(pagrid, paste(outFolder,"/",spp,".asc",sep=""), overwrite=TRUE)
-              zipWrite(pagrid, outFolder, paste(spp,".asc.gz",sep=""))
-            }
-            
-          } else {
-            cat("No PA surface, no HSamples, cannot map it out \n")
+          if (file.exists(gbuffFile)) {
+            pagrid[which(grd.ga[] == 1)] <- 0
           }
           
-          #cat("Writing", spp, "raster gap \n")
-          #writeRaster(pagrid, paste(outFolder,"/",spp,".asc",sep=""), overwrite=TRUE)
-          #zipWrite(pagrid, outFolder, paste(spp,".asc.gz",sep=""))
+          if(sum(pagrid[], na.rm=T)==0){
+            cat("No mapable gap for", spp, "\n")
+          }else{
+            #               assign(paste("dpgrid",sppC,sep=""), zipRead(spOutFolder, "pop-dist.asc.gz"))
+            #               assign(paste("dpgrid",sppC,sep=""), get(paste("dpgrid",sppC,sep="")) * pagrid)
+            
+            cat("Writing", spp, "raster gap \n")
+            #writeRaster(pagrid, paste(outFolder,"/",spp,".asc",sep=""), overwrite=TRUE)
+            zipWrite(pagrid, outFolder, paste(spp,".asc.gz",sep=""))
+          }
           
-          sppC <- sppC + 1
+        } else if (file.exists(hbuffFile)) {
+          cat("Presence/absence surf. does not exist or is not reliable, using hsamples instead \n")
+          pagrid <- grd
+          
+          if (file.exists(gbuffFile)) {
+            pagrid[which(grd.ga[] == 1)] <- 0
+          }
+          
+          if(sum(pagrid[], na.rm=T)==0){
+            cat("No mapable gap for", spp, "\n")
+          }else{
+            #               assign(paste("dpgrid",sppC,sep=""), zipRead(spOutFolder, "pop-dist.asc.gz"))
+            #               assign(paste("dpgrid",sppC,sep=""), get(paste("dpgrid",sppC,sep="")) * pagrid)
+            
+            cat("Writing", spp, "raster gap \n")
+            #writeRaster(pagrid, paste(outFolder,"/",spp,".asc",sep=""), overwrite=TRUE)
+            zipWrite(pagrid, outFolder, paste(spp,".asc.gz",sep=""))
+          }
+          
+        } else {
+          cat("No PA surface, no HSamples, cannot map it out \n")
         }
+        
+        sppC <- sppC + 1
       }
       
     }else{
@@ -155,8 +118,10 @@ gapRaster <- function(bdir) {
     }
   }
 }
-  
-##########################################################################  
+
+#-----------------------------------------------------------------------
+# Wrapping function
+#-----------------------------------------------------------------------
 
 gapRichness <- function(bdir){
   

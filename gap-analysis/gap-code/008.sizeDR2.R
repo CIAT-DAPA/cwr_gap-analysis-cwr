@@ -32,8 +32,8 @@ sizeDR <- function(bdir, crop, spID) {
 	if (!file.exists(spOutFolder)) {
 		dir.create(spOutFolder)
 	}
-	
-    #Start estimating areas
+  
+  #Start estimating areas
 	cat("Taxon", spID, "\n")
 	
 	mskArea <- paste(bdir, "/masks/cellArea.asc", sep="")
@@ -43,66 +43,71 @@ sizeDR <- function(bdir, crop, spID) {
 	
 	#Size of the convex-hull
 	cat("Reading occurrences \n")
-	occ <- read.csv(paste(bdir, "/occurrence_files_narea/", spID, ".csv", sep="")) #Only uses records within native area
-	
-#   if (!file.exists(paste(spOutFolder, "/convex-hull.asc.gz",sep=""))) {
-  	cat("Creating the convex hull \n")
-#     ch <- occ[chull(occ$lon,occ$lat)]
-  	ch <- occ[chull(cbind(occ$lon,occ$lat)),1:2]
+  occ <- paste(bdir, "/occurrence_files_narea/", spID, ".csv", sep="")
+  if(file.exists(occ)){
+    occ <- read.csv(occ) #Only uses records within native area
     
-#   	ch <- occ[chull(cbind(occ$lon, occ$lat)),2:3]
-  	ch <- rbind(ch, ch[1,])
-  
-  	cat("Transforming to polygons \n")
-  	pol <- SpatialPolygons(list(Polygons(list(Polygon(ch)), 1)))
-  	grd <- rasterize(pol, msk)
-  	
-  	cat("Final fixes \n")
-  	grd[which(!is.na(grd[]))] <- 1
-  	grd[which(is.na(grd[]) & msk[] == 1)] <- 0
-  	grd[which(is.na(msk[]))] <- NA
-  	
-  	cat("Writing convex hull \n")
-  	chName <- zipWrite(grd, spOutFolder, "convex-hull.asc.gz")
-#   } 
-#   else {
-#     cat("Loading the convex hull \n")
-#     grd <- zipRead(spOutFolder, "convex-hull.asc.gz")
-#   }
-#   
-	cat("Size of the convex hull \n")
-	grd <- grd * mskArea
-	areaCH <- sum(grd[which(grd[] != 0)])
-	rm(grd)
-
+    #   if (!file.exists(paste(spOutFolder, "/convex-hull.asc.gz",sep=""))) {
+    cat("Creating the convex hull \n")
+    #     ch <- occ[chull(occ$lon,occ$lat)]
+    ch <- occ[chull(cbind(occ$lon,occ$lat)),1:2]
+    
+    #   	ch <- occ[chull(cbind(occ$lon, occ$lat)),2:3]
+    ch <- rbind(ch, ch[1,])
+    
+    cat("Transforming to polygons \n")
+    pol <- SpatialPolygons(list(Polygons(list(Polygon(ch)), 1)))
+    grd <- rasterize(pol, msk)
+    
+    cat("Final fixes \n")
+    grd[which(!is.na(grd[]))] <- 1
+    grd[which(is.na(grd[]) & msk[] == 1)] <- 0
+    grd[which(is.na(msk[]))] <- NA
+    
+    cat("Writing convex hull \n")
+    chName <- zipWrite(grd, spOutFolder, "convex-hull.asc.gz")
+    #   } 
+    #   else {
+    #     cat("Loading the convex hull \n")
+    #     grd <- zipRead(spOutFolder, "convex-hull.asc.gz")
+    #   }
+    #   
+    cat("Size of the convex hull \n")
+    grd <- grd * mskArea
+    areaCH <- sum(grd[which(grd[] != 0)])
+    rm(grd)
+    
+  } else {
+    areaCH <- NA
+  }
 	
 	# Size of the native area
 	cat("Reading native area \n")
 	naFolder <- paste(bdir, "/biomod_modeling/native-areas/asciigrids/", spID, sep="")
 	
 	if (file.exists(paste(naFolder, "/narea.asc.gz", sep=""))) {
-		grd <- zipRead(naFolder, "narea.asc.gz")
-		cat("Size of the native area \n")
-		grd <- grd * mskArea
-		areaNA <- sum(grd[which(grd[] != 0)])
-		rm(grd)
+	  grd <- zipRead(naFolder, "narea.asc.gz")
+	  cat("Size of the native area \n")
+	  grd <- grd * mskArea
+	  areaNA <- sum(grd[which(grd[] != 0)])
+	  rm(grd)
 	} else {
-		areaNA <- NA
+	  areaNA <- NA
 	}
 	
 	#Load all occurrences
-  allOcc <- read.csv(paste(bdir, "/occurrences/",crop,".csv", sep=""))
+	allOcc <- read.csv(paste(bdir, "/occurrences/",crop,".csv", sep=""))
 	allOcc <- allOcc[which(allOcc$Taxon == spID),]
 	
 	#Size of the herbarium samples CA50
 	cat("Size of the h-samples buffer \n")
 	hOcc <- allOcc[which(allOcc$H == 1),]
 	if (nrow(hOcc) != 0) {
-    xy <- cbind(hOcc$lon, hOcc$lat)
-    occ <- SpatialPoints(xy)
-    
-    cat("Loading", spID, "native areas \n")
-    narea = paste(naDir, "/", spID, "/narea.shp", sep="")
+	  xy <- cbind(hOcc$lon, hOcc$lat)
+	  occ <- SpatialPoints(xy)
+	  
+	  cat("Loading", spID, "native areas \n")
+	  narea = paste(naDir, "/", spID, "/narea.shp", sep="")
     if(!file.exists(narea)){
       hOcc <- as.data.frame(cbind(as.character(hOcc$Taxon), hOcc$lon, hOcc$lat))
       names(hOcc) <- c("taxon", "lon", "lat")
@@ -113,11 +118,17 @@ sizeDR <- function(bdir, crop, spID) {
       proj4string(occ) = CRS("+proj=longlat +datum=WGS84")
       proj4string(narea) = CRS("+proj=longlat +datum=WGS84")
       cat("Selecting occurrences within native area \n")
-      occ = occ[narea]
-      occ = as.data.frame(occ)
-      names(occ) = c("lon","lat")
-      occ["taxon"] <- spID
-      write.csv(occ, paste(spOutFolder, "/hsamples.csv", sep=""), quote=F, row.names=F)
+      x <- over(narea, occ)
+      x <- sum(x)
+      if(is.na(x)){
+        cat("No points within native area \n")
+      } else {
+        occ = occ[narea]
+        occ = as.data.frame(occ)
+        names(occ) = c("lon","lat")
+        occ["taxon"] <- spID
+        write.csv(occ, paste(spOutFolder, "/hsamples.csv", sep=""), quote=F, row.names=F)
+      }
     }
     rm(hOcc)
 		rm(occ)
@@ -146,18 +157,24 @@ sizeDR <- function(bdir, crop, spID) {
 		if(!file.exists(narea)){
 		  gOcc <- as.data.frame(cbind(as.character(gOcc$Taxon), gOcc$lon, gOcc$lat))
 		  names(gOcc) <- c("taxon", "lon", "lat")
-		  write.csv(gOcc, paste(spOutFolder, "/hsamples.csv", sep=""), quote=F, row.names=F)
+		  write.csv(gOcc, paste(spOutFolder, "/gsamples.csv", sep=""), quote=F, row.names=F)
 		}else{
 		  narea = readShapeSpatial(narea)
 		  cat ("Projecting files \n")
 		  proj4string(occ) = CRS("+proj=longlat +datum=WGS84")
 		  proj4string(narea) = CRS("+proj=longlat +datum=WGS84")
 		  cat("Selecting occurrences within native area \n")
-		  occ = occ[narea]
-		  occ = as.data.frame(occ)
-		  names(occ) = c("lon","lat")
-		  occ["taxon"] <- spID
-		  write.csv(occ, paste(spOutFolder, "/gsamples.csv", sep=""), quote=F, row.names=F)
+		  x <- over(narea, occ)
+		  x <- sum(x)
+		  if(is.na(x)){
+		    cat("No points within native area")
+		  } else {
+		    occ = occ[narea]
+		    occ = as.data.frame(occ)
+		    names(occ) = c("lon","lat")
+		    occ["taxon"] <- spID
+		    write.csv(occ, paste(spOutFolder, "/gsamples.csv", sep=""), quote=F, row.names=F)
+		  }
 		}
 		rm(gOcc)
 		rm(occ)
@@ -203,7 +220,7 @@ sizeDRProcess <- function(inputDir, ncpu, crop){
 	spList <- list.files(paste(inputDir, "/occurrence_files", sep=""),pattern=".csv")
 
 	sizeDRwrapper <- function(i) {
-	  library(SDMTools) # UNDER TEST
+	  library(SDMTools)
     library(rgdal)
 		library(raster)
 		library(sp)
@@ -221,7 +238,6 @@ sizeDRProcess <- function(inputDir, ncpu, crop){
 	sfExport("zipRead")
 	sfExport("zipWrite")
   sfExport("createBuffers")
-# 	sfExport("bufferPoints")
   sfExport("inputDir")
   sfExport("crop")
 	sfExport("sizeDR")

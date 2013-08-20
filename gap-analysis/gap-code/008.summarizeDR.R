@@ -1,4 +1,4 @@
-# An R function to summarize all individual area files calculated for each taxon in step 008
+# An R function to summarize all individual area files calculated for each taxon in step 008.sizeDR
 #
 # "Adapting crops to climate change: collecting, protecting and preparing crop wild relatives"
 # www.cwrdiversity.org
@@ -25,7 +25,7 @@ summarizeDR <- function(bdir) {
     
     if (file.exists(spFolder)) {
       
-      res <- sizeDR(bdir, spp)
+#       res <- sizeDR(bdir, spap)
       
       metFile <- paste(spOutFolder, "/areas.csv", sep="")
       metrics <- read.csv(metFile)
