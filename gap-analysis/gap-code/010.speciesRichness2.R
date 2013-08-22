@@ -53,7 +53,10 @@ speciesRichness_alt <- function(bdir) {
           pagrid <- createBuffers(paste(spOutFolder, "/samples.csv", sep=""), spOutFolder, "samples-buffer.asc", 50000, paste(bdir, "/masks/mask.asc", sep=""))
           pagrid <- zipRead(spOutFolder,"samples-buffer.asc.gz") * zipRead(paste(ndir,"/",spp,sep=""),"narea.asc.gz")
           pagrid <- zipWrite(pagrid,spOutFolder,"samples-buffer-na.asc.gz")
-        }}}
+        } else {
+          cat("No occurrence points for ", spp,"\n")
+        }
+      }}
   
   spList_buffer=spList[spList$IS_VALID==0,]
   nrow(spList_buffer)

@@ -12,7 +12,8 @@ gapRaster <- function(bdir) {
   idir <- paste(bdir, "/maxent_modeling", sep="")
   ddir <- paste(bdir, "/samples_calculations", sep="")
   gdir <- paste(bdir, "/gap_spp",sep="")
-  if (!file.exists(gdir)) {dir.create(gdir)}
+  if (file.exists(gdir)) {unlink(gdir)}
+  dir.create(gdir)
   
   priorityLevel <- c("HPS","MPS","LPS","NFCR")
   
