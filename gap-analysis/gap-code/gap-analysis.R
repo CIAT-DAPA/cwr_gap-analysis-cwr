@@ -7,7 +7,7 @@
 #-------------------------------------------------
 # Run outside linux, only when new code is available
 # cd /curie_data2/ncastaneda/code/gap-analysis-cwr/gap-analysis/gap-code
-# cp * /curie_data2/ncastaneda/gap-analysis/gap_eggplant/_scripts
+# cp * /curie_data2/ncastaneda/gap-analysis/gap_musa/_scripts
 #-------------------------------------------------
 #####################################################################
 

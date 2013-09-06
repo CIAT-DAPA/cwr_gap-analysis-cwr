@@ -7,7 +7,7 @@ require(maptools)
 
 OccFilterNArea <- function (crop_dir) {
   occDir = paste(crop_dir, "/occurrence_files", sep="")
-  outDir = paste(crop_dir, "/occurrence_files_narea", sep=""); if (!file.exists(outDir)) {dir.create(outDir)}
+  outDir = paste("/occurrence_files_narea", sep=""); if (!file.exists(outDir)) {dir.create(outDir)}
   naDir = paste(crop_dir, "/biomod_modeling/native-areas/polyshps", sep="")
   
   # The process
@@ -31,8 +31,8 @@ OccFilterNArea <- function (crop_dir) {
       proj4string(narea) = CRS("+proj=longlat +datum=WGS84")
       cat("Selecting occurrences within native area \n")
       x <- over(narea, occ)
-      x <- sum(x)
-      if(is.na(x)){
+      x <- sum(x,na.rm=T)
+      if(x==0){
         cat("No points within native area \n")
       } else {
         occ = occ[narea]
