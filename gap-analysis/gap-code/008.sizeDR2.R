@@ -128,23 +128,21 @@ sizeDR <- function(bdir, crop, spID) {
         names(occ) = c("lon","lat")
         occ["taxon"] <- spID
         write.csv(occ, paste(spOutFolder, "/hsamples.csv", sep=""), quote=F, row.names=F)
+        grd <- createBuffers(paste(spOutFolder, "/hsamples.csv", sep=""), spOutFolder, "hsamples-buffer.asc", 50000, paste(bdir, "/masks/mask.asc", sep=""))
       }
     }
+	}
     rm(hOcc)
 		rm(occ)
     
-#     if (!file.exists(paste(spOutFolder, "/hsamples-buffer.asc.gz",sep=""))) {
-		  grd <- createBuffers(paste(spOutFolder, "/hsamples.csv", sep=""), spOutFolder, "hsamples-buffer.asc", 50000, paste(bdir, "/masks/mask.asc", sep=""))
-      
-#     } else {
+    if (file.exists(paste(spOutFolder, "/hsamples-buffer.asc.gz",sep=""))) {
       grd <- zipRead(spOutFolder,"hsamples-buffer.asc.gz")
-#     }
-		grd <- grd * mskArea
-		areaHB <- sum(grd[which(grd[] != 0)])
-	} else {
-		areaHB <- 0
-	}
-	
+      grd <- grd * mskArea
+      areaHB <- sum(grd[which(grd[] != 0)])
+    } else {
+      areaHB <- 0
+    }
+	  
 	#Size of the germplasm samples CA50
 	cat("Size of the g-samples buffer \n")
 	gOcc <- allOcc[which(allOcc$G == 1),]
@@ -174,21 +172,20 @@ sizeDR <- function(bdir, crop, spID) {
 		    names(occ) = c("lon","lat")
 		    occ["taxon"] <- spID
 		    write.csv(occ, paste(spOutFolder, "/gsamples.csv", sep=""), quote=F, row.names=F)
+		    grd <- createBuffers(paste(spOutFolder, "/gsamples.csv", sep=""), spOutFolder, "gsamples-buffer.asc", 50000, paste(bdir, "/masks/mask.asc", sep=""))
 		  }
 		}
+	}
 		rm(gOcc)
 		rm(occ)
     
-#     if (!file.exists(paste(spOutFolder,"/gsamples-buffer.asc.gz",sep=""))) {
-		  grd <- createBuffers(paste(spOutFolder, "/gsamples.csv", sep=""), spOutFolder, "gsamples-buffer.asc", 50000, paste(bdir, "/masks/mask.asc", sep=""))
-#     } else {
-      grd <- zipRead(spOutFolder,"gsamples-buffer.asc.gz")
-#     }
-		grd <- grd * mskArea
-		areaGB <- sum(grd[which(grd[] != 0)])
-	} else {
-		areaGB <- 0
-	}
+		if (file.exists(paste(spOutFolder,"/gsamples-buffer.asc.gz",sep=""))) {
+		  grd <- zipRead(spOutFolder,"gsamples-buffer.asc.gz")
+		  grd <- grd * mskArea
+		  areaGB <- sum(grd[which(grd[] != 0)])
+		} else {
+		  areaGB <- 0
+		}
   
 	#Size of the DR
 	spFolder <- paste(bdir, "/maxent_modeling/models/", spID, sep="")
