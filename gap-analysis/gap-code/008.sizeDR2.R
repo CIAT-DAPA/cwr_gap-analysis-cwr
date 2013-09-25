@@ -119,7 +119,7 @@ sizeDR <- function(bdir, crop, spID) {
       proj4string(narea) = CRS("+proj=longlat +datum=WGS84")
       cat("Selecting occurrences within native area \n")
       x <- over(narea, occ)
-      x <- sum(x)
+      x <- sum(x, na.rm=T)
       if(is.na(x)){
         cat("No points within native area \n")
       } else {
@@ -163,7 +163,7 @@ sizeDR <- function(bdir, crop, spID) {
 		  proj4string(narea) = CRS("+proj=longlat +datum=WGS84")
 		  cat("Selecting occurrences within native area \n")
 		  x <- over(narea, occ)
-		  x <- sum(x)
+		  x <- sum(x, na.rm=T)
 		  if(is.na(x)){
 		    cat("No points within native area")
 		  } else {

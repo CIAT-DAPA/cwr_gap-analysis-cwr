@@ -5,7 +5,7 @@
 require(sp)
 require(maptools)
 
-OccFilterNArea <- function (crop_dir) {
+OccFilterNArea <- function(crop_dir) {
   occDir = paste(crop_dir, "/occurrence_files", sep="")
   outDir = paste(crop_dir, "/occurrence_files_narea", sep=""); if (!file.exists(outDir)) {dir.create(outDir)}
   naDir = paste(crop_dir, "/biomod_modeling/native-areas/polyshps", sep="")

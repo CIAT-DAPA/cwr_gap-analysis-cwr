@@ -7,7 +7,7 @@
 #-------------------------------------------------
 # Run outside linux, only when new code is available
 # cd /curie_data2/ncastaneda/code/gap-analysis-cwr/gap-analysis/gap-code
-# cp * /curie_data2/ncastaneda/gap-analysis/gap_musa/_scripts
+# cp * /curie_data2/ncastaneda/gap-analysis/gap_[crop_name]/_scripts
 #-------------------------------------------------
 #####################################################################
 
@@ -39,7 +39,7 @@ narea <- paste(biomod,"/native-areas",sep=""); if (!file.exists(narea)) {dir.cre
 ascis <- paste(narea,"/asciigrids",sep=""); if (!file.exists(ascis)) {dir.create(ascis)}
 
 #== prepare taxonomic names for the analysis ==#
-source(paste(src.dir,"/000.fixTaxNames.R",sep=""))
+# source(paste(src.dir,"/000.fixTaxNames.R",sep=""))
 
 #== compare germplasm vs. total records==#
 source(paste(src.dir,"/01.countRecords.R",sep=""))
@@ -103,7 +103,7 @@ x <- createOccFiles(occ=paste(crop_dir,"/swd/occurrences_swd_ok_kernel.csv",sep=
                     taxfield="Taxon", outDir=oDir)
 
 #== prepare native areas ==#
-# source(paste(src.dir,"/004.createNARasters.R",sep=""))
+source(paste(src.dir,"/004.createNARasters.R",sep=""))
 
 #== making the pseudo-absences ==#
 source(paste(src.dir,"/002.selectBackgroundArea.R",sep=""))
