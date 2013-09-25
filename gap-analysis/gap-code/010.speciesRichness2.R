@@ -89,7 +89,7 @@ speciesRichness_alt <- function(bdir) {
   if(length(results_0)==1){
     results_sum=results_0[[1]]
   }else if(length(results_0)==0){
-      cat("No occurrence data to map")
+      cat("No samples buffers to map \n")
   }else{
     results_sum=results_0[[1]]
     for(i in 2:length(results_0)){
@@ -100,7 +100,7 @@ speciesRichness_alt <- function(bdir) {
     results_sum=results_1[[1]]
   }
 
-  for(i in 1:length(results_1)){
+  for(i in 2:length(results_1)){
     results_sum=extend(results_sum, mask) # New line
     results_1[[i]] = extend(results_1[[i]], mask) # New line
     results_sum=sum(results_sum,results_1[[i]])}
