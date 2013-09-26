@@ -120,7 +120,7 @@ sizeDR <- function(bdir, crop, spID) {
       cat("Selecting occurrences within native area \n")
       x <- over(narea, occ)
       x <- sum(x, na.rm=T)
-      if(is.na(x)){
+      if(x==0){
         cat("No points within native area \n")
       } else {
         occ = occ[narea]
@@ -164,8 +164,8 @@ sizeDR <- function(bdir, crop, spID) {
 		  cat("Selecting occurrences within native area \n")
 		  x <- over(narea, occ)
 		  x <- sum(x, na.rm=T)
-		  if(is.na(x)){
-		    cat("No points within native area")
+		  if(x==0){
+		    cat("No points within native area \n")
 		  } else {
 		    occ = occ[narea]
 		    occ = as.data.frame(occ)
