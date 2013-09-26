@@ -1,5 +1,3 @@
-#ICARDA collaboration
-
 require(rgdal)
 require(raster)
 

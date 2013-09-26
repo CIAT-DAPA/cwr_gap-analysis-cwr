@@ -8,8 +8,8 @@
 # Run outside linux, only when new code is available
 # cd /curie_data2/ncastaneda/code/gap-analysis-cwr/gap-analysis/gap-code
 # cp * /curie_data2/ncastaneda/gap-analysis/gap_[crop_name]/_scripts
+# cd /curie_data2/ncastaneda/gap-analysis
 #-------------------------------------------------
-#####################################################################
 
 stop("Warning: do not run the whole thing")
 
@@ -221,7 +221,7 @@ rm(table_base, samples, model_met)
 
 #== Filtering occurrences by native area ==#
 source(paste(src.dir,"/000.filterOccFilesByNArea.R",sep=""))
-OccFilterNArea (crop_dir)
+x <- OccFilterNArea(crop_dir)
 
 #== calculate size of distributional range ==#
 source(paste(src.dir,"/008.sizeDR2.R",sep=""))
