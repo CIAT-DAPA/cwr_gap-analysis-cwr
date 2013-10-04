@@ -25,7 +25,8 @@ createMasks <- function(inDir,env_dir){
     pa <- rasterize(pol,rs)
     pa <- trim(pa)
     
-    pa[which(!is.na(pa[]))] <- 1
+#     pa[which(!is.na(pa[]))] <- 1
+    pa <- reclassify(pa,c(minValue(pa), maxValue(pa), 1))
     #pa[which(is.na(pa[]) & rs[] == 1)] <- 0
     
     # Prepare cellArea.asc
