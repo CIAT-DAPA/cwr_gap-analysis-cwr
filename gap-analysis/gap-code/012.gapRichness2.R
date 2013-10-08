@@ -7,7 +7,6 @@ source(paste(src.dir,"/000.zipWrite.R",sep=""))
 # source(paste(src.dir,"/000.bufferPoints.R",sep=""))
 
 #For taxa with invalid models use the Hsamples buffer, if hsamples do not exist 
-
 gapRaster <- function(bdir) {
   
   idir <- paste(bdir, "/maxent_modeling", sep="")
@@ -40,7 +39,6 @@ gapRaster <- function(bdir) {
       scount <- 1
       
       for (spp in spList$TAXON) {
-        
         cat("Processing taxon", paste(spp), "\n")
         
         names(spList)[1]="TAXON"
@@ -73,7 +71,7 @@ gapRaster <- function(bdir) {
 #           grd.ga <- zipRead(spOutFolder, "gsamples-buffer.asc.gz")
 #         }
         if(file.exists(gOcc)){
-          grd <- zipRead(spOutFolder, "gsamples-buffer.asc.gz")
+          grd.ga <- zipRead(spOutFolder, "gsamples-buffer.asc.gz")
         }
         
         gbuffFile <- paste(spOutFolder, "/gsamples-buffer.asc.gz", sep="")
@@ -120,11 +118,9 @@ gapRaster <- function(bdir) {
           
         } else {
           cat("No PA surface, no HSamples, cannot map it out \n")
-        }
-        
+        }      
         sppC <- sppC + 1
       }
-      
     }else{
       cat("No taxa under this prioritization category \n")
     }
