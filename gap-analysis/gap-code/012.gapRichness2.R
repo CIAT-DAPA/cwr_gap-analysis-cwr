@@ -1,9 +1,10 @@
+# Prepare gap files per species, only using data within native areas
 require(rgdal)
 require(raster)
 
 source(paste(src.dir,"/000.zipRead.R",sep=""))
 source(paste(src.dir,"/000.zipWrite.R",sep=""))
-source(paste(src.dir,"/000.bufferPoints.R",sep=""))
+# source(paste(src.dir,"/000.bufferPoints.R",sep=""))
 
 #For taxa with invalid models use the Hsamples buffer, if hsamples do not exist 
 
@@ -12,10 +13,11 @@ gapRaster <- function(bdir) {
   idir <- paste(bdir, "/maxent_modeling", sep="")
   ddir <- paste(bdir, "/samples_calculations", sep="")
   gdir <- paste(bdir, "/gap_spp",sep="")
-#   if (!file.exists(gdir)) {dir.create(gdir)}
+  naDir <- paste(bdir, "/biomod_modeling/native-areas/polyshps", sep="") #Now restrict data to known native areas
+  
   if(file.exists(gdir)){unlink(gdir, recursive=T)} #Erasing previous existing files
   dir.create(gdir)
-
+  
   priorityLevel <- c("HPS","MPS","LPS","NFCR")
   
   for(p in priorityLevel){
@@ -46,24 +48,32 @@ gapRaster <- function(bdir) {
         
         sppFolder <- paste(idir, "/models/", spp, sep="")
         projFolder <- paste(sppFolder, "/projections", sep="")
-        spOutFolder <- paste(ddir, "/", spp, sep="") #NUEVA UBICACION UNDER TEST
+        spOutFolder <- paste(ddir, "/", spp, sep="")
         
         #Calling herbarium samples CA50
         cat("Using h-samples buffer \n")
         tallOcc <- allOcc[which(allOcc$Taxon == paste(spp)),]
-        hOcc <- tallOcc[which(tallOcc$H == 1),]
-        if (nrow(hOcc) != 0) {
-          spOutFolder <- paste(ddir, "/", spp, sep="")
+#         hOcc <- tallOcc[which(tallOcc$H == 1),]
+        hOcc <- paste(spOutFolder,"/hsamples.csv",sep="")
+#         if (nrow(hOcc) != 0) {
+#           spOutFolder <- paste(ddir, "/", spp, sep="")
+#           grd <- zipRead(spOutFolder, "hsamples-buffer.asc.gz")
+#         } 
+        if(file.exists(hOcc)){
           grd <- zipRead(spOutFolder, "hsamples-buffer.asc.gz")
-        } 
+        }
         
         hbuffFile <- paste(spOutFolder, "/hsamples-buffer.asc.gz", sep="")
         
         #Calling genebank accessions CA50
         cat("Using g-samples buffer \n")
-        gOcc <- tallOcc[which(tallOcc$G == 1),]
-        if (nrow(gOcc) != 0) {
-          grd.ga <- zipRead(spOutFolder, "gsamples-buffer.asc.gz")
+#         gOcc <- tallOcc[which(tallOcc$G == 1),]
+        gOcc <- paste(spOutFolder,"/gsamples.csv",sep="")
+#         if (nrow(gOcc) != 0) {
+#           grd.ga <- zipRead(spOutFolder, "gsamples-buffer.asc.gz")
+#         }
+        if(file.exists(gOcc)){
+          grd <- zipRead(spOutFolder, "gsamples-buffer.asc.gz")
         }
         
         gbuffFile <- paste(spOutFolder, "/gsamples-buffer.asc.gz", sep="")
