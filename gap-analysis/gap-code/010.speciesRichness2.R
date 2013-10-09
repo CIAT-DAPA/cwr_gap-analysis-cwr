@@ -33,7 +33,7 @@ speciesRichness_alt <- function(bdir) {
   
   # Creating samples buffer files for taxa requiring it
   if(dim(spList_buffer)[1]==0){
-    print("Samples buffer files exist \n") # !!!!!!!!!!!!!!!!!!!!!!!CHANGE THIS MESSAGE!!!!!!!!!!!!!!!!!!!!!!! (O NO HAY SAMPLES BUFFER, O TODO ES IS_VALID=1)
+    print("Calculating samples buffer files is not necessary \n")
   }else{
     for (spp in spList_buffer$TAXON) {
       
@@ -109,12 +109,15 @@ speciesRichness_alt <- function(bdir) {
     }
   }
 
-    if(exists(as.character(substitute(results_sum_0)))){
-      results_sum=extend(results_sum_0, mask) # New line
-      if(exists(as.character(substitute(results_sum_1)))){
+    if(sum(ls()=="results_sum_0")){
+      cat("results_sum_0 available \n")
+      results_sum=extend(results_sum_0, mask)
+      if(sum(ls()=="results_sum_1")){
+        cat("results_sum_0 and results_sum_1 available \n")
         results_sum <- sum(results_sum, results_sum_1)
       }
     }else{
+      cat("only results_sum _1 available \n")
       results_sum <- results_sum_1
     }   
     
