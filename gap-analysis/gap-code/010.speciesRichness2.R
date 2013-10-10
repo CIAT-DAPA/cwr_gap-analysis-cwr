@@ -3,7 +3,7 @@ require(raster)
 
 source(paste(src.dir,"/000.zipRead.R",sep=""))
 source(paste(src.dir,"/000.zipWrite.R",sep=""))
-source(paste(src.dir,"/000.bufferPoints.R",sep=""))
+# source(paste(src.dir,"/000.bufferPoints.R",sep=""))
 
 #When presence surface not available, get all the populations and use the 50km buffer
 
