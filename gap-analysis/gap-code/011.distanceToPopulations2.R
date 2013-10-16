@@ -1,10 +1,8 @@
-# Distance to poins - parallelized
+# Distance to points - parallelized
 # H. Achicanoy
 # Jul - 2013
 
 source(paste(src.dir,"/000.zipWrite.R",sep=""))
-
-setOptions(overwrite=T)
 
 populationDistance <- function(bdir,spID) {
   idir <- paste(bdir, "/maxent_modeling", sep="")

@@ -12,7 +12,7 @@ edistDR <- function(bdir, spID) {
 	
 	idir <- paste(bdir, "/maxent_modeling", sep="")
 	ddir <- paste(bdir, "/samples_calculations", sep="")
-	pcdir <- paste(bdir, "/biomod_modeling/current-clim/pca_result_reclass", sep="")
+	pcdir <- paste(bdir, "/biomod_modeling/current-clim/wwf_eco", sep="")
 	
 	#Creating the directories
 	if (!file.exists(ddir)) {
@@ -29,10 +29,12 @@ edistDR <- function(bdir, spID) {
 	spFolder <- paste(idir, "/models/", spID, sep="")
 	projFolder <- paste(spFolder, "/projections", sep="")
 	
-	cat("Loading principal components \n")
-	pc1 <- raster(paste(pcdir,"/pc_r_1.asc",sep="")) #zipRead(pcdir, "bio_pcac1_r.asc.gz")
-	pc2 <- raster(paste(pcdir,"/pc_r_2.asc",sep="")) #zipRead(pcdir, "bio_pcac2_r.asc.gz")
-	
+	cat("Loading wwf terrestrial ecosystems \n")
+	pc1 <- raster(paste(pcdir,"/wwf_eco_terr.asc",sep=""))
+	rs <- raster(xmn=-179.125, xmx=179.75, ymn=-56, ymx=83.62501, ncols=8613, nrows=3351)
+	pc1 <- setExtent(pc1, extent(rs), keepres=FALSE, snap=FALSE)
+  rm(rs)
+  
 	#Edist of the DR
 	cat("Reading presence/absence surface \n")
 	grd <- paste(spID, "_worldclim2_5_EMN_PA.asc.gz", sep="")
@@ -47,16 +49,11 @@ edistDR <- function(bdir, spID) {
 		edistDR1 <- unique(grda[])
 		edistDR1 <- edistDR1[which(edistDR1 != 0 & !is.na(edistDR1))]
 		rm(grda)
-		
-		grda <- grd * pc2 #PC2
-		edistDR2 <- unique(grda[])
-		edistDR2 <- edistDR2[which(edistDR2 != 0 & !is.na(edistDR2))]
-		rm(grda)
-		
+				
 		rm(grd)
 	} else {
 		edistDR1 <- NULL
-		edistDR2 <- NULL
+
 	}
 	
 	#Edist of the convex-hull
@@ -70,17 +67,13 @@ edistDR <- function(bdir, spID) {
 		edistCH1 <- edistCH1[which(edistCH1 != 0 & !is.na(edistCH1))]
 		rm(grda)
 		
-		grda <- grd * pc2
-		edistCH2 <- unique(grda[])
-		edistCH2 <- edistCH2[which(edistCH2 != 0 & !is.na(edistCH2))]
-		
-		rm(grda)
 		rm(grd)
 	} else {
 		edistCH1 <- NULL
-		edistCH2 <- NULL
+# 		edistCH2 <- NULL
 	}
-	
+  
+  
 	#Edist of the native area
 	naFolder <- paste(bdir, "/biomod_modeling/native-areas/asciigrids/", spID, sep="")
 	if (file.exists(paste(naFolder, "/narea.asc.gz", sep=""))) {
@@ -93,15 +86,9 @@ edistDR <- function(bdir, spID) {
 		edistNA1 <- edistNA1[which(edistNA1 != 0 & !is.na(edistNA1))]
 		rm(grda)
 		
-		grda <- grd * pc2
-		edistNA2 <- unique(grda[])
-		edistNA2 <- edistNA2[which(edistNA2 != 0 & !is.na(edistNA2))]
-		
-		rm(grda)
 		rm(grd)
 	} else {
 		edistNA1 <- NULL
-		edistNA2 <- NULL
 	}
 	
 	#Edist of the herbarium samples CA50
@@ -115,15 +102,9 @@ edistDR <- function(bdir, spID) {
 		edistHB1 <- edistHB1[which(edistHB1 != 0 & !is.na(edistHB1))]
 		rm(grda)
 		
-		grda <- grd * pc2
-		edistHB2 <- unique(grda[])
-		edistHB2 <- edistHB2[which(edistHB2 != 0 & !is.na(edistHB2))]
-		
-		rm(grda)
 		rm(grd)
 	} else {
 		edistHB1 <- NULL
-		edistHB2 <- NULL
 	}
 	
 	#Size of the germplasm samples CA50
@@ -137,20 +118,14 @@ edistDR <- function(bdir, spID) {
 		edistGB1 <- edistGB1[which(edistGB1 != 0 & !is.na(edistGB1))]
 		rm(grda)
 		
-		grda <- grd * pc2
-		edistGB2 <- unique(grda[])
-		edistGB2 <- edistGB2[which(edistGB2 != 0 & !is.na(edistGB2))]
-		
-		rm(grda)
 		rm(grd)
 	} else {
 		edistGB1 <- NULL
-		edistGB2 <- NULL
 	}
 	#Writing results
-	outDF <- data.frame(DRDist.PC1=length(edistDR1), DRDist.PC2=length(edistDR2), CHDist.PC1=length(edistCH1), CHDist.PC2=length(edistCH2), NADist.PC1=length(edistNA1), NADist.PC2=length(edistNA2), HBDist.PC1=length(edistHB1), HBDist.PC2=length(edistHB2), GBDist.PC1=length(edistGB1), GBDist.PC2=length(edistGB2))
-	
-	write.csv(outDF, paste(spOutFolder, "/edist.csv", sep=""), quote=F, row.names=F)
+	outDF <- data.frame(DRDist.PC1=length(edistDR1), CHDist.PC1=length(edistCH1), NADist.PC1=length(edistNA1), HBDist.PC1=length(edistHB1), GBDist.PC1=length(edistGB1))
+  
+	write.csv(outDF, paste(spOutFolder, "/edist_wwf.csv", sep=""), quote=F, row.names=F)
 	return(outDF)
 }
 

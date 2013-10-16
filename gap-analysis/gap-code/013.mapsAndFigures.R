@@ -9,7 +9,8 @@ source(paste(src.dir,"/000.zipRead.R",sep=""))
 sp_rich_dir <- paste(crop_dir,"/species_richness",sep="")
 sp_rich <- zipRead(sp_rich_dir, "species-richness.asc.gz")
 
-cols = colorRampPalette(c("gray87", "dark green","yellow","orange","red"))(255) # LOVE IT!!!
+# cols = colorRampPalette(c("gray87", "dark green","yellow","orange","red"))(255) # LOVE IT!!!
+cols = colorRampPalette(c("white", "dark green","yellow","orange","red"))(255) # LOVE IT!!!
 z <- extent(sp_rich)
 aspect <- (z@ymax-z@ymin)*1.4/(z@xmax-z@xmin)
 

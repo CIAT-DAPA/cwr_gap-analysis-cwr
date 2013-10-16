@@ -3,17 +3,14 @@ require(raster)
 
 source(paste(src.dir,"/000.zipRead.R",sep=""))
 source(paste(src.dir,"/000.zipWrite.R",sep=""))
-# source(paste(src.dir,"/000.bufferPoints.R",sep=""))
+source(paste(src.dir,"/000.bufferPoints.R",sep=""))
 
 #When presence surface not available, get all the populations and use the 50km buffer
 
 speciesRichness_alt <- function(bdir) {
   idir <- paste(bdir, "/maxent_modeling", sep="")
-  ddir <- paste(bdir, "/samples_calculations", sep="")
   ndir <- paste(bdir, "/biomod_modeling/native-areas/asciigrids",sep="")
   mask <- raster(paste(bdir, "/masks/mask.asc", sep="")) # New line
-  
-  if (!file.exists(ddir)) {dir.create(ddir)}
   
   outFolder <- paste(bdir, "/species_richness", sep="")
   if (!file.exists(outFolder)) {dir.create(outFolder)}
@@ -93,7 +90,10 @@ speciesRichness_alt <- function(bdir) {
   }else{
     results_sum_0=results_0[[1]]
     for(i in 2:length(results_0)){
-      results_sum_0=sum(results_sum_0,results_0[[i]])}
+      results_sum_0=extend(results_sum_0, mask) # New line
+      results_0[[i]] = extend(results_0[[i]], mask) # New line
+      results_sum_0=sum(results_sum_0,results_0[[i]], na.rm=T)
+    }
   }
   
   if(length(results_1)==0){
@@ -105,7 +105,7 @@ speciesRichness_alt <- function(bdir) {
     for(i in 2:length(results_1)){
       results_sum_1=extend(results_sum_1, mask) # New line
       results_1[[i]] = extend(results_1[[i]], mask) # New line
-      results_sum_1=sum(results_sum_1,results_1[[i]])
+      results_sum_1=sum(results_sum_1,results_1[[i]], na.rm=T)
     }
   }
 
@@ -119,34 +119,49 @@ speciesRichness_alt <- function(bdir) {
     }else{
       cat("only results_sum _1 available \n")
       results_sum <- results_sum_1
-    }   
-    
+    }
     
     cat("Calculating mean sd raster \n")
     results_mean=results_sum/(length(results_0)+length(results_1))
     
     if(length(results_0)!=0){
-      results_sd=(results_mean-results_0[[1]])^2
+      results_sd_0=(results_mean-results_0[[1]])^2
       
       if(length(results_0)==1){
-        results_sd=(results_mean-results_0[[1]])^2
+        results_sd_0=(results_mean-results_0[[1]])^2
         
       }else{
         for(i in 2:length(results_0)){
           sum_sqrt=(results_mean-results_0[[i]])^2
-          results_sd=sum(results_sd,sum_sqrt)}
+          results_sd_0=sum(results_sd_0,sum_sqrt)}
       }
     }
     
-    for(i in 1:length(results_1)){
+    if(length(results_1)!=0){
+      results_sd_1=(results_mean-results_1[[1]])^2
       
-      sum_sqrt=(results_mean-results_1[[i]])^2
-      
-      if(length(results_0)==0){
-        results_sd=sum_sqrt
+      if(length(results_1)==1){
+        results_sd_1=(results_mean-results_1[[1]])^2
+        
+      }else{
+        for(i in 2:length(results_1)){
+          sum_sqrt=(results_mean-results_1[[i]])^2
+          results_sd_1=sum(results_sd_1,sum_sqrt)}
       }
-      results_sd=sum(results_sd,sum_sqrt)}
-    
+    }
+  
+    if(sum(ls()=="results_sd_0")){
+      cat("results_sd_0 available \n")
+      results_sd=extend(results_sd_0, mask)
+      if(sum(ls()=="results_sd_1")){
+        cat("results_sd_0 and results_sd_1 available \n")
+        results_sd <- sum(results_sd, results_sd_1)
+      }
+    }else{
+      cat("only results_sd _1 available \n")
+      results_sd <- results_sd_1
+    }
+ 
     results_mean_sd=results_sd/(length(results_0)+length(results_1))
     
     zipWrite(results_sum, outFolder, "species-richness.asc.gz")
