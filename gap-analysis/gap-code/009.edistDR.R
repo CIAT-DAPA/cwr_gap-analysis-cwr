@@ -31,10 +31,10 @@ edistDR <- function(bdir, spID) {
 	
 	cat("Loading wwf terrestrial ecosystems \n")
 	pc1 <- raster(paste(pcdir,"/wwf_eco_terr.asc",sep=""))
-	rs <- raster(xmn=-179.125, xmx=179.75, ymn=-56, ymx=83.62501, ncols=8613, nrows=3351)
-	pc1 <- setExtent(pc1, extent(rs), keepres=FALSE, snap=FALSE)
-  rm(rs)
-  
+# 	rs <- raster(xmn=-179.125, xmx=179.75, ymn=-56, ymx=83.62501, ncols=8613, nrows=3351)
+# 	pc1 <- setExtent(pc1, extent(rs), keepres=FALSE, snap=FALSE)
+#   rm(rs)
+ 
 	#Edist of the DR
 	cat("Reading presence/absence surface \n")
 	grd <- paste(spID, "_worldclim2_5_EMN_PA.asc.gz", sep="")
@@ -53,7 +53,6 @@ edistDR <- function(bdir, spID) {
 		rm(grd)
 	} else {
 		edistDR1 <- NULL
-
 	}
 	
 	#Edist of the convex-hull

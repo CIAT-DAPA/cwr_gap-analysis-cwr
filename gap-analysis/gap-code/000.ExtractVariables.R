@@ -42,5 +42,5 @@ maskVariables <- function(crop_dir, env_dir, eco_dir){
   out_dir_wwf <- paste(out_dir,"/wwf_eco",sep="")
   if (!file.exists(out_dir_wwf)) {dir.create(out_dir_wwf)}
   
-  writeRaster (rs,paste(out_dir_wwf, "/wwf_eco_terr.asc", sep=""))
+  writeRaster (rs,paste(out_dir_wwf, "/wwf_eco_terr.asc", sep=""), overwrite=T)
 }
