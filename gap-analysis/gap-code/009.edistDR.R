@@ -151,7 +151,7 @@ summarizeDR_env <- function(idir) {
 			
 			res <- edistDR(idir, spp)
 			
-			metFile <- paste(spOutFolder, "/edist.csv", sep="")
+			metFile <- paste(spOutFolder, "/edist_wwf.csv", sep="")
 			metrics <- read.csv(metFile)
 			metrics <- cbind(taxon=spp, metrics)
 			
