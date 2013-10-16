@@ -11,6 +11,7 @@ speciesRichness_alt <- function(bdir) {
   idir <- paste(bdir, "/maxent_modeling", sep="")
   ndir <- paste(bdir, "/biomod_modeling/native-areas/asciigrids",sep="")
   mask <- raster(paste(bdir, "/masks/mask.asc", sep="")) # New line
+  ddir <- paste(bdir, "/samples_calculations", sep="")
   
   outFolder <- paste(bdir, "/species_richness", sep="")
   if (!file.exists(outFolder)) {dir.create(outFolder)}
