@@ -166,7 +166,7 @@ summarizeDR_env <- function(idir) {
 		}
 	}
 	
-	outFile <- paste(odir, "/edist.csv", sep="")
+	outFile <- paste(odir, "/edist_wwf.csv", sep="")
 	write.csv(outSum, outFile, quote=F, row.names=F)
 	return(outSum)
 }
