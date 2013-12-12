@@ -112,6 +112,7 @@ sizeDR <- function(bdir, crop, spID) {
       hOcc <- as.data.frame(cbind(as.character(hOcc$Taxon), hOcc$lon, hOcc$lat))
       names(hOcc) <- c("taxon", "lon", "lat")
       write.csv(hOcc, paste(spOutFolder, "/hsamples.csv", sep=""), quote=F, row.names=F)
+      grd <- createBuffers(paste(spOutFolder, "/hsamples.csv", sep=""), spOutFolder, "hsamples-buffer.asc", 50000, paste(bdir, "/masks/mask.asc", sep=""))
     }else{
       narea = readShapeSpatial(narea)
       cat ("Projecting files \n")
@@ -156,6 +157,7 @@ sizeDR <- function(bdir, crop, spID) {
 		  gOcc <- as.data.frame(cbind(as.character(gOcc$Taxon), gOcc$lon, gOcc$lat))
 		  names(gOcc) <- c("taxon", "lon", "lat")
 		  write.csv(gOcc, paste(spOutFolder, "/gsamples.csv", sep=""), quote=F, row.names=F)
+		  grd <- createBuffers(paste(spOutFolder, "/gsamples.csv", sep=""), spOutFolder, "gsamples-buffer.asc", 50000, paste(bdir, "/masks/mask.asc", sep=""))
 		}else{
 		  narea = readShapeSpatial(narea)
 		  cat ("Projecting files \n")

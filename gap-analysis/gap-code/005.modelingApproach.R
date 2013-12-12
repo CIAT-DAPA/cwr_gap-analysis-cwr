@@ -1,3 +1,5 @@
+#ICARDA collaboration
+
 require(rgdal)
 require(raster)
 
@@ -35,7 +37,9 @@ cat(" \n")
 cat(" \n")
 
 ###############################################################################################
+###############################################################################################
 # The evaluation metrics and threshold calculation function
+###############################################################################################
 ###############################################################################################
 
 source(paste(src.dir,"/000.getMetrics.R",sep=""))
@@ -44,7 +48,9 @@ source(paste(src.dir,"/000.zipWrite.R",sep=""))
 source(paste(src.dir,"/000.createChullBuffer.R",sep=""))
 
 ###############################################################################################
+###############################################################################################
 #Creating the big function
+###############################################################################################
 ###############################################################################################
 
 theEntireProcess <- function(spID, OSys, inputDir, j.size) {
@@ -184,12 +190,11 @@ theEntireProcess <- function(spID, OSys, inputDir, j.size) {
 						cat("Calculating and writing mean probability raster \n")
 						fun <- function(x) { sd(x) }
 						distMean <- mean(stack(otList))
-#             distMean <- writeRaster(distMean, paste(outFolder, "/projections/", spID, "_", suffix, "_EMN.asc", sep=""), overwrite=T)
-						zipWrite(distMean,paste(outFolder, "/projections", sep=""),paste(spID, "_", suffix, "_EMN.asc.gz", sep=""))
+						#distMean <- writeRaster(distMean, paste(outFolder, "/projections/", spID, "_", suffix, "_EMN.asc", sep=""), format="ascii", overwrite=T)
+            distMean <- writeRaster(distMean, paste(outFolder, "/projections/", spID, "_", suffix, "_EMN.asc", sep=""), overwrite=T)
 						cat("Calculating and writing std \n")
 						distStdv <- calc(stack(otList), fun)
-# 						distStdv <- writeRaster(distStdv, paste(outFolder, "/projections/", spID, "_", suffix, "_ESD.asc", sep=""), overwrite=T)
-						zipWrite(distStdv,paste(outFolder, "/projections", sep=""),paste(spID, "_", suffix, "_ESD.asc.gz", sep=""))
+						distStdv <- writeRaster(distStdv, paste(outFolder, "/projections/", spID, "_", suffix, "_ESD.asc", sep=""), overwrite=T)
 						
 						#Thresholding and cutting to native areas
 						
@@ -229,13 +234,14 @@ theEntireProcess <- function(spID, OSys, inputDir, j.size) {
 						
 						#Writing these rasters
 						
-						distMeanPA <- zipWrite(distMeanPA, paste(outFolder, "/projections", sep=""), paste(spID, "_", suffix, "_EMN_PA.asc.gz", sep=""))
-						distMeanPR <- zipWrite(distMeanPR, paste(outFolder, "/projections", sep=""), paste(spID, "_", suffix, "_EMN_PR.asc.gz", sep=""))
-						distStdvPR <- zipWrite(distStdvPR, paste(outFolder, "/projections", sep=""), paste(spID, "_", suffix, "_ESD_PR.asc.gz", sep=""))
-# 						distMeanPA <- writeRaster(distMeanPA, paste(outFolder, "/projections/", spID, "_", suffix, "_EMN_PA.asc", sep=""), overwrite=T)
-#   					distMeanPR <- writeRaster(distMeanPR, paste(outFolder, "/projections/", spID, "_", suffix, "_EMN_PR.asc", sep=""), overwrite=T)
-# 						distStdvPR <- writeRaster(distStdvPR, paste(outFolder, "/projections/", spID, "_", suffix, "_ESD_PR.asc", sep=""), overwrite=T)
- 	
+						#distMeanPA <- writeRaster(distMeanPA, paste(outFolder, "/projections/", spID, "_", suffix, "_EMN_PA.asc", sep=""), format='ascii', overwrite=T)
+						#distMeanPR <- writeRaster(distMeanPR, paste(outFolder, "/projections/", spID, "_", suffix, "_EMN_PR.asc", sep=""), format='ascii', overwrite=T)
+						#distStdvPR <- writeRaster(distStdvPR, paste(outFolder, "/projections/", spID, "_", suffix, "_ESD_PR.asc", sep=""), format='ascii', overwrite=T)
+						
+						distMeanPA <- writeRaster(distMeanPA, paste(outFolder, "/projections/", spID, "_", suffix, "_EMN_PA.asc", sep=""), overwrite=T)
+  					distMeanPR <- writeRaster(distMeanPR, paste(outFolder, "/projections/", spID, "_", suffix, "_EMN_PR.asc", sep=""), overwrite=T)
+						distStdvPR <- writeRaster(distStdvPR, paste(outFolder, "/projections/", spID, "_", suffix, "_ESD_PR.asc", sep=""), overwrite=T)
+	
             prjCount <- prjCount + 1
 					}
 					

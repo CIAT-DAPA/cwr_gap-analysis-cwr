@@ -125,6 +125,7 @@ priTable <- function (crop_dir) {
     if (gs==0) {
       fps <- 0
     } else if (hs==0 & gs<10) {
+#     } else if (gs<=10) {
       fps <- 0
     } else {
       fps <- mean(c(srs,grs,ers),na.rm=T)

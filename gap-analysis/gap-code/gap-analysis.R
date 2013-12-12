@@ -1,6 +1,6 @@
 #Gap analysis
 #Based on Phaseolus study (Ramirez-Villegas et al., 2010)
-#J. Ramirez 
+#J. Ramirez
 #CIAT
 #March 2012
 
@@ -31,7 +31,7 @@ figs <- paste(crop_dir,"/figures",sep=""); if (!file.exists(figs)) {dir.create(f
 
 msks <- paste(crop_dir,"/masks",sep=""); if (!file.exists(msks)) {dir.create(msks)}
 rm(msks)
- 
+
 narea <- paste(biomod,"/native-areas",sep=""); if (!file.exists(narea)) {dir.create(narea)}
 
 # polys <- paste(narea,"/polyshps",sep=""); if (!file.exists(polys)) {dir.create(polys)}
@@ -91,14 +91,14 @@ x <- extractClimates(input_dir=occ_dir,sample_file=sample_file,env_dir=env_dir,
 # source(paste(src.dir,"/003.createOccurrenceFilesBiomod.R",sep=""))
 # oDir <- paste(crop_dir,"/biomod_modeling/occurrence_files",sep="")
 # if (!file.exists(oDir)) {dir.create(oDir)}
-# x <- createOccFilesBio(occ=paste(crop_dir,"/swd/occurrences_swd_ok.csv",sep=""), 
-#                     taxfield="Taxon", outDir=oDir, env.dir=paste(crop_dir, "/biomod_modeling/current-clim", sep=""))
+# x <- createOccFilesBio(occ=paste(crop_dir,"/swd/occurrences_swd_ok.csv",sep=""),
+# taxfield="Taxon", outDir=oDir, env.dir=paste(crop_dir, "/biomod_modeling/current-clim", sep=""))
 
 #== splitting the occurrence files ==#
 source(paste(src.dir,"/003.createOccurrenceFiles.R",sep=""))
 oDir <- paste(crop_dir,"/occurrence_files",sep="")
 if (!file.exists(oDir)) {dir.create(oDir)}
-x <- createOccFiles(occ=paste(crop_dir,"/swd/occurrences_swd_ok_kernel.csv",sep=""), 
+x <- createOccFiles(occ=paste(crop_dir,"/swd/occurrences_swd_ok_kernel.csv",sep=""),
                     taxfield="Taxon", outDir=oDir)
 
 #== prepare native areas ==#
@@ -118,8 +118,8 @@ for (f in fList) {
   cat("Processing",paste(f),"\n")
   iFile <- paste("./occurrence_files/",f,sep="")
   oFile <- paste("./maxent_modeling/background/",f,sep="")
-  x <- selectBack(occFile=iFile, outBackName=oFile, 
-                  msk=paste(gap.dir,"/_backgroundFiles/backselection.asc",sep=""), 
+  x <- selectBack(occFile=iFile, outBackName=oFile,
+                  msk=paste(gap.dir,"/_backgroundFiles/backselection.asc",sep=""),
                   backFilesDir=paste(gap.dir,"/_backgroundFiles/",sep=""))
 }
 
