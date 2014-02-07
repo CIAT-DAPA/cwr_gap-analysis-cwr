@@ -16,7 +16,7 @@ priTable <- function (crop_dir) {
   samples <- read.csv(paste(crop_dir,"/sample_counts/sample_count_table.csv",sep=""))
   model_met <- read.csv(paste(crop_dir,"/maxent_modeling/summary-files/modelsMets.csv",sep=""))
   rsize <- read.csv(paste(crop_dir,"/maxent_modeling/summary-files/areas.csv",sep=""))
-  edist <- read.csv(paste(crop_dir,"/maxent_modeling/summary-files/edist.csv",sep=""))
+  edist <- read.csv(paste(crop_dir,"/maxent_modeling/summary-files/edist_wwf.csv",sep=""))
   
   names(model_met)[1]="TAXON"
   names(rsize)[1]="TAXON"
