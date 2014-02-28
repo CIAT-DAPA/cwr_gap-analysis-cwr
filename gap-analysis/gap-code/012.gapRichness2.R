@@ -163,11 +163,11 @@ gapRichness <- function(bdir){
       for(i in 2:length(gapList)){
         gap_spp <- gapList[[i]]
         gap_spp <- zipRead(gapdir,gap_spp)
-        gap_rich <- gap_rich + gap_spp
+        gap_rich <- sum(gap_rich, gap_spp, na.rm=T) # gap_rich + gap_spp, Linea antigua
       }
       
       cat("Writing the gap richness raster for", p, "\n")
       zipWrite(gap_rich, odir, "gap-richness.asc.gz")  
     }
-  } 
+  }
 }

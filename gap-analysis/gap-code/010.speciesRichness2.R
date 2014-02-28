@@ -115,7 +115,7 @@ speciesRichness_alt <- function(bdir) {
       results_sum=extend(results_sum_0, mask)
       if(sum(ls()=="results_sum_1")){
         cat("results_sum_0 and results_sum_1 available \n")
-        results_sum <- sum(results_sum, results_sum_1)
+        results_sum <- sum(results_sum, results_sum_1, na.rm=T)
       }
     }else{
       cat("only results_sum _1 available \n")
@@ -134,7 +134,7 @@ speciesRichness_alt <- function(bdir) {
       }else{
         for(i in 2:length(results_0)){
           sum_sqrt=(results_mean-results_0[[i]])^2
-          results_sd_0=sum(results_sd_0,sum_sqrt)}
+          results_sd_0=sum(results_sd_0,sum_sqrt, na.rm=T)}
       }
     }
     
@@ -147,7 +147,7 @@ speciesRichness_alt <- function(bdir) {
       }else{
         for(i in 2:length(results_1)){
           sum_sqrt=(results_mean-results_1[[i]])^2
-          results_sd_1=sum(results_sd_1,sum_sqrt)}
+          results_sd_1=sum(results_sd_1,sum_sqrt, na.rm=T)}
       }
     }
   
@@ -156,7 +156,7 @@ speciesRichness_alt <- function(bdir) {
       results_sd=extend(results_sd_0, mask)
       if(sum(ls()=="results_sd_1")){
         cat("results_sd_0 and results_sd_1 available \n")
-        results_sd <- sum(results_sd, results_sd_1)
+        results_sd <- sum(results_sd, results_sd_1, na.rm=T)
       }
     }else{
       cat("only results_sd _1 available \n")
