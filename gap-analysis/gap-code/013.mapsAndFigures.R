@@ -1,5 +1,6 @@
 #Creating maps and figures from the gap analysis
 #March 2013
+# Improvements by M. Syrfert (NHM) and H. Achicanoy(CIAT)
 
 library(raster); library(maptools); data(wrld_simpl)
 
@@ -55,9 +56,26 @@ for(p in priorityLevels){
 
 prior <- read.csv(paste(crop_dir,"/maxent_modeling/summary-files/areas.csv",sep=""))
 #fit <- lm(prior$CA50_G~prior$PD_COV)
-fit <- lm(prior$GBSize~prior$DRSize)
+# fit <- lm(prior$GBSize~prior$DRSize)
+fit <- lm(prior$GBSize/1000~fill/1000)
 #lims <- c(min(prior$PD_COV,prior$CA50_G),max(prior$CA50_G,prior$PD_COV))/1000
-lims <- c(min(prior$DRSize,prior$GBSize),max(prior$GBSize,prior$DRSize))/1000
+# lims <- c(min(prior$DRSize,prior$GBSize),max(prior$GBSize,prior$DRSize))/1000
+
+lims <- c(min(fill/1000,prior$GBSize/1000),max(fill/1000,prior$GBSize/1000))
+
+# this section checks if DRSize is a NA, if yes, then use MCP of species (CHSize) else keep the value
+spp= prior$taxon  
+fill = numeric(length(spp))
+
+for (i in 1:length(spp)){
+  if (is.na(prior$DRSize[i])){
+    prior$DRSize[i] <- prior$CHSize[i]
+  } else { 
+    prior$DRSize[i]       
+  } 
+  fill[i]= prior$DRSize[i]  
+}
+
 
 #do the plot
 tiff(paste(crop_dir,"/figures/geographic_coverage.tif",sep=""),
@@ -70,6 +88,25 @@ plot(prior$DRSize/1000,prior$GBSize/1000,pch=20,cex=0.75,col="red",xlim=lims,yli
 
 abline(0,1,lwd=0.75,lty=2)
 lines(prior$DRSize/1000,fit$fitted.values/1000)
+grid(lwd=0.75)
+
+dev.off()
+
+
+
+
+
+#do the plot
+tiff(paste(crop_dir,"/figures/geographic_coveragetest.tif",sep=""),
+     res=300,pointsize=12,width=1500,height=1000,units="px",compression="lzw")
+
+par(mar=c(5,5,1,1),cex=0.8)
+plot(fill/1000,prior$GBSize/1000,pch=20,cex=0.75,col="red",xlim=lims,ylim=c(0,max(prior$GBSize/1000)+10),
+     xlab="Potential geographic coverage (sq-km * 1000)",
+     ylab="Genebank accessions CA50 (sq-km * 1000)")
+
+abline(0,1,lwd=0.75,lty=2)
+lines(fill/1000,fit$fitted.values)
 grid(lwd=0.75)
 
 dev.off()

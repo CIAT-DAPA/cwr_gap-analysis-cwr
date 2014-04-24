@@ -1,4 +1,5 @@
 #== create the priorities table ==#
+# 2013
 
 priTable <- function (crop_dir) {
   

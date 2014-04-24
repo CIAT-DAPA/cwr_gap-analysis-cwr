@@ -5,9 +5,6 @@ source(paste(src.dir,"/000.zipRead.R",sep=""))
 
 # Script to calculate proportion of the dist. range with SD above 0.15 (ASD15)
 
-# idir <- crop_dir
-# spID <- "Avena_abyssinica"
-
 calcASD15 <- function(idir, spID) {
 	cat("Taxon", spID, "\n")
 	spFolder <- paste(idir, "/maxent_modeling/models/", spID, sep="")

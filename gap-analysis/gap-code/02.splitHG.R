@@ -10,11 +10,11 @@ res(r) <- 1
 
 g_ras <- read.csv(paste("./occurrences/",crop,"_g.csv",sep=""))
 g_ras <- g_ras[,c("lon","lat")]
-g_ras <- rasterize(g_ras,r,fun=sum)
+g_ras <- rasterize(g_ras,r,fun="count")
   
 h_ras <- read.csv(paste("./occurrences/",crop,"_h.csv",sep=""))
 h_ras <- h_ras[,c("lon","lat")]
-h_ras <- rasterize(h_ras,r,fun=sum)
+h_ras <- rasterize(h_ras,r,fun="count")
 
 #h_ras <- raster("./sample_counts/_count_h.asc")
 #g_ras <- raster("./sample_counts/_count_g.asc")
