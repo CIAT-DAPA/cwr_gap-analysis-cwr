@@ -1,0 +1,192 @@
+CWR Inventory
+
+1. Tables, short description
+
+•	Species: Contain taxonomic information about species and its taxon identification to join with other tables.
+•	Concepts: Has the relation between the gene pool and his associated species.
+•	Distribution: Contain geographic distribution for the species
+•	Breeding_data: Contain information about species breeding
+•	Breeding_ref: Has information about breeding reference used in the inventory
+•	Institutions: This table has information about herbaria and its location
+
+Note: All the joins between the tables must be done using taxon id
+
+
+2. Main Fields Explanation
+
+--------------------------------------------------------------------------------------------------------------------------
+Species
+--------------------------------------------------------------------------------------------------------------------------
+Taxon_ID			Unique identification for the specie, used in the joins between the tables
+Valid_Taxon_ID		When the Taxon ID and the Valid Taxon ID is the same the specie is considered valid otherwise the specie is a synonym.
+Main_Crop			This field identify if a specie is a gene pool (when Main_Crop = 1) or is a  cwr (when Main_Crop = 0)
+Crop_Trust	
+Family				Family of the specie
+Family_Author		Family author of the specie
+Subfamily			Subfamily of the specie
+Subfamily_Author	Subfamily author of the specie
+Tribe				Tribe of the specie
+Tribe_Author		Tribe author of the specie
+Subtribe			Subtribe of the specie
+Subtribe_Author		Subtribe author of the specie
+Genus				Genus of the specie
+Genus_Author		Genus author of the specie
+Species	
+Species_Author		Specie author
+Subsp				Subspecie classification, the specie could be has or not a subsp
+Subsp_Author		Subspecie author
+Var					If the specie has a variety they don’t has a Form
+Var_Author			Variety author
+Form				If the specie has a Form they don’t has a Var
+Form_Author			Form author
+Nothosubsp			Field added to create a new classification order in the specie
+Nothosubsp_Author	Nothosubsp Author
+Common_Name			Common name of the specie, for example, banana
+Scientific_Name		Complete Scientific name without Author names
+Is_Hybrid			1 is a hybrid, 0 otherwise
+--------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------------------------------------------------
+Concepts
+--------------------------------------------------------------------------------------------------------------------------
+ID				Unique identification for the concept
+Crop_ID			Crop identification to join a concept with its species associated 
+Taxon_ID		Taxon identification to join a concept with the specie specify
+Concept_ID	 	Concept Identification who contain crops and species grouped
+Concept_Type	Specify the type of the concept association by specie. Gene Pool, Group Taxa, etc.
+Concept_Level	Specify the level of the concept association by specie. Primary, 1B, etc.
+CWR_Flag	
+General			Comments
+--------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------------------------------------------------
+Breeding_data
+--------------------------------------------------------------------------------------------------------------------------
+ID				Unique identification for the Breeding_data
+Crop_ID	Crop 	Identification to join a breeding with its associated species
+Taxon_ID		Taxon identification to join a breeding with the specie
+Pot_Conf	 	This field has information about the status of the breeding of specie. For example, Confirmed or Potential.
+Description		Has information about the type of breeding for the specie
+Ref_ID			(Hace referencia a la table de donde se extrae la referencia para el mejoramiento de la especie )
+--------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------------------------------------------------
+Distribution
+--------------------------------------------------------------------------------------------------------------------------
+ID				Unique identification for the distribution
+Taxon_ID		Taxon identification to join a distribution with the specie
+Country			Has the iso country code (3 digits) to join with “countries” table
+Type			The specie is Native or Introduced in that country
+Detail_ID		Reference to other table who has more geographic information
+--------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------------------------------------------------
+Utilisation
+--------------------------------------------------------------------------------------------------------------------------
+ID				Unique identification for the utilization
+Taxon_ID		Taxon identification to join a utilization with the specie
+Util_Type		Contain information about the type of usage for the specie. For example. Food or Medicine
+Util_Use		Contain information about the util usage for the specie
+--------------------------------------------------------------------------------------------------------------------------
+
+3. Queries
+
+3.1 Get the species in a gene pool
+
+3.1.1.	Select by Crop identificator
+
+SELECT s.*, c* 
+FROM species s 
+JOIN concepts  c ON s.Taxon_ID =  c.Taxon_ID
+ WHERE c.Crop_ID = #Crop_ident.#
+
+3.1.2.	Select by Crop Name
+
+SELECT s.*, c* 
+FROM species s 
+JOIN concepts  c ON s.Taxon_ID =  c.Taxon_ID 
+WHERE c.Crop_ID = (SELECT Taxon_ID FROM species WHERE Scientific_Name = “#Crop Name#”)
+
+3.1.3.	Select by multiple Crop Names
+
+SELECT s.*, c* 
+FROM species s
+ JOIN concepts  c ON s.Taxon_ID =  c.Taxon_ID 
+WHERE c.Crop_ID = (SELECT Taxon_ID FROM species WHERE Scientific_Name IN (“#Crop_Name_1”, “#Crop_Name_2”, etc ))
+
+3.2. Get distribution for specie
+
+3.2.1.	Select by Taxon ID
+
+SELECT s.*, d.*, c.*
+FROM species s
+ 	JOIN distribution d ON s.Taxon_ID = d.Taxon_ID
+ 	JOIN countries c  ON d.country = c.Code 
+WHERE s.Taxon_ID = #Taxon_ID#
+
+3.2.2.	Select by Scientific Name
+
+SELECT s.*, d.*, c.*
+FROM species s
+ 	JOIN distribution d ON s.Taxon_ID = d.Taxon_ID
+ 	JOIN countries c  ON d.country = c.Code 
+WHERE s.Scientific_Name = “#Scientific_Name#”
+
+3.2.3.	Select by multiple Scientific Names
+
+SELECT s.*, d.*, c.*
+FROM species s
+ 	JOIN distribution d ON s.Taxon_ID = d.Taxon_ID
+ 	JOIN countries c  ON d.country = c.Code 
+WHERE s.Scientific_Name IN (“#Scientific_Name_1#”,”#Scientific_Name_2#”, etc)
+
+3.3 Get breeding information by specie
+
+3.3.1.	Select by Taxon ID 
+SELECT s.*, b.*
+FROM species s
+	JOIN Breeding_data b ON s.Taxon_ID = b.Taxon_ID
+WHERE s.Taxon_ID = #Taxon_ID#
+
+3.3.2.	Select by Scientific Name
+
+SELECT s.*, b.*
+FROM species s
+	JOIN Breeding_data b ON s.Taxon_ID = b.Taxon_ID
+WHERE s.Scientific_Name = “#Scientific_Name#”
+
+3.3.3.	Select multiple Scientific Names
+
+SELECT s.*, b.*
+FROM species s
+	JOIN Breeding_data b ON s.Taxon_ID = b.Taxon_ID
+WHERE s.Scientific_Name IN (“#Scientific_Name_1#”, “#Scientific_Name_2#”, etc)
+
+ 
+3.4. Get Utilization by Specie
+
+3.4.1.	Select by Taxon ID
+SELECT s.*, u.*
+FROM species s
+	JOIN Utilisation u ON s.Taxon_ID = u.Taxon_ID
+WHERE s.Taxon_ID = #Taxon_ID#
+
+3.4.2.	Select by Scientific Name
+
+SELECT s.*, u.*
+FROM species s
+	JOIN Utilisation u ON s.Taxon_ID = u.Taxon_ID
+WHERE s.Scientific_Name = “#Scientific_Name#”
+
+3.4.3.	Select multiple Scientific Names
+
+SELECT s.*, u.*
+FROM species s
+	JOIN Utilisation u ON s.Taxon_ID = u.Taxon_ID
+WHERE s.Scientific_Name IN( “#Scientific_Name_1#”,”#Scientific_Name_2#”, etc)
+
+
+4. CWR Occurrences
+
+
+
