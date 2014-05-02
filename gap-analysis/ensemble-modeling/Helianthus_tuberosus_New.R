@@ -70,10 +70,10 @@ myBiomodData <- BIOMOD_FormatingData(resp.var       = myRespXY[,3],
                                      expl.var       = myExpl,
                                      resp.xy        = myRespXY[,1:2],
                                      resp.name      = myRespName,
-                                     PA.strategy    = 'random',
+                                     PA.strategy    = 'sre',
                                      PA.nb.rep      = 10,
                                      PA.nb.absences = 10000,
-                                     PA.sre.quant   = 0.10
+                                     PA.sre.quant   = 0.05
                                      )
 })
 
