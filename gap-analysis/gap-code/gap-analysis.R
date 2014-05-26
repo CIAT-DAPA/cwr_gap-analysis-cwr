@@ -269,6 +269,10 @@ for (spp in spList){
 write.csv(newpriFile, paste(crop_dir, "/priorities/priorities.csv", sep=""), row.names=F, quote=F)
 rm(newpriFile)
 
+#== calculate distances to known populations ==#
+source(paste(src.dir, "/000.maxpdistance.R", sep=""))
+x <- maxpdist(crop_dir)
+
 #== getting maps and figures ==#
 source(paste(src.dir,"/013.mapsAndFigures.R",sep=""))
 
