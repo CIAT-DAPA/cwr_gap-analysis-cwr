@@ -227,6 +227,7 @@ theEntireProcess <- function(spID, OSys, inputDir, j.size) {
 							cat("The native area exists, using it \n")
 							NAGrid <- zipRead(paste(NADir, "/", spID, sep=""), "narea.asc.gz")
 						}
+						NAGrid[which(NAGrid[] != 1)] <- NA
 						
 						distMeanPA <- distMeanPA * NAGrid
 						distMeanPR <- distMeanPR * NAGrid
