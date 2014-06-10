@@ -31,7 +31,7 @@ speciesRichness_alt <- function(bdir) {
   
   # Creating samples buffer files for taxa requiring it
   if(dim(spList_buffer)[1]==0){
-    print("Calculating samples buffer files is not necessary \n")
+    cat("Calculating samples buffer files is not necessary \n")
   }else{
     for (spp in spList_buffer$TAXON) {
       
