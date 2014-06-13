@@ -1,0 +1,191 @@
+/*
+Author: Hector F. Tobon R. - Decision and Policy Analysis (DAPA) - CIAT
+        Alex G. Castaneda
+*/
+
+/******************************************
+ STYLE - CWR SEARCH
+*******************************************/
+
+.general-search {
+    overflow: hidden;
+}
+
+.advance-search {
+    overflow: hidden;
+}
+
+.more-margin-top {
+    margin-top: 10px;
+}
+
+.search-type-button {
+    background-color: #FFFFFF;
+    cursor: pointer;
+    border: 0;
+    margin-bottom: 10px;
+    border-radius: 2px;
+}
+
+#content-wrap #title {
+    font-size: 20px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+#cwr-search {
+    display: none;
+}
+
+
+#cwr-search .citation {
+    font-size: 11px;
+    line-height: 17px;
+    font-family: verdana;
+    padding-right: 10px;
+}
+
+.search-box {
+    border: 1px solid #0B7802;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    margin-bottom: 20px;
+    width: 510px;
+}
+
+.error { 
+    color: red;
+    font-weight: bold;
+    text-align: center;
+}
+
+#cwr-search #rightDiv {
+    float: right;
+    margin: 0px 50px 0 10px;
+    width: 350px;
+}
+
+#cwr-search #rightDiv #text {
+    font-family: verdana;
+    font-size: 11px;
+    line-height: 17px;
+}
+
+#cwr-search #rightDiv #logos {
+    text-align: center;
+}
+
+#cwr-search #rightDiv #logos a {
+    text-decoration: none;
+    border: 0;
+}
+
+#cwr-search .search-box .legend {
+    font-weight: bold;
+}
+
+#cwr-search .search-box .input-text {
+    width: 350px;
+    background-color: #E4F5DD;
+}
+
+#cwr-search .search-box select {
+    width: 365px !important;
+}
+
+#cwr-search .search-box .submit-button {
+    background-color: #0B7802;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#cwr-search .search-box .submit-button:disabled {
+    color: #C5C5C5;
+}
+
+#cwr-search .search-box .loader {
+    vertical-align: middle;
+    display: none;
+}
+
+#cwr-search .bot-alianing {
+    margin-top: 35px;
+}
+
+#cwr-search .two-column-table {
+    display: none;
+    width: 100%;
+}
+
+#cwr-search .two-column-table .fixed-header {
+    display: block;
+    width: 97%;
+}
+
+#cwr-search .two-column-table .fixed-header th {
+    width: 278px;
+    background: #0B7802;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+#cwr-search .two-column-table .scroll-content {
+    height: 200px;
+    overflow: auto;
+    display: block;
+    width: 100%;
+}
+
+#cwr-search .two-column-table .scroll-content td {
+    width: 278px;
+}
+
+#cwr-search .two-column-table tr:nth-child(2n) {  background: #E4F5DD; }
+
+#cwr-search #genepool-table #close-table {
+    padding-right: 15px;
+    text-align: right;
+    cursor: pointer;
+}
+
+/* Nuevas implementaciones para busqueda avanzada*/
+
+#search-type-selector {
+    position: relative;
+    left: 0px;
+    float: left;
+}
+
+#search-type-selector div {
+    background-color: #075501;
+    padding: 10px;
+    width: 80px;
+    height: 35px;
+    cursor: pointer;
+    margin-right: 15px;
+}
+
+#advanced-search select {
+    width: 365px !important;
+}
+
+#advanced-search .input-text {
+    background-color: #E4F5DD;
+}
+
+.button-text {
+    color: #FFFFFF;
+    font-weight: bold;
+    display: block;
+    font-size: 14px;
+    position: relative;
+    text-align: center;
+}
+
+.post a, .article p a {
+    border-bottom: 1px solid #FFFFFF;
+    color: #075501;
+    font-weight: 700;
+    cursor: pointer;
+}

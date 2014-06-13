@@ -1,0 +1,131 @@
+/* 
+    Document   : advanced-search-details
+    Created on : Mar 20, 2013, 11:10:50 AM
+    Author     : avillegas
+    Description:
+        Purpose of the stylesheet follows.
+*/
+.post {
+    float: left;    
+    width: 95%;
+}
+
+.text-aling-left {
+    text-align: left;
+}
+
+.text-aling-right {
+    float: right;
+    text-align: right;
+}
+
+/* Title */
+#content-wrap #title {
+    font-family: "Times New Roman";
+    font-size: 25px;
+    margin: 10px 20px 40px 0;
+    position: relative;
+    text-align: center;
+}
+
+/* Border style */
+#taxa-list {
+    background-color: #F4FFF4;    
+    border: 10px solid transparent;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    margin: 0 20px 20px;
+    padding: 10px;
+
+    /* For IE 8 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.dropshadow(OffX=5, OffY=5, Color='gray', Positive='true')";
+}
+
+#count-taxa {
+    background-color: #CBDACA;
+    border: 5px double #FFFFFF;
+    color: #5A5E5B;
+    display: inline;
+    font-family: Verdana;
+    font-size: 10px;
+    font-weight: bold;
+    padding: 10px;
+    height: 17px;
+}
+
+#count-taxa:hover {
+    color: #060;
+}
+
+#count-box {
+    bottom: 10px;
+    display: block;
+    position: relative;
+    right: 800px; /* animated to -40px*/    
+    text-align: right;
+}
+
+#download-box {
+    bottom: -15px;
+    display: block;
+    position: relative;
+    left: 0px;
+    text-align: left;
+    cursor: pointer;
+}
+
+#download-box a {
+    text-decoration: none;
+    border: none;
+}
+
+#taxa-list {
+    margin-top: 15px;
+}
+
+#taxa-list a {   
+    border: none;
+}
+
+#taxa-list a:hover {
+    color: green;
+}
+
+#taxa-list ul {
+    overflow: hidden;
+    display: none; /* animated using slideDown */
+}
+
+#taxa-list ul li {
+    font-size: 11px;
+    font-family: "Trebuchet MS";
+    line-height: 18px;
+}
+
+#taxa-list .left {
+    float: left;
+}
+
+#taxa-list .right {
+    float: right;
+}
+
+div.wrapper
+{
+  
+  float: left;
+  width: 50%;
+}
+
+.less-top {
+    margin-top: 10px;
+}
+
+.more-top {
+    margin-top: 30px;
+}
+
+/* clear float after lists */
+br
+{
+  clear: left;
+}

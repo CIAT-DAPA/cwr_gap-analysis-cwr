@@ -1,0 +1,826 @@
+/* 
+    Document   : Map
+    Created on : Apr 23, 2013, 8:43:34 AM
+    Author     : Alex Castañeda
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/*
+    Diseño de elementos para area de busqueda
+*/
+
+.hide-scrollbar {
+      overflow-y: none;
+     -ms-overflow-y: none;
+}
+
+.show-scrollbar {
+     overflow-y: auto;
+     -ms-overflow-y: scroll;
+}
+
+html, body { height:100%;
+    font-family: Georgia;
+}
+
+.container {
+    overflow: auto;
+    width: 100%
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+#test-ribbon {
+    position: absolute;
+    right: 120px;
+    top: 0px;
+    height: 70px;
+    z-index: 0;
+}
+
+#search-menu {
+    /*background-color: #61A260;*/
+    background-color: #61A260;
+    color: #FFFFFF;
+    height: 50px;
+    padding: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    /*width: 100%;*/
+    width:expression( document.body.clientWidth +'px');
+    height: 10%;
+    overflow-x: hidden;
+    right: 0;
+    font-size: 14px;
+}
+
+#search-menu .opacity {
+    filter: alpha(opacity=50);
+    -moz-opacity:0.5;
+    -khtml-opacity: 0.5;
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+    opacity: 0.5;
+}
+
+/* Cambia el tamaño de la letra para el autocompleter */
+.ui-menu .ui-menu-item a {
+    font-size: 10px;
+}
+
+#search-button {
+    font-weight: 700;
+    font-size: 14px;
+    height: 30px;
+    border-style: double;
+    border-width: 1px;
+    border-color: #FFFFFF;
+}
+
+#search-button:hover {
+    background-color: #61A260;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+#search_type {
+    float: left;
+    position: absolute;
+    top: 18px;
+    margin-left: 2%;
+    display: inline-block;
+}
+
+#search_type div {
+    background-color: #FFFFFF;
+    color: #000000;
+    width: 70px;
+    height: 30px;
+    font-weight: 700;
+    font-size: 11px;
+    text-align: center;
+    padding: 10px;
+    border-width: 1px;
+    border-style: double;
+    display: inline;
+}
+
+#search_type div:hover {
+    cursor: pointer;
+}
+
+#check-show-prot-areas {
+    margin-left: 340px;
+}
+
+#search-value {
+    width: 30%;
+    height: 30px;
+    font-size: 14px;
+    color: #000000;
+}
+
+.tooltip {
+    font-size: 10px;
+    color: #CC0000;
+}
+
+/*
+    Seccion para la ventana modal del videotutorial
+**/
+
+#video_tutorial {
+    padding: 25px;
+    /*height: 490px;*/
+    background-color: rgba(0,0,0,0.0);
+}
+
+#video_tutorial iframe {
+    border: 3px double #c0c0c0;
+}
+
+#help_window {
+    text-align: justify;
+    height: 450px;
+    width: 550px;
+    /*
+    overflow-y: auto; 
+    overflow-x: hidden;
+    */
+}
+
+#help_window span img {
+    width: 32px;
+    height: 32px;
+}
+
+#help_window span {
+    color: #107042;
+    cursor: pointer;
+}
+
+#help_window h1 {
+    text-align: center;
+    font-size: 24px;
+}
+
+#help_window .title {
+    font-size: 14px;
+    font-family: "Trebuchet MS";
+    background-color:#61A260;
+    border:2px groove #747674;
+    color:white;
+    margin-left:15px;
+    margin-top: 10px;
+    padding: 5px;
+    cursor: pointer;
+    display: inline-block;
+    width: 505px;
+    padding: 0 5px 0 5px;
+}
+
+.content {
+    background-color:#EDF9ED;
+    color:#4B4B4B;
+    margin-left:15px;
+    padding:10px;
+}
+
+#help_window tr {
+    padding: 10px;
+    /*background: #E2EFC4;*/
+}
+
+#help_window tr a {
+    font-size: 11px;
+    font-style: italic;
+}
+
+#help_window tr:nth-child(2n) {
+    background: #61A260;
+}
+
+#helpButton {
+    position: absolute;
+    top: 15px;
+    right: 10px;
+    cursor: pointer;
+}
+
+#helpButton img {
+    width: 30px;
+    height: 30px;
+}
+
+#main_page_buttons {
+    padding: 5px;
+    text-transform: uppercase;
+    position: absolute;
+    top: 4px;
+    z-index: 1;
+    right: 8%;
+    display: inline-block;
+}
+
+#main_page_buttons div { 
+    background-color: transparent;
+    padding: 3px;
+    font-size: 11px;
+    text-decoration: none;
+    font-weight: 700; 
+    color: #000000;
+    display: inline;
+    cursor: pointer;
+}
+
+#main_page_buttons img {
+    height: 34px;
+    border: 1px solid #000000;
+}
+
+#main_page_buttons div:hover img {
+    cursor: pointer;
+    border: 1px solid #FFFFFF;
+}
+
+/*
+    Afecta exclusivamente el mapa desplegado
+*/
+#map_canvas {
+    position:absolute; 
+    top: 70px;
+    left:0; 
+    right:0; 
+    bottom: 0;
+    overflow: hidden;
+    height:expression( document.body.clientHeight +'px');
+    width:expression( document.body.clientWidth +'px');
+}
+
+/*
+    Afecta exclusivamente al diseño de la ventana modal creada.
+*/
+#searchTypeWindow .right{
+    float: right;
+}
+
+#searchTypeWindow .left{
+    float: left;
+}
+
+#searchTypeWindow h1 {
+    text-align: center;
+}
+
+#searchTypeWindow #text {
+    text-align: justify;
+    float: left;
+}
+
+#searchTypeWindow #text #w-genepool-search {
+    font-weight: 700;
+    font-size: 14px;
+    text-align: center;
+    border-style: double;
+    border-width: 1px;
+    border-color: #107042;
+    background-color: #3CAB75;
+    color: #FFFFFF;
+    cursor: pointer;
+    padding: 10px;
+    width: 90px;
+    margin-top: 10px;
+    margin-right: 75px;
+}
+
+#searchTypeWindow #text #w-species-search {
+    font-weight: 700;
+    font-size: 14px;
+    text-align: center;
+    border-style: double;
+    border-width: 1px;
+    border-color: #107042;
+    background-color: #3CAB75;
+    color: #FFFFFF;
+    cursor: pointer;
+    padding: 10px;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    width: 90px;
+    margin-top: 10px;
+}
+
+#searchTypeWindow #text #w-global-summary {
+    font-weight: 700;
+    font-size: 14px;
+    text-align: center;
+    border-style: double;
+    border-width: 1px;
+    border-color: #107042;
+    background-color: #3CAB75;
+    color: #FFFFFF;
+    cursor: pointer;
+    padding: 10px;
+    width: 90px;
+    margin-top: 10px;
+}
+
+#searchTypeWindow #text #w-species-search:hover {
+    background-color: #61A260;
+}
+
+#searchTypeWindow #text #w-genepool-search:hover {
+    background-color: #61A260;
+}
+
+#searchTypeWindow #text #w-global-summary:hover {
+    background-color: #61A260;
+}
+
+#searchTypeWindow img {
+    margin-left: 10px;
+    width: 120px;
+}
+
+#searchTypeWindow #text #w-genepool-search { 
+    margin-left: 15px;
+}
+
+#searchTypeWindow #text #w-species-search {
+    margin-right: 15px;
+}
+
+#loadingWindow {
+    background-color: rgba(0,0,0,0);
+    text-align: center;
+    width: 120px;
+    height: 120px;
+    position: absolute;
+    margin-left: -80px;
+    top:350px;  
+    left:50%; 
+}
+
+#loadingWindow img {
+    width: 60px;
+    height: 60px;
+}
+
+/* Ventana de error */
+#errorWindow {
+    text-align: center;
+}
+
+#errorWindow img {
+    width: 410px;
+}
+
+#errorWindow dl {
+    text-align: left;
+}
+
+#no_data {
+    z-index: 1;
+    position: absolute;
+    left: 300px;
+    top: 100px;
+    background-color: #EDF9ED;
+    border: 2px solid #61A260;
+    text-align: justify;
+    padding: 15px;
+}
+
+#no_data div {
+    font-weight: 700;
+    font-size: 12px;
+    text-align: center;
+    border-style: double;
+    border-width: 1px;
+    border-color: #FFFFFF;
+    background-color: #61A260;
+    color: #FFFFFF;
+    cursor: pointer;
+    padding: 5px;
+    width: 80px;
+    margin-top: 35px;
+}
+
+#no_data img {
+    width: 240px;
+    margin-bottom: 15px;
+}
+
+#errorWindow #okButton {
+    font-weight: 700;
+    font-size: 14px;
+    text-align: center;
+    border-style: double;
+    border-width: 1px;
+    border-color: #FFFFFF;
+    background-color: #61A260;
+    color: #FFFFFF;
+    cursor: pointer;
+    padding: 10px;
+    width: 90px;
+    margin-top: 35px;
+}
+
+#errorWindow #okButton:hover {
+    background-color: #61A260;
+}
+
+/* Control para el tipo de busqueda */
+#searchTypeControl {
+    background-color: #FFFFFF;
+    width: 220px;
+    z-index: 1;
+    position: absolute;
+    top: 100px;
+    left: 50px;
+    background-color: rgba(0,0,0,0);
+}
+
+#searchTypeControl input {
+    background-color: #F1F8E0;
+}
+
+#searchTypeControl .header {
+    background-color: #61A260;
+    color: #FFFFFF;
+    padding: 5px;
+    margin-bottom: 2px; 
+    cursor: move;
+    text-align: center;
+}
+
+#searchTypeControl .header a {
+    color: #E6DB55;
+}
+
+#searchTypeControl div input {
+    margin-left: 10px;
+}
+
+#searchTypeControl .title {
+    background-color: #61A260;
+    font-weight: 700;
+    font-size: 14px;
+    color: #FFFFFF;
+    padding: 5px;
+    margin-bottom: 10px; 
+    margin-top: 10px;
+    cursor: move;
+}
+
+#searchTypeControl #typeMapForm {
+    margin-left: 15px;
+    border: 2px solid #61A260;
+    background-color: #EDF9ED;
+    font-size: 12px;
+}
+
+#searchTypeControl #conservation-status {
+    display: inline-block;
+    padding-top: 10px;
+    padding-bottom: 15px;
+    padding-right: 46px;
+    padding-left: 46px;
+    background-color: #EDF9ED;
+    border: 2px solid #61A260;
+    margin-left: 15px;
+}
+
+#searchTypeControl #conservation-status div {
+    font-size: 9px;
+    text-align: center;
+    padding: 5px;
+    padding: 0px;
+}
+
+#single-layers-div {
+    background-color: #F1F8E0;
+    margin-left: 15px;
+    border: 2px solid #61A260;
+    font-size: 12px;
+    height: 180px;
+    overflow-y: scroll;
+    overflow-x: hidden; 
+}
+
+#single-layers-div .single-layer-title {
+    font-size: 14px;
+    font-weight: 900;
+    margin-bottom: 2px;
+    padding: 5px;
+    background-color: #61A260;
+}
+
+#single-layers-div .specie-title {
+    font-weight: 900;
+    margin-bottom: 2px;
+    background-color: #E2EFC4;
+    padding: 3px;
+}
+
+#single-layers-div .specie-title a {
+    color: #000000;
+}
+
+#single-layers-div .specie-title a:hover {
+    color: #61A260;
+}
+
+#HPS div {
+    background-color: #CC0000;
+    width: 25px;
+    height: 15px;
+    border: 1px solid #000000;
+}
+
+#MPS div {
+    background-color: #e3a345;
+    width: 25px;
+    height: 15px;
+    border: 1px solid #000000;
+}
+
+#LPS div {
+    background-color: #E6DB55;
+    width: 25px;
+    height: 15px;
+    border: 1px solid #000000;
+}
+
+#NFCR div {
+    background-color: #3CAB75;
+    width: 25px;
+    height: 15px;
+    border: 1px solid #000000;
+}
+
+#HPS_Genepool div {
+    background-color: #CC0000;
+    width: 25px;
+    height: 15px;
+    border: 1px solid #000000;
+}
+
+#MPS_Genepool div {
+    background-color: #e3a345;
+    width: 25px;
+    height: 15px;
+    border: 1px solid #000000;
+}
+
+#LPS_Genepool div {
+    background-color: #E6DB55;
+    width: 25px;
+    height: 15px;
+    border: 1px solid #000000;
+}
+
+#NFCR_Genepool div {
+    background-color: #3CAB75;
+    width: 25px;
+    height: 15px;
+    border: 1px solid #000000;
+}
+
+/* Seccion para el logo de cwr bioversity */
+
+#cwr_diversity_logo {
+    z-index: 1;
+    position: absolute;
+    bottom: 30px;
+    right: 20px;
+}
+
+#cwr_diversity_logo img {
+    width: 90px;
+    opacity: 0.4;
+    border: none;
+}
+
+#cwr_diversity_logo img:hover {
+    opacity: 0.8;
+}
+
+#cwr_diversity_logo a {
+    text-decoration: none;
+}
+
+/* Seccion para muestra de resultados taxonomicos */
+#taxonomic_information {
+    width: 160px;
+    height: 130px;
+    position: absolute;
+    bottom: 180px;
+    right: 40px;
+    z-index: 1;
+    text-align: justify;
+    background-color: rgba(241,248,224,0.7);
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid #61A260;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px; 
+}
+
+#taxonomic_information a {
+    color: #61A260;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+#taxonomic_information_slider {
+    width: 152px;
+    line-height: 30px;
+    text-align: center;
+    height: 30px;
+    position: absolute;
+    bottom: 242px;
+    right: -53px;
+    z-index: 1;
+    cursor: pointer;
+    font-weight: 700;
+    background-color: rgba(57,125,56,0.7);
+    color: #FFFFFF;
+}
+
+#chart-information-icon {
+    z-index: 1;
+}
+
+.typeMap {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    border-bottom: 2px solid #61A260;
+    cursor: pointer;
+}
+
+.typeMap img {
+    width: 15px;
+}
+
+.title img {
+    width: 15px;
+}
+
+.rotate {
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+
+    /* also accepts left, right, top, bottom coordinates; not required, but a good idea for styling */
+    -webkit-transform-origin: 50% 50%;
+    -moz-transform-origin: 50% 50%;
+    -ms-transform-origin: 50% 50%;
+    -o-transform-ocurigin: 50% 50%;
+    transform-origin: 50% 50%;
+
+    /* Should be unset in IE9+ I think. */
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+}
+
+/* Contenido arrastable para el tipo de mapa a visualizar */
+#map-type {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#zoomControl {
+    background-color: #E2EFC4;
+    width: 32px;
+    height: 65px;
+    position: absolute;
+    top: 100px;
+    right: 30px;
+    z-index: 1;
+}
+
+#zoomControl img {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    border: 2px solid #61A260;
+}
+
+#tituloEscalaColores { 
+    background-color: #61A260;
+    padding: 5px;
+    color: #FFFFFF;
+    font-size: 12px;
+    width: 70px;
+    text-align: center;
+}
+
+.position {
+    position: absolute;
+    top: 180px;
+    right: 30px;
+    z-index: 1;
+}
+
+#escalaColores {
+    min-width: 70px;
+    position: absolute;
+    top: 255px;
+    right: 30px;
+    z-index: 1;
+    background-color: #E2EFC4;
+}
+
+#escalaColores img {
+    width: 70px;
+    cursor: pointer;
+    border: 2px solid #61A260;
+    opacity: 0.8;
+}
+
+/* Muestra las especies aceptadas */
+.title-species {
+    background-color: #61A260;
+    padding: 5px;
+    font-weight: 700;
+    color: #FFFFFF;
+    border: 2px solid #EDF9ED;
+    cursor: pointer;
+    text-align: center;
+}
+
+.title-species img {
+    height: 15px;
+    width: 15px;
+    float: left;
+    left: 0px;
+}
+
+#accepted-species {
+    z-index: 1;
+    background-color: #EDF9ED;
+    border: 2px solid #61A260;
+    position: absolute;
+    top: 240px;
+    right: 0px;
+    padding: 10px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 290px;
+    width: 160px;
+    cursor: move;
+    font-size: 12px;
+}
+
+#accepted-species .header {
+    display: inline-block;
+    overflow: hidden;
+    text-align: justify;
+} 
+
+#accepted-species .left {
+    width: 10%;
+}
+
+#accepted-species .right {
+    width: 90%;
+    padding: 0px;
+}
+
+#accepted-species .close-accepted-species {
+    cursor: pointer;
+}
+
+#accepted-species .title {
+    margin-bottom: 5px;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+#accepted-species .close-accepted-species {
+    top: 10px;
+    display: inline;
+}
+
+#validSpeciesButton {
+    display: inline-block;
+    color: #000000;
+    font-weight: 700;
+    font-size: 12px;
+    padding: 10px;
+    cursor: pointer;
+    background-color: #FFFFFF;
+    right: 4%;
+    position: absolute;
+}
+

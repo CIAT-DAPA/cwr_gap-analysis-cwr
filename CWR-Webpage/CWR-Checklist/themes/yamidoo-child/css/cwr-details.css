@@ -1,0 +1,121 @@
+/*
+Author: Hector F. Tobon R. - Decision and Policy Analysis (DAPA) - CIAT
+*/
+
+/******************************************
+ STYLE - CWR SPECIES DETAIL
+*******************************************/
+#cwr-genepool .list-more-left {
+    margin-left: 30px;
+}
+
+#cwr-genepool h3 {
+    font-size: 14px;
+    font-weight: 500;
+    margin-left: 10px;
+}
+
+#cwr-genepool h4 {
+    font-size: 14px;
+    font-weight: 500;
+    margin-left: 10px;
+}
+
+#cwr-genepool h5 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-left: 10px;
+}
+
+#cwr-genepool .left {
+    float: left;
+}
+
+#cwr-genepool .use-type {
+    list-style: none;
+    font-weight: bold;
+    margin: 5px 0 0 0;
+}
+
+#cwr-genepool .list-more-left {
+    margin-left: 30px;
+}
+
+#cwr-genepool #link-to-genepool {
+    text-align: center;
+}
+
+#cwr-genepool #link-to-genepool a{
+    color: #0B7802;
+    border: 0;
+}
+
+#cwr-genepool #link-to-genepool span {
+    color: #000000;
+}
+
+#content-wrap .list-more-right {
+    line-height: 20px;
+    list-style: square outside none;
+    margin-left: 468px;
+}
+
+#cwr-genepool .mar-left {
+    margin-left: 10px;
+}
+
+/* Scientific Name */
+#content-wrap #title {
+    font-family: serif;
+    font-size: 25px;
+    text-align: center;
+}
+
+#content-wrap #title i {
+    font-family: serif;
+}
+
+/* Common Name */
+#content-wrap #common-name {
+    color: gray;
+    font-size: 15px;
+    text-align: center;
+}
+
+#content-wrap #herbaria span {
+    display: inline;
+    cursor: pointer;
+}
+
+#content-wrap #div-geographic {
+    display: inline-block;
+}
+
+#content-wrap #pie-container {
+    padding: 27px;
+    text-align: center;
+}
+
+#content-wrap #storage_pie {
+    width: 400px;
+    height: 250px;
+    display: inline-block;
+}
+
+#content-wrap #country-list {
+    padding: 10px;
+}
+
+#content-wrap .box-sub-header {
+    display: inline;
+}
+
+#content-wrap .box-content h6,h4 {
+    margin-left: 440px;
+}
+
+#cwr-genepool {
+    width: 95%;
+}
+
+

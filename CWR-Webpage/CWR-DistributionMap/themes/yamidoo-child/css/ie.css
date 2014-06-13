@@ -1,0 +1,76 @@
+/* 
+    Document   : ie
+    Created on : Aug 12, 2013, 11:09:33 AM
+    Author     : avillegas
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+#searchTypeControl {
+    background-color: transparent; /* clear current background for ie */
+    zoom: 1; /* required for the filters */
+	
+    /* For IE 5.5 - 7*/
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#00FFFFFF, endColorstr=#00FFFFFF);
+    
+    /* For IE 8*/
+    -ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#00FFFFFF, endColorstr=#00FFFFFF)";
+}
+
+#search_type div {
+    #display: inline;
+    _display: inline;
+    zoom: 1;
+    margin-right: 10px;
+    white-space: nowrap;
+}
+
+#search_div div {
+    margin-top: 10px;
+}
+
+#main_page_buttons {
+    #display: inline;
+    _display: inline;
+    zoom: 1;
+    margin-right: 10px;
+    white-space: nowrap;
+}
+
+#loadingWindow {
+    width: 0px;
+    padding: 0px;
+}
+
+#single-layers-div {
+    -ms-overflow-y: scroll;
+}
+
+#help_window {
+    -ms-overflow-y: scroll;
+}
+
+#help_window {
+    height: 520px;
+    width: 580px;
+    display: inline-block;
+    position:relative; 
+}
+
+#cwr_diversity_logo img {
+  opacity: 0.4;
+  filter: alpha(opacity = 40);
+}
+
+#video_tutorial {
+    background-color: transparent; /* clear current background for ie */
+    zoom: 1; /* required for the filters */
+	
+    /* For IE 5.5 - 7*/
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#00FFFFFF, endColorstr=#00FFFFFF);
+    
+    /* For IE 8*/
+    -ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#00FFFFFF, endColorstr=#00FFFFFF)";
+    width: 550px;
+}
+

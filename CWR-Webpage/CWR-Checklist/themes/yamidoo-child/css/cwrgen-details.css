@@ -1,0 +1,60 @@
+/*
+Author: Hector F. Tobon R. - Decision and Policy Analysis (DAPA) - CIAT
+*/
+
+/******************************************
+ STYLE - GENEPOOL & CWR SPECIES DETAIL
+*******************************************/
+.genepool-citation {
+    margin-left: 15px;
+}
+
+#main-wrap {
+    font-family: "Trebuchet MS";
+}
+
+/* box */
+
+
+#content-wrap .box {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 20px;
+}
+
+/* Sub-Headers */
+#content-wrap .box-header {
+    background-color: #61A260;
+    border: 2px groove #747674;
+    color: white;
+    height: 20px;
+    margin-left: 8px;
+    padding: 0 0 0 5px;
+}
+
+/* Box Content */
+#content-wrap .box-content {
+    background-color: #EDF9ED;
+    color: #4B4B4B;
+    margin-left: 15px;
+    margin-right: 10px;
+    overflow: auto;
+    display: none; /* show when page load */
+    padding: 10px 10px 10px 10px;
+}
+
+#content-wrap .box-content ul {
+    padding: 0px;
+}
+
+/* icons (+) (-) */
+#content-wrap .more, .more-genepool,.minus {
+    float: left;
+    margin-right: 5px;
+    position: relative;
+    top: 4px;
+}
+#content-wrap .minus {
+    display: none; 
+    
+}

@@ -1,0 +1,108 @@
+/*
+Author: Hector F. Tobon R. - Decision and Policy Analysis (DAPA) - CIAT
+*/
+
+/******************************************
+ STYLE - GENEPOOL SPECIE DETAIL
+*******************************************/
+
+#cwr-genepool #taxon-name {
+    font-size: 15px;
+    font-weight: 700;
+}
+
+#cwr-genepool h4 {
+    font-size: 14px;
+    font-weight: 500;
+    margin-left: 10px;
+}
+
+#cwr-genepool #download-box {
+    text-align: right;
+    right: 20px;
+    bottom: -20px;
+    display: block;
+    position: relative;
+    cursor: pointer;
+}
+
+#cwr-genepool #download-box a {
+    text-decoration: none;
+    border: none;
+    color: #FFFFFF;
+}
+
+#cwr-genepool #download-box a:visited {
+    color: #FFFFFF;
+}
+
+#cwr-genepool #content-download-box {
+    background-color: #6FA86C;
+    border: 5px double #FFFFFF;
+    color: #FFFFFF;
+    display: inline;
+    font-family: Verdana;
+    font-size: 10px;
+    font-weight: bold;
+    padding: 10px;
+}
+
+#cwr-genepool a {
+    border: 0;
+}
+
+#cwr-genepool {
+    width: 880px;
+}
+
+#cwr-genepool .list-more-right {
+    margin-left: 35px;
+}
+
+#cwr-genepool .list-more-left {
+    margin-left: 30px;
+}
+
+#cwr-genepool .concept-level {
+    list-style: none;
+    font-weight: bold;
+    margin: 10px 0 0 0;
+    border-bottom: 1px solid #E6E6E6;
+    width: 20%;
+}
+
+#cwr-genepool .less-size {
+    font-size: 18px;
+}
+
+#cwr-genepool .full-size {
+    font-size: 25px;
+}
+
+#cwr-genepool .use-type {
+    list-style: none;
+    font-weight: bold;
+    margin: 5px 0 0 0;
+}
+
+#cwr-genepool .concept-level:hover {
+    cursor: pointer;
+}
+
+.more-margin-top {
+    margin-top: 100px;
+}
+
+#content-wrap #title {
+    font-family: serif;
+    text-align: center;
+}
+
+#content-wrap #title i {
+    font-family: serif;
+}
+
+#content-wrap #herbaria span {
+    display: inline;
+    cursor: pointer;
+}

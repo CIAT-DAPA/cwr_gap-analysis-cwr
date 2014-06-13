@@ -1,0 +1,87 @@
+
+* .go-back a{
+    color: #0B7802;
+    text-decoration: none;
+    border: none;
+}
+
+* .go-back a img {
+    vertical-align: middle;
+}
+
+* .go-back {
+    margin-left: 15px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    width: 80px;
+}
+
+* .green {
+    color: #0B7802;
+}
+
+* .blue {
+    color: #324D78;
+}
+
+* .strench {
+    width: 500px;
+}
+
+* .auto {
+    width: auto;
+}
+
+* .left {
+    float: left;
+}
+
+* .right {
+    float: right;
+}
+
+* .download input {
+    cursor: pointer;
+    background-color: #CBDACA;
+    font-family: Verdana;
+    font-size: 10px;
+    font-weight: bold;
+    border: 0px none;
+}
+
+* .download {
+    overflow: hidden;
+    position: relative;
+    right: 0px;
+    top: -10px;
+    background-color: #CBDACA;
+    border: 5px double #FFFFFF;
+    color: #5A5E5B;
+    display: inline;
+    padding: 5px;
+}
+
+* .cwrchecklist-citation {
+    font-size: 11px;
+    line-height: 17px;
+    border: 1px solid #BCC5BB;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+* .cwrchecklist-citation h2 {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+* .cwrchecklist-citation hr {
+    background-color: #000;
+}
+
+* .genepool-citation {
+    font-size: 11px;
+    line-height: 17px;
+    width: 350px;
+}
