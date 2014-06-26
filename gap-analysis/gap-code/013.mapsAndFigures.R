@@ -80,6 +80,33 @@ for(s in summ){
 
 ### Plot the CA50 vs Potential coverage
 
+# -------------------------------------------------------------------- #
+# Modification to original code by Harold
+# -------------------------------------------------------------------- #
+
+#prior <- read.csv(paste(crop_dir,"/maxent_modeling/summary-files/areas.csv",sep=""))
+#prior[,c("DRSize","GBSize")] <- prior[,c("DRSize","GBSize")]/1000
+#fit <- lm(prior$GBSize~prior$DRSize)
+#lims <- c(min(prior$DRSize,prior$GBSize,na.rm=T),
+#          max(prior$GBSize,prior$DRSize,na.rm=T)) # Problem 1
+
+#do the plot
+#tiff(paste(crop_dir,"/figures/geographic_coverage.tif",sep=""),
+#     res=300,pointsize=12,width=1500,height=1500,units="px",compression="lzw")
+
+#par(mar=c(5,5,1,1),cex=0.8)
+#plot(prior$DRSize,prior$GBSize,pch=20,cex=0.75,col="red",xlim=lims,ylim=c(0,1000),
+#     xlab="Potential geographic coverage (sq-km * 1000)",
+#     ylab="Genebank accessions CA50 (sq-km * 1000)")
+
+#abline(0,1,lwd=0.75,lty=2)
+#abline(fit) # Problem 2
+#grid(lwd=0.75)
+
+#dev.off()
+
+# -------------------------------------------------------------------- #
+
 # prior <- read.csv(paste(crop_dir,"/maxent_modeling/summary-files/areas.csv",sep=""))
 # 
 # 
